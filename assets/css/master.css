@@ -3,6 +3,22 @@
     margin: 0 auto;
 }
 .sdgs-center-div{
+    /* margin: 0 auto; */
+    margin-left: 15%;
+    margin-right: 8%;
+}
+.sdgIcons{
+  margin-bottom:4px !important;
+  width:150px;
+  height:150px;
+}
+.mainFooter{
+  background-color: grey;
+  margin-bottom: 0 !important;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
     width: 95%;
     margin: 0 auto;
     margin-left: 5%

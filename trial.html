@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" type="image/png" href="assets/img/logos/logosdg.png">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>SDGs | Data Portal</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+	<meta name="viewport" content="width=device-width" />
+
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="assets/css/paper-kit.css?v=2.1.0" rel="stylesheet"/>
+	<link href="assets/css/demo.css" rel="stylesheet" />
+
+	<!-- Highmaps Links -->
+    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/mapdata/custom/africa.js"></script>
+
+	<!--     Fonts and icons     -->
+	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+	<link href="assets/css/nucleo-icons.css" rel="stylesheet" />
+
+	<!-- Script to include header file -->
+	<script src="https://www.w3schools.com/lib/w3.js" type="text/javascript"></script>
+
+	<!-- Preloader -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="assets/js/master.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="assets/js/scoreSample.js" type="text/javascript"></script>
+	<style type="text/css">
+	.div-africa{
+		float: right; 
+		border-radius: 8px 0px 0px 0px;
+		width: 135px;
+		height: 35px; 
+		box-shadow: -1px 2px 4px #212020;
+		color: white;
+		font-weight: bold;
+	}
+	.sdg-header{
+		text-align: center;
+		margin-top: 10%;
+		max-width: 61px;
+		min-width: 61px;
+		min-height: 77px;
+		vertical-align: top !important;
+		border-left: 3px solid #f0f0f0;
+	}
+	.sdg-header2{
+		text-align: center;
+		margin-top: 10%;
+		max-width: 61px;
+		min-width: 61px;
+		min-height: 10px;
+		vertical-align: bottom !important;
+		border-left: 3px solid #f0f0f0;
+	}
+	.sdg-p{
+		font-weight: bold;
+		font-size: 10px;
+	}
+	table{
+		/*margin-top: 1%;*/
+		border-spacing: 3px;
+		display: block;
+		height: 350px;
+		overflow-y: scroll
+	}
+	.sdg-f{
+		vertical-align: bottom !important;
+	}
+	td{
+		text-align: center;
+		color: black;
+		border: 3px solid white;
+		max-width: 61px;
+		min-width: 61px;
+		border-radius: 12px 12px 12px 12px;
+	}
+	tbody{
+		display: block;
+		margin-top: 9%;
+	}
+
+	.accordion {
+		/*background-color: #eee;*/
+		/*color: #444;*/
+		cursor: pointer;
+		/*padding: 18px;*/
+		width: 100%;
+		border: none;
+		text-align: left;
+		outline: none;
+		/*font-size: 15px;*/
+		transition: 0.4s;
+	}
+
+	.active, .accordion:hover {
+		/*background-color: #ccc; */
+	}
+
+	.panel2 {
+		padding: 0 18px;
+		display: none;
+		/*background-color: white;*/
+		overflow: hidden;
+	}
+	li { cursor: pointer; }
+</style>
+</head>
+<body>
+	<!-- Preloader -->
+	<div class="preloader"></div>
+	<!-- Preloader -->
+
+	<!-- content come here     -->
+	<div w3-include-html="header.html" style="min-height: 4%;max-height: 4%;"></div>
+	<div style="float: left; min-width: 3%; max-width: 3%;margin-top: 90px;">
+		<a href="#" data-toggle="modal" data-target="#myModal"><img src="assets/img/sdg_icons_notext/01.jpg" style="width:35px;height:35px;"></a>
+		<a  href="sdgs/sdg2.html"><img src="assets/img/sdg_icons_notext/02.jpg" style="width:35px;height:35px;"></a>
+		<a href="sdgs/sdg3.html"><img src="assets/img/sdg_icons_notext/03.jpg" style="width:35px;height:35px;"></a>
+		<a onclick="updateModal(1)" href="#" data-toggle="modal" id="myModal2"><img src="assets/img/sdg_icons_notext/04.jpg" style="width:35px;height:35px;"></a>
+		<a onclick="updateSDG(5)" href="#"><img src="assets/img/sdg_icons_notext/05.jpg" style="width:35px;height:35px;"></a>
+		<a onclick="updateSDG(6)" href="#"><img src="assets/img/sdg_icons_notext/06.jpg" style="width:35px;height:35px;"></a>
+		<a onclick="updateSDG(7)" href="#"><img src="assets/img/sdg_icons_notext/07.jpg" style="width:35px;height:35px;"></a>
+		<a onclick="updateSDG(8)" href="#"><img src="assets/img/sdg_icons_notext/08.jpg" style="width:35px;height:35px;"></a>
+		<a onclick="updateSDG(9)" href="#"><img src="assets/img/sdg_icons_notext/09.jpg" style="width:35px;height:35px;"></a>
+		<a onclick="updateSDG(10)" href="#"><img src="assets/img/sdg_icons_notext/10.jpg" style="width:35px;height:35px;"></a>
+		<a onclick="updateSDG(11)" href="#"><img src="assets/img/sdg_icons_notext/11.jpg" style="width:35px;height:35px;"></a>
+		<a onclick="updateSDG(12)" href="#"><img src="assets/img/sdg_icons_notext/12.jpg" style="width:35px;height:35px;"></a>
+		<a onclick="updateSDG(13)" href="#"><img src="assets/img/sdg_icons_notext/13.jpg" style="width:35px;height:35px;"></a>
+		<a onclick="updateSDG(14)" href="#"><img src="assets/img/sdg_icons_notext/14.jpg" style="width:35px;height:35px;"></a>
+		<a onclick="updateSDG(15)" href="#"><img src="assets/img/sdg_icons_notext/15.jpg" style="width:35px;height:35px;"></a>
+		<a onclick="updateSDG(16)" href="#"><img src="assets/img/sdg_icons_notext/16.jpg" style="width:35px;height:35px;"></a>
+		<a onclick="updateSDG(17)" href="#"><img src="assets/img/sdg_icons_notext/17.jpg" style="width:35px;height:35px;"></a>
+	</div>
+	<div id="container" style="float: right;height: 500px; min-width: 90%; max-width: 90%; margin: 0 auto;margin-top: 90px;"></div> 
+
+	<!-- Modal Bodies come here -->
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg" role="document" style="margin: 40px;">
+			<!-- <button type="button" class="btn btn-danger" data-dismiss="modal" style="margin-right: 0 !important;">Close</button> -->
+			<div class="modal-content modal-bg-3" style="width: 100%; height: auto; background-color: #C5192D;">
+				<div class="row">
+					<div class="col-xs-6 col-lg-4 modal-body"><img src="assets/img/sdg_icons_notext/04.jpg" style="width:200px;height:200px; margin-top: 50%"></div>
+					<div class="col-xs-12 col-sm-6 col-lg-8 modal-body" style="height: 500px;overflow-y: scroll;color: white;">
+						<p class="accordion"><span>Target 4.1</span><span style="font-size: 11px;"> By 2030, ensure that all girls and boys complete free, equitable and quality primary and secondary education leading to relevant and effective learning outcomes</span></p>
+						<div class="panel2">
+							<li onclick="updateAfricaMap(411)" style="font-size: 10px;">Proportion of children at the end of lower secondary achieving at least a minimum proficiency level in mathematics | Percent | Total</li>
+							<li onclick="updateAfricaMap(412)" style="font-size: 10px;">Proportion of children at the end of lower secondary achieving at least a minimum proficiency level in mathematics | Percent | Total</li>
+						</div>
+						<p class="accordion"><span>Target 4.2</span><span style="font-size: 11px;"> By 2030, ensure that all girls and boys complete free, equitable and quality primary and secondary education leading to relevant and effective learning outcomes</span></p>
+						<div class="panel2">
+							<li style="font-size: 10px;">Proportion of children at the end of lower secondary achieving at least a minimum proficiency level in mathematics | Percent | Total</li>
+							<li style="font-size: 10px;">Proportion of children at the end of lower secondary achieving at least a minimum proficiency level in mathematics | Percent | Total</li>
+						</div>
+						<p class="accordion"><span>Target 4.3</span><span style="font-size: 11px;"> By 2030, ensure that all girls and boys complete free, equitable and quality primary and secondary education leading to relevant and effective learning outcomes</span></p>
+						<div class="panel2">
+							<li style="font-size: 10px;">Proportion of children at the end of lower secondary achieving at least a minimum proficiency level in mathematics | Percent | Total</li>
+							<li style="font-size: 10px;">Proportion of children at the end of lower secondary achieving at least a minimum proficiency level in mathematics | Percent | Total</li>
+						</div>
+						<p class="accordion"><span>Target 4.4</span><span style="font-size: 11px;"> By 2030, ensure that all girls and boys complete free, equitable and quality primary and secondary education leading to relevant and effective learning outcomes</span></p>
+						<div class="panel2">
+							<li style="font-size: 10px;">Proportion of children at the end of lower secondary achieving at least a minimum proficiency level in mathematics | Percent | Total</li>
+							<li style="font-size: 10px;">Proportion of children at the end of lower secondary achieving at least a minimum proficiency level in mathematics | Percent | Total</li>
+						</div>
+						<p class="accordion"><span>Target 4.5</span><span style="font-size: 11px;"> By 2030, ensure that all girls and boys complete free, equitable and quality primary and secondary education leading to relevant and effective learning outcomes</span></p>
+						<div class="panel2">
+							<li style="font-size: 10px;">Proportion of children at the end of lower secondary achieving at least a minimum proficiency level in mathematics | Percent | Total</li>
+							<li style="font-size: 10px;">Proportion of children at the end of lower secondary achieving at least a minimum proficiency level in mathematics | Percent | Total</li>
+						</div>
+						<p class="accordion"><span>Target 4.6</span><span style="font-size: 11px;"> By 2030, ensure that all girls and boys complete free, equitable and quality primary and secondary education leading to relevant and effective learning outcomes</span></p>
+						<div class="panel2">
+							<li style="font-size: 10px;">Proportion of children at the end of lower secondary achieving at least a minimum proficiency level in mathematics | Percent | Total</li>
+							<li style="font-size: 10px;">Proportion of children at the end of lower secondary achieving at least a minimum proficiency level in mathematics | Percent | Total</li>
+						</div>
+						<p class="accordion"><span>Target 4.A</span><span style="font-size: 11px;"> By 2030, ensure that all girls and boys complete free, equitable and quality primary and secondary education leading to relevant and effective learning outcomes</span></p>
+						<div class="panel2">
+							<li style="font-size: 10px;">Proportion of children at the end of lower secondary achieving at least a minimum proficiency level in mathematics | Percent | Total</li>
+							<li style="font-size: 10px;">Proportion of children at the end of lower secondary achieving at least a minimum proficiency level in mathematics | Percent | Total</li>
+						</div>
+						<p class="accordion"><span>Target 4.B</span><span style="font-size: 11px;"> By 2030, ensure that all girls and boys complete free, equitable and quality primary and secondary education leading to relevant and effective learning outcomes</span></p>
+						<div class="panel2">
+							<li style="font-size: 10px;">Proportion of children at the end of lower secondary achieving at least a minimum proficiency level in mathematics | Percent | Total</li>
+							<li style="font-size: 10px;">Proportion of children at the end of lower secondary achieving at least a minimum proficiency level in mathematics | Percent | Total</li>
+						</div>
+						<p class="accordion"><span>Target 4.C</span><span style="font-size: 11px;"> By 2030, ensure that all girls and boys complete free, equitable and quality primary and secondary education leading to relevant and effective learning outcomes</span></p>
+						<div class="panel2">
+							<li style="font-size: 10px;">Proportion of children at the end of lower secondary achieving at least a minimum proficiency level in mathematics | Percent | Total</li>
+							<li style="font-size: 10px;">Proportion of children at the end of lower secondary achieving at least a minimum proficiency level in mathematics | Percent | Total</li>
+						</div>
+					</div>
+				</div>
+				<div class=""> 
+				</div>
+				<!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button> -->
+			</div>
+		</div>
+		<script>
+			var acc = document.getElementsByClassName("accordion");
+			var i;
+
+			for (i = 0; i < acc.length; i++) {
+				acc[i].addEventListener("click", function() {
+					this.classList.toggle("active");
+					var panel = this.nextElementSibling;
+					if (panel.style.display === "block") {
+						panel.style.display = "none";
+					} else {
+						panel.style.display = "block";
+					}
+				});
+			}
+		</script>
+	</div>
+
+	<!--   end modal -->
+
+
+</body>
+<!-- Core JS Files -->
+<script src="assets/js/jquery-3.2.1.js" type="text/javascript"></script>
+<script src="assets/js/jquery-ui-1.12.1.custom.min.js" type="text/javascript"></script>
+<script src="assets/js/popper.js" type="text/javascript"></script>
+<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+<!-- Switches -->
+<script src="assets/js/bootstrap-switch.min.js"></script>
+
+<!--  Plugins for Slider -->
+<script src="assets/js/nouislider.js"></script>
+
+<!--  Plugins for DateTimePicker -->
+<script src="assets/js/moment.min.js"></script>
+<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+
+<!--  Paper Kit Initialization snd functons -->
+<script src="assets/js/paper-kit.js?v=2.1.0"></script>
+
+<script type="text/javascript">
+	"use strict";
+	w3.includeHTML();
+</script>
+<script type="text/javascript" src="assets/js/trial.js"></script>
+<script type="text/javascript" src="assets/js/trial_modal.js"></script>
+</html>

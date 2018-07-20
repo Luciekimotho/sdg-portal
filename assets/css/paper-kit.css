@@ -182,6 +182,8 @@ blockquote small {
 }
 
 .title {
+  margin-top: 20px;
+  margin-bottom: 5px;
   margin-top: 30px;
   margin-bottom: 25px;
   min-height: 32px;
@@ -1748,6 +1750,14 @@ textarea.form-control {
 }
 .section-sdg17{
   background-color: #19486A;
+}
+/*Preloader*/
+.preloader {
+        width: 100%;
+        height: 100%;
+        background: url('../img/logos/logosdg.gif') center no-repeat #FFF;
+        z-index: 99999;
+        position: fixed;
 }
 .section-image,
 .section-gold,
@@ -4178,6 +4188,7 @@ textarea.form-control {
 
 .modal-content {
   border: 0 none;
+  border-radius: 10px 10px 10px 10px;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.15), 0 0 1px 1px rgba(0, 0, 0, 0.1);
 }
