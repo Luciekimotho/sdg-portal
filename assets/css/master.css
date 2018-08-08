@@ -19,7 +19,15 @@
   left: 0;
   bottom: 0;
 }
-    width: 95%;
-    margin: 0 auto;
-    margin-left: 5%
+
+/* SDG Menu Icons */
+.sdgMenuIcons{
+  width:80px;
+  height:80px;
+  margin-bottom: 2px;
+}
+
+.sdgContainer{
+  margin-left: 50px;
+  background-color: #F0F0F0;
 }
