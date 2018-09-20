@@ -168,7 +168,7 @@
     "sdg17": 50
   },
   {
-    "country": "Cent. Afr. Rep.",
+    "country": "Central African Rep.",
     "region":"CAF",
     "sdg1": 70,
     "sdg2": 90,
@@ -336,7 +336,7 @@
     "sdg17": 50
   },
   {
-    "country": "Equit. Guinea",
+    "country": "Equitorial Guinea",
     "region":"CAF",
     "sdg1": 50,
     "sdg2": 10,
@@ -629,7 +629,7 @@
     "sdg16": 30,
     "sdg17": 50
   },
-    {
+  {
     "country": "Mali",
     "region":"WAF",
     "sdg1": 70,
@@ -1055,27 +1055,6 @@
     "sdg1": 70,
     "sdg2": 90,
     "sdg3": 20,
-    "sdg4": 30,
-    "sdg5": 50,
-    "sdg6": 60,
-    "sdg7": 20,
-    "sdg8": 60,
-    "sdg9": 90,
-    "sdg10": 60,
-    "sdg11": 20,
-    "sdg12": 60,
-    "sdg13": 50,
-    "sdg14": 60,
-    "sdg15": 50,
-    "sdg16": 30,
-    "sdg17": 50
-  },
-  {
-    "country": "Western Sahara",
-    "region":"NAF",
-    "sdg1": 70,
-    "sdg2": 10,
-    "sdg3": 60,
     "sdg4": 30,
     "sdg5": 50,
     "sdg6": 60,

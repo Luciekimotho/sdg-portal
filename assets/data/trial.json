@@ -46,232 +46,227 @@
   },
   {
     "code": "TD",
-    "value": 9,
+    "value": 10,
     "name": "Chad"
   },
   {
     "code": "KM",
-    "value": 10,
+    "value": 11,
     "name": "Comoros"
   },
   {
     "code": "CD",
-    "value": 11,
+    "value": 12,
     "name": "Congo"
   },
   {
     "code": "CG",
-    "value": 12,
+    "value": 13,
     "name": "Congo, Rep."
   },
   {
     "code": "CI",
-    "value": 13,
+    "value": 14,
     "name": "Cote d'Ivoire"
   },
   {
     "code": "DJ",
-    "value": 14,
+    "value": 15,
     "name": "Djibouti"
   },
   {
     "code": "EG",
-    "value": 15,
+    "value": 16,
     "name": "Egypt"
   },
   {
     "code": "GQ",
-    "value": 16,
+    "value": 17,
     "name": "Equatorial Guinea"
   },
   {
     "code": "ER",
-    "value": 17,
+    "value": 18,
     "name": "Eritrea"
   },
   {
     "code": "ET",
-    "value": 18,
+    "value": 19,
     "name": "Ethiopia"
   },
   {
     "code": "GA",
-    "value": 19,
+    "value": 20,
     "name": "Gabon"
   },
   {
     "code": "GM",
-    "value": 20,
+    "value": 21,
     "name": "Gambia"
   },
   {
     "code": "GH",
-    "value": 21,
+    "value": 22,
     "name": "Ghana"
   },
   {
     "code": "GN",
-    "value": 22,
+    "value": 23,
     "name": "Guinea"
   },
   {
     "code": "GW",
-    "value": 23,
+    "value": 24,
     "name": "Guinea-Bissau"
   },
   {
     "code": "KE",
-    "value": 24,
+    "value": 25,
     "name": "Kenya"
   },
   {
     "code": "LS",
-    "value": 25,
+    "value": 26,
     "name": "Lesotho"
   },
   {
     "code": "LR",
-    "value": 26,
+    "value": 27,
     "name": "Liberia"
   },
   {
     "code": "LY",
-    "value": 27,
+    "value": 28,
     "name": "Libya"
   },
   {
     "code": "MG",
-    "value": 28,
+    "value": 29,
     "name": "Madagascar"
   },
   {
     "code": "MW",
-    "value": 29,
+    "value": 30,
     "name": "Malawi"
   },
   {
     "code": "ML",
-    "value": 30,
+    "value": 31,
     "name": "Mali"
   },
   {
     "code": "MR",
-    "value": 31,
+    "value": 32,
     "name": "Mauritania"
  },
   {
     "code": "MU",
-    "value": 32,
+    "value": 33,
     "name": "Mauritius"
   },
   {
     "code": "MA",
-    "value": 33,
+    "value": 34,
     "name": "Morocco"
   },
   {
     "code": "MZ",
-    "value": 34,
+    "value": 35,
     "name": "Mozambique"
   },
   {
     "code": "NA",
-    "value": 35,
+    "value": 36,
     "name": "Namibia"
   },
   {
     "code": "NE",
-    "value": 36,
+    "value": 37,
     "name": "Niger"
   },
   {
     "code": "NG",
-    "value": 37,
+    "value": 38,
     "name": "Nigeria"
   },
   {
     "code": "RW",
-    "value": 38,
+    "value": 39,
     "name": "Rwanda"
   },
   {
     "code": "ST",
-    "value": 39,
+    "value": 40,
     "name": "Sao Tome and Principe"
   },
   {
     "code": "SN",
-    "value": 40,
+    "value": 41,
     "name": "Senegal"
   },
   {
     "code": "SC",
-    "value": 54,
+    "value": 42,
     "name": "Seychelles"
   },
   {
     "code": "SL",
-    "value": 51,
+    "value": 43,
     "name": "Sierra Leone"
   },
   {
     "code": "SO",
-    "value": 41,
+    "value": 44,
     "name": "Somalia"
   },
   {
     "code": "ZA",
-    "value": 42,
+    "value": 45,
     "name": "South Africa"
   },
   {
     "code": "SS",
-    "value": 43,
+    "value": 46,
     "name": "South Sudan"
   },
   {
     "code": "SD",
-    "value": 44,
+    "value": 47,
     "name": "Sudan"
   },
   {
     "code": "SZ",
-    "value": 45,
+    "value": 48,
     "name": "Swaziland"
   },
   {
     "code": "TZ",
-    "value": 46,
+    "value": 49,
     "name": "Tanzania"
   },
   {
     "code": "TG",
-    "value": 47,
+    "value": 50,
     "name": "Togo"
   },
   {
     "code": "TN",
-    "value": 48,
+    "value": 51,
     "name": "Tunisia"
   },
   {
     "code": "UG",
-    "value": 49,
+    "value": 52,
     "name": "Uganda"
   },
   {
-    "code": "EH",
-    "value": 50,
-    "name": "Western Sahara"
-  },
-  {
     "code": "ZM",
-    "value": 52,
+    "value": 53,
     "name": "Zambia"
   },
   {
     "code": "ZW",
-    "value": 53,
+    "value": 54,
     "name": "Zimbabwe"
   }
 ]

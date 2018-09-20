@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <link rel="icon" type="image/png" href="../assets/img/logos/logosdg.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+    <title>SDG 6 | Clean Water & Sanitation</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
+    <meta name="viewport" content="width=device-width"/>
+
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../assets/css/paper-kit.css?v=2.1.0" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <link href="../assets/css/master.css" rel="stylesheet"/>
+
+    <!--     Fonts and icons     -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../assets/css/nucleo-icons.css" rel="stylesheet"/>
+
+    <!-- Script to include header file -->
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+
+
+    <!-- Highchart links -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/data.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/drilldown.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/offline-exporting.js"></script>
+    <script src="https://code.highcharts.com/mapdata/custom/africa.js"></script>
+
+    <!-- Sample Line Chart libraries -->
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all"/>
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
+    <!-- Preloader -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="../assets/js/master.js"></script>
+    <link rel="stylesheet" href="../assets/css/sdgsPages.css" />
+</head>
+<body>
+<!-- Preloader -->
+<div class="preloader"></div>
+<!-- Preloader -->
+<div class="container-fluid">
+    <div class="row" style="width: 100% !important;height: 10%;">
+        <div class="col-md-12 fixed-top" w3-include-html="header.html"></div>
+    </div>
+    <div class="row" style="width: 100% !important;margin: 0;margin-top: 10%;">
+        <div class="row" style="width: 100% !important;margin: 0;">
+            <div class="col-md-2">
+                <img src="../assets/img/sdg_icons/E_SDG_Icons-06.jpg" style="width:190px;height:190px;">
+            </div>
+            <div class="col-md-10" style="width: 100% !important;background-color: #26BDE2;">
+                <h3 class="title" style="color: white !important;">Ensure access to water and sanitation for all</h3>
+                <p class="description" style="color: white !important;">
+                    UN definition: <i>"Clean water is a basic human need, and one that should be easily accessible to
+                    all. There is sufficient fresh water on the planet to achieve this. However, due to poor
+                    infrastructure, investment and planning, every year millions of people — most of them children — die
+                    from diseases associated with inadequate water supply, sanitation and hygiene."
+                </i>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="width: 100% !important;margin: 0; margin-top: 1%;">
+        <div class="col-md-1"></div>
+        <div class="col-md-10" style="background-color:darkgrey;">
+            <h4 class="title" style="color: white !important;text-align: center;font-weight: bold;">SDG 6 Targets</h4>
+            <p class="description nav nav-tabs"
+               style="color: white !important;text-align: center !important; display: inherit !important;margin: 2px 0;">
+                <a data-toggle="tab" href="#target61" class="btn btn-danger sdg6-btn">Target 6.1</a>
+                <a data-toggle="tab" href="#target62" class="btn btn-danger sdg6-btn">Target 6.2</a>
+                <a data-toggle="tab" href="#target63" class="btn btn-danger sdg6-btn">Target 6.3</a>
+                <a data-toggle="tab" href="#target64" class="btn btn-danger sdg6-btn">Target 6.4</a>
+                <a data-toggle="tab" href="#target65" class="btn btn-danger sdg6-btn">Target 6.5</a>
+                <a data-toggle="tab" href="#target66" class="btn btn-danger sdg6-btn">Target 6.6</a>
+                <a data-toggle="tab" href="#target6A" class="btn btn-danger sdg6-btn">Target 6.A</a>
+                <a data-toggle="tab" href="#target6B" class="btn btn-danger sdg6-btn">Target 6.B</a>
+            </p>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="row tab-content" style="width: 100% !important;margin: 0; margin-top: 1%;">
+        <div class="col-md-1"></div>
+        <div class="col-md-10 card tab-pane fade" id="target61" style="border-radius: 0;background-color: white">
+            <p style="text-align: center;color: black;"><i><strong>Target Name:</strong>Safe and affordable drinking
+                water</i>
+            </p>
+            <p style="text-align: center;color: black;"><i><strong>UN Definition:</strong>"By 2030, achieve universal
+                and equitable access to safe and affordable drinking water for all."</i></p>
+            <div class="row card-body" id="container"></div>
+            <hr>
+            <div class="row card-footer">
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-globe"></span>Map
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-bar-chart"></span>Chart
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success"><span class="fa fa-download"></span>Data</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 card tab-pane fade" id="target62" style="border-radius: 0;background-color: white;">
+            <p style="text-align: center;color: black;"><i><strong>Target Name:</strong>End open defecation and provide
+                access to sanitation and hygiene</i>
+            </p>
+            <p style="text-align: center;color: black;"><i><strong>UN Definition:</strong>"By 2030, achieve access to
+                adequate and equitable sanitation and hygiene for all and end open defecation, paying special attention
+                to the needs of women and girls and those in vulnerable situations."</i></p>
+            <div class="row card-body" id="container2"></div>
+            <hr>
+            <div class="row card-footer">
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-globe"></span>Map
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-bar-chart"></span>Chart
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success"><span class="fa fa-download"></span>Data</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 card tab-pane fade" id="target63" style="border-radius: 0;background-color: white;">
+            <p style="text-align: center;color: black;"><i><strong>Target Name:</strong>Improve water quality,
+                wastewater treatment and safe reuse
+            </i>
+            </p>
+            <p style="text-align: center;color: black;"><i><strong>UN Definition:</strong>"By 2030, improve water
+                quality by reducing pollution, eliminating dumping and minimizing release of hazardous chemicals and
+                materials, halving the proportion of untreated wastewater and substantially increasing recycling and
+                safe reuse globally."</i></p>
+            <div class="row card-body" id="container3"></div>
+            <hr>
+            <div class="row card-footer">
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-globe"></span>Map
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-bar-chart"></span>Chart
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success"><span class="fa fa-download"></span>Data</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 card tab-pane fade" id="target64" style="border-radius: 0;background-color: white;">
+            <p style="text-align: center;color: black;"><i><strong>Target Name:</strong>Increase water use efficiency
+                and ensure freshwater supplies
+            </i>
+            </p>
+            <p style="text-align: center;color: black;"><i><strong>UN Definition:</strong>"By 2030, substantially
+                increase water-use efficiency across all sectors and ensure sustainable withdrawals and supply of
+                freshwater to address water scarcity and substantially reduce the number of people suffering from water
+                scarcity."</i></p>
+            <div class="row card-body" id="container4"></div>
+            <hr>
+            <div class="row card-footer">
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-globe"></span>Map
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-bar-chart"></span>Chart
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success"><span class="fa fa-download"></span>Data</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 card tab-pane fade" id="target65" style="border-radius: 0;background-color: white;">
+            <p style="text-align: center;color: black;"><i><strong>Target Name:</strong>Implement integrated water
+                resources management
+            </i>
+            </p>
+            <p style="text-align: center;color: black;"><i><strong>UN Definition:</strong>"By 2030, implement integrated
+                water resources management at all levels, including through transboundary cooperation as
+                appropriate."</i>
+            </p>
+            <div class="row card-body" id="container5"></div>
+            <hr>
+            <div class="row card-footer">
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-globe"></span>Map
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-bar-chart"></span>Chart
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success"><span class="fa fa-download"></span>Data</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 card tab-pane fade" id="target66" style="border-radius: 0;background-color: white;">
+            <p style="text-align: center;color: black;"><i><strong>Target Name:</strong>Protect and restore
+                water-related ecosystems
+            </i>
+            </p>
+            <p style="text-align: center;color: black;"><i><strong>UN Definition:</strong>"By 2020, protect and restore
+                water-related ecosystems, including mountains, forests, wetlands, rivers, aquifers and lakes."</i>
+            </p>
+            <div class="row card-body" id="container36"></div>
+            <hr>
+            <div class="row card-footer">
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-globe"></span>Map
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-bar-chart"></span>Chart
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success"><span class="fa fa-download"></span>Data</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 card tab-pane fade" id="target6A" style="border-radius: 0;background-color: white;">
+            <p style="text-align: center;color: black;"><i><strong>Target Name:</strong>Expand water and sanitation
+                support to developing countries
+            </i>
+            </p>
+            <p style="text-align: center;color: black;"><i><strong>UN Definition:</strong>"By 2030, expand international
+                cooperation and capacity-building support to developing countries in water- and sanitation-related
+                activities and programmes, including water harvesting, desalination, water efficiency, wastewater
+                treatment, recycling and reuse technologies."</i>
+            </p>
+            <div class="row card-body" id="container37"></div>
+            <hr>
+            <div class="row card-footer">
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-globe"></span>Map
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-bar-chart"></span>Chart
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success"><span class="fa fa-download"></span>Data</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 card tab-pane fade" id="target6B" style="border-radius: 0;background-color: white;">
+            <p style="text-align: center;color: black;"><i><strong>Target Name:</strong>Support local engagement in
+                water and sanitation management
+            </i>
+            </p>
+            <p style="text-align: center;color: black;"><i><strong>UN Definition:</strong>"Support and strengthen the
+                participation of local communities in improving water and sanitation management."</i>
+            </p>
+            <div class="row card-body" id="container38"></div>
+            <hr>
+            <div class="row card-footer">
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-globe"></span>Map
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-bar-chart"></span>Chart
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success"><span class="fa fa-download"></span>Data</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="row" style="height: 10%;background-color: #f5f5f5;">
+        <div class="col-md-12 fixed-bottom" w3-include-html="footer.html" style="background-color: #f5f5f5;"></div>
+    </div>
+</div>
+</body>
+<!-- Core JS Files -->
+<script src="../assets/js/jquery-3.2.1.js" type="text/javascript"></script>
+<script src="../assets/js/jquery-ui-1.12.1.custom.min.js" type="text/javascript"></script>
+<script src="../assets/js/popper.js" type="text/javascript"></script>
+<script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+<!-- Switches -->
+<script src="../assets/js/bootstrap-switch.min.js"></script>
+
+<!--  Plugins for Slider -->
+<script src="../assets/js/nouislider.js"></script>
+
+<!--  Plugins for DateTimePicker -->
+<script src="../assets/js/moment.min.js"></script>
+<script src="../assets/js/bootstrap-datetimepicker.min.js"></script>
+
+<!--  Paper Kit Initialization snd functons -->
+<script src="../assets/js/paper-kit.js?v=2.1.0"></script>
+
+<!-- Highmaps Link for Africa -->
+<script type="text/javascript" src="../assets/js/africa-map.js"></script>
+<!-- <script type="text/javascript" src="../../assets/js/lineChartSample.js"></script> -->
+
+<script>
+    w3.includeHTML();
+</script>
+</html>

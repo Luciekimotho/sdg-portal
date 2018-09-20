@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="assets/img/logos/logosdg.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Dashboard | Data Portal</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/paper-kit.css?v=2.1.0" rel="stylesheet" />
+    <link href="assets/css/demo.css" rel="stylesheet" />
+    <link href="../assets/css/master.css" rel="stylesheet" />
+
+    <!--     Fonts and icons     -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/nucleo-icons.css" rel="stylesheet" />
+
+    <!-- Boostrap Libraries -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    <!-- Boostrap Libraries -->
+
+    <!-- Script to include header file -->
+    <script src="https://www.w3schools.com/lib/w3.js" type="text/javascript"></script>
+    <!-- Preloader -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="assets/js/master.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/js/scoreSample.js" type="text/javascript"></script>
+    <style type="text/css">
+        .div-africa {
+            /* float: right;
+            border-radius: 8px 0px 0px 0px;
+            min-height: 50px;
+            max-height: 50px;
+            box-shadow: -1px 2px 4px #212020;
+            color: white;
+            font-weight: bold;
+            width: 100px;
+            height: 40px; */
+        }
+
+        .sdg-header {
+            /* text-align: center;
+            margin-top: 10%;
+            max-width: 61px;
+            min-width: 61px;
+            min-height: 77px;
+            vertical-align: top !important;
+            border-left: 3px solid #f0f0f0; */
+        }
+
+        .sdg-header2 {
+            /* text-align: center;
+            margin-top: 10%;
+            max-width: 61px;
+            min-width: 61px;
+            min-height: 10px;
+            vertical-align: bottom !important;
+            border-left: 3px solid #f0f0f0; */
+        }
+
+        .sdg-p {
+            font-weight: bold;
+            font-size: 10px;
+        }
+
+        table {
+            border-spacing: 3px;
+            display: block;
+            height: 500px;
+            overflow-y: scroll
+        }
+
+        .sdg-f {
+            vertical-align: bottom !important;
+        }
+
+        td {
+            text-align: center;
+            color: black;
+            border: 3px solid white;
+            max-width: 61px;
+            min-width: 61px;
+            border-radius: 12px 12px 12px 12px;
+        }
+
+        tbody {
+            display: block;
+            margin-top: 9%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader"></div>
+    <!-- Preloader -->
+    <!-- <div w3-include-html="header.html"></div> -->
+    <div class="container">
+      <div class="row" w3-include-html="header.html"></div>
+      <div class="row">
+          <div class="col-xm-1 col-sm-2 col-md-1">
+            <div style="background-color: #fac12c !important;">
+              <button onclick="loadRegion(1)" class="div-africa" style=" background: #26bfe6;">Africa</button><br><br><br>
+              <button onclick="loadRegion(2)" class="div-africa" style=" background: #f26a2d;">Central Africa</button><br><br><br>
+              <button onclick="loadRegion(3)" class="div-africa" style="background: #c08e2d;">East Africa</button><br><br><br>
+              <button onclick="loadRegion(4)" class="div-africa" style="background: #4da046;">North Africa</button><br><br><br>
+              <button onclick="loadRegion(5)" class="div-africa" style="background: #e6223d;">Southern Africa</button><br><br><br>
+              <button onclick="loadRegion(6)" class="div-africa" style="background: #df1767;">West Africa</button>
+            </div>
+          </div>
+          <div class="col-xm-11 col-sm-10 col-md-11"></div>
+      </div>
+      <div class="row" w3-include-html="footer.html"></div>
+    </div>
+
+
+</body>
+<!-- Core JS Files -->
+<script src="assets/js/jquery-3.2.1.js" type="text/javascript"></script>
+<script src="assets/js/jquery-ui-1.12.1.custom.min.js" type="text/javascript"></script>
+<script src="assets/js/popper.js" type="text/javascript"></script>
+<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+<!-- Switches -->
+<script src="assets/js/bootstrap-switch.min.js"></script>
+
+<!--  Plugins for Slider -->
+<script src="assets/js/nouislider.js"></script>
+
+<!--  Plugins for DateTimePicker -->
+<script src="assets/js/moment.min.js"></script>
+<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+
+<!--  Paper Kit Initialization snd functons -->
+<script src="assets/js/paper-kit.js?v=2.1.0"></script>
+
+<script type="text/javascript">
+    "use strict";
+    w3.includeHTML();
+</script>
+
+</html>
