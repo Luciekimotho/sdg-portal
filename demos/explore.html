@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en" xmlns="https://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="../assets/img/logos/logosdg.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <!-- Dendogram Links for SDG Goals Tree -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <link href="../assets/css/sdgGoalsTree.css" rel="stylesheet" />
+
+    <!-- Resources For Sample Chart AMCHARTS-->
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/dataloader/dataloader.min.js"></script>
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+    <link href="../assets/css/sampleChart.css" rel="stylesheet" />
+    <script src="../assets/js/sampleChart.js" type="text/javascript"></script>
+
+    <title>Explore| Data Portal</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/css/paper-kit.css?v=2.1.0" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet" />
+    <link href="../assets/css/master.css" rel="stylesheet" />
+
+
+    <!--     Fonts and icons     -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
+
+    <!-- Links for include header file -->
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+
+    <!-- Dendogram Link For SDG Gaols -->
+    <script type="text/javascript" src="../assets/js/sdgGoalsTree.js"></script>
+
+    <!-- Preloader -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="../assets/js/master.js"></script>
+
+</head>
+<body>
+<div class="preloader"></div>
+    
+
+</head>
+<body>
+
+
+
+<!--    navbar come here          -->
+    <div w3-include-html="header.html"></div>
+<!-- end navbar  -->
+<br><br><br><br><br><br><br>
+
+
+<div class="wrapper">
+
+    <!-- content come here     -->
+    <div class="center-div">
+            <a onclick="updateSDG(1)" href="#"><img src="../assets/img/sdg_icons/E_SDG_Icons-01.jpg" style="width:50px;height:50px;"></a>
+            <a onclick="updateSDG(2)" href="#"><img src="../assets/img/sdg_icons/E_SDG_Icons-02.jpg" style="width:50px;height:50px;"></a>
+            <a onclick="updateSDG(3)" href="#"><img src="../assets/img/sdg_icons/E_SDG_Icons-03.jpg" style="width:50px;height:50px;"></a>
+            <a onclick="updateSDG(4)" href="#"><img src="../assets/img/sdg_icons/E_SDG_Icons-04.jpg" style="width:50px;height:50px;"></a>
+            <a onclick="updateSDG(5)" href="#"><img src="../assets/img/sdg_icons/E_SDG_Icons-05.jpg" style="width:50px;height:50px;"></a>
+            <a onclick="updateSDG(6)" href="#"><img src="../assets/img/sdg_icons/E_SDG_Icons-06.jpg" style="width:50px;height:50px;"></a>
+            <a onclick="updateSDG(7)" href="#"><img src="../assets/img/sdg_icons/E_SDG_Icons-07.jpg" style="width:50px;height:50px;"></a>
+            <a onclick="updateSDG(8)" href="#"><img src="../assets/img/sdg_icons/E_SDG_Icons-08.jpg" style="width:50px;height:50px;"></a>
+            <a onclick="updateSDG(9)" href="#"><img src="../assets/img/sdg_icons/E_SDG_Icons-09.jpg" style="width:50px;height:50px;"></a>
+            <a onclick="updateSDG(10)" href="#"><img src="../assets/img/sdg_icons/E_SDG_Icons-10.jpg" style="width:50px;height:50px;"></a>
+            <a onclick="updateSDG(11)" href="#"><img src="../assets/img/sdg_icons/E_SDG_Icons-11.jpg" style="width:50px;height:50px;"></a>
+            <a onclick="updateSDG(12)" href="#"><img src="../assets/img/sdg_icons/E_SDG_Icons-12.jpg" style="width:50px;height:50px;"></a>
+            <a onclick="updateSDG(13)" href="#"><img src="../assets/img/sdg_icons/E_SDG_Icons-13.jpg" style="width:50px;height:50px;"></a>
+            <a onclick="updateSDG(14)" href="#"><img src="../assets/img/sdg_icons/E_SDG_Icons-14.jpg" style="width:50px;height:50px;"></a>
+            <a onclick="updateSDG(15)" href="#"><img src="../assets/img/sdg_icons/E_SDG_Icons-15.jpg" style="width:50px;height:50px;"></a>
+            <a onclick="updateSDG(16)" href="#"><img src="../assets/img/sdg_icons/E_SDG_Icons-16.jpg" style="width:50px;height:50px;"></a>
+            <a onclick="updateSDG(17)" href="#"><img src="../assets/img/sdg_icons/E_SDG_Icons-17.jpg" style="width:50px;height:50px;"></a>
+    </div>
+    
+
+    <!-- Div to display the Map based of selection -->
+    <div id="tree-container"></div>
+</div>
+
+
+
+<!-- Modal Bodies come here -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document" style="max-width: 700px !important;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="exampleModalLabel">Sample Chart</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div id="chartdiv"></div>
+            </div>
+        </div>
+    </div>
+<!--   end modal -->
+
+
+</body>
+<!-- Core JS Files -->
+<script src="../assets/js/jquery-3.2.1.js" type="text/javascript"></script>
+<script src="../assets/js/jquery-ui-1.12.1.custom.min.js" type="text/javascript"></script>
+<script src="../assets/js/popper.js" type="text/javascript"></script>
+<script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+<!-- Switches -->
+<script src="../assets/js/bootstrap-switch.min.js"></script>
+
+<!--  Plugins for Slider -->
+<script src="../assets/js/nouislider.js"></script>
+
+<!--  Plugins for DateTimePicker -->
+<script src="../assets/js/moment.min.js"></script>
+<script src="../assets/js/bootstrap-datetimepicker.min.js"></script>
+
+<!--  Paper Kit Initialization snd functons -->
+<script src="../assets/js/paper-kit.js?v=2.1.0"></script>
+<script>
+       w3.includeHTML();
+</script>
+</html>

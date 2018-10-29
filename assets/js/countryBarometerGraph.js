@@ -4,7 +4,7 @@ function sdgGoal(sdgID) {
     countryBarometerGraph(countryID,sdgID);
 }
 function countryBarometerGraph(countryID,sdgID) {
-    var countryBarometerDataURL = 'assets/data/' + countryID + 'BarometerChartData.json';
+    var countryBarometerDataURL = '../assets/data/' + countryID + 'BarometerChartData.json';
     $.getJSON(countryBarometerDataURL, function (data) {
         for (var key in data){
             var newKey = parseInt(key, 10);

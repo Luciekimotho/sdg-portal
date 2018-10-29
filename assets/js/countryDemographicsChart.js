@@ -1,7 +1,7 @@
 function countryDemographicsChart(countryID) {
     localStorage.setItem("countryID",countryID);
     $("#chartdiv").empty();
-    var countryDemoDataURL = 'assets/data/' + countryID + 'DemographicsChartData.json';
+    var countryDemoDataURL = '../assets/data/' + countryID + 'DemographicsChartData.json';
     $.getJSON(countryDemoDataURL, function (data) {
         var chart = AmCharts.makeChart("chartdiv", {
             "creditsPosition":"bottom-right",

@@ -36,45 +36,55 @@
 }
 
 .sdg7-btn {
-     background-color: #FCC30B;
-     border-color: #FCC30B;
- }
+    background-color: #FCC30B;
+    border-color: #FCC30B;
+}
+
 .sdg8-btn {
     background-color: #A21942;
     border-color: #A21942;
 }
+
 .sdg9-btn {
     background-color: #FD6925;
     border-color: #FD6925;
 }
+
 .sdg10-btn {
     background-color: #DD1367;
     border-color: #DD1367;
 }
+
 .sdg11-btn {
     background-color: #FD9D24;
     border-color: #FD9D24;
 }
+
 .sdg12-btn {
     background-color: #BF8B2E;
     border-color: #BF8B2E;
 }
+
 .sdg13-btn {
     background-color: #3F7E44;
     border-color: #3F7E44;
 }
+
 .sdg14-btn {
     background-color: #0A97D9;
     border-color: #0A97D9;
 }
+
 .sdg15-btn {
     background-color: #56C02B;
     border-color: #56C02B;
 }
+
 .sdg16-btn {
     background-color: #00689D;
     border-color: #00689D;
 }
+
 .sdg17-btn {
     background-color: #19486A;
     border-color: #19486A;
@@ -82,4 +92,9 @@
 
 .btn {
     margin: 2px 0 !important;
+}
+
+.sdgFooter {
+    background-color: #f5f5f5;
+    margin-top: 10%;
 }

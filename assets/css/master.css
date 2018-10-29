@@ -1,33 +1,43 @@
-.center-div{
+.center-div {
     width: 75%;
     margin: 0 auto;
 }
-.sdgs-center-div{
+
+.sdgs-center-div {
     /* margin: 0 auto; */
     margin-left: 15%;
     margin-right: 8%;
 }
-.sdgIcons{
-  margin-bottom:4px !important;
-  width:150px;
-  height:150px;
+
+.sdgIcons {
+    margin-bottom: 4px !important;
+    width: 120%;
+    height: 100%;
 }
-.mainFooter{
-  background-color: grey;
-  margin-bottom: 0 !important;
-  position: fixed;
-  left: 0;
-  bottom: 0;
+
+.mainFooter {
+    background-color: grey;
+    margin-bottom: 0 !important;
+    position: fixed;
+    left: 0;
+    bottom: 0;
 }
 
 /* SDG Menu Icons */
-.sdgMenuIcons{
-  width:80px;
-  height:80px;
-  margin-bottom: 2px;
+.sdgMenuIcons {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 2px;
 }
 
-.sdgContainer{
-  margin-left: 50px;
-  background-color: #F0F0F0;
+.sdgContainer {
+    margin-left: 50px;
+    background-color: #F0F0F0;
+}
+
+.sdgSectionIcons {
+    width: 120%;
+    height: 100%;
+    margin-left: -15px;
+
 }

@@ -147,7 +147,7 @@
     "sdg17": 50
   },
   {
-    "country": "Cape Verde",
+    "country": "Cabo Verde",
     "region":"WAF",
     "sdg1": 50,
     "sdg2": 10,
@@ -168,7 +168,7 @@
     "sdg17": 50
   },
   {
-    "country": "Central African Rep.",
+    "country": "Central African Republic",
     "region":"CAF",
     "sdg1": 70,
     "sdg2": 90,
@@ -231,7 +231,7 @@
     "sdg17": 50
   },
   {
-    "country": "Congo Brazzaville",
+    "country": "Congo",
     "region":"CAF",
     "sdg1": 70,
     "sdg2": 90,
@@ -252,7 +252,7 @@
     "sdg17": 50
   },
   {
-    "country": "Congo Kinshasa",
+    "country": "Democratic Republic of Congo",
     "region":"CAF",
     "sdg1": 70,
     "sdg2": 10,
@@ -483,7 +483,7 @@
     "sdg17": 50
   },
   {
-    "country": "Guinea Bissau",
+    "country": "Guinea-Bissau",
     "region":"WAF",
     "sdg1": 70,
     "sdg2": 90,
@@ -945,7 +945,7 @@
     "sdg17": 50
   },
   {
-    "country": "Swaziland",
+    "country": "eSwatini",
     "region":"SAF",
     "sdg1": 70,
     "sdg2": 10,
@@ -966,7 +966,7 @@
     "sdg17": 50
   },
   {
-    "country": "Sao Tome & Princ.",
+    "country": "Sao Tome And Principe",
     "region":"CAF",
     "sdg1": 50,
     "sdg2": 10,

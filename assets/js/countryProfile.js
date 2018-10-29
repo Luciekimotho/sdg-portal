@@ -5,7 +5,7 @@ TODO:
 
 // Function to load specific country data on map click start
 function loadCountryData(countryId) {
-    var countryDataURL = 'assets/data/countryProfile.json';
+    var countryDataURL = '../assets/data/countryProfile.json';
     var countryData = null;
     countryDemographicsChart(countryId);
     countryBarometerGraph(countryId,1);
@@ -27,7 +27,7 @@ function loadCountryData(countryId) {
                     '<h4 class="white" id="region"><i class="fa fa-globe"></i> Region:' + countryData.region + '</h4>' +
                     '<h4 class="white" id="capitalCity"><i class="fa fa-map-marker"></i> Capital:' + countryData.capital + '</h4>' +
                     '</div>';
-                var flagURL = '<img src="' + countryData.flagURL + '" class="img-fluid" style="max-width:50%;max-height:50%;float: right;">';
+                var flagURL = '<img src="'+'../' + countryData.flagURL + '" class="img-fluid" style="max-width:50%;max-height:50%;float: right;">';
                 var countryStatistics = '<div class="col-md-4 user-pad text-center">' +
                     '<h3>SIZE(sq.km)</h3>' +
                     '<h4>' + countryData.size + '</h4>' +
@@ -55,19 +55,19 @@ var dataSourceURL = null;
 function updateAfricaMap(n) {
     if (n == 411) {
         $('#myModal').modal('hide');
-        dataSourceURL = 'assets/data/trial.json';
+        dataSourceURL = '../assets/data/trial.json';
         loadMap(1);
 
     }
     else if (412) {
         $('#myModal').modal('hide');
-        dataSourceURL = 'assets/data/trial.json';
+        dataSourceURL = '../assets/data/trial.json';
         loadMap(1);
     }
 }
 
 $(document).ready(function () {
-    dataSourceURL = 'assets/data/trial.json';
+    dataSourceURL = '../assets/data/trial.json';
     loadMap(1);
 });
 
@@ -108,8 +108,8 @@ function loadMap(n) {
 
                 colorAxis: {
                     min: 0,
-                    minColor: '#f9db8e',
-                    maxColor: '#f9db8e'
+                    minColor: '#00BFFF',
+                    maxColor: '#00BFFF'
                 },
 
                 series: [{
