@@ -7,9 +7,9 @@ $(document).ready(function () {
 });
 
 function loadTarget(containerID) {
-    loadMap(1,containerID);
+    loadMap(1,containerID);//TODO function called 1
 }
-
+ //Function to load map
 function loadMap(n,containerID) {
     if (n == 1) {
         $("#container"+containerID).css({"width":"100%", "height":"500px"});
