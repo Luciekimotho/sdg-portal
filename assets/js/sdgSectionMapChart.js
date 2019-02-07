@@ -19,26 +19,26 @@ function loadMap(n,containerID) {
             countriesData = data;
         });
         var geoj = Highcharts.maps['custom/world-continents'],
-            cities = [
-                {
-                    name: 'Johannesburg',
-                    continent: ['Africa', 'South Africa'],
-                    lat: -26.2041,
-                    lon: 28.0473
-                },
-                {
-                    name: 'Morocco',
-                    continent: ['Africa', 'Algeria'],
-                    lat: 31.7917,
-                    lon: 7.0926
-                }
-            ],
+            // cities = [
+            //     {
+            //         name: 'Johannesburg',
+            //         continent: ['Africa', 'South Africa'],
+            //         lat: -26.2041,
+            //         lon: 28.0473
+            //     },
+            //     {
+            //         name: 'Morocco',
+            //         continent: ['Africa', 'Algeria'],
+            //         lat: 31.7917,
+            //         lon: 7.0926
+            //     }
+            // ],
             data = [
-                {
-                    code: 'af',
-                    drilldown: 'custom/africa',
-                    value: 1
-                }
+                // {
+                //     code: 'af',
+                //     drilldown: 'custom/africa',
+                //     value: 2
+                // }
             ]
 
         $('#container'+containerID).highcharts('Map', {
@@ -48,7 +48,7 @@ function loadMap(n,containerID) {
                             var chart = this,
                                 mapKey = e.point.drilldown,
                                 chartName = e.point.name;
-
+                            console.log(e.point.drilldown);
                             $.getScript('https://code.highcharts.com/mapdata/' + mapKey + '.js', function () {
                                 var data = [],
                                     // chosenCities = [],
