@@ -1368,13 +1368,14 @@ function loadMap(n, containerID) {
                                     drillPath = 'countries/' + elem.properties['hc-key'].slice(0, 2) + '/' + elem.properties['hc-key'] + '-all';
                                     data.push({
                                         code: elem.properties['hc-key'],
-                                        value: indxx,
-                                        drilldown: drillPath
+                                        value: countriesData.value,
+                                        // drilldown: drillPath
                                     })
                                 });
                                 // Hide loading and add series
                                 chart.addSingleSeriesAsDrilldown(e.point, {
                                     name: e.point.name,
+                                    data:data,
                                     mapData: regionMap,
                                     joinBy: ['hc-key', 'code'],
                                 });
