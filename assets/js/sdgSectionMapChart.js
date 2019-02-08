@@ -24,8 +24,8 @@ function loadMap(n, containerID) {
                 "title": "Africa",
                 "version": "1.1.2",
                 "type": "FeatureCollection",
-                "copyright": "Copyright (c) 2015 Highsoft AS, Based on data from Natural Earth",
-                "copyrightShort": "Natural Earth",
+                "copyright": "Copyright (c) 2019 Africa SDG Watch",
+                "copyrightShort": "Africa SDG Watch",
                 "copyrightUrl": "http://www.naturalearthdata.com",
                 "crs": {"type": "name", "properties": {"name": "urn:ogc:def:crs:EPSG:102024"}},
                 "hc-transform": {
@@ -1406,6 +1406,9 @@ function loadMap(n, containerID) {
                         }
                     },
                     map: 'custom/africa'
+                },
+                credits: {
+                    enabled: false
                 },
                 title: {
                     text: ''
