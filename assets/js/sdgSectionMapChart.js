@@ -24,7 +24,7 @@ function loadMap(n, containerID) {
                     "type": "FeatureCollection",
                     "copyright": "Copyright (c) 2019 Africa SDG Watch",
                     "copyrightShort": "Africa SDG Watch",
-                    "copyrightUrl": "http://www.naturalearthdata.com",
+                    "copyrightUrl": "https://sdgcafrica.org/",
                     "crs": {"type": "name", "properties": {"name": "urn:ogc:def:crs:EPSG:102024"}},
                     "hc-transform": {
                         "default": {
