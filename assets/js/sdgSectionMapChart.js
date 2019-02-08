@@ -1464,6 +1464,13 @@ function loadMap(n, containerID) {
                             y: 60
                         }
                     }
+                },
+                exporting: {
+                    buttons:{
+                        contextButton:{
+                            menuItems:['downloadCSV','downloadPDF','downloadPNG']
+                        }
+                    }
                 }
             });
             window.scrollTo(0, document.body.scrollHeight);
