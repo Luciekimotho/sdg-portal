@@ -2,34 +2,37 @@
 TODO:
 - Check data labels after drilling. Label rank? New positions?
 */
-var dataSourceURL = null;
 $(document).ready(function () {
     loadMap(1);
-    dataSourceURL = '../assets/data/sdgTarget11.json';
 });
+
 function loadTarget(containerID) {
-    loadMap(1, containerID);//TODO function called 1
+    loadMap(1, containerID, '');//TODO function called 1
 }
 
-function chooseDataSource() {
-    $("#selectData").on('change', function () {
-        var datasourceValue = $("#selectData").val();
-        console.log(datasourceValue);
-        if (datasourceValue === "mrsData") {
-            dataSourceURL = '';
+function chooseDataSource(containerIDNo) {
+    var datasourceValue = $("#selectData").val();
+    if (datasourceValue === "mrsData") {
+        $("#container" + containerIDNo).empty();
+        var mrsDataSourceURL = '';
+        console.log("MRS is the data source");
+        loadMap(1, containerIDNo, mrsDataSourceURL);
 
-        } else {
-            dataSourceURL = '../assets/data/sdgTarget11.json';
-        }
-    });
+    } else if (datasourceValue === "globalData") {
+        $("#container" + containerIDNo).empty();
+        var globalDataSourceURL = '../assets/data/sdgTarget11.json';
+        console.log("Global database is the data source");
+        loadMap(1, containerIDNo, globalDataSourceURL);
+    } else {
+        console.log("No Data Source Matching");
+    }
 }
 
 
 //Function to load map
-function loadMap(n, containerID) {
+function loadMap(n, containerID, dataSourceURL) {
     if (n == 1) {
         $("#container" + containerID).css({"width": "100%", "height": "500px"});
-        // var dataSourceURL = '../assets/data/sdgTarget11.json';
         var countriesData = null;
         $.getJSON(dataSourceURL, function (data) {
             countriesData = data;
