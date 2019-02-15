@@ -1,15 +1,14 @@
-/*
-TODO:
-- Check data labels after drilling. Label rank? New positions?
-*/
+//Loads after the page is ready
 $(document).ready(function () {
     loadMap(1);
 });
 
+//Called when a target is clicked
 function loadTarget(containerID) {
     loadMap(1, containerID, '');//TODO function called 1
 }
 
+//Called on change data source dropdown
 function chooseDataSource(containerIDNo) {
     var datasourceValue = $("#selectData").val();
     if (datasourceValue === "mrsData") {
