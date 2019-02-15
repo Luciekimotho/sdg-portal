@@ -6,24 +6,29 @@ $(document).ready(function () {
 //Called when a target is clicked
 function loadTarget(containerID) {
     loadMap(1, containerID, '');//TODO function called 1
+    $("select[id^='selectPeriod']").hide();
 }
+
 
 //Called on change data source dropdown
 function chooseDataSource(containerIDNo, targetNo) {
-    var datasourceValue = $("#selectData").val();
+    var datasourceValue = $("#selectData"+targetNo).val();
     if (datasourceValue === "mrsData") {
         $("#container" + containerIDNo).empty();
         var mrsDataSourceURL = '../assets/data/sdgTarget'+targetNo+'.json';
         console.log("MRS is the data source");
         loadMap(1, containerIDNo, mrsDataSourceURL);
+        $("select[id^='selectPeriod']").show();
 
     } else if (datasourceValue === "globalData") {
         $("#container" + containerIDNo).empty();
         var globalDataSourceURL = '../assets/data/sdgTarget'+targetNo+'.json';
         console.log("Global database is the data source");
         loadMap(1, containerIDNo, globalDataSourceURL);
+        $("select[id^='selectPeriod']").show();
     } else {
         console.log("No Data Source Matching");
+        $("select[id^='selectPeriod']").hide();
     }
 }
 
