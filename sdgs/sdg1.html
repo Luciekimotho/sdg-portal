@@ -89,12 +89,24 @@
                 extreme
                 poverty for all people everywhere, currently
                 measured as people living on less than $1.90 a day."</i></p>
-            <div class="col-md-12 text-center">
-            <select id="selectData" class="btn btn-primary" onchange="chooseDataSource(1,11);">
-                <option>Please select a data source</option>
-                <option value="globalData">Global Database</option>
-                <option value="mrsData">PanAfrican MRS</option>
-            </select>
+            <div class=" row text-center">
+                <div class="col-md-4">
+                    <select id="selectData" class="btn btn-primary" onchange="chooseDataSource(1,11);">
+                        <option>Please select a data source</option>
+                        <option value="globalData">Global Database</option>
+                        <option value="mrsData">PanAfrican MRS</option>
+                    </select>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <select id="selectPeriod" class="btn btn-primary" onchange="choosePeriod(1,11);">
+                        <option>Please select a Period</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                    </select>
+                </div>
             </div>
             <div class="row card-body" id="container1">
 
