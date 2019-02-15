@@ -9,17 +9,17 @@ function loadTarget(containerID) {
 }
 
 //Called on change data source dropdown
-function chooseDataSource(containerIDNo) {
+function chooseDataSource(containerIDNo, targetNo) {
     var datasourceValue = $("#selectData").val();
     if (datasourceValue === "mrsData") {
         $("#container" + containerIDNo).empty();
-        var mrsDataSourceURL = '';
+        var mrsDataSourceURL = '../assets/data/sdgTarget'+targetNo+'.json';
         console.log("MRS is the data source");
         loadMap(1, containerIDNo, mrsDataSourceURL);
 
     } else if (datasourceValue === "globalData") {
         $("#container" + containerIDNo).empty();
-        var globalDataSourceURL = '../assets/data/sdgTarget11.json';
+        var globalDataSourceURL = '../assets/data/sdgTarget'+targetNo+'.json';
         console.log("Global database is the data source");
         loadMap(1, containerIDNo, globalDataSourceURL);
     } else {
@@ -1491,6 +1491,8 @@ function loadMap(n, containerID, dataSourceURL) {
                 }
             });
             window.scrollTo(0, document.body.scrollHeight);
+        }).fail(function () {
+            console.log("Error: Data Source Missing");
         });
     }
     if (n == 2) {
