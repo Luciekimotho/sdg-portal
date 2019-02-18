@@ -8,14 +8,22 @@ function loadTarget(containerID) {
     loadMap(1, containerID, '');//TODO function called 1
     $("select[id^='selectPeriod']").hide();
 }
+//ChoosePeriod function
+function choosePeriod(containerIDNo, targetNo){
+    var period=$("#selectPeriod"+targetNo).val();
+    console.log(period+" is the selected period.");
+    var dataSourceFileURL='../assets/data/sdgTarget'+targetNo+'_'+period+'.json';
+    chooseDataSource(containerIDNo, targetNo, dataSourceFileURL);
+}
 
 
 //Called on change data source dropdown
-function chooseDataSource(containerIDNo, targetNo) {
+function chooseDataSource(containerIDNo, targetNo,dataSourceFileURL ) {
     var datasourceValue = $("#selectData"+targetNo).val();
     if (datasourceValue === "mrsData") {
+        //TODO call the ChoosePeriod function
         $("#container" + containerIDNo).empty();
-        var mrsDataSourceURL = '../assets/data/sdgTarget'+targetNo+'.json';
+        var mrsDataSourceURL =dataSourceFileURL;
         console.log("MRS is the data source");
         loadMap(1, containerIDNo, mrsDataSourceURL);
         $("select[id^='selectPeriod']").show();
