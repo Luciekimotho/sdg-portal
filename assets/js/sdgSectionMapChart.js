@@ -10,28 +10,27 @@ function loadTarget(containerID) {
 }
 //ChoosePeriod function
 function choosePeriod(containerIDNo, targetNo){
-    var period=$("#selectPeriod"+targetNo).val();
+    var selectorID=$("#selectPeriod"+targetNo);
+    var period=selectorID.val();
     console.log(period+" is the selected period.");
-    var dataSourceFileURL='../assets/data/sdgTarget'+targetNo+'_'+period+'.json';
-    chooseDataSource(containerIDNo, targetNo, dataSourceFileURL);
+    chooseDataSource(containerIDNo, targetNo, period);
 }
 
 
 //Called on change data source dropdown
-function chooseDataSource(containerIDNo, targetNo,dataSourceFileURL ) {
+function chooseDataSource(containerIDNo, targetNo,period ) {
     var datasourceValue = $("#selectData"+targetNo).val();
     if (datasourceValue === "mrsData") {
-        //TODO call the ChoosePeriod function
         $("#container" + containerIDNo).empty();
-        var mrsDataSourceURL =dataSourceFileURL;
-        console.log("MRS is the data source");
+        var mrsDataSourceURL ='../assets/data/sdgTarget'+targetNo+datasourceValue+'_'+period+'.json';
+        console.log("MRS is the data source "+period);
         loadMap(1, containerIDNo, mrsDataSourceURL);
         $("select[id^='selectPeriod']").show();
 
     } else if (datasourceValue === "globalData") {
         $("#container" + containerIDNo).empty();
-        var globalDataSourceURL = '../assets/data/sdgTarget'+targetNo+'.json';
-        console.log("Global database is the data source");
+        var globalDataSourceURL = '../assets/data/sdgTarget'+targetNo+datasourceValue+'_'+period+'.json';
+        console.log("Global database is the data source for "+period);
         loadMap(1, containerIDNo, globalDataSourceURL);
         $("select[id^='selectPeriod']").show();
     } else {
