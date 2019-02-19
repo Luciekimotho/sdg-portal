@@ -23,16 +23,6 @@
     <!-- Script to include header file -->
     <script src="https://www.w3schools.com/lib/w3.js"></script>
 
-
-    <!-- Highchart links -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
-    <script src="https://code.highcharts.com/maps/modules/data.js"></script>
-    <script src="https://code.highcharts.com/maps/modules/drilldown.js"></script>
-    <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/maps/modules/offline-exporting.js"></script>
-    <script src="https://code.highcharts.com/mapdata/custom/africa.js"></script>
-
     <!-- Sample Line Chart libraries -->
     <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
     <script src="https://www.amcharts.com/lib/3/serial.js"></script>
@@ -77,14 +67,14 @@
             <h4 class="title" style="color: white !important;text-align: center;font-weight: bold;">SDG 9 Targets</h4>
             <p class="description nav nav-tabs"
                style="color: white !important;text-align: center !important; display: inherit !important;margin: 2px 0;margin-bottom: 1%;">
-                <a data-toggle="tab" href="#target91" class="btn btn-danger sdg9-btn">Target 9.1</a>
-                <a data-toggle="tab" href="#target92" class="btn btn-danger sdg9-btn">Target 9.2</a>
-                <a data-toggle="tab" href="#target93" class="btn btn-danger sdg9-btn">Target 9.3</a>
-                <a data-toggle="tab" href="#target94" class="btn btn-danger sdg9-btn">Target 9.4</a>
-                <a data-toggle="tab" href="#target99" class="btn btn-danger sdg9-btn">Target 9.5</a>
-                <a data-toggle="tab" href="#target9A" class="btn btn-danger sdg9-btn">Target 9.A</a>
-                <a data-toggle="tab" href="#target9B" class="btn btn-danger sdg9-btn">Target 9.B</a>
-                <a data-toggle="tab" href="#target9C" class="btn btn-danger sdg9-btn">Target 9.C</a>
+                <a data-toggle="tab" href="#target91"  onclick="loadTarget(1)" class="btn btn-danger sdg9-btn">Target 9.1</a>
+                <a data-toggle="tab" href="#target92"  onclick="loadTarget(2)" class="btn btn-danger sdg9-btn">Target 9.2</a>
+                <a data-toggle="tab" href="#target93"  onclick="loadTarget(3)" class="btn btn-danger sdg9-btn">Target 9.3</a>
+                <a data-toggle="tab" href="#target94"  onclick="loadTarget(4)" class="btn btn-danger sdg9-btn">Target 9.4</a>
+                <a data-toggle="tab" href="#target99"  onclick="loadTarget(5)" class="btn btn-danger sdg9-btn">Target 9.5</a>
+                <a data-toggle="tab" href="#target9A"  onclick="loadTarget(6)" class="btn btn-danger sdg9-btn">Target 9.A</a>
+                <a data-toggle="tab" href="#target9B"  onclick="loadTarget(7)" class="btn btn-danger sdg9-btn">Target 9.B</a>
+                <a data-toggle="tab" href="#target9C"  onclick="loadTarget(8)" class="btn btn-danger sdg9-btn">Target 9.C</a>
             </p>
         </div>
     </div>
@@ -98,6 +88,25 @@
                 sustainable and resilient infrastructure, including regional and transborder infrastructure, to support
                 economic development and human well-being, with a focus on affordable and equitable access for all."</i>
             </p>
+            <div class=" row text-center">
+                <div class="col-md-4">
+                    <select id="selectData11" class="btn btn-primary" onchange="chooseDataSource(1,11);">
+                        <option value="placeholder">Please select a data source</option>
+                        <option value="globalData">Global Database</option>
+                        <option value="mrsData">PanAfrican MRS</option>
+                    </select>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <select id="selectPeriod11" class="btn btn-primary" onchange="choosePeriod(1,11);">
+                        <option>Please select a Period</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                    </select>
+                </div>
+            </div>
             <div class="row card-body" id="container"></div>
             <hr>
             <div class="row card-footer">
@@ -122,6 +131,25 @@
                 sustainable industrialization and, by 2030, significantly raise industry’s share of employment and gross
                 domestic product, in line with national circumstances, and double its share in least developed
                 countries."</i></p>
+            <div class=" row text-center">
+                <div class="col-md-4">
+                    <select id="selectData11" class="btn btn-primary" onchange="chooseDataSource(1,11);">
+                        <option value="placeholder">Please select a data source</option>
+                        <option value="globalData">Global Database</option>
+                        <option value="mrsData">PanAfrican MRS</option>
+                    </select>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <select id="selectPeriod11" class="btn btn-primary" onchange="choosePeriod(1,11);">
+                        <option>Please select a Period</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                    </select>
+                </div>
+            </div>
             <div class="row card-body" id="container2"></div>
             <hr>
             <div class="row card-footer">
@@ -146,6 +174,25 @@
             <p style="text-align: center;color: black;"><i><strong>Target:</strong> "Increase the access of
                 small-scale industrial and other enterprises, in particular in developing countries, to financial
                 services, including affordable credit, and their integration into value chains and markets."</i></p>
+            <div class=" row text-center">
+                <div class="col-md-4">
+                    <select id="selectData11" class="btn btn-primary" onchange="chooseDataSource(1,11);">
+                        <option value="placeholder">Please select a data source</option>
+                        <option value="globalData">Global Database</option>
+                        <option value="mrsData">PanAfrican MRS</option>
+                    </select>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <select id="selectPeriod11" class="btn btn-primary" onchange="choosePeriod(1,11);">
+                        <option>Please select a Period</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                    </select>
+                </div>
+            </div>
             <div class="row card-body" id="container3"></div>
             <hr>
             <div class="row card-footer">
@@ -170,6 +217,25 @@
                 infrastructure and retrofit industries to make them sustainable, with increased resource-use efficiency
                 and greater adoption of clean and environmentally sound technologies and industrial processes, with all
                 countries taking action in accordance with their respective capabilities."</i></p>
+            <div class=" row text-center">
+                <div class="col-md-4">
+                    <select id="selectData11" class="btn btn-primary" onchange="chooseDataSource(1,11);">
+                        <option value="placeholder">Please select a data source</option>
+                        <option value="globalData">Global Database</option>
+                        <option value="mrsData">PanAfrican MRS</option>
+                    </select>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <select id="selectPeriod11" class="btn btn-primary" onchange="choosePeriod(1,11);">
+                        <option>Please select a Period</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                    </select>
+                </div>
+            </div>
             <div class="row card-body" id="container4"></div>
             <hr>
             <div class="row card-footer">
@@ -197,6 +263,25 @@
                 research and development workers per 1 million people and public and private research and development
                 spending."</i>
             </p>
+            <div class=" row text-center">
+                <div class="col-md-4">
+                    <select id="selectData11" class="btn btn-primary" onchange="chooseDataSource(1,11);">
+                        <option value="placeholder">Please select a data source</option>
+                        <option value="globalData">Global Database</option>
+                        <option value="mrsData">PanAfrican MRS</option>
+                    </select>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <select id="selectPeriod11" class="btn btn-primary" onchange="choosePeriod(1,11);">
+                        <option>Please select a Period</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                    </select>
+                </div>
+            </div>
             <div class="row card-body" id="container5"></div>
             <hr>
             <div class="row card-footer">
@@ -223,6 +308,25 @@
                 and technical support to African countries, least developed countries, landlocked developing countries
                 and small island developing States."</i>
             </p>
+            <div class=" row text-center">
+                <div class="col-md-4">
+                    <select id="selectData11" class="btn btn-primary" onchange="chooseDataSource(1,11);">
+                        <option value="placeholder">Please select a data source</option>
+                        <option value="globalData">Global Database</option>
+                        <option value="mrsData">PanAfrican MRS</option>
+                    </select>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <select id="selectPeriod11" class="btn btn-primary" onchange="choosePeriod(1,11);">
+                        <option>Please select a Period</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                    </select>
+                </div>
+            </div>
             <div class="row card-body" id="container36"></div>
             <hr>
             <div class="row card-footer">
@@ -248,6 +352,25 @@
                 development, research and innovation in developing countries, including by ensuring a conducive policy
                 environment for, inter alia, industrial diversification and value addition to commodities."</i>
             </p>
+            <div class=" row text-center">
+                <div class="col-md-4">
+                    <select id="selectData11" class="btn btn-primary" onchange="chooseDataSource(1,11);">
+                        <option value="placeholder">Please select a data source</option>
+                        <option value="globalData">Global Database</option>
+                        <option value="mrsData">PanAfrican MRS</option>
+                    </select>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <select id="selectPeriod11" class="btn btn-primary" onchange="choosePeriod(1,11);">
+                        <option>Please select a Period</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                    </select>
+                </div>
+            </div>
             <div class="row card-body" id="container37"></div>
             <hr>
             <div class="row card-footer">
@@ -273,6 +396,25 @@
                 to information and communications technology and strive to provide universal and affordable access to
                 the Internet in least developed countries by 2020."</i>
             </p>
+            <div class=" row text-center">
+                <div class="col-md-4">
+                    <select id="selectData11" class="btn btn-primary" onchange="chooseDataSource(1,11);">
+                        <option value="placeholder">Please select a data source</option>
+                        <option value="globalData">Global Database</option>
+                        <option value="mrsData">PanAfrican MRS</option>
+                    </select>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <select id="selectPeriod11" class="btn btn-primary" onchange="choosePeriod(1,11);">
+                        <option>Please select a Period</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                    </select>
+                </div>
+            </div>
             <div class="row card-body" id="container38"></div>
             <hr>
             <div class="row card-footer">
@@ -316,11 +458,17 @@
 <script src="../assets/js/paper-kit.js?v=2.1.0"></script>
 
 <!-- Highmaps Link for Africa -->
-<script type="text/javascript" src="../assets/js/africa-map.js"></script>
-<!-- <script type="text/javascript" src="../../assets/js/lineChartSample.js"></script> -->
+<script type="text/javascript" src="../assets/js/sdg/mapChart.js"></script>
 
 <script>
     w3.includeHTML();
 </script>
+<script src="https://code.highcharts.com/maps/highmaps.js"></script>
+<script src="https://code.highcharts.com/maps/modules/data.js"></script>
+<script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/maps/modules/offline-exporting.js"></script>
+<script src="https://code.highcharts.com/maps/modules/drilldown.js"></script>
+<script src="https://code.highcharts.com/mapdata/custom/africa.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="../assets/js/menu.js"></script>
 </html>
