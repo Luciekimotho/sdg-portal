@@ -30,7 +30,7 @@
 //     if(sdg==1) {
 //         $('#tree-container').empty();
 //         $('#tree-container').removeClass();
-//         $('#tree-container').addClass('sdg1');
+//         $('#tree-container').addClass('sdg');
 //         dataSource= baseURL+"assets/data/sdg1Data.json";
 //     }
 //     if(sdg==2) {

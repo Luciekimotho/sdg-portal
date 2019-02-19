@@ -23,16 +23,6 @@
     <!-- Script to include header file -->
     <script src="https://www.w3schools.com/lib/w3.js"></script>
 
-
-    <!-- Highchart links -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
-    <script src="https://code.highcharts.com/maps/modules/data.js"></script>
-    <script src="https://code.highcharts.com/maps/modules/drilldown.js"></script>
-    <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/maps/modules/offline-exporting.js"></script>
-    <script src="https://code.highcharts.com/mapdata/custom/africa.js"></script>
-
     <!-- Sample Line Chart libraries -->
     <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
     <script src="https://www.amcharts.com/lib/3/serial.js"></script>
@@ -77,11 +67,11 @@
             <h4 class="title" style="color: white !important;text-align: center;font-weight: bold;">SDG 13 Targets</h4>
             <p class="description nav nav-tabs"
                style="color: white !important;text-align: center !important; display: inherit !important;margin: 2px 0;margin-bottom: 1%;">
-                <a data-toggle="tab" href="#target131" class="btn btn-danger sdg13-btn">Target 13.1</a>
-                <a data-toggle="tab" href="#target132" class="btn btn-danger sdg13-btn">Target 13.2</a>
-                <a data-toggle="tab" href="#target133" class="btn btn-danger sdg13-btn">Target 13.3</a>
-                <a data-toggle="tab" href="#target13A" class="btn btn-danger sdg13-btn">Target 13.A</a>
-                <a data-toggle="tab" href="#target13B" class="btn btn-danger sdg13-btn">Target 13.B</a>
+                <a data-toggle="tab" href="#target131"  onclick="loadTarget(1)" class="btn btn-danger sdg13-btn">Target 13.1</a>
+                <a data-toggle="tab" href="#target132"  onclick="loadTarget(2)" class="btn btn-danger sdg13-btn">Target 13.2</a>
+                <a data-toggle="tab" href="#target133"  onclick="loadTarget(3)" class="btn btn-danger sdg13-btn">Target 13.3</a>
+                <a data-toggle="tab" href="#target13A"  onclick="loadTarget(4)" class="btn btn-danger sdg13-btn">Target 13.A</a>
+                <a data-toggle="tab" href="#target13B"  onclick="loadTarget(5)" class="btn btn-danger sdg13-btn">Target 13.B</a>
             </p>
         </div>
     </div>
@@ -94,7 +84,26 @@
             </p>
             <p style="text-align: center;color: black;"><i><strong>Target:</strong> "Strengthen resilience and
                 adaptive capacity to climate-related hazards and natural disasters in all countries."</i></p>
-            <div class="row card-body" id="container"></div>
+            <div class=" row text-center">
+                <div class="col-md-4">
+                    <select id="selectData131" class="btn btn-primary" onchange="chooseDataSource(1,131);">
+                        <option value="placeholder">Please select a data source</option>
+                        <option value="globalData">Global Database</option>
+                        <option value="mrsData">PanAfrican MRS</option>
+                    </select>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <select id="selectPeriod131" class="btn btn-primary" onchange="choosePeriod(1,131);">
+                        <option>Please select a Period</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row card-body" id="container1"></div>
             <hr>
             <div class="row card-footer">
                 <div class="col-md-4" style="text-align: center;">
@@ -117,6 +126,25 @@
             </p>
             <p style="text-align: center;color: black;"><i><strong>Target:</strong> "Integrate climate change
                 measures into national policies, strategies and planning."</i></p>
+            <div class=" row text-center">
+                <div class="col-md-4">
+                    <select id="selectData132" class="btn btn-primary" onchange="chooseDataSource(2,132);">
+                        <option value="placeholder">Please select a data source</option>
+                        <option value="globalData">Global Database</option>
+                        <option value="mrsData">PanAfrican MRS</option>
+                    </select>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <select id="selectPeriod132" class="btn btn-primary" onchange="choosePeriod(2,132);">
+                        <option>Please select a Period</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                    </select>
+                </div>
+            </div>
             <div class="row card-body" id="container2"></div>
             <hr>
             <div class="row card-footer">
@@ -141,6 +169,25 @@
             <p style="text-align: center;color: black;"><i><strong>Target:</strong> "Improve education,
                 awareness-raising and human and institutional capacity on climate change mitigation, adaptation, impact
                 reduction and early warning."</i></p>
+            <div class=" row text-center">
+                <div class="col-md-4">
+                    <select id="selectData133" class="btn btn-primary" onchange="chooseDataSource(3,133);">
+                        <option value="placeholder">Please select a data source</option>
+                        <option value="globalData">Global Database</option>
+                        <option value="mrsData">PanAfrican MRS</option>
+                    </select>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <select id="selectPeriod133" class="btn btn-primary" onchange="choosePeriod(3,133);">
+                        <option>Please select a Period</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                    </select>
+                </div>
+            </div>
             <div class="row card-body" id="container3"></div>
             <hr>
             <div class="row card-footer">
@@ -168,7 +215,26 @@
                 developing countries in the context of meaningful mitigation actions and transparency on implementation
                 and fully operationalize the Green Climate Fund through its capitalization as soon as possible."</i>
             </p>
-            <div class="row card-body" id="container3A"></div>
+            <div class=" row text-center">
+                <div class="col-md-4">
+                    <select id="selectData13A" class="btn btn-primary" onchange="chooseDataSource(4,'13A');">
+                        <option value="placeholder">Please select a data source</option>
+                        <option value="globalData">Global Database</option>
+                        <option value="mrsData">PanAfrican MRS</option>
+                    </select>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <select id="selectPeriod13A" class="btn btn-primary" onchange="choosePeriod(4,'13A');">
+                        <option>Please select a Period</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row card-body" id="container4"></div>
             <hr>
             <div class="row card-footer">
                 <div class="col-md-4" style="text-align: center;">
@@ -194,7 +260,26 @@
                 countries and small island developing States, including focusing on women, youth and local and
                 marginalized communities."</i>
             </p>
-            <div class="row card-body" id="container3B"></div>
+            <div class=" row text-center">
+                <div class="col-md-4">
+                    <select id="selectData13B" class="btn btn-primary" onchange="chooseDataSource(5,'13B');">
+                        <option value="placeholder">Please select a data source</option>
+                        <option value="globalData">Global Database</option>
+                        <option value="mrsData">PanAfrican MRS</option>
+                    </select>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <select id="selectPeriod13B" class="btn btn-primary" onchange="choosePeriod(5,'13B');">
+                        <option>Please select a Period</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row card-body" id="container5"></div>
             <hr>
             <div class="row card-footer">
                 <div class="col-md-4" style="text-align: center;">
@@ -237,11 +322,17 @@
 <script src="../assets/js/paper-kit.js?v=2.1.0"></script>
 
 <!-- Highmaps Link for Africa -->
-<script type="text/javascript" src="../assets/js/africa-map.js"></script>
-<!-- <script type="text/javascript" src="../../assets/js/lineChartSample.js"></script> -->
+<script type="text/javascript" src="../assets/js/sdg/mapChart.js"></script>
 
 <script>
     w3.includeHTML();
 </script>
+<script src="https://code.highcharts.com/maps/highmaps.js"></script>
+<script src="https://code.highcharts.com/maps/modules/data.js"></script>
+<script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/maps/modules/offline-exporting.js"></script>
+<script src="https://code.highcharts.com/maps/modules/drilldown.js"></script>
+<script src="https://code.highcharts.com/mapdata/custom/africa.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="../assets/js/menu.js"></script>
 </html>
