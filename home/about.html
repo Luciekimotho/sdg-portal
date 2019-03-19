@@ -79,8 +79,28 @@
 
     <!-- Chart code -->
     <style>
-        .card-title, .card-text,.explore{
+        .card-title, .card-text, .explore {
             text-align: center;
+        }
+
+        .aboutUsCard {
+            height: 500px;
+            margin: 10px;
+        }
+
+        .iconCenter {
+            height: 200px;
+            width: 300px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 5%;
+        }
+
+        .iconText {
+            text-align: center;
+            font-weight: bold;
+            color: white;
         }
     </style>
 
@@ -93,31 +113,62 @@
     <div class="row" style="width: 100% !important;height: 10%;">
         <div class="col-md-12" w3-include-html="../layouts/header.html"></div>
     </div>
-    <div class="row" style="width: 100% !important;margin-top: 1%;background-color: white;">
-        <div class="col-md-1"></div>
-        <div class="col-md-10">
-            <div class="card" style="width: 100%;height: 40rem;background-color:#D9B38A">
-                <!--<img class="card-img-top" src="..." alt="Card image cap">-->
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <p class="card-text">Welcome to the SDG and Agenda 2063 Data Portal for Africa
-                        The Portal aims to serve as a unique access point to timely and reliable information about SDG and Agenda 2063 data for Africa. The site is designed to help policy makers and enable the general public to reuse data.
-                        The Portal provides easy access to an ever wider range of data from governments institutions and governments partners bodies. You may use and reuse this data for profitable or non- profitable purposes. It will assist national and regional discussions on where each country stands with regards to achieving the 2030 Agenda for Sustainable Development and the African Union 2063 Agenda, as well as which metrics might be useful to track progress.
-                        Explore the Data Portal
-                        Four sections of the Portal are intended to help for a quick and easy search of data and information
-                        SDGs – Compare goal and targets across countries
-                        Dashboard – the Dashboard provides a goal-level snapshot that is color-coded from red to green, which signifies goal achievement. Sub-regional dashboards are also available to allow countries to see how they are performing compared to their neighbors.
-                        Country profiles – snapshot of different metric performance within country by a dynamic barometer of achievement
-                        Agenda 2063 – dynamic progress of different metrics
-                        Data Portal team
-                        The data portal is managed by the SDGC/A team. The Sustainable Development Goals Center for Africa is deeply committed to accelerating the implementation of the SDGs across the continent. We work with governments institutions and their partners to standardize data and make them more easily accessible. Our goal is to give as much visibility as possible to these data.
-                        As a rule, you can reuse the data for free, as long as you mention the source (see disclaimer). A small number of data are subject to special conditions of reuse, most of which are related to the protection of the intellectual property rights of third parties.
+    <div class="row">
+        <div class="col-md-12">
+            <h3 style="text-align: center;">Welcome to the SDG and Agenda 2063 Data Portal for Africa</h3>
+            <p>The Portal aims to serve as a unique access point to timely and reliable information about SDG and Agenda
+                2063 data for Africa. The site is designed to help policy makers and enable the general public to reuse
+                data.
+            </p>
+            <p>
+                The Portal provides easy access to an ever wider range of data from governments institutions and
+                governments
+                partners bodies. You may use and reuse this data for profitable or non- profitable purposes. It will
+                assist
+                national and regional discussions on where each country stands with regards to achieving the 2030 Agenda
+                for
+                Sustainable Development and the African Union 2063 Agenda, as well as which metrics might be useful to
+                track
+                progress.
+            </p>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-10 ">
+            <h3 style="text-align: center;">Explore The Data Portal</h3>
+            <div class="row">
+                <div class="col card aboutUsCard" style="background-color: #8dc63f;">
+                    <div class="card-image"><img class="iconCenter" src="../assets/img/bg/sdgs.jpg"></div>
+                    <p style="align-items: center">
                     </p>
+                    <p class="iconText">SDGs</p>
+                    <p>Compare goal and targets across countries</p>
+                </div>
+                <div class="col card aboutUsCard" style="background-color: indigo;">
+                    <p style="align-items: center">
+                        <img class="iconCenter" src="../assets/img/bg/flag.png">
+                    </p>
+                    <p class="iconText">Dashboard</p>
+                    <p>Provides a goal-level snapshot that is color-coded from red to green, which signifies goal
+                        achievement. Sub-regional dashboards are also available to allow countries to see how they are
+                        performing compared to their neighbors.</p>
+                </div>
+                <div class="col card aboutUsCard" style="background-color: #00a79d">
+                    <p style="align-items: center">
+                        <img class="iconCenter" src="../assets/img/bg/graphs.png">
+                    </p>
+                    <p class="iconText">Country Profiles</p>
+                    <p>snapshot of different metric performance within country by a dynamic barometer of achievement</p>
+                </div>
+                <div class="col card aboutUsCard" style="background-color: #ee2a7b">
+                    <p style="align-items: center">
+                        <img class="iconCenter" src="../assets/img/bg/visualize.png">
+                    </p>
+                    <p class="iconText">Agenda 2063</p>
+                    <p>Dynamic progress of different metrics</p>
                 </div>
             </div>
         </div>
-        <div class="col-md-1"></div>
     </div>
     <div class="row" style="height: 10%;">
         <div class="col-md-12" w3-include-html="../layouts/footer.html" style="background-color: #f5f5f5;"></div>
