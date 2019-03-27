@@ -87,8 +87,9 @@
             border: none;
             text-align: left;
             outline: none;
-            font-size: 15px;
+            font-size: 19px;
             transition: 0.4s;
+            font-weight: bolder;
         }
 
         .active, .accordion:hover {
@@ -114,6 +115,17 @@
             overflow: hidden;
             transition: max;
             margin-top: 2%;
+
+        }
+        .answer{
+            font-size: 18px;
+            margin-bottom: 2%;
+        }
+        .faqHeader{
+            text-align: center;
+            font-weight: bolder;
+            color: black;
+            margin-bottom: 2%;
         }
     </style>
 </head>
@@ -127,9 +139,10 @@
     <div class="row" style="width: 100% !important;margin-top:1%;background-color:white; z-index: 1;">
         <div class="col-md-1"></div>
         <div class="col-md-10">
+            <h1 class="faqHeader">Frequently Asked Questions</h1>
             <button class="accordion">Q: What are the Sustainable Development Goals (SDGs)?</button>
             <div class="panel">
-                <p>A: The 17 SDGs are universal goals that were adopted by all member states of the United Nations in
+                <p class="answer">A: The 17 SDGs are universal goals that were adopted by all member states of the United Nations in
                     2015 to guide international collaboration towards sustainable development. They follow the
                     Millennium Development Goals, and aim to end poverty, tackle inequality, protect the planet, promote
                     peace, and ensure prosperity for all. Each goal has specific targets to be achieved before 2030. See
@@ -139,7 +152,7 @@
 
             <button class="accordion">Q: Why develop an Africa SDG Index and Dashboards?</button>
             <div class="panel">
-                <p>A: The Africa SDG Index aggregates available data on all SDGs into a composite index to provide
+                <p class="answer">A: The Africa SDG Index aggregates available data on all SDGs into a composite index to provide
                     countries with a quick assessment of how they are performing relative to their peers. In this way
                     the Africa SDG Index can help draw attention to the SDGs and their role as a tool for guiding
                     national policies and long-term strategies for sustainable development. Its purpose is not to
@@ -166,7 +179,7 @@
                 monitoring?
             </button>
             <div class="panel">
-                <p>A: No. The Africa SDG Index and Dashboards are preliminary analytical tools to help governments and
+                <p class="answer">A: No. The Africa SDG Index and Dashboards are preliminary analytical tools to help governments and
                     other stakeholders take stock of where they currently stand with regards to achieving the SDGs and
                     to identify priorities for early action. As new data become available they will be included in the
                     SDG Index and Dashboards, which will be published on an annual basis for the next three years.
@@ -181,7 +194,7 @@
                 they not identical to the recently proposed official SDG Indicators?
             </button>
             <div class="panel">
-                <p>A: In early 2016, the UN Statistical Commission recommended several indicators for measuring the
+                <p class="answer">A: In early 2016, the UN Statistical Commission recommended several indicators for measuring the
                     progress towards the SDGs, which in April 2017 reached 232 indicators and was endorsed by the UN
                     Statistical Commission. Yet for most countries data remain unavailable for the vast majority of
                     these proposed indicators. It will take time and investments in statistical capacity to build up
@@ -219,7 +232,7 @@
             <button class="accordion">Q: Why are some countries not included in the Africa SDG Index?
             </button>
             <div class="panel">
-                <p>A: A country is included in the Africa SDG Index if it has data for at least 80% of the indicators.
+                <p class="answer">A: A country is included in the Africa SDG Index if it has data for at least 80% of the indicators.
                     Some countries with a population of less than one million have sufficient data and are therefore
                     included in the Africa SDG Index, despite the indicator selection criteria of 80% data availability
                     in countries with a population above one million. The fact that some countries lack sufficient data
@@ -230,7 +243,7 @@
             <button class="accordion">Q.: Where do the data for the Africa SDG Index and Dashboards come from?
             </button>
             <div class="panel">
-                <p>A: To the greatest extent possible, the Africa SDG Index and Dashboards rely on internationally
+                <p class="answer">A: To the greatest extent possible, the Africa SDG Index and Dashboards rely on internationally
                     comparable official statistics. In order to fill in some gaps in the official data, non-official
                     metrics from other reputable sources have been used, as described in the online metadata. Data for
                     each indicator have been rigorously selected and reviewed for quality, timeliness and verifiability.
@@ -240,7 +253,7 @@
                 indicators?
             </button>
             <div class="panel">
-                <p>A: To ensure comparability we normalize the data for each indicator by transforming it linearly into
+                <p class="answer">A: To ensure comparability we normalize the data for each indicator by transforming it linearly into
                     a scale from 0 to 100. A value of 100 denotes the technical optimum, while a value of zero denotes
                     the 2.5th percentile in the distribution. For clarity and ease of interpretation, we transform some
                     indicators so that in each case a higher score on the normalized indicator corresponds to a higher
@@ -250,7 +263,7 @@
             <button class="accordion">Q: How are the SDGs and the indicators weighted?
             </button>
             <div class="panel">
-                <p>A: Each SDG has the same weight in the Index and Dashboards, which is in line with the spirit of the
+                <p class="answer">A: Each SDG has the same weight in the Index and Dashboards, which is in line with the spirit of the
                     SDGs adopted in September 2015. This implies that countries need to pursue all 17 goals through
                     integrated strategies. Within each goal every indicator is equally weighted, which implies that
                     every indicator is weighted inversely to the number of indicators available for that particular SDG.
@@ -263,7 +276,7 @@
             <button class="accordion">Q: How to interpret the Africa SDG Dashboards?
             </button>
             <div class="panel">
-                <p>A: Some other indices use relative performance across countries to define thresholds. We believe that
+                <p class="answer">A: Some other indices use relative performance across countries to define thresholds. We believe that
                     absolute thresholds are more suitable since most SDGs require absolute benchmarks to be achieved. To
                     assess a country’s progress on a particular indicator, such absolute quantitative thresholds are
                     introduced to differentiate between situations where an SDG threshold has been met (green), where
@@ -276,7 +289,7 @@
                 aggregation method is used?
             </button>
             <div class="panel">
-                <p>A: The choice of aggregation formula can have important implications for the results of both the
+                <p class="answer">A: The choice of aggregation formula can have important implications for the results of both the
                     Africa SDG Index and Dashboards. Taking a simple average of indicator values (arithmetic
                     aggregation) implies that the indicators are perfectly substitutable: progress on one variable can
                     offset lack of progress on another. This approach is reasonable for indicators within the same goal
@@ -311,7 +324,7 @@
             <button class="accordion">Q: How do the Africa SDG Index and Dashboards deal with missing data?
             </button>
             <div class="panel">
-                <p>A: The Africa SDG Index and Dashboards do not model or extrapolate data at the indicator level to
+                <p class="answer">A: The Africa SDG Index and Dashboards do not model or extrapolate data at the indicator level to
                     fill gaps because such extrapolations are prone to errors. However, for the purposes of calculating
                     countries’ total index scores, we impute average regional goal scores for those countries that have
                     no data under a goal. This applies primarily to goal 10 (Reduced Inequalities) and goal 14 (Life
@@ -324,7 +337,7 @@
             <button class="accordion">Q: How do you estimate trends?
             </button>
             <div class="panel">
-                <p>Using historic data, we estimate how fast a country has been progressing towards an SDG and determine
+                <p class="answer">Using historic data, we estimate how fast a country has been progressing towards an SDG and determine
                     whether – if continued into the future – this pace will be sufficient to achieve the SDG by 2030.
                     For each indicator, SDG achievement is defined by the green threshold set for the SDG Dashboards.
                     The difference in percentage points between the green threshold and the normalized country score
@@ -365,7 +378,7 @@
                 target?
             </button>
             <div class="panel">
-                <p>A: Our methodology ignores movements (both positive and negative) which are above goal achievement
+                <p class="answer">A: Our methodology ignores movements (both positive and negative) which are above goal achievement
                     (the green threshold). Conceptually, our objective is to show how much countries are progressing
                     towards reaching the goals. Therefore, a country above the green threshold and that maintained its
                     performance above the green threshold is automatically considered as having maintained performance
@@ -377,7 +390,7 @@
                 has achieved all the SDGs?
             </button>
             <div class="panel">
-                <p>A: Absolutely not. While Morocco performs best on average based on the data we were able to mobilize
+                <p class="answer">A: Absolutely not. While Morocco performs best on average based on the data we were able to mobilize
                     for the SDG Index. The SDG Dashboards makes clear that every country faces major challenges in
                     achieving the SDGs. This applies equally to Morocco and other top-ranking countries.
                 </p>
@@ -385,7 +398,7 @@
             <button class="accordion">Q: How does the Africa SDG Index relate to other development indices for the SDGs?
             </button>
             <div class="panel">
-                <p>A: Many other composite development indices exist, but we are not aware of one tracking all 17 SDGs
+                <p class="answer">A: Many other composite development indices exist, but we are not aware of one tracking all 17 SDGs
                     at the country level. In 2015, the Bertelsmann Stiftung issued a report, which was the first to
                     develop an index for OECD countries to track SDG achievement and determine priorities for
                     implementation in each country. Another significant effort has been undertaken by the Overseas
@@ -398,14 +411,14 @@
             <button class="accordion">Q: How can I access the data for my country or region?
             </button>
             <div class="panel">
-                <p>A: Country profiles and data are available for download in this website. The data will be updated
+                <p class="answer">A: Country profiles and data are available for download in this website. The data will be updated
                     each year.
                 </p>
             </div>
             <button class="accordion">Q: What are the major data limitations?
             </button>
             <div class="panel">
-                <p>A: As explained in the report, the lack of data in some areas leaves significant gaps in the
+                <p class="answer">A: As explained in the report, the lack of data in some areas leaves significant gaps in the
                     analysis. In addition, the Africa SDG Dashboards do not capture important regional challenges that
                     are less relevant at the global level, such as neglected tropical diseases, malaria, or inequality
                     in education outcomes. Similarly, no globally available data could be found to track the impact a
@@ -417,7 +430,7 @@
             <button class="accordion">Q: When will the Africa SDG Index and Dashboards be updated?
             </button>
             <div class="panel">
-                <p>A: The Africa SDG Index and Dashboards will be updated annually to include new indicators as they
+                <p class="answer">A: The Africa SDG Index and Dashboards will be updated annually to include new indicators as they
                     become available, update the data, and incorporate suggestions on how to make the tools more useful
                     for countries and other stakeholders. The website will be continuously improved to facilitate the
                     real-time use of the data and comparisons across countries.
@@ -426,7 +439,7 @@
             <button class="accordion">Q: To whom can I address my comments on the Africa SDG Index and Dashboards?
             </button>
             <div class="panel">
-                <p>A: We welcome comments and suggestions for improving the Africa SDG Index and Dashboards. Please
+                <p class="answer">A: We welcome comments and suggestions for improving the Africa SDG Index and Dashboards. Please
                     address your comments and suggestions to <a href="mailto:africasdgindex@sdgcafrica.org">africasdgindex@sdgcafrica.org </a>
                     or <a href="mailto:africa@sdgindex.org">africa@sdgindex.org </a>.
                 </p>
