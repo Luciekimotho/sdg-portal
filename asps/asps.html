@@ -34,6 +34,7 @@
             $(".tabcontent").hide();
             $("#London").show();
         });
+
         function openCity(evt, cityName) {
             // Declare all variables
             var i, tabcontent, tablinks;
@@ -67,452 +68,893 @@
         <div class="row headerRow">
             <div class="col" w3-include-html="../layouts/header.html"></div>
         </div>
-        <div class="row" style="margin-top: 5%; width: 100%;margin-bottom: 3%;">
+        <div class="row" style="margin-top: 2%; width: 100%;margin-bottom: 2%;">
             <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 tab" style="">
                 <div class="row">
-                    <a href="#" onclick="openCity(event, 'London')" class="btn btn-large col aspIcons tablinks"
+                    <a href="#" onclick="openCity(event, 'Aspiration1')" class="btn btn-large col aspIcons tablinks"
                        style="background-color: #8CD348;">
                         Aspiration 1
                     </a>
                 </div>
                 <br>
                 <div class="row">
-                    <a href="#" onclick="openCity(event, 'Paris')"
-                       class="btn btn-large col aspIcons tablinks" style="background-color:#F07800;">
+                    <a href="#" onclick="openCity(event, 'Aspiration2')" class="btn btn-large col aspIcons tablinks"
+                       style="background-color:#F07800;">
                         Aspiration 2
                     </a>
                 </div>
-                <!--                <br>-->
-                <!--                <div class="row">-->
-                <!--                    <button onclick="aspirations(3);" class="btn btn-large col aspIcons"-->
-                <!--                            style="background-color:#BA0C2A">-->
-                <!--                        Aspiration 3-->
-                <!--                    </button>-->
-                <!--                </div>-->
-                <!--                <br>-->
-                <!--                <div class="row">-->
-                <!--                    <button onclick="aspirations(4);" class="btn btn-large col aspIcons"-->
-                <!--                            style="background-color:#385EAC">-->
-                <!--                        Aspiration 4-->
-                <!--                    </button>-->
-                <!--                </div>-->
-                <!--                <br>-->
-                <!--                <div class="row">-->
-                <!--                    <button onclick="aspirations(5);" class="btn btn-large col aspIcons"-->
-                <!--                            style="background-color:#0E0E0E">-->
-                <!--                        Aspiration 5-->
-                <!--                    </button>-->
-                <!--                </div>-->
-                <!--                <br>-->
-                <!--                <div class="row">-->
-                <!--                    <button onclick="aspirations(6);" class="btn btn-large col aspIcons"-->
-                <!--                            style="background-color:#733F87">-->
-                <!--                        Aspiration 6-->
-                <!--                    </button>-->
-                <!--                </div>-->
-                <!--                <br>-->
-                <!--                <div class="row">-->
-                <!--                    <button onclick="aspirations(7);" class="btn btn-large col aspIcons"-->
-                <!--                            style="background-color:#00B0D5">-->
-                <!--                        Aspiration 7-->
-                <!--                    </button>-->
-                <!--                </div>-->
+                <br>
+                <div class="row">
+                    <a href="#" onclick="openCity(event, 'Aspiration3');" class="btn btn-large col aspIcons tablinks"
+                       style="background-color:#BA0C2A">
+                        Aspiration 3
+                    </a>
+                </div>
+                <br>
+                <div class="row">
+                    <a href="#" onclick="openCity(event, 'Aspiration4');" class="btn btn-large col aspIcons tablinks"
+                       style="background-color:#385EAC">
+                        Aspiration 4
+                    </a>
+                </div>
+                <br>
+                <div class="row">
+                    <a href="#" onclick="openCity(event, 'Aspiration5');" class="btn btn-large col aspIcons tablinks"
+                       style="background-color:#0E0E0E">
+                        Aspiration 5
+                    </a>
+                </div>
+                <br>
+                <div class="row">
+                    <a href="#" onclick="openCity(event, 'Aspiration6');" class="btn btn-large col aspIcons tablinks"
+                       style="background-color:#733F87">
+                        Aspiration 6
+                    </a>
+                </div>
+                <br>
+                <div class="row">
+                    <a href="#" onclick="openCity(event, 'Aspiration7');" class="btn btn-large col aspIcons tablinks"
+                       style="background-color:#00B0D5">
+                        Aspiration 7
+                    </a>
+                </div>
             </div>
-            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 tabcontent" id="London">
-                <div class="row" style="margin: 0; margin-top: 0.5%;" >
+            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 tabcontent" id="Aspiration1">
+                <div class="row" style="margin: 0; margin-top: 0.5%;">
                     <div class="col-md-12" style="background-color:darkgrey;">
                         <h4 class="title" style="color: white !important;text-align: center;font-weight: bold;">
                             Aspiration 1: Integrated Africa</h4>
                         <p class="description nav nav-tabs"
                            style="color: white !important;text-align: center !important; display: inherit !important; margin-bottom: 1%;">
-                            <a data-toggle="tab" href="#target11" onclick="loadTarget(1)"
+                            <a data-toggle="tab" href="#goal1" onclick="loadTarget(1)"
                                class="btn btn-danger sdg1-btn">Goal 1</a>
-                            <a data-toggle="tab" href="#target12" onclick="loadTarget(2)"
+                            <a data-toggle="tab" href="#goal2" onclick="loadTarget(2)"
                                class="btn btn-danger sdg1-btn">Goal 2</a>
-                            <a data-toggle="tab" href="#target13" onclick="loadTarget(3)"
+                            <a data-toggle="tab" href="#goal3" onclick="loadTarget(3)"
                                class="btn btn-danger sdg1-btn">Goal 3</a>
-                            <a data-toggle="tab" href="#target14" onclick="loadTarget(4)"
+                            <a data-toggle="tab" href="#goal4" onclick="loadTarget(4)"
                                class="btn btn-danger sdg1-btn">Goal 4</a>
-                            <a data-toggle="tab" href="#target15" onclick="loadTarget(5)"
+                            <a data-toggle="tab" href="#goal5" onclick="loadTarget(5)"
                                class="btn btn-danger sdg1-btn">Goal 5</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 tabcontent" id="Paris">
-                <div class="row" style="margin: 0; margin-top: 0.5%;" >
-                    <div class="col-md-12" style="background-color:darkgrey;">
-                        <h4 class="title" style="color: white !important;text-align: center;font-weight: bold;">
-                            Aspiration 2: Integrated Africa</h4>
-                        <p class="description nav nav-tabs"
-                           style="color: white !important;text-align: center !important; display: inherit !important; margin-bottom: 1%;">
-                            <a data-toggle="tab" href="#target21" onclick="loadTarget(6)"
+                            <a data-toggle="tab" href="#goal6" onclick="loadTarget(6)"
                                class="btn btn-danger sdg1-btn">Goal 6</a>
-                            <a data-toggle="tab" href="#target22" onclick="loadTarget(7)"
+                            <a data-toggle="tab" href="#goal7" onclick="loadTarget(7)"
                                class="btn btn-danger sdg1-btn">Goal 7</a>
                         </p>
                     </div>
                 </div>
-<!--                <div class="tab-content">-->
-<!--                    <div id="aspiration1" class="row"-->
-<!--                         style="width: 100% !important;margin: 0; margin-top: 1%;">-->
-<!--                        <div class="col-md-1"></div>-->
-<!--                        <div class="col-md-10 card tab-pane fade" id="target11"-->
-<!--                             style="border-radius: 0;background-color: white">-->
-<!--                            <p style="text-align: center;color: black;"><i>Eradicate extreme-->
-<!--                                poverty</i>-->
-<!--                            </p>-->
-<!--                            <p style="text-align: center;color: black;"><i><strong>Target:</strong> "By 2030,-->
-<!--                                eradicate-->
-<!--                                extreme-->
-<!--                                poverty for all people everywhere, currently-->
-<!--                                measured as people living on less than $1.90 a day."</i></p>-->
-<!--                            <div class=" row text-center">-->
-<!--                                <div class="col-md-4">-->
-<!--                                    <select id="selectData11" class="btn btn-primary"-->
-<!--                                            onchange="chooseDataSource(1,11);">-->
-<!--                                        <option value="placeholder">Please select a data source</option>-->
-<!--                                        <option value="globalData">Global Database</option>-->
-<!--                                        <option value="mrsData">PanAfrican MRS</option>-->
-<!--                                    </select>-->
-<!--                                </div>-->
-<!--                                <div class="col-md-4"></div>-->
-<!--                                <div class="col-md-4">-->
-<!--                                    <select id="selectPeriod11" class="btn btn-primary"-->
-<!--                                            onchange="choosePeriod(1,11);">-->
-<!--                                        <option>Please select a Period</option>-->
-<!--                                        <option value="2019">2019</option>-->
-<!--                                        <option value="2018">2018</option>-->
-<!--                                        <option value="2017">2017</option>-->
-<!--                                        <option value="2016">2016</option>-->
-<!--                                    </select>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="row card-body" id="container1">-->
-<!--                            </div>-->
-<!--                            <hr>-->
-<!--                            <div class="row card-footer">-->
-<!--                                <div class="col-md-2"></div>-->
-<!--                                <div class="col-md-4" style="text-align: center;">-->
-<!--                                    <button class="btn btn-success" onclick="loadMap(1,1);"><span-->
-<!--                                            class="fa fa-globe"></span>Map-->
-<!--                                    </button>-->
-<!--                                </div>-->
-<!--                                <div class="col-md-4" style="text-align: center;">-->
-<!--                                    <button class="btn btn-success" onclick="loadMap(2,1);"><span-->
-<!--                                            class="fa fa-bar-chart"></span>Chart-->
-<!--                                    </button>-->
-<!--                                </div>-->
-<!--                                <div class="col-md-2"></div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-10 card tab-pane fade" id="target12"-->
-<!--                             style="border-radius: 0;background-color: white;">-->
-<!--                            <p style="text-align: center;color: black;"><i>Reduce poverty by at least-->
-<!--                                50%</i>-->
-<!--                            </p>-->
-<!--                            <p style="text-align: center;color: black;"><i><strong>Target:</strong> "By 2030, reduce-->
-<!--                                at least by-->
-<!--                                half the proportion of men, women and children of-->
-<!--                                all ages living in poverty in all its dimensions according to national definitions."</i>-->
-<!--                            </p>-->
-<!--                            <div class=" row text-center">-->
-<!--                                <div class="col-md-4">-->
-<!--                                    <select id="selectData12" class="btn btn-primary"-->
-<!--                                            onchange="chooseDataSource(2,12);">-->
-<!--                                        <option value="placeholder">Please select a data source</option>-->
-<!--                                        <option value="globalData">Global Database</option>-->
-<!--                                        <option value="mrsData">PanAfrican MRS</option>-->
-<!--                                    </select>-->
-<!--                                </div>-->
-<!--                                <div class="col-md-4"></div>-->
-<!--                                <div class="col-md-4">-->
-<!--                                    <select id="selectPeriod12" class="btn btn-primary"-->
-<!--                                            onchange="choosePeriod(2,12);">-->
-<!--                                        <option>Please select a Period</option>-->
-<!--                                        <option value="2019">2019</option>-->
-<!--                                        <option value="2018">2018</option>-->
-<!--                                        <option value="2017">2017</option>-->
-<!--                                        <option value="2016">2016</option>-->
-<!--                                    </select>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="row card-body" id="container2"></div>-->
-<!--                            <hr>-->
-<!--                            <div class="row card-footer">-->
-<!--                                <div class="col-md-2"></div>-->
-<!--                                <div class="col-md-4" style="text-align: center;">-->
-<!--                                    <button class="btn btn-success" onclick="loadMap(1,2);"><span-->
-<!--                                            class="fa fa-globe"></span>Map-->
-<!--                                    </button>-->
-<!--                                </div>-->
-<!--                                <div class="col-md-4" style="text-align: center;">-->
-<!--                                    <button class="btn btn-success" onclick="loadMap(2,2);"><span-->
-<!--                                            class="fa fa-bar-chart"></span>Chart-->
-<!--                                    </button>-->
-<!--                                </div>-->
-<!--                                <div class="col-md-2"></div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-10 card tab-pane fade" id="target13"-->
-<!--                             style="border-radius: 0;background-color: white;">-->
-<!--                            <p style="text-align: center;color: black;"><i>Implement social protection-->
-<!--                                systems</i>-->
-<!--                            </p>-->
-<!--                            <p style="text-align: center;color: black;"><i><strong>Target:</strong> "Implement-->
-<!--                                nationally-->
-<!--                                appropriate social protection systems and measures for-->
-<!--                                all, including floors, and by 2030 achieve substantial coverage of the poor and the-->
-<!--                                vulnerable."</i></p>-->
-<!--                            <div class=" row text-center">-->
-<!--                                <div class="col-md-4">-->
-<!--                                    <select id="selectData13" class="btn btn-primary"-->
-<!--                                            onchange="chooseDataSource(3,13);">-->
-<!--                                        <option value="placeholder">Please select a data source</option>-->
-<!--                                        <option value="globalData">Global Database</option>-->
-<!--                                        <option value="mrsData">PanAfrican MRS</option>-->
-<!--                                    </select>-->
-<!--                                </div>-->
-<!--                                <div class="col-md-4"></div>-->
-<!--                                <div class="col-md-4">-->
-<!--                                    <select id="selectPeriod13" class="btn btn-primary"-->
-<!--                                            onchange="choosePeriod(3,13);">-->
-<!--                                        <option>Please select a Period</option>-->
-<!--                                        <option value="2019">2019</option>-->
-<!--                                        <option value="2018">2018</option>-->
-<!--                                        <option value="2017">2017</option>-->
-<!--                                        <option value="2016">2016</option>-->
-<!--                                    </select>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="row card-body" id="container3"></div>-->
-<!--                            <hr>-->
-<!--                            <div class="row card-footer">-->
-<!--                                <div class="col-md-2"></div>-->
-<!--                                <div class="col-md-4" style="text-align: center;">-->
-<!--                                    <button class="btn btn-success" onclick="loadMap(1,3);"><span-->
-<!--                                            class="fa fa-globe"></span>Map-->
-<!--                                    </button>-->
-<!--                                </div>-->
-<!--                                <div class="col-md-4" style="text-align: center;">-->
-<!--                                    <button class="btn btn-success" onclick="loadMap(2,3);"><span-->
-<!--                                            class="fa fa-bar-chart"></span>Chart-->
-<!--                                    </button>-->
-<!--                                </div>-->
-<!--                                <div class="col-md-2"></div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-10 card tab-pane fade" id="target14"-->
-<!--                             style="border-radius: 0;background-color: white;">-->
-<!--                            <p style="text-align: center;color: black;"><i>Equal rights to ownership, basic-->
-<!--                                services, technology and economic resources</i>-->
-<!--                            </p>-->
-<!--                            <p style="text-align: center;color: black;"><i><strong>Target:</strong> "By 2030, ensure-->
-<!--                                that all men-->
-<!--                                and women, in particular the poor and the vulnerable, have equal rights to economic-->
-<!--                                resources, as-->
-<!--                                well-->
-<!--                                as access to basic services, ownership and control over land and other forms of-->
-<!--                                property,-->
-<!--                                inheritance,-->
-<!--                                natural resources, appropriate new technology and financial services, including-->
-<!--                                microfinance"</i>-->
-<!--                            </p>-->
-<!--                            <div class=" row text-center">-->
-<!--                                <div class="col-md-4">-->
-<!--                                    <select id="selectData14" class="btn btn-primary"-->
-<!--                                            onchange="chooseDataSource(4,14);">-->
-<!--                                        <option value="placeholder">Please select a data source</option>-->
-<!--                                        <option value="globalData">Global Database</option>-->
-<!--                                        <option value="mrsData">PanAfrican MRS</option>-->
-<!--                                    </select>-->
-<!--                                </div>-->
-<!--                                <div class="col-md-4"></div>-->
-<!--                                <div class="col-md-4">-->
-<!--                                    <select id="selectPeriod14" class="btn btn-primary"-->
-<!--                                            onchange="choosePeriod(4,14);">-->
-<!--                                        <option>Please select a Period</option>-->
-<!--                                        <option value="2019">2019</option>-->
-<!--                                        <option value="2018">2018</option>-->
-<!--                                        <option value="2017">2017</option>-->
-<!--                                        <option value="2016">2016</option>-->
-<!--                                    </select>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="row card-body" id="container4"></div>-->
-<!--                            <hr>-->
-<!--                            <div class="row card-footer">-->
-<!--                                <div class="col-md-2"></div>-->
-<!--                                <div class="col-md-4" style="text-align: center;">-->
-<!--                                    <button class="btn btn-success" onclick="loadMap(1,4);"><span-->
-<!--                                            class="fa fa-globe"></span>Map-->
-<!--                                    </button>-->
-<!--                                </div>-->
-<!--                                <div class="col-md-4" style="text-align: center;">-->
-<!--                                    <button class="btn btn-success" onclick="loadMap(2,4);"><span-->
-<!--                                            class="fa fa-bar-chart"></span>Chart-->
-<!--                                    </button>-->
-<!--                                </div>-->
-<!--                                <div class="col-md-2"></div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-10 card tab-pane fade" id="target15"-->
-<!--                             style="border-radius: 0;background-color: white;">-->
-<!--                            <p style="text-align: center;color: black;"><i>Build resilience to-->
-<!--                                environmental,-->
-<!--                                economic and social disasters</i>-->
-<!--                            </p>-->
-<!--                            <p style="text-align: center;color: black;"><i><strong>Target:</strong> "By 2030, build-->
-<!--                                the resilience-->
-<!--                                of the poor and those in vulnerable situations and reduce their exposure and-->
-<!--                                vulnerability to-->
-<!--                                climate-related extreme events and other economic, social and environmental shocks-->
-<!--                                and-->
-<!--                                disasters"</i>-->
-<!--                            </p>-->
-<!--                            <div class=" row text-center">-->
-<!--                                <div class="col-md-4">-->
-<!--                                    <select id="selectData15" class="btn btn-primary"-->
-<!--                                            onchange="chooseDataSource(5,15);">-->
-<!--                                        <option value="placeholder">Please select a data source</option>-->
-<!--                                        <option value="globalData">Global Database</option>-->
-<!--                                        <option value="mrsData">PanAfrican MRS</option>-->
-<!--                                    </select>-->
-<!--                                </div>-->
-<!--                                <div class="col-md-4"></div>-->
-<!--                                <div class="col-md-4">-->
-<!--                                    <select id="selectPeriod15" class="btn btn-primary"-->
-<!--                                            onchange="choosePeriod(5,15);">-->
-<!--                                        <option>Please select a Period</option>-->
-<!--                                        <option value="2019">2019</option>-->
-<!--                                        <option value="2018">2018</option>-->
-<!--                                        <option value="2017">2017</option>-->
-<!--                                        <option value="2016">2016</option>-->
-<!--                                    </select>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="row card-body" id="container5"></div>-->
-<!--                            <hr>-->
-<!--                            <div class="row card-footer">-->
-<!--                                <div class="col-md-2"></div>-->
-<!--                                <div class="col-md-4" style="text-align: center;">-->
-<!--                                    <button class="btn btn-success" onclick="loadMap(1,5);"><span-->
-<!--                                            class="fa fa-globe"></span>Map-->
-<!--                                    </button>-->
-<!--                                </div>-->
-<!--                                <div class="col-md-4" style="text-align: center;">-->
-<!--                                    <button class="btn btn-success" onclick="loadMap(2,5);"><span-->
-<!--                                            class="fa fa-bar-chart"></span>Chart-->
-<!--                                    </button>-->
-<!--                                </div>-->
-<!--                                <div class="col-md-2"></div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-1"></div>-->
-<!--                    </div>-->
-<!--                    <div id="aspiration2" class="row"-->
-<!--                         style="width: 100% !important;margin: 0; margin-top: 1%;">-->
-<!--                        <div class="col-md-1"></div>-->
-<!--                        <div class="col-md-10 card tab-pane fade" id="target21"-->
-<!--                             style="border-radius: 0;background-color: white">-->
-<!--                            <p style="text-align: center;color: black;"><i>Eradicate extreme-->
-<!--                                poverty</i>-->
-<!--                            </p>-->
-<!--                            <p style="text-align: center;color: black;"><i><strong>Target:</strong> "By 2030,-->
-<!--                                eradicate-->
-<!--                                extreme-->
-<!--                                poverty for all people everywhere, currently-->
-<!--                                measured as people living on less than $1.90 a day."</i></p>-->
-<!--                            <div class=" row text-center">-->
-<!--                                <div class="col-md-4">-->
-<!--                                    <select id="selectData21" class="btn btn-primary"-->
-<!--                                            onchange="chooseDataSource(1,11);">-->
-<!--                                        <option value="placeholder">Please select a data source</option>-->
-<!--                                        <option value="globalData">Global Database</option>-->
-<!--                                        <option value="mrsData">PanAfrican MRS</option>-->
-<!--                                    </select>-->
-<!--                                </div>-->
-<!--                                <div class="col-md-4"></div>-->
-<!--                                <div class="col-md-4">-->
-<!--                                    <select id="selectPeriod21" class="btn btn-primary"-->
-<!--                                            onchange="choosePeriod(1,11);">-->
-<!--                                        <option>Please select a Period</option>-->
-<!--                                        <option value="2019">2019</option>-->
-<!--                                        <option value="2018">2018</option>-->
-<!--                                        <option value="2017">2017</option>-->
-<!--                                        <option value="2016">2016</option>-->
-<!--                                    </select>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="row card-body" id="container8">-->
-<!--                            </div>-->
-<!--                            <hr>-->
-<!--                            <div class="row card-footer">-->
-<!--                                <div class="col-md-2"></div>-->
-<!--                                <div class="col-md-4" style="text-align: center;">-->
-<!--                                    <button class="btn btn-success" onclick="loadMap(1,1);"><span-->
-<!--                                            class="fa fa-globe"></span>Map-->
-<!--                                    </button>-->
-<!--                                </div>-->
-<!--                                <div class="col-md-4" style="text-align: center;">-->
-<!--                                    <button class="btn btn-success" onclick="loadMap(2,1);"><span-->
-<!--                                            class="fa fa-bar-chart"></span>Chart-->
-<!--                                    </button>-->
-<!--                                </div>-->
-<!--                                <div class="col-md-2"></div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-10 card tab-pane fade" id="target22"-->
-<!--                             style="border-radius: 0;background-color: white;">-->
-<!--                            <p style="text-align: center;color: black;"><i>Reduce poverty by at least-->
-<!--                                50%</i>-->
-<!--                            </p>-->
-<!--                            <p style="text-align: center;color: black;"><i><strong>Target:</strong> "By 2030, reduce-->
-<!--                                at least by-->
-<!--                                half the proportion of men, women and children of-->
-<!--                                all ages living in poverty in all its dimensions according to national definitions."</i>-->
-<!--                            </p>-->
-<!--                            <div class=" row text-center">-->
-<!--                                <div class="col-md-4">-->
-<!--                                    <select id="selectData22" class="btn btn-primary"-->
-<!--                                            onchange="chooseDataSource(2,12);">-->
-<!--                                        <option value="placeholder">Please select a data source</option>-->
-<!--                                        <option value="globalData">Global Database</option>-->
-<!--                                        <option value="mrsData">PanAfrican MRS</option>-->
-<!--                                    </select>-->
-<!--                                </div>-->
-<!--                                <div class="col-md-4"></div>-->
-<!--                                <div class="col-md-4">-->
-<!--                                    <select id="selectPeriod22" class="btn btn-primary"-->
-<!--                                            onchange="choosePeriod(2,12);">-->
-<!--                                        <option>Please select a Period</option>-->
-<!--                                        <option value="2019">2019</option>-->
-<!--                                        <option value="2018">2018</option>-->
-<!--                                        <option value="2017">2017</option>-->
-<!--                                        <option value="2016">2016</option>-->
-<!--                                    </select>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="row card-body" id="container7"></div>-->
-<!--                            <hr>-->
-<!--                            <div class="row card-footer">-->
-<!--                                <div class="col-md-2"></div>-->
-<!--                                <div class="col-md-4" style="text-align: center;">-->
-<!--                                    <button class="btn btn-success" onclick="loadMap(1,2);"><span-->
-<!--                                            class="fa fa-globe"></span>Map-->
-<!--                                    </button>-->
-<!--                                </div>-->
-<!--                                <div class="col-md-4" style="text-align: center;">-->
-<!--                                    <button class="btn btn-success" onclick="loadMap(2,2);"><span-->
-<!--                                            class="fa fa-bar-chart"></span>Chart-->
-<!--                                    </button>-->
-<!--                                </div>-->
-<!--                                <div class="col-md-2"></div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <div class="col-md-1"></div>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <div class="row tab-content"
+                     style="width: 100% !important;margin: 0; margin-top: 1%;">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10 card tab-pane fade" id="target11"
+                         style="border-radius: 0;background-color: white">
+                        <p style="text-align: center;color: black;"><i>Eradicate extreme
+                            poverty</i>
+                            <select id="selectData11" class="btn btn-primary"
+                                    onchange="chooseDataSource(1,11);">
+                                <option value="placeholder">Please select a Target</option>
+                                <option value="globalData">Global Database</option>
+                                <option value="mrsData">PanAfrican MRS</option>
+                            </select>
+                        </p>
+                        <p style="text-align: center;color: black;"><i><strong>Target :</strong> "By 2030,
+                            eradicate
+                            extreme
+                            poverty for all people everywhere, currently
+                            measured as people living on less than $1.90 a day."</i></p>
+                        <div class=" row text-center">
+                            <div class="col-md-4">
+                                <select id="selectData11" class="btn btn-primary"
+                                        onchange="chooseDataSource(1,11);">
+                                    <option value="placeholder">Please select a data source</option>
+                                    <option value="globalData">Global Database</option>
+                                    <option value="mrsData">PanAfrican MRS</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <select id="selectPeriod11" class="btn btn-primary"
+                                        onchange="choosePeriod(1,11);">
+                                    <option>Please select a Period</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row card-body" id="container11">
+                        </div>
+                        <hr>
+                        <div class="row card-footer">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                        class="fa fa-globe"></span>Map
+                                </button>
+                            </div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                        class="fa fa-bar-chart"></span>Chart
+                                </button>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-10 card tab-pane fade" id="target12"
+                         style="border-radius: 0;background-color: white;">
+                        <p style="text-align: center;color: black;"><i>Reduce poverty by at least
+                            50%</i>
+                        </p>
+                        <p style="text-align: center;color: black;"><i><strong>Target:</strong> "By 2030, reduce
+                            at least by
+                            half the proportion of men, women and children of
+                            all ages living in poverty in all its dimensions according to national definitions."</i>
+                        </p>
+                        <div class=" row text-center">
+                            <div class="col-md-4">
+                                <select id="selectData12" class="btn btn-primary"
+                                        onchange="chooseDataSource(2,12);">
+                                    <option value="placeholder">Please select a data source</option>
+                                    <option value="globalData">Global Database</option>
+                                    <option value="mrsData">PanAfrican MRS</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <select id="selectPeriod12" class="btn btn-primary"
+                                        onchange="choosePeriod(2,12);">
+                                    <option>Please select a Period</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row card-body" id="container12"></div>
+                        <hr>
+                        <div class="row card-footer">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(1,2);"><span
+                                        class="fa fa-globe"></span>Map
+                                </button>
+                            </div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(2,2);"><span
+                                        class="fa fa-bar-chart"></span>Chart
+                                </button>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 tabcontent" id="Aspiration2">
+                <div class="row" style="margin: 0; margin-top: 0.5%;">
+                    <div class="col-md-12" style="background-color:darkgrey;">
+                        <h4 class="title" style="color: white !important;text-align: center;font-weight: bold;">
+                            Aspiration 2: Prosperous Africa</h4>
+                        <p class="description nav nav-tabs"
+                           style="color: white !important;text-align: center !important; display: inherit !important; margin-bottom: 1%;">
+                            <a data-toggle="tab" href="#goal8" onclick="loadTarget(8)"
+                               class="btn btn-danger sdg1-btn">Goal 8</a>
+                            <a data-toggle="tab" href="#goal9" onclick="loadTarget(9)"
+                               class="btn btn-danger sdg1-btn">Goal 9</a>
+                            <a data-toggle="tab" href="#goal10" onclick="loadTarget(10)"
+                               class="btn btn-danger sdg1-btn">Goal 10</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="row tab-content"
+                     style="width: 100% !important;margin: 0; margin-top: 1%;">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10 card tab-pane fade" id="target21"
+                         style="border-radius: 0;background-color: white">
+                        <p style="text-align: center;color: black;"><i>Eradicate extreme
+                            poverty</i>
+                        </p>
+                        <p style="text-align: center;color: black;"><i><strong>Target:</strong> "By 2030,
+                            eradicate
+                            extreme
+                            poverty for all people everywhere, currently
+                            measured as people living on less than $1.90 a day."</i></p>
+                        <div class=" row text-center">
+                            <div class="col-md-4">
+                                <select id="selectData21" class="btn btn-primary"
+                                        onchange="chooseDataSource(3,21);">
+                                    <option value="placeholder">Please select a data source</option>
+                                    <option value="globalData">Global Database</option>
+                                    <option value="mrsData">PanAfrican MRS</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <select id="selectPeriod21" class="btn btn-primary"
+                                        onchange="choosePeriod(3,21);">
+                                    <option>Please select a Period</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row card-body" id="container21">
+                        </div>
+                        <hr>
+                        <div class="row card-footer">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                        class="fa fa-globe"></span>Map
+                                </button>
+                            </div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                        class="fa fa-bar-chart"></span>Chart
+                                </button>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-10 card tab-pane fade" id="target22"
+                         style="border-radius: 0;background-color: white;">
+                        <p style="text-align: center;color: black;"><i>Reduce poverty by at least
+                            50%</i>
+                        </p>
+                        <p style="text-align: center;color: black;"><i><strong>Target:</strong> "By 2030, reduce
+                            at least by
+                            half the proportion of men, women and children of
+                            all ages living in poverty in all its dimensions according to national definitions."</i>
+                        </p>
+                        <div class=" row text-center">
+                            <div class="col-md-4">
+                                <select id="selectData22" class="btn btn-primary"
+                                        onchange="chooseDataSource(4,22);">
+                                    <option value="placeholder">Please select a data source</option>
+                                    <option value="globalData">Global Database</option>
+                                    <option value="mrsData">PanAfrican MRS</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <select id="selectPeriod22" class="btn btn-primary"
+                                        onchange="choosePeriod(4,22);">
+                                    <option>Please select a Period</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row card-body" id="container22"></div>
+                        <hr>
+                        <div class="row card-footer">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(1,2);"><span
+                                        class="fa fa-globe"></span>Map
+                                </button>
+                            </div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(2,2);"><span
+                                        class="fa fa-bar-chart"></span>Chart
+                                </button>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 tabcontent" id="Aspiration3">
+                <div class="row" style="margin: 0; margin-top: 0.5%;">
+                    <div class="col-md-12" style="background-color:darkgrey;">
+                        <h4 class="title" style="color: white !important;text-align: center;font-weight: bold;">
+                            Aspiration 3: Democratic Africa</h4>
+                        <p class="description nav nav-tabs"
+                           style="color: white !important;text-align: center !important; display: inherit !important; margin-bottom: 1%;">
+                            <a data-toggle="tab" href="#goal11" onclick="loadTarget(11)"
+                               class="btn btn-danger sdg1-btn">Goal 11</a>
+                            <a data-toggle="tab" href="#goal12" onclick="loadTarget(12)"
+                               class="btn btn-danger sdg1-btn">Goal 12</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="row tab-content"
+                     style="width: 100% !important;margin: 0; margin-top: 1%;">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10 card tab-pane fade" id="target21"
+                         style="border-radius: 0;background-color: white">
+                        <p style="text-align: center;color: black;"><i>Eradicate extreme
+                            poverty</i>
+                        </p>
+                        <p style="text-align: center;color: black;"><i><strong>Target:</strong> "By 2030,
+                            eradicate
+                            extreme
+                            poverty for all people everywhere, currently
+                            measured as people living on less than $1.90 a day."</i></p>
+                        <div class=" row text-center">
+                            <div class="col-md-4">
+                                <select id="selectData21" class="btn btn-primary"
+                                        onchange="chooseDataSource(3,21);">
+                                    <option value="placeholder">Please select a data source</option>
+                                    <option value="globalData">Global Database</option>
+                                    <option value="mrsData">PanAfrican MRS</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <select id="selectPeriod21" class="btn btn-primary"
+                                        onchange="choosePeriod(3,21);">
+                                    <option>Please select a Period</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row card-body" id="container21">
+                        </div>
+                        <hr>
+                        <div class="row card-footer">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                        class="fa fa-globe"></span>Map
+                                </button>
+                            </div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                        class="fa fa-bar-chart"></span>Chart
+                                </button>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-10 card tab-pane fade" id="target22"
+                         style="border-radius: 0;background-color: white;">
+                        <p style="text-align: center;color: black;"><i>Reduce poverty by at least
+                            50%</i>
+                        </p>
+                        <p style="text-align: center;color: black;"><i><strong>Target:</strong> "By 2030, reduce
+                            at least by
+                            half the proportion of men, women and children of
+                            all ages living in poverty in all its dimensions according to national definitions."</i>
+                        </p>
+                        <div class=" row text-center">
+                            <div class="col-md-4">
+                                <select id="selectData22" class="btn btn-primary"
+                                        onchange="chooseDataSource(4,22);">
+                                    <option value="placeholder">Please select a data source</option>
+                                    <option value="globalData">Global Database</option>
+                                    <option value="mrsData">PanAfrican MRS</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <select id="selectPeriod22" class="btn btn-primary"
+                                        onchange="choosePeriod(4,22);">
+                                    <option>Please select a Period</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row card-body" id="container22"></div>
+                        <hr>
+                        <div class="row card-footer">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(1,2);"><span
+                                        class="fa fa-globe"></span>Map
+                                </button>
+                            </div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(2,2);"><span
+                                        class="fa fa-bar-chart"></span>Chart
+                                </button>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 tabcontent" id="Aspiration4">
+                <div class="row" style="margin: 0; margin-top: 0.5%;">
+                    <div class="col-md-12" style="background-color:darkgrey;">
+                        <h4 class="title" style="color: white !important;text-align: center;font-weight: bold;">
+                            Aspiration 4: Peaceful Africa</h4>
+                        <p class="description nav nav-tabs"
+                           style="color: white !important;text-align: center !important; display: inherit !important; margin-bottom: 1%;">
+                            <a data-toggle="tab" href="#goal13" onclick="loadTarget(13)"
+                               class="btn btn-danger sdg1-btn">Goal 13</a>
+                            <a data-toggle="tab" href="#goal14" onclick="loadTarget(14)"
+                               class="btn btn-danger sdg1-btn">Goal 14</a>
+                            <a data-toggle="tab" href="#goal15" onclick="loadTarget(15)"
+                               class="btn btn-danger sdg1-btn">Goal 15</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="row tab-content"
+                     style="width: 100% !important;margin: 0; margin-top: 1%;">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10 card tab-pane fade" id="target21"
+                         style="border-radius: 0;background-color: white">
+                        <p style="text-align: center;color: black;"><i>Eradicate extreme
+                            poverty</i>
+                        </p>
+                        <p style="text-align: center;color: black;"><i><strong>Target:</strong> "By 2030,
+                            eradicate
+                            extreme
+                            poverty for all people everywhere, currently
+                            measured as people living on less than $1.90 a day."</i></p>
+                        <div class=" row text-center">
+                            <div class="col-md-4">
+                                <select id="selectData21" class="btn btn-primary"
+                                        onchange="chooseDataSource(3,21);">
+                                    <option value="placeholder">Please select a data source</option>
+                                    <option value="globalData">Global Database</option>
+                                    <option value="mrsData">PanAfrican MRS</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <select id="selectPeriod21" class="btn btn-primary"
+                                        onchange="choosePeriod(3,21);">
+                                    <option>Please select a Period</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row card-body" id="container21">
+                        </div>
+                        <hr>
+                        <div class="row card-footer">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                        class="fa fa-globe"></span>Map
+                                </button>
+                            </div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                        class="fa fa-bar-chart"></span>Chart
+                                </button>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-10 card tab-pane fade" id="target22"
+                         style="border-radius: 0;background-color: white;">
+                        <p style="text-align: center;color: black;"><i>Reduce poverty by at least
+                            50%</i>
+                        </p>
+                        <p style="text-align: center;color: black;"><i><strong>Target:</strong> "By 2030, reduce
+                            at least by
+                            half the proportion of men, women and children of
+                            all ages living in poverty in all its dimensions according to national definitions."</i>
+                        </p>
+                        <div class=" row text-center">
+                            <div class="col-md-4">
+                                <select id="selectData22" class="btn btn-primary"
+                                        onchange="chooseDataSource(4,22);">
+                                    <option value="placeholder">Please select a data source</option>
+                                    <option value="globalData">Global Database</option>
+                                    <option value="mrsData">PanAfrican MRS</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <select id="selectPeriod22" class="btn btn-primary"
+                                        onchange="choosePeriod(4,22);">
+                                    <option>Please select a Period</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row card-body" id="container22"></div>
+                        <hr>
+                        <div class="row card-footer">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(1,2);"><span
+                                        class="fa fa-globe"></span>Map
+                                </button>
+                            </div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(2,2);"><span
+                                        class="fa fa-bar-chart"></span>Chart
+                                </button>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 tabcontent" id="Aspiration5">
+                <div class="row" style="margin: 0; margin-top: 0.5%;">
+                    <div class="col-md-12" style="background-color:darkgrey;">
+                        <h4 class="title" style="color: white !important;text-align: center;font-weight: bold;">
+                            Aspiration 5: Strong Cultural Identity</h4>
+                        <p class="description nav nav-tabs"
+                           style="color: white !important;text-align: center !important; display: inherit !important; margin-bottom: 1%;">
+                            <a data-toggle="tab" href="#goal16" onclick="loadTarget(16)"
+                               class="btn btn-danger sdg1-btn">Goal 16</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="row tab-content"
+                     style="width: 100% !important;margin: 0; margin-top: 1%;">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10 card tab-pane fade" id="target21"
+                         style="border-radius: 0;background-color: white">
+                        <p style="text-align: center;color: black;"><i>Eradicate extreme
+                            poverty</i>
+                        </p>
+                        <p style="text-align: center;color: black;"><i><strong>Target:</strong> "By 2030,
+                            eradicate
+                            extreme
+                            poverty for all people everywhere, currently
+                            measured as people living on less than $1.90 a day."</i></p>
+                        <div class=" row text-center">
+                            <div class="col-md-4">
+                                <select id="selectData21" class="btn btn-primary"
+                                        onchange="chooseDataSource(3,21);">
+                                    <option value="placeholder">Please select a data source</option>
+                                    <option value="globalData">Global Database</option>
+                                    <option value="mrsData">PanAfrican MRS</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <select id="selectPeriod21" class="btn btn-primary"
+                                        onchange="choosePeriod(3,21);">
+                                    <option>Please select a Period</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row card-body" id="container21">
+                        </div>
+                        <hr>
+                        <div class="row card-footer">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                        class="fa fa-globe"></span>Map
+                                </button>
+                            </div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                        class="fa fa-bar-chart"></span>Chart
+                                </button>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-10 card tab-pane fade" id="target22"
+                         style="border-radius: 0;background-color: white;">
+                        <p style="text-align: center;color: black;"><i>Reduce poverty by at least
+                            50%</i>
+                        </p>
+                        <p style="text-align: center;color: black;"><i><strong>Target:</strong> "By 2030, reduce
+                            at least by
+                            half the proportion of men, women and children of
+                            all ages living in poverty in all its dimensions according to national definitions."</i>
+                        </p>
+                        <div class=" row text-center">
+                            <div class="col-md-4">
+                                <select id="selectData22" class="btn btn-primary"
+                                        onchange="chooseDataSource(4,22);">
+                                    <option value="placeholder">Please select a data source</option>
+                                    <option value="globalData">Global Database</option>
+                                    <option value="mrsData">PanAfrican MRS</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <select id="selectPeriod22" class="btn btn-primary"
+                                        onchange="choosePeriod(4,22);">
+                                    <option>Please select a Period</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row card-body" id="container22"></div>
+                        <hr>
+                        <div class="row card-footer">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(1,2);"><span
+                                        class="fa fa-globe"></span>Map
+                                </button>
+                            </div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(2,2);"><span
+                                        class="fa fa-bar-chart"></span>Chart
+                                </button>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 tabcontent" id="Aspiration6">
+                <div class="row" style="margin: 0; margin-top: 0.5%;">
+                    <div class="col-md-12" style="background-color:darkgrey;">
+                        <h4 class="title" style="color: white !important;text-align: center;font-weight: bold;">
+                            Aspiration 6: People Driven Continent</h4>
+                        <p class="description nav nav-tabs"
+                           style="color: white !important;text-align: center !important; display: inherit !important; margin-bottom: 1%;">
+                            <a data-toggle="tab" href="#goal17" onclick="loadTarget(17)"
+                               class="btn btn-danger sdg1-btn">Goal 17</a>
+                            <a data-toggle="tab" href="#goal18" onclick="loadTarget(18)"
+                               class="btn btn-danger sdg1-btn">Goal 18</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="row tab-content"
+                     style="width: 100% !important;margin: 0; margin-top: 1%;">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10 card tab-pane fade" id="target21"
+                         style="border-radius: 0;background-color: white">
+                        <p style="text-align: center;color: black;"><i>Eradicate extreme
+                            poverty</i>
+                        </p>
+                        <p style="text-align: center;color: black;"><i><strong>Target:</strong> "By 2030,
+                            eradicate
+                            extreme
+                            poverty for all people everywhere, currently
+                            measured as people living on less than $1.90 a day."</i></p>
+                        <div class=" row text-center">
+                            <div class="col-md-4">
+                                <select id="selectData21" class="btn btn-primary"
+                                        onchange="chooseDataSource(3,21);">
+                                    <option value="placeholder">Please select a data source</option>
+                                    <option value="globalData">Global Database</option>
+                                    <option value="mrsData">PanAfrican MRS</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <select id="selectPeriod21" class="btn btn-primary"
+                                        onchange="choosePeriod(3,21);">
+                                    <option>Please select a Period</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row card-body" id="container21">
+                        </div>
+                        <hr>
+                        <div class="row card-footer">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                        class="fa fa-globe"></span>Map
+                                </button>
+                            </div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                        class="fa fa-bar-chart"></span>Chart
+                                </button>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-10 card tab-pane fade" id="target22"
+                         style="border-radius: 0;background-color: white;">
+                        <p style="text-align: center;color: black;"><i>Reduce poverty by at least
+                            50%</i>
+                        </p>
+                        <p style="text-align: center;color: black;"><i><strong>Target:</strong> "By 2030, reduce
+                            at least by
+                            half the proportion of men, women and children of
+                            all ages living in poverty in all its dimensions according to national definitions."</i>
+                        </p>
+                        <div class=" row text-center">
+                            <div class="col-md-4">
+                                <select id="selectData22" class="btn btn-primary"
+                                        onchange="chooseDataSource(4,22);">
+                                    <option value="placeholder">Please select a data source</option>
+                                    <option value="globalData">Global Database</option>
+                                    <option value="mrsData">PanAfrican MRS</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <select id="selectPeriod22" class="btn btn-primary"
+                                        onchange="choosePeriod(4,22);">
+                                    <option>Please select a Period</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row card-body" id="container22"></div>
+                        <hr>
+                        <div class="row card-footer">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(1,2);"><span
+                                        class="fa fa-globe"></span>Map
+                                </button>
+                            </div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(2,2);"><span
+                                        class="fa fa-bar-chart"></span>Chart
+                                </button>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 tabcontent" id="Aspiration7">
+                <div class="row" style="margin: 0; margin-top: 0.5%;">
+                    <div class="col-md-12" style="background-color:darkgrey;">
+                        <h4 class="title" style="color: white !important;text-align: center;font-weight: bold;">
+                            Aspiration 7: International Dynamic Force</h4>
+                        <p class="description nav nav-tabs"
+                           style="color: white !important;text-align: center !important; display: inherit !important; margin-bottom: 1%;">
+                            <a data-toggle="tab" href="#goal19" onclick="loadTarget(19)"
+                               class="btn btn-danger sdg1-btn">Goal 19</a>
+                            <a data-toggle="tab" href="#goal20" onclick="loadTarget(20)"
+                               class="btn btn-danger sdg1-btn">Goal 20</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="row tab-content"
+                     style="width: 100% !important;margin: 0; margin-top: 1%;">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10 card tab-pane fade" id="target21"
+                         style="border-radius: 0;background-color: white">
+                        <p style="text-align: center;color: black;"><i>Eradicate extreme
+                            poverty</i>
+                        </p>
+                        <p style="text-align: center;color: black;"><i><strong>Target:</strong> "By 2030,
+                            eradicate
+                            extreme
+                            poverty for all people everywhere, currently
+                            measured as people living on less than $1.90 a day."</i></p>
+                        <div class=" row text-center">
+                            <div class="col-md-4">
+                                <select id="selectData21" class="btn btn-primary"
+                                        onchange="chooseDataSource(3,21);">
+                                    <option value="placeholder">Please select a data source</option>
+                                    <option value="globalData">Global Database</option>
+                                    <option value="mrsData">PanAfrican MRS</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <select id="selectPeriod21" class="btn btn-primary"
+                                        onchange="choosePeriod(3,21);">
+                                    <option>Please select a Period</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row card-body" id="container21">
+                        </div>
+                        <hr>
+                        <div class="row card-footer">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                        class="fa fa-globe"></span>Map
+                                </button>
+                            </div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                        class="fa fa-bar-chart"></span>Chart
+                                </button>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-10 card tab-pane fade" id="target22"
+                         style="border-radius: 0;background-color: white;">
+                        <p style="text-align: center;color: black;"><i>Reduce poverty by at least
+                            50%</i>
+                        </p>
+                        <p style="text-align: center;color: black;"><i><strong>Target:</strong> "By 2030, reduce
+                            at least by
+                            half the proportion of men, women and children of
+                            all ages living in poverty in all its dimensions according to national definitions."</i>
+                        </p>
+                        <div class=" row text-center">
+                            <div class="col-md-4">
+                                <select id="selectData22" class="btn btn-primary"
+                                        onchange="chooseDataSource(4,22);">
+                                    <option value="placeholder">Please select a data source</option>
+                                    <option value="globalData">Global Database</option>
+                                    <option value="mrsData">PanAfrican MRS</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4">
+                                <select id="selectPeriod22" class="btn btn-primary"
+                                        onchange="choosePeriod(4,22);">
+                                    <option>Please select a Period</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row card-body" id="container22"></div>
+                        <hr>
+                        <div class="row card-footer">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(1,2);"><span
+                                        class="fa fa-globe"></span>Map
+                                </button>
+                            </div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(2,2);"><span
+                                        class="fa fa-bar-chart"></span>Chart
+                                </button>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
             </div>
         </div>
         <div class="row" style="width: 100% !important;">
