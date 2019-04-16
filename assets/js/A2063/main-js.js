@@ -1,7 +1,6 @@
 var dataSourceURL='../assets/data/A2063/A2063_';
 //Loads after the page is ready
 $(document).ready(function () {
-    loadA2063Map(1);
 });
 function loadGoal() {
     $("select[id^='selectDataSource']").hide();
@@ -11,20 +10,46 @@ function loadGoal() {
 
 function chooseIndicator(goal) {
     var indicator=$("#selectIndicator"+goal).val();
-    dataSourceURL=dataSourceURL+indicator+'_';
-    $("select[id^='selectDataSource']").show();
+    if(dataSourceURL.match(/^.*json$/)){
+        //UPDATE URL and call LoadA2063Map
+        var prefix=dataSourceURL.slice(0,27);
+        var postfix=dataSourceURL.slice(28);
+        dataSourceURL=prefix+indicator+postfix;
+        console.log("Change in Indicator"+dataSourceURL);
+        loadA2063Map(1,goal,dataSourceURL);
+    }else{
+        dataSourceURL=dataSourceURL+indicator+'_';
+        $("select[id^='selectDataSource']").show();
+    }
 }
 
 function chooseDataSourceA2063(goal) {
     var source=$("#selectDataSource"+goal).val();
-    dataSourceURL=dataSourceURL+source+'_';
-    $("select[id^='selectPeriod']").show();
+    if(dataSourceURL.match(/^.*json$/)){
+        //UPDATE URL and call LoadA2063Map
+        var prefix=dataSourceURL.slice(0,29);
+        var postfix=dataSourceURL.slice(32);
+        dataSourceURL=prefix+source+postfix;
+        console.log("Change in DataSource"+dataSourceURL);
+        loadA2063Map(1,goal,dataSourceURL);
+    }else{
+        dataSourceURL=dataSourceURL+source+'_';
+        $("select[id^='selectPeriod']").show();
+    }
 }
 
 function choosePeriodA2063(goal) {
     var period=$("#selectPeriod"+goal).val();
-    dataSourceURL= dataSourceURL+period+'.json';
-    loadA2063Map(1,goal,dataSourceURL)
+    if(dataSourceURL.match(/^.*json$/)){
+        //UPDATE URL and call LoadA2063Map
+        var prefix=dataSourceURL.slice(0,33);
+        dataSourceURL=prefix+period+'.json';
+        console.log("Change in Period"+dataSourceURL);
+        loadA2063Map(1,goal,dataSourceURL);
+    }else{
+        dataSourceURL= dataSourceURL+period+'.json';
+        loadA2063Map(1,goal,dataSourceURL);
+    }
 }
 
 function loadA2063Map(n, containerID, dataSourceURL) {
