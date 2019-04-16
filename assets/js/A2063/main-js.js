@@ -5,7 +5,7 @@ $(document).ready(function () {
 function loadGoal() {
     $("select[id^='selectDataSource']").hide();
     $("select[id^='selectPeriod']").hide();
-
+    dataSourceURL='../assets/data/A2063/A2063_';
 }
 
 function chooseIndicator(goal) {
