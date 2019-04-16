@@ -200,29 +200,30 @@
                             <div class="col-md-2"></div>
                         </div>
                     </div>
-                    <div class="col-md-12 card tab-pane fade" id="target12"
+                    <div class="col-md-12 card tab-pane fade" id="goal2"
                          style="border-radius: 0;background-color: white; transform: none;-webkit-transform: none;">
-                        <p style="text-align: center;color: black;"><i>Reduce poverty by at least
-                            50%</i>
-                        </p>
-                        <p style="text-align: center;color: black;"><i><strong>Target:</strong> "By 2030, reduce
-                            at least by
-                            half the proportion of men, women and children of
-                            all ages living in poverty in all its dimensions according to national definitions."</i>
-                        </p>
-                        <div class=" row text-center">
-                            <div class="col-md-4">
-                                <select id="selectData12" class="btn btn-primary"
-                                        onchange="chooseDataSource(2,12);">
-                                    <option value="placeholder">Please select a data source</option>
-                                    <option value="globalData">Global Database</option>
-                                    <option value="mrsData">PanAfrican MRS</option>
+                        <div class="row">
+                            <div class="col">
+                                <select id="selectIndicator2" class="btn btn-primary"
+                                        onchange="chooseIndicator(2);">
+                                    <option value="placeholder">Please select an Indicator</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
                                 </select>
                             </div>
-                            <div class="col-md-4"></div>
-                            <div class="col-md-4">
-                                <select id="selectPeriod12" class="btn btn-primary"
-                                        onchange="choosePeriod(2,12);">
+                            <div class="col">
+                                <select id="selectDataSource2" class="btn btn-primary"
+                                        onchange="chooseDataSourceA2063(2);">
+                                    <option value="placeholder">Please select a Data Source</option>
+                                    <option value="gdb">Global Database</option>
+                                    <option value="mrs">PanAfrican MRS</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select id="selectPeriod2" class="btn btn-primary"
+                                        onchange="choosePeriodA2063(2);">
                                     <option>Please select a Period</option>
                                     <option value="2019">2019</option>
                                     <option value="2018">2018</option>
@@ -231,17 +232,273 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="row card-body" id="container12"></div>
+
+                        <div class="row card-body" id="container2">
+                        </div>
                         <hr>
                         <div class="row card-footer">
                             <div class="col-md-2"></div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(1,2);"><span
+                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
                                         class="fa fa-globe"></span>Map
                                 </button>
                             </div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(2,2);"><span
+                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                        class="fa fa-bar-chart"></span>Chart
+                                </button>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 card tab-pane fade" id="goal3"
+                         style="border-radius: 0;background-color: white; transform: none;-webkit-transform: none;">
+                        <div class="row">
+                            <div class="col">
+                                <select id="selectIndicator3" class="btn btn-primary"
+                                        onchange="chooseIndicator(3);">
+                                    <option value="placeholder">Please select an Indicator</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="22">22</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select id="selectDataSource3" class="btn btn-primary"
+                                        onchange="chooseDataSourceA2063(3);">
+                                    <option value="placeholder">Please select a Data Source</option>
+                                    <option value="gdb">Global Database</option>
+                                    <option value="mrs">PanAfrican MRS</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select id="selectPeriod3" class="btn btn-primary"
+                                        onchange="choosePeriodA2063(3);">
+                                    <option>Please select a Period</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row card-body" id="container3">
+                        </div>
+                        <hr>
+                        <div class="row card-footer">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                        class="fa fa-globe"></span>Map
+                                </button>
+                            </div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                        class="fa fa-bar-chart"></span>Chart
+                                </button>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 card tab-pane fade" id="goal4"
+                         style="border-radius: 0;background-color: white; transform: none;-webkit-transform: none;">
+                        <div class="row">
+                            <div class="col">
+                                <select id="selectIndicator4" class="btn btn-primary"
+                                        onchange="chooseIndicator(4);">
+                                    <option value="placeholder">Please select an Indicator</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select id="selectDataSource4" class="btn btn-primary"
+                                        onchange="chooseDataSourceA2063(4);">
+                                    <option value="placeholder">Please select a Data Source</option>
+                                    <option value="gdb">Global Database</option>
+                                    <option value="mrs">PanAfrican MRS</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select id="selectPeriod4" class="btn btn-primary"
+                                        onchange="choosePeriodA2063(4);">
+                                    <option>Please select a Period</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row card-body" id="container4">
+                        </div>
+                        <hr>
+                        <div class="row card-footer">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                        class="fa fa-globe"></span>Map
+                                </button>
+                            </div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                        class="fa fa-bar-chart"></span>Chart
+                                </button>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 card tab-pane fade" id="goal5"
+                         style="border-radius: 0;background-color: white; transform: none;-webkit-transform: none;">
+                        <div class="row">
+                            <div class="col">
+                                <select id="selectIndicator5" class="btn btn-primary"
+                                        onchange="chooseIndicator(5);">
+                                    <option value="placeholder">Please select an Indicator</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select id="selectDataSource5" class="btn btn-primary"
+                                        onchange="chooseDataSourceA2063(5);">
+                                    <option value="placeholder">Please select a Data Source</option>
+                                    <option value="gdb">Global Database</option>
+                                    <option value="mrs">PanAfrican MRS</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select id="selectPeriod5" class="btn btn-primary"
+                                        onchange="choosePeriodA2063(5);">
+                                    <option>Please select a Period</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row card-body" id="container5">
+                        </div>
+                        <hr>
+                        <div class="row card-footer">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                        class="fa fa-globe"></span>Map
+                                </button>
+                            </div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                        class="fa fa-bar-chart"></span>Chart
+                                </button>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 card tab-pane fade" id="goal6"
+                         style="border-radius: 0;background-color: white; transform: none;-webkit-transform: none;">
+                        <div class="row">
+                            <div class="col">
+                                <select id="selectIndicator6" class="btn btn-primary"
+                                        onchange="chooseIndicator(6);">
+                                    <option value="placeholder">Please select an Indicator</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select id="selectDataSource6" class="btn btn-primary"
+                                        onchange="chooseDataSourceA2063(6);">
+                                    <option value="placeholder">Please select a Data Source</option>
+                                    <option value="gdb">Global Database</option>
+                                    <option value="mrs">PanAfrican MRS</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select id="selectPeriod6" class="btn btn-primary"
+                                        onchange="choosePeriodA2063(6);">
+                                    <option>Please select a Period</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row card-body" id="container6">
+                        </div>
+                        <hr>
+                        <div class="row card-footer">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                        class="fa fa-globe"></span>Map
+                                </button>
+                            </div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                        class="fa fa-bar-chart"></span>Chart
+                                </button>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 card tab-pane fade" id="goal7"
+                         style="border-radius: 0;background-color: white; transform: none;-webkit-transform: none;">
+                        <div class="row">
+                            <div class="col">
+                                <select id="selectIndicator7" class="btn btn-primary"
+                                        onchange="chooseIndicator(7);">
+                                    <option value="placeholder">Please select an Indicator</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select id="selectDataSource7" class="btn btn-primary"
+                                        onchange="chooseDataSourceA2063(7);">
+                                    <option value="placeholder">Please select a Data Source</option>
+                                    <option value="gdb">Global Database</option>
+                                    <option value="mrs">PanAfrican MRS</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select id="selectPeriod7" class="btn btn-primary"
+                                        onchange="choosePeriodA2063(7);">
+                                    <option>Please select a Period</option>
+                                    <option value="2019">2019</option>
+                                    <option value="2018">2018</option>
+                                    <option value="2017">2017</option>
+                                    <option value="2016">2016</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row card-body" id="container7">
+                        </div>
+                        <hr>
+                        <div class="row card-footer">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                        class="fa fa-globe"></span>Map
+                                </button>
+                            </div>
+                            <div class="col-md-4" style="text-align: center;">
+                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
                                         class="fa fa-bar-chart"></span>Chart
                                 </button>
                             </div>
