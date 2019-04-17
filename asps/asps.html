@@ -152,14 +152,14 @@
                                 <select id="selectIndicator1" class="btn btn-primary"
                                         onchange="chooseIndicator(1);">
                                     <option value="placeholder">Please select an Indicator</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
+                                    <option value="01">1</option>
+                                    <option value="02">2</option>
+                                    <option value="03">3</option>
+                                    <option value="04">4</option>
+                                    <option value="05">5</option>
+                                    <option value="06">6</option>
+                                    <option value="07">7</option>
+                                    <option value="08">8</option>
                                 </select>
                             </div>
                             <div class="col">
@@ -187,12 +187,12 @@
                         <div class="row card-footer">
                             <div class="col-md-2"></div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(1,1);"><span
                                         class="fa fa-globe"></span>Map
                                 </button>
                             </div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(2,1);"><span
                                         class="fa fa-bar-chart"></span>Chart
                                 </button>
                             </div>
@@ -206,7 +206,7 @@
                                 <select id="selectIndicator2" class="btn btn-primary"
                                         onchange="chooseIndicator(2);">
                                     <option value="placeholder">Please select an Indicator</option>
-                                    <option value="9">9</option>
+                                    <option value="09">9</option>
                                     <option value="10">10</option>
                                     <option value="11">11</option>
                                     <option value="12">12</option>
@@ -1284,4 +1284,10 @@
 <script src="https://code.highcharts.com/maps/modules/drilldown.js"></script>
 <script src="https://code.highcharts.com/mapdata/custom/africa.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all"/>
+<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
 </html>

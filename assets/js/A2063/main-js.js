@@ -1,54 +1,70 @@
-var dataSourceURL='../assets/data/A2063/A2063_';
+var dataSourceURL = '../assets/data/A2063/A2063_';
+var completeDataPath = '';
 //Loads after the page is ready
 $(document).ready(function () {
 });
+
+function changeVisualization(n, goal) {
+    if (n === 1) {
+        loadA2063Map(1, goal, dataSourceURL);
+    }
+    if (n === 2) {
+        loadA2063Map(2, goal, dataSourceURL);
+    }
+
+}
+
 function loadGoal() {
     $("select[id^='selectDataSource']").hide();
     $("select[id^='selectPeriod']").hide();
-    dataSourceURL='../assets/data/A2063/A2063_';
+    dataSourceURL = '../assets/data/A2063/A2063_';
 }
 
 function chooseIndicator(goal) {
-    var indicator=$("#selectIndicator"+goal).val();
-    if(dataSourceURL.match(/^.*json$/)){
+    var indicator = $("#selectIndicator" + goal).val();
+    if (dataSourceURL.match(/^.*json$/)) {
         //UPDATE URL and call LoadA2063Map
-        var prefix=dataSourceURL.slice(0,27);
-        var postfix=dataSourceURL.slice(28);
-        dataSourceURL=prefix+indicator+postfix;
-        console.log("Change in Indicator"+dataSourceURL);
-        loadA2063Map(1,goal,dataSourceURL);
-    }else{
-        dataSourceURL=dataSourceURL+indicator+'_';
+        var prefix = dataSourceURL.slice(0, 27);
+        var postfix = dataSourceURL.slice(29);
+        dataSourceURL = prefix + indicator + postfix;
+        loadA2063Map(1, goal, dataSourceURL);
+    }
+    if(dataSourceURL.charAt(28)==='' ||dataSourceURL.charAt(31)==='') {
+        var prefix = dataSourceURL.slice(0, 27);
+        dataSourceURL = prefix + indicator + '_';
         $("select[id^='selectDataSource']").show();
     }
 }
 
 function chooseDataSourceA2063(goal) {
-    var source=$("#selectDataSource"+goal).val();
-    if(dataSourceURL.match(/^.*json$/)){
+    var source = $("#selectDataSource" + goal).val();
+    if (dataSourceURL.match(/^.*json$/)) {
         //UPDATE URL and call LoadA2063Map
-        var prefix=dataSourceURL.slice(0,29);
-        var postfix=dataSourceURL.slice(32);
-        dataSourceURL=prefix+source+postfix;
-        console.log("Change in DataSource"+dataSourceURL);
-        loadA2063Map(1,goal,dataSourceURL);
-    }else{
-        dataSourceURL=dataSourceURL+source+'_';
+        var prefix = dataSourceURL.slice(0, 30);
+        var postfix = dataSourceURL.slice(33);
+        dataSourceURL = prefix + source + postfix;
+        loadA2063Map(1, goal, dataSourceURL);
+    }
+    if(dataSourceURL.charAt(31)==='' || dataSourceURL.charAt(35)==='') {
+        var prefix = dataSourceURL.slice(0, 30);
+        dataSourceURL = prefix + source + '_';
         $("select[id^='selectPeriod']").show();
     }
 }
 
 function choosePeriodA2063(goal) {
-    var period=$("#selectPeriod"+goal).val();
-    if(dataSourceURL.match(/^.*json$/)){
+    var period = $("#selectPeriod" + goal).val();
+    if (dataSourceURL.match(/^.*json$/)) {
         //UPDATE URL and call LoadA2063Map
-        var prefix=dataSourceURL.slice(0,33);
-        dataSourceURL=prefix+period+'.json';
-        console.log("Change in Period"+dataSourceURL);
-        loadA2063Map(1,goal,dataSourceURL);
-    }else{
-        dataSourceURL= dataSourceURL+period+'.json';
-        loadA2063Map(1,goal,dataSourceURL);
+        var prefix = dataSourceURL.slice(0, 34);
+        dataSourceURL = prefix + period + '.json';
+        loadA2063Map(1, goal, dataSourceURL);
+    }
+    if(dataSourceURL.charAt(35)==='' ||dataSourceURL.charAt(40)==='') {
+        var prefix = dataSourceURL.slice(0, 34);
+        dataSourceURL = prefix + period + '.json';
+        completeDataPath = dataSourceURL;
+        loadA2063Map(1, goal, dataSourceURL);
     }
 }
 
@@ -1516,9 +1532,134 @@ function loadA2063Map(n, containerID, dataSourceURL) {
             window.scrollTo(0, document.body.scrollHeight);
         }).fail(function () {
             var noData = '<i class="fa fa-warning" style="font-size:40px;color:red;margin-left: 50%;margin-top: 12%;"></i><br><br><p style="margin-top: 15%;text-align: center;margin-left: -4%;font-weight: bolder;">No Data Available</p>';
-            $("#container"+containerID).empty().append(noData);
+            $("#container" + containerID).empty().append(noData);
             console.log("No Data Available");
         });
     }
+    if (n == 2) {
+        $.getJSON(completeDataPath, function (data) {
+            $("#container" + containerID).css({"width": "100%", "height": "500px"});
+            AmCharts.addInitHandler(function (chart) {
+
+                var dataProvider = chart.dataProvider;
+                var colorRanges = chart.colorRanges;
+
+                function ColorLuminance(hex, lum) {
+
+                    // validate hex string
+                    hex = String(hex).replace(/[^0-9a-f]/gi, '');
+                    if (hex.length < 6) {
+                        hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+                    }
+                    lum = lum || 0;
+
+                    // convert to decimal and change luminosity
+                    var rgb = "#",
+                        c, i;
+                    for (i = 0; i < 3; i++) {
+                        c = parseInt(hex.substr(i * 2, 2), 16);
+                        c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+                        rgb += ("00" + c).substr(c.length);
+                    }
+
+                    return rgb;
+                }
+
+                if (colorRanges) {
+
+                    var item;
+                    var range;
+                    var valueProperty;
+                    var value;
+                    var average;
+                    var variation;
+                    for (var i = 0, iLen = dataProvider.length; i < iLen; i++) {
+
+                        item = dataProvider[i];
+
+                        for (var x = 0, xLen = colorRanges.length; x < xLen; x++) {
+
+                            range = colorRanges[x];
+                            valueProperty = range.valueProperty;
+                            value = item[valueProperty];
+
+                            if (value >= range.start && value <= range.end) {
+                                average = (range.start - range.end) / 2;
+
+                                if (value <= average)
+                                    variation = (range.variation * -1) / value * average;
+                                else if (value > average)
+                                    variation = range.variation / value * average;
+
+                                item[range.colorProperty] = ColorLuminance(range.color, variation.toFixed(2));
+                            }
+                        }
+                    }
+                }
+
+            }, ["serial"]);
+            var chart = AmCharts.makeChart("container" + containerID, {
+                "creditsPosition": "bottom-right",
+                "theme": "light",
+                "type": "serial",
+                "startDuration": 2,
+                "colorRanges": [{
+                    "start": 0,
+                    "end": 10,
+                    "color": "#008000",
+                    "variation": 0.6,
+                    "valueProperty": "value",
+                    "colorProperty": "color"
+                }, {
+                    "start": 11,
+                    "end": 30,
+                    "color": "#EEDD66",
+                    "variation": 0.6,
+                    "valueProperty": "value",
+                    "colorProperty": "color"
+                }, {
+                    "start": 31,
+                    "end": 100,
+                    "color": "#FF0000",
+                    "variation": 0.4,
+                    "valueProperty": "value",
+                    "colorProperty": "color"
+                }],
+                "dataProvider": data,
+                "valueAxes": [{
+                    "position": "left",
+                    "title": "Percentage(%)"
+                }],
+                "graphs": [{
+                    "balloonText": "[[category]]: <b>[[value]]</b>",
+                    "fillColorsField": "color",
+                    "fillAlphas": 1,
+                    "lineAlpha": 0.1,
+                    "type": "column",
+                    "valueField": "value"
+                }],
+                "depth3D": 20,
+                "angle": 30,
+                "chartCursor": {
+                    "categoryBalloonEnabled": false,
+                    "cursorAlpha": 0,
+                    "zoomable": false
+                },
+                "categoryField": "code",
+                "categoryAxis": {
+                    "gridPosition": "start",
+                    "labelRotation": 90
+                },
+                "export": {
+                    "enabled": true
+                }
+
+            });
+        });
+
+
+    }
 
 }
+
+
