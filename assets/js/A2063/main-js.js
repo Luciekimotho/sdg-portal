@@ -1,8 +1,8 @@
 var dataSourceURL = '../assets/data/A2063/A2063_';
 var completeDataPath = '';
 //Loads after the page is ready
-$(document).ready(function () {
-});
+// $(document).ready(function () {
+// });
 
 function changeVisualization(n, goal) {
     if (n === 1) {
@@ -1661,5 +1661,103 @@ function loadA2063Map(n, containerID, dataSourceURL) {
     }
 
 }
+
+var sourceData=[
+    {
+        "code": "ug",
+        "value": 0,
+    },
+    {
+        "code": "ng",
+        "value": 1,
+    },
+    {
+        "code": "st",
+        "value": 2,
+    },
+    {
+        "code": "tz",
+        "value": 3,
+    }];
+
+function lowercase( string ) {
+    return string.toLocaleLowerCase();
+}
+
+function contains( string, value ) {
+    return string.indexOf( value ) !== -1;
+}
+
+/**
+ * Function that checks which data is selected and generates a new data set
+ */
+var name=';'
+$(document).ready(function () {
+    name = lowercase(document.getElementById("filter-name").value);
+    applyFilters();
+
+})
+function getFilteredData() {
+
+    var filters = {};
+
+    // get all filter checkboxes
+    var fields = document.getElementsByClassName( "filter-position" );
+    for ( var i = 0; i < fields.length; i++ ) {
+        if ( fields[ i ].checked ) {
+            filters[ fields[ i ].value ] = true;
+        }
+    }
+
+    // init new data set
+    var newData = [];
+
+    // cycle through source data and filter out required data points
+    for ( var i = 0; i < sourceData.length; i++ ) {
+        var dataPoint = sourceData[ i ];
+
+        if ( filters[ dataPoint.code ] &&
+            contains( lowercase( dataPoint.code ), name ) ) {
+            newData.push( {
+                "code": dataPoint.code,
+                "value": dataPoint.value,
+            } );
+        }
+    }
+
+    // return new data set
+    return newData;
+
+}
+
+/**
+ * Function which applies current filters when invoked
+ */
+function applyFilters() {
+    var data = getFilteredData();
+
+    // update chart data
+    chart1.dataProvider = data;
+    chart1.validateData();
+}
+
+
+var chart1 = AmCharts.makeChart( "chartdiv1", {
+    "type": "serial",
+    "dataProvider": getFilteredData(),
+    "graphs": [ {
+        "fillAlphas": 0.9,
+        "lineAlpha": 0.2,
+        "lineColorField": "color",
+        "fillColorsField": "color",
+        "type": "column",
+        "valueField": "value",
+        "balloonText": "[[category]] ([[position]])<br><span style='font-size: 150%;'>$[[value]]</span>"
+    } ],
+    "categoryField": "code",
+    "valueAxes": [{
+        "title": "Annual salary (US$)"
+    }]
+} );
 
 
