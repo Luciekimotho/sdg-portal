@@ -1,8 +1,19 @@
 var dataSourceURL = '../assets/data/A2063/A2063_';
 var completeDataPath = '';
-//Loads after the page is ready
-// $(document).ready(function () {
-// });
+let chartData='';
+let chart='';
+
+// Loads after the page is ready
+$(document).ready(function () {
+    //Load asp 1 goal 1, indicator 1, global database, 2016
+    openAspiration(event, 'Aspiration1');
+    loadGoal(1);
+    dataSourceURL='../assets/data/A2063/A2063_01_gdb_2017.json';
+    loadA2063Map(1, 1, dataSourceURL);
+    $('#goal01').click();
+    dataSourceURL='../assets/data/A2063/A2063_01_gdb_2017.json';
+    completeDataPath=dataSourceURL;
+});
 
 function changeVisualization(n, goal) {
     if (n === 1) {
@@ -17,7 +28,7 @@ function changeVisualization(n, goal) {
 }
 
 function loadGoal() {
-    $("#filter").hide();
+    $("[id^='filter']").hide();
     $("select[id^='selectDataSource']").hide();
     $("select[id^='selectPeriod']").hide();
     dataSourceURL = '../assets/data/A2063/A2063_';
@@ -70,8 +81,7 @@ function choosePeriodA2063(goal) {
         loadA2063Map(1, goal, dataSourceURL);
     }
 }
-let chartData='';
-let chart='';
+
 function loadA2063Map(n, containerID, dataSourceURL) {
     if (n == 1) {
         $("#container" + containerID).css({"width": "100%", "height": "500px"});

@@ -37,10 +37,10 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $(".tabcontent").hide();
-            $("#London").show();
+            // $("#London").show();
         });
 
-        function openCity(evt, cityName) {
+        function openAspiration(evt, cityName) {
             // Declare all variables
             var i, tabcontent, tablinks;
 
@@ -76,49 +76,49 @@
         <div class="row" style="margin-top: 2%; width: 100%;margin-bottom: 2%;">
             <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 tab" style="">
                 <div class="row">
-                    <a href="#" onclick="openCity(event, 'Aspiration1')" class="btn btn-large col aspIcons tablinks"
+                    <a href="#" onclick="openAspiration(event, 'Aspiration1')" class="btn btn-large col aspIcons tablinks"
                        style="background-color: #8CD348;">
                         Aspiration 1
                     </a>
                 </div>
                 <br>
                 <div class="row">
-                    <a href="#" onclick="openCity(event, 'Aspiration2')" class="btn btn-large col aspIcons tablinks"
+                    <a href="#" onclick="openAspiration(event, 'Aspiration2')" class="btn btn-large col aspIcons tablinks"
                        style="background-color:#F07800;">
                         Aspiration 2
                     </a>
                 </div>
                 <br>
                 <div class="row">
-                    <a href="#" onclick="openCity(event, 'Aspiration3');" class="btn btn-large col aspIcons tablinks"
+                    <a href="#" onclick="openAspiration(event, 'Aspiration3');" class="btn btn-large col aspIcons tablinks"
                        style="background-color:#BA0C2A">
                         Aspiration 3
                     </a>
                 </div>
                 <br>
                 <div class="row">
-                    <a href="#" onclick="openCity(event, 'Aspiration4');" class="btn btn-large col aspIcons tablinks"
+                    <a href="#" onclick="openAspiration(event, 'Aspiration4');" class="btn btn-large col aspIcons tablinks"
                        style="background-color:#385EAC">
                         Aspiration 4
                     </a>
                 </div>
                 <br>
                 <div class="row">
-                    <a href="#" onclick="openCity(event, 'Aspiration5');" class="btn btn-large col aspIcons tablinks"
+                    <a href="#" onclick="openAspiration(event, 'Aspiration5');" class="btn btn-large col aspIcons tablinks"
                        style="background-color:#0E0E0E">
                         Aspiration 5
                     </a>
                 </div>
                 <br>
                 <div class="row">
-                    <a href="#" onclick="openCity(event, 'Aspiration6');" class="btn btn-large col aspIcons tablinks"
+                    <a href="#" onclick="openAspiration(event, 'Aspiration6');" class="btn btn-large col aspIcons tablinks"
                        style="background-color:#733F87">
                         Aspiration 6
                     </a>
                 </div>
                 <br>
                 <div class="row">
-                    <a href="#" onclick="openCity(event, 'Aspiration7');" class="btn btn-large col aspIcons tablinks"
+                    <a href="#" onclick="openAspiration(event, 'Aspiration7');" class="btn btn-large col aspIcons tablinks"
                        style="background-color:#00B0D5">
                         Aspiration 7
                     </a>
@@ -131,7 +131,7 @@
                             Aspiration 1: Integrated Africa</h4>
                         <p class="description nav nav-tabs"
                            style="color: white !important;text-align: center !important; display: inherit !important; margin-bottom: 1%;">
-                            <a data-toggle="tab" href="#goal1" onclick="loadGoal()"
+                            <a id="goal01" data-toggle="tab" href="#goal1" onclick="loadGoal(1)"
                                class="btn btn-danger sdg1-btn">Goal 1</a>
                             <a data-toggle="tab" href="#goal2" onclick="loadGoal(2)"
                                class="btn btn-danger sdg1-btn">Goal 2</a>
@@ -2520,6 +2520,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css"/>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
-<!--<script src="../assets/js/menu.js"></script>-->
+<script src="../assets/js/menu.js"></script>
 <script src="../assets/js/A2063/main-js.js"></script>
 </html>
