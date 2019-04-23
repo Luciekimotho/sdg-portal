@@ -6,11 +6,11 @@ var completeDataPath = '';
 
 function changeVisualization(n, goal) {
     if (n === 1) {
-        $("#filter").hide();
+        $("[id^='filter']").hide();
         loadA2063Map(1, goal, dataSourceURL);
     }
     if (n === 2) {
-        $("#filter").show();
+        $("[id^='filter']").show();
         loadA2063Map(2, goal, dataSourceURL);
     }
 

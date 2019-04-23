@@ -187,8 +187,8 @@
                             </div>
                         </div>
                         <div>
-                            <div id="filter" style="text-align: center;margin-top: 1%;">
-                                <select class="selectpicker" multiple data-live-search="true" id="african_countries"
+                            <div id="filter1" style="text-align: center;margin-top: 1%;">
+                                <select class="selectpicker" multiple data-live-search="true" id="african_countries1"
                                         onchange="applyFilters()">
                                     <option selected>Choose</option>
                                     <option value="dz" class="filter-position" selected>Algeria</option>
@@ -298,19 +298,80 @@
                                 </select>
                             </div>
                         </div>
-
+                        <div>
+                            <div id="filter2" style="text-align: center;margin-top: 1%;">
+                                <select class="selectpicker" multiple data-live-search="true" id="african_countries2"
+                                        onchange="applyFilters()">
+                                    <option selected>Choose</option>
+                                    <option value="dz" class="filter-position" selected>Algeria</option>
+                                    <option value="ao" class="filter-position" selected>Angola</option>
+                                    <option value="bj" class="filter-position" selected>Benin</option>
+                                    <option value="bw" class="filter-position" selected>Botswana</option>
+                                    <option value="bf" class="filter-position" selected>Burkina Faso</option>
+                                    <option value="bi" class="filter-position">Burundi</option>
+                                    <option value="cm" class="filter-position">Cameroon</option>
+                                    <option value="cv" class="filter-position">Cape Verde</option>
+                                    <option value="cf" class="filter-position">Central African Republic</option>
+                                    <option value="td" class="filter-position">Chad</option>
+                                    <option value="km" class="filter-position">Comoros</option>
+                                    <option value="cg" class="filter-position">Congo</option>
+                                    <option value="cd" class="filter-position">Democratic Republic Congo</option>
+                                    <option value="ci" class="filter-position">Côte d’Ivoire</option>
+                                    <option value="dj" class="filter-position">Djibouti</option>
+                                    <option value="eg" class="filter-position">Egypt</option>
+                                    <option value="gq" class="filter-position">Equatorial Guinea</option>
+                                    <option value="er" class="filter-position">Eritrea</option>
+                                    <option value="et" class="filter-position">Ethiopia</option>
+                                    <option value="ga" class="filter-position">Gabon</option>
+                                    <option value="gm" class="filter-position">Gambia</option>
+                                    <option value="gh" class="filter-position">Ghana</option>
+                                    <option value="gn" class="filter-position">Guinea</option>
+                                    <option value="gw" class="filter-position">Guinea-Bissau</option>
+                                    <option value="ke" class="filter-position">Kenya</option>
+                                    <option value="ls" class="filter-position">Lesotho</option>
+                                    <option value="lr" class="filter-position">Liberia</option>
+                                    <option value="ly" class="filter-position">Libya</option>
+                                    <option value="mg" class="filter-position">Madagascar</option>
+                                    <option value="mw" class="filter-position">Malawi</option>
+                                    <option value="ml" class="filter-position">Mali</option>
+                                    <option value="mr" class="filter-position">Mauritania</option>
+                                    <option value="mu" class="filter-position">Mauritius</option>
+                                    <option value="ma" class="filter-position">Morocco</option>
+                                    <option value="mz" class="filter-position">Mozambique</option>
+                                    <option value="na" class="filter-position">Namibia</option>
+                                    <option value="ne" class="filter-position">Niger</option>
+                                    <option value="ng" class="filter-position">Nigeria</option>
+                                    <option value="rw" class="filter-position">Rwanda</option>
+                                    <option value="sn" class="filter-position">Senegal</option>
+                                    <option value="fr" class="filter-position">Seychelles</option>
+                                    <option value="sl" class="filter-position">Sierra Leone</option>
+                                    <option value="so" class="filter-position">Somalia</option>
+                                    <option value="za" class="filter-position">South Africa</option>
+                                    <option value="ss" class="filter-position">South Sudan</option>
+                                    <option value="sd" class="filter-position">Sudan</option>
+                                    <option value="sz" class="filter-position">Swaziland</option>
+                                    <option value="st" class="filter-position">São Tomé and Príncipe</option>
+                                    <option value="tz" class="filter-position">Tanzania</option>
+                                    <option value="tg" class="filter-position">Togo</option>
+                                    <option value="tn" class="filter-position">Tunisia</option>
+                                    <option value="ug" class="filter-position">Uganda</option>
+                                    <option value="zm" class="filter-position">Zambia</option>
+                                    <option value="zw" class="filter-position">Zimbabwe</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="row card-body" id="container2">
                         </div>
                         <hr>
                         <div class="row card-footer">
                             <div class="col-md-2"></div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(1,2);"><span
                                         class="fa fa-globe"></span>Map
                                 </button>
                             </div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(2,2);"><span
                                         class="fa fa-bar-chart"></span>Chart
                                 </button>
                             </div>
@@ -354,19 +415,80 @@
                                 </select>
                             </div>
                         </div>
-
+                        <div>
+                            <div id="filter3" style="text-align: center;margin-top: 1%;">
+                                <select class="selectpicker" multiple data-live-search="true" id="african_countries3"
+                                        onchange="applyFilters()">
+                                    <option selected>Choose</option>
+                                    <option value="dz" class="filter-position" selected>Algeria</option>
+                                    <option value="ao" class="filter-position" selected>Angola</option>
+                                    <option value="bj" class="filter-position" selected>Benin</option>
+                                    <option value="bw" class="filter-position" selected>Botswana</option>
+                                    <option value="bf" class="filter-position" selected>Burkina Faso</option>
+                                    <option value="bi" class="filter-position">Burundi</option>
+                                    <option value="cm" class="filter-position">Cameroon</option>
+                                    <option value="cv" class="filter-position">Cape Verde</option>
+                                    <option value="cf" class="filter-position">Central African Republic</option>
+                                    <option value="td" class="filter-position">Chad</option>
+                                    <option value="km" class="filter-position">Comoros</option>
+                                    <option value="cg" class="filter-position">Congo</option>
+                                    <option value="cd" class="filter-position">Democratic Republic Congo</option>
+                                    <option value="ci" class="filter-position">Côte d’Ivoire</option>
+                                    <option value="dj" class="filter-position">Djibouti</option>
+                                    <option value="eg" class="filter-position">Egypt</option>
+                                    <option value="gq" class="filter-position">Equatorial Guinea</option>
+                                    <option value="er" class="filter-position">Eritrea</option>
+                                    <option value="et" class="filter-position">Ethiopia</option>
+                                    <option value="ga" class="filter-position">Gabon</option>
+                                    <option value="gm" class="filter-position">Gambia</option>
+                                    <option value="gh" class="filter-position">Ghana</option>
+                                    <option value="gn" class="filter-position">Guinea</option>
+                                    <option value="gw" class="filter-position">Guinea-Bissau</option>
+                                    <option value="ke" class="filter-position">Kenya</option>
+                                    <option value="ls" class="filter-position">Lesotho</option>
+                                    <option value="lr" class="filter-position">Liberia</option>
+                                    <option value="ly" class="filter-position">Libya</option>
+                                    <option value="mg" class="filter-position">Madagascar</option>
+                                    <option value="mw" class="filter-position">Malawi</option>
+                                    <option value="ml" class="filter-position">Mali</option>
+                                    <option value="mr" class="filter-position">Mauritania</option>
+                                    <option value="mu" class="filter-position">Mauritius</option>
+                                    <option value="ma" class="filter-position">Morocco</option>
+                                    <option value="mz" class="filter-position">Mozambique</option>
+                                    <option value="na" class="filter-position">Namibia</option>
+                                    <option value="ne" class="filter-position">Niger</option>
+                                    <option value="ng" class="filter-position">Nigeria</option>
+                                    <option value="rw" class="filter-position">Rwanda</option>
+                                    <option value="sn" class="filter-position">Senegal</option>
+                                    <option value="fr" class="filter-position">Seychelles</option>
+                                    <option value="sl" class="filter-position">Sierra Leone</option>
+                                    <option value="so" class="filter-position">Somalia</option>
+                                    <option value="za" class="filter-position">South Africa</option>
+                                    <option value="ss" class="filter-position">South Sudan</option>
+                                    <option value="sd" class="filter-position">Sudan</option>
+                                    <option value="sz" class="filter-position">Swaziland</option>
+                                    <option value="st" class="filter-position">São Tomé and Príncipe</option>
+                                    <option value="tz" class="filter-position">Tanzania</option>
+                                    <option value="tg" class="filter-position">Togo</option>
+                                    <option value="tn" class="filter-position">Tunisia</option>
+                                    <option value="ug" class="filter-position">Uganda</option>
+                                    <option value="zm" class="filter-position">Zambia</option>
+                                    <option value="zw" class="filter-position">Zimbabwe</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="row card-body" id="container3">
                         </div>
                         <hr>
                         <div class="row card-footer">
                             <div class="col-md-2"></div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(1,3);"><span
                                         class="fa fa-globe"></span>Map
                                 </button>
                             </div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(2,3);"><span
                                         class="fa fa-bar-chart"></span>Chart
                                 </button>
                             </div>
@@ -405,19 +527,80 @@
                                 </select>
                             </div>
                         </div>
-
+                        <div>
+                            <div id="filter4" style="text-align: center;margin-top: 1%;">
+                                <select class="selectpicker" multiple data-live-search="true" id="african_countries4"
+                                        onchange="applyFilters()">
+                                    <option selected>Choose</option>
+                                    <option value="dz" class="filter-position" selected>Algeria</option>
+                                    <option value="ao" class="filter-position" selected>Angola</option>
+                                    <option value="bj" class="filter-position" selected>Benin</option>
+                                    <option value="bw" class="filter-position" selected>Botswana</option>
+                                    <option value="bf" class="filter-position" selected>Burkina Faso</option>
+                                    <option value="bi" class="filter-position">Burundi</option>
+                                    <option value="cm" class="filter-position">Cameroon</option>
+                                    <option value="cv" class="filter-position">Cape Verde</option>
+                                    <option value="cf" class="filter-position">Central African Republic</option>
+                                    <option value="td" class="filter-position">Chad</option>
+                                    <option value="km" class="filter-position">Comoros</option>
+                                    <option value="cg" class="filter-position">Congo</option>
+                                    <option value="cd" class="filter-position">Democratic Republic Congo</option>
+                                    <option value="ci" class="filter-position">Côte d’Ivoire</option>
+                                    <option value="dj" class="filter-position">Djibouti</option>
+                                    <option value="eg" class="filter-position">Egypt</option>
+                                    <option value="gq" class="filter-position">Equatorial Guinea</option>
+                                    <option value="er" class="filter-position">Eritrea</option>
+                                    <option value="et" class="filter-position">Ethiopia</option>
+                                    <option value="ga" class="filter-position">Gabon</option>
+                                    <option value="gm" class="filter-position">Gambia</option>
+                                    <option value="gh" class="filter-position">Ghana</option>
+                                    <option value="gn" class="filter-position">Guinea</option>
+                                    <option value="gw" class="filter-position">Guinea-Bissau</option>
+                                    <option value="ke" class="filter-position">Kenya</option>
+                                    <option value="ls" class="filter-position">Lesotho</option>
+                                    <option value="lr" class="filter-position">Liberia</option>
+                                    <option value="ly" class="filter-position">Libya</option>
+                                    <option value="mg" class="filter-position">Madagascar</option>
+                                    <option value="mw" class="filter-position">Malawi</option>
+                                    <option value="ml" class="filter-position">Mali</option>
+                                    <option value="mr" class="filter-position">Mauritania</option>
+                                    <option value="mu" class="filter-position">Mauritius</option>
+                                    <option value="ma" class="filter-position">Morocco</option>
+                                    <option value="mz" class="filter-position">Mozambique</option>
+                                    <option value="na" class="filter-position">Namibia</option>
+                                    <option value="ne" class="filter-position">Niger</option>
+                                    <option value="ng" class="filter-position">Nigeria</option>
+                                    <option value="rw" class="filter-position">Rwanda</option>
+                                    <option value="sn" class="filter-position">Senegal</option>
+                                    <option value="fr" class="filter-position">Seychelles</option>
+                                    <option value="sl" class="filter-position">Sierra Leone</option>
+                                    <option value="so" class="filter-position">Somalia</option>
+                                    <option value="za" class="filter-position">South Africa</option>
+                                    <option value="ss" class="filter-position">South Sudan</option>
+                                    <option value="sd" class="filter-position">Sudan</option>
+                                    <option value="sz" class="filter-position">Swaziland</option>
+                                    <option value="st" class="filter-position">São Tomé and Príncipe</option>
+                                    <option value="tz" class="filter-position">Tanzania</option>
+                                    <option value="tg" class="filter-position">Togo</option>
+                                    <option value="tn" class="filter-position">Tunisia</option>
+                                    <option value="ug" class="filter-position">Uganda</option>
+                                    <option value="zm" class="filter-position">Zambia</option>
+                                    <option value="zw" class="filter-position">Zimbabwe</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="row card-body" id="container4">
                         </div>
                         <hr>
                         <div class="row card-footer">
                             <div class="col-md-2"></div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(1,4);"><span
                                         class="fa fa-globe"></span>Map
                                 </button>
                             </div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(2,4);"><span
                                         class="fa fa-bar-chart"></span>Chart
                                 </button>
                             </div>
@@ -454,19 +637,80 @@
                                 </select>
                             </div>
                         </div>
-
+                        <div>
+                            <div id="filter5" style="text-align: center;margin-top: 1%;">
+                                <select class="selectpicker" multiple data-live-search="true" id="african_countries5"
+                                        onchange="applyFilters()">
+                                    <option selected>Choose</option>
+                                    <option value="dz" class="filter-position" selected>Algeria</option>
+                                    <option value="ao" class="filter-position" selected>Angola</option>
+                                    <option value="bj" class="filter-position" selected>Benin</option>
+                                    <option value="bw" class="filter-position" selected>Botswana</option>
+                                    <option value="bf" class="filter-position" selected>Burkina Faso</option>
+                                    <option value="bi" class="filter-position">Burundi</option>
+                                    <option value="cm" class="filter-position">Cameroon</option>
+                                    <option value="cv" class="filter-position">Cape Verde</option>
+                                    <option value="cf" class="filter-position">Central African Republic</option>
+                                    <option value="td" class="filter-position">Chad</option>
+                                    <option value="km" class="filter-position">Comoros</option>
+                                    <option value="cg" class="filter-position">Congo</option>
+                                    <option value="cd" class="filter-position">Democratic Republic Congo</option>
+                                    <option value="ci" class="filter-position">Côte d’Ivoire</option>
+                                    <option value="dj" class="filter-position">Djibouti</option>
+                                    <option value="eg" class="filter-position">Egypt</option>
+                                    <option value="gq" class="filter-position">Equatorial Guinea</option>
+                                    <option value="er" class="filter-position">Eritrea</option>
+                                    <option value="et" class="filter-position">Ethiopia</option>
+                                    <option value="ga" class="filter-position">Gabon</option>
+                                    <option value="gm" class="filter-position">Gambia</option>
+                                    <option value="gh" class="filter-position">Ghana</option>
+                                    <option value="gn" class="filter-position">Guinea</option>
+                                    <option value="gw" class="filter-position">Guinea-Bissau</option>
+                                    <option value="ke" class="filter-position">Kenya</option>
+                                    <option value="ls" class="filter-position">Lesotho</option>
+                                    <option value="lr" class="filter-position">Liberia</option>
+                                    <option value="ly" class="filter-position">Libya</option>
+                                    <option value="mg" class="filter-position">Madagascar</option>
+                                    <option value="mw" class="filter-position">Malawi</option>
+                                    <option value="ml" class="filter-position">Mali</option>
+                                    <option value="mr" class="filter-position">Mauritania</option>
+                                    <option value="mu" class="filter-position">Mauritius</option>
+                                    <option value="ma" class="filter-position">Morocco</option>
+                                    <option value="mz" class="filter-position">Mozambique</option>
+                                    <option value="na" class="filter-position">Namibia</option>
+                                    <option value="ne" class="filter-position">Niger</option>
+                                    <option value="ng" class="filter-position">Nigeria</option>
+                                    <option value="rw" class="filter-position">Rwanda</option>
+                                    <option value="sn" class="filter-position">Senegal</option>
+                                    <option value="fr" class="filter-position">Seychelles</option>
+                                    <option value="sl" class="filter-position">Sierra Leone</option>
+                                    <option value="so" class="filter-position">Somalia</option>
+                                    <option value="za" class="filter-position">South Africa</option>
+                                    <option value="ss" class="filter-position">South Sudan</option>
+                                    <option value="sd" class="filter-position">Sudan</option>
+                                    <option value="sz" class="filter-position">Swaziland</option>
+                                    <option value="st" class="filter-position">São Tomé and Príncipe</option>
+                                    <option value="tz" class="filter-position">Tanzania</option>
+                                    <option value="tg" class="filter-position">Togo</option>
+                                    <option value="tn" class="filter-position">Tunisia</option>
+                                    <option value="ug" class="filter-position">Uganda</option>
+                                    <option value="zm" class="filter-position">Zambia</option>
+                                    <option value="zw" class="filter-position">Zimbabwe</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="row card-body" id="container5">
                         </div>
                         <hr>
                         <div class="row card-footer">
                             <div class="col-md-2"></div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(1,5);"><span
                                         class="fa fa-globe"></span>Map
                                 </button>
                             </div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(2,5);"><span
                                         class="fa fa-bar-chart"></span>Chart
                                 </button>
                             </div>
@@ -503,19 +747,80 @@
                                 </select>
                             </div>
                         </div>
-
+                        <div>
+                            <div id="filter6" style="text-align: center;margin-top: 1%;">
+                                <select class="selectpicker" multiple data-live-search="true" id="african_countries6"
+                                        onchange="applyFilters()">
+                                    <option selected>Choose</option>
+                                    <option value="dz" class="filter-position" selected>Algeria</option>
+                                    <option value="ao" class="filter-position" selected>Angola</option>
+                                    <option value="bj" class="filter-position" selected>Benin</option>
+                                    <option value="bw" class="filter-position" selected>Botswana</option>
+                                    <option value="bf" class="filter-position" selected>Burkina Faso</option>
+                                    <option value="bi" class="filter-position">Burundi</option>
+                                    <option value="cm" class="filter-position">Cameroon</option>
+                                    <option value="cv" class="filter-position">Cape Verde</option>
+                                    <option value="cf" class="filter-position">Central African Republic</option>
+                                    <option value="td" class="filter-position">Chad</option>
+                                    <option value="km" class="filter-position">Comoros</option>
+                                    <option value="cg" class="filter-position">Congo</option>
+                                    <option value="cd" class="filter-position">Democratic Republic Congo</option>
+                                    <option value="ci" class="filter-position">Côte d’Ivoire</option>
+                                    <option value="dj" class="filter-position">Djibouti</option>
+                                    <option value="eg" class="filter-position">Egypt</option>
+                                    <option value="gq" class="filter-position">Equatorial Guinea</option>
+                                    <option value="er" class="filter-position">Eritrea</option>
+                                    <option value="et" class="filter-position">Ethiopia</option>
+                                    <option value="ga" class="filter-position">Gabon</option>
+                                    <option value="gm" class="filter-position">Gambia</option>
+                                    <option value="gh" class="filter-position">Ghana</option>
+                                    <option value="gn" class="filter-position">Guinea</option>
+                                    <option value="gw" class="filter-position">Guinea-Bissau</option>
+                                    <option value="ke" class="filter-position">Kenya</option>
+                                    <option value="ls" class="filter-position">Lesotho</option>
+                                    <option value="lr" class="filter-position">Liberia</option>
+                                    <option value="ly" class="filter-position">Libya</option>
+                                    <option value="mg" class="filter-position">Madagascar</option>
+                                    <option value="mw" class="filter-position">Malawi</option>
+                                    <option value="ml" class="filter-position">Mali</option>
+                                    <option value="mr" class="filter-position">Mauritania</option>
+                                    <option value="mu" class="filter-position">Mauritius</option>
+                                    <option value="ma" class="filter-position">Morocco</option>
+                                    <option value="mz" class="filter-position">Mozambique</option>
+                                    <option value="na" class="filter-position">Namibia</option>
+                                    <option value="ne" class="filter-position">Niger</option>
+                                    <option value="ng" class="filter-position">Nigeria</option>
+                                    <option value="rw" class="filter-position">Rwanda</option>
+                                    <option value="sn" class="filter-position">Senegal</option>
+                                    <option value="fr" class="filter-position">Seychelles</option>
+                                    <option value="sl" class="filter-position">Sierra Leone</option>
+                                    <option value="so" class="filter-position">Somalia</option>
+                                    <option value="za" class="filter-position">South Africa</option>
+                                    <option value="ss" class="filter-position">South Sudan</option>
+                                    <option value="sd" class="filter-position">Sudan</option>
+                                    <option value="sz" class="filter-position">Swaziland</option>
+                                    <option value="st" class="filter-position">São Tomé and Príncipe</option>
+                                    <option value="tz" class="filter-position">Tanzania</option>
+                                    <option value="tg" class="filter-position">Togo</option>
+                                    <option value="tn" class="filter-position">Tunisia</option>
+                                    <option value="ug" class="filter-position">Uganda</option>
+                                    <option value="zm" class="filter-position">Zambia</option>
+                                    <option value="zw" class="filter-position">Zimbabwe</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="row card-body" id="container6">
                         </div>
                         <hr>
                         <div class="row card-footer">
                             <div class="col-md-2"></div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(1,6);"><span
                                         class="fa fa-globe"></span>Map
                                 </button>
                             </div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(2,6);"><span
                                         class="fa fa-bar-chart"></span>Chart
                                 </button>
                             </div>
@@ -552,19 +857,80 @@
                                 </select>
                             </div>
                         </div>
-
+                        <div>
+                            <div id="filter7" style="text-align: center;margin-top: 1%;">
+                                <select class="selectpicker" multiple data-live-search="true" id="african_countries7"
+                                        onchange="applyFilters()">
+                                    <option selected>Choose</option>
+                                    <option value="dz" class="filter-position" selected>Algeria</option>
+                                    <option value="ao" class="filter-position" selected>Angola</option>
+                                    <option value="bj" class="filter-position" selected>Benin</option>
+                                    <option value="bw" class="filter-position" selected>Botswana</option>
+                                    <option value="bf" class="filter-position" selected>Burkina Faso</option>
+                                    <option value="bi" class="filter-position">Burundi</option>
+                                    <option value="cm" class="filter-position">Cameroon</option>
+                                    <option value="cv" class="filter-position">Cape Verde</option>
+                                    <option value="cf" class="filter-position">Central African Republic</option>
+                                    <option value="td" class="filter-position">Chad</option>
+                                    <option value="km" class="filter-position">Comoros</option>
+                                    <option value="cg" class="filter-position">Congo</option>
+                                    <option value="cd" class="filter-position">Democratic Republic Congo</option>
+                                    <option value="ci" class="filter-position">Côte d’Ivoire</option>
+                                    <option value="dj" class="filter-position">Djibouti</option>
+                                    <option value="eg" class="filter-position">Egypt</option>
+                                    <option value="gq" class="filter-position">Equatorial Guinea</option>
+                                    <option value="er" class="filter-position">Eritrea</option>
+                                    <option value="et" class="filter-position">Ethiopia</option>
+                                    <option value="ga" class="filter-position">Gabon</option>
+                                    <option value="gm" class="filter-position">Gambia</option>
+                                    <option value="gh" class="filter-position">Ghana</option>
+                                    <option value="gn" class="filter-position">Guinea</option>
+                                    <option value="gw" class="filter-position">Guinea-Bissau</option>
+                                    <option value="ke" class="filter-position">Kenya</option>
+                                    <option value="ls" class="filter-position">Lesotho</option>
+                                    <option value="lr" class="filter-position">Liberia</option>
+                                    <option value="ly" class="filter-position">Libya</option>
+                                    <option value="mg" class="filter-position">Madagascar</option>
+                                    <option value="mw" class="filter-position">Malawi</option>
+                                    <option value="ml" class="filter-position">Mali</option>
+                                    <option value="mr" class="filter-position">Mauritania</option>
+                                    <option value="mu" class="filter-position">Mauritius</option>
+                                    <option value="ma" class="filter-position">Morocco</option>
+                                    <option value="mz" class="filter-position">Mozambique</option>
+                                    <option value="na" class="filter-position">Namibia</option>
+                                    <option value="ne" class="filter-position">Niger</option>
+                                    <option value="ng" class="filter-position">Nigeria</option>
+                                    <option value="rw" class="filter-position">Rwanda</option>
+                                    <option value="sn" class="filter-position">Senegal</option>
+                                    <option value="fr" class="filter-position">Seychelles</option>
+                                    <option value="sl" class="filter-position">Sierra Leone</option>
+                                    <option value="so" class="filter-position">Somalia</option>
+                                    <option value="za" class="filter-position">South Africa</option>
+                                    <option value="ss" class="filter-position">South Sudan</option>
+                                    <option value="sd" class="filter-position">Sudan</option>
+                                    <option value="sz" class="filter-position">Swaziland</option>
+                                    <option value="st" class="filter-position">São Tomé and Príncipe</option>
+                                    <option value="tz" class="filter-position">Tanzania</option>
+                                    <option value="tg" class="filter-position">Togo</option>
+                                    <option value="tn" class="filter-position">Tunisia</option>
+                                    <option value="ug" class="filter-position">Uganda</option>
+                                    <option value="zm" class="filter-position">Zambia</option>
+                                    <option value="zw" class="filter-position">Zimbabwe</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="row card-body" id="container7">
                         </div>
                         <hr>
                         <div class="row card-footer">
                             <div class="col-md-2"></div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(1,7);"><span
                                         class="fa fa-globe"></span>Map
                                 </button>
                             </div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(2,7);"><span
                                         class="fa fa-bar-chart"></span>Chart
                                 </button>
                             </div>
@@ -621,18 +987,80 @@
                                 </select>
                             </div>
                         </div>
+                        <div>
+                            <div id="filter8" style="text-align: center;margin-top: 1%;">
+                                <select class="selectpicker" multiple data-live-search="true" id="african_countries8"
+                                        onchange="applyFilters()">
+                                    <option selected>Choose</option>
+                                    <option value="dz" class="filter-position" selected>Algeria</option>
+                                    <option value="ao" class="filter-position" selected>Angola</option>
+                                    <option value="bj" class="filter-position" selected>Benin</option>
+                                    <option value="bw" class="filter-position" selected>Botswana</option>
+                                    <option value="bf" class="filter-position" selected>Burkina Faso</option>
+                                    <option value="bi" class="filter-position">Burundi</option>
+                                    <option value="cm" class="filter-position">Cameroon</option>
+                                    <option value="cv" class="filter-position">Cape Verde</option>
+                                    <option value="cf" class="filter-position">Central African Republic</option>
+                                    <option value="td" class="filter-position">Chad</option>
+                                    <option value="km" class="filter-position">Comoros</option>
+                                    <option value="cg" class="filter-position">Congo</option>
+                                    <option value="cd" class="filter-position">Democratic Republic Congo</option>
+                                    <option value="ci" class="filter-position">Côte d’Ivoire</option>
+                                    <option value="dj" class="filter-position">Djibouti</option>
+                                    <option value="eg" class="filter-position">Egypt</option>
+                                    <option value="gq" class="filter-position">Equatorial Guinea</option>
+                                    <option value="er" class="filter-position">Eritrea</option>
+                                    <option value="et" class="filter-position">Ethiopia</option>
+                                    <option value="ga" class="filter-position">Gabon</option>
+                                    <option value="gm" class="filter-position">Gambia</option>
+                                    <option value="gh" class="filter-position">Ghana</option>
+                                    <option value="gn" class="filter-position">Guinea</option>
+                                    <option value="gw" class="filter-position">Guinea-Bissau</option>
+                                    <option value="ke" class="filter-position">Kenya</option>
+                                    <option value="ls" class="filter-position">Lesotho</option>
+                                    <option value="lr" class="filter-position">Liberia</option>
+                                    <option value="ly" class="filter-position">Libya</option>
+                                    <option value="mg" class="filter-position">Madagascar</option>
+                                    <option value="mw" class="filter-position">Malawi</option>
+                                    <option value="ml" class="filter-position">Mali</option>
+                                    <option value="mr" class="filter-position">Mauritania</option>
+                                    <option value="mu" class="filter-position">Mauritius</option>
+                                    <option value="ma" class="filter-position">Morocco</option>
+                                    <option value="mz" class="filter-position">Mozambique</option>
+                                    <option value="na" class="filter-position">Namibia</option>
+                                    <option value="ne" class="filter-position">Niger</option>
+                                    <option value="ng" class="filter-position">Nigeria</option>
+                                    <option value="rw" class="filter-position">Rwanda</option>
+                                    <option value="sn" class="filter-position">Senegal</option>
+                                    <option value="fr" class="filter-position">Seychelles</option>
+                                    <option value="sl" class="filter-position">Sierra Leone</option>
+                                    <option value="so" class="filter-position">Somalia</option>
+                                    <option value="za" class="filter-position">South Africa</option>
+                                    <option value="ss" class="filter-position">South Sudan</option>
+                                    <option value="sd" class="filter-position">Sudan</option>
+                                    <option value="sz" class="filter-position">Swaziland</option>
+                                    <option value="st" class="filter-position">São Tomé and Príncipe</option>
+                                    <option value="tz" class="filter-position">Tanzania</option>
+                                    <option value="tg" class="filter-position">Togo</option>
+                                    <option value="tn" class="filter-position">Tunisia</option>
+                                    <option value="ug" class="filter-position">Uganda</option>
+                                    <option value="zm" class="filter-position">Zambia</option>
+                                    <option value="zw" class="filter-position">Zimbabwe</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="row card-body" id="container8">
                         </div>
                         <hr>
                         <div class="row card-footer">
                             <div class="col-md-2"></div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(1,8);"><span
                                         class="fa fa-globe"></span>Map
                                 </button>
                             </div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(2,8);"><span
                                         class="fa fa-bar-chart"></span>Chart
                                 </button>
                             </div>
@@ -667,18 +1095,80 @@
                                 </select>
                             </div>
                         </div>
+                        <div>
+                            <div id="filter9" style="text-align: center;margin-top: 1%;">
+                                <select class="selectpicker" multiple data-live-search="true" id="african_countries9"
+                                        onchange="applyFilters()">
+                                    <option selected>Choose</option>
+                                    <option value="dz" class="filter-position" selected>Algeria</option>
+                                    <option value="ao" class="filter-position" selected>Angola</option>
+                                    <option value="bj" class="filter-position" selected>Benin</option>
+                                    <option value="bw" class="filter-position" selected>Botswana</option>
+                                    <option value="bf" class="filter-position" selected>Burkina Faso</option>
+                                    <option value="bi" class="filter-position">Burundi</option>
+                                    <option value="cm" class="filter-position">Cameroon</option>
+                                    <option value="cv" class="filter-position">Cape Verde</option>
+                                    <option value="cf" class="filter-position">Central African Republic</option>
+                                    <option value="td" class="filter-position">Chad</option>
+                                    <option value="km" class="filter-position">Comoros</option>
+                                    <option value="cg" class="filter-position">Congo</option>
+                                    <option value="cd" class="filter-position">Democratic Republic Congo</option>
+                                    <option value="ci" class="filter-position">Côte d’Ivoire</option>
+                                    <option value="dj" class="filter-position">Djibouti</option>
+                                    <option value="eg" class="filter-position">Egypt</option>
+                                    <option value="gq" class="filter-position">Equatorial Guinea</option>
+                                    <option value="er" class="filter-position">Eritrea</option>
+                                    <option value="et" class="filter-position">Ethiopia</option>
+                                    <option value="ga" class="filter-position">Gabon</option>
+                                    <option value="gm" class="filter-position">Gambia</option>
+                                    <option value="gh" class="filter-position">Ghana</option>
+                                    <option value="gn" class="filter-position">Guinea</option>
+                                    <option value="gw" class="filter-position">Guinea-Bissau</option>
+                                    <option value="ke" class="filter-position">Kenya</option>
+                                    <option value="ls" class="filter-position">Lesotho</option>
+                                    <option value="lr" class="filter-position">Liberia</option>
+                                    <option value="ly" class="filter-position">Libya</option>
+                                    <option value="mg" class="filter-position">Madagascar</option>
+                                    <option value="mw" class="filter-position">Malawi</option>
+                                    <option value="ml" class="filter-position">Mali</option>
+                                    <option value="mr" class="filter-position">Mauritania</option>
+                                    <option value="mu" class="filter-position">Mauritius</option>
+                                    <option value="ma" class="filter-position">Morocco</option>
+                                    <option value="mz" class="filter-position">Mozambique</option>
+                                    <option value="na" class="filter-position">Namibia</option>
+                                    <option value="ne" class="filter-position">Niger</option>
+                                    <option value="ng" class="filter-position">Nigeria</option>
+                                    <option value="rw" class="filter-position">Rwanda</option>
+                                    <option value="sn" class="filter-position">Senegal</option>
+                                    <option value="fr" class="filter-position">Seychelles</option>
+                                    <option value="sl" class="filter-position">Sierra Leone</option>
+                                    <option value="so" class="filter-position">Somalia</option>
+                                    <option value="za" class="filter-position">South Africa</option>
+                                    <option value="ss" class="filter-position">South Sudan</option>
+                                    <option value="sd" class="filter-position">Sudan</option>
+                                    <option value="sz" class="filter-position">Swaziland</option>
+                                    <option value="st" class="filter-position">São Tomé and Príncipe</option>
+                                    <option value="tz" class="filter-position">Tanzania</option>
+                                    <option value="tg" class="filter-position">Togo</option>
+                                    <option value="tn" class="filter-position">Tunisia</option>
+                                    <option value="ug" class="filter-position">Uganda</option>
+                                    <option value="zm" class="filter-position">Zambia</option>
+                                    <option value="zw" class="filter-position">Zimbabwe</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="row card-body" id="container9">
                         </div>
                         <hr>
                         <div class="row card-footer">
                             <div class="col-md-2"></div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(1,9);"><span
                                         class="fa fa-globe"></span>Map
                                 </button>
                             </div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(2,9);"><span
                                         class="fa fa-bar-chart"></span>Chart
                                 </button>
                             </div>
@@ -719,18 +1209,80 @@
                                 </select>
                             </div>
                         </div>
+                        <div>
+                            <div id="filter10" style="text-align: center;margin-top: 1%;">
+                                <select class="selectpicker" multiple data-live-search="true" id="african_countries10"
+                                        onchange="applyFilters()">
+                                    <option selected>Choose</option>
+                                    <option value="dz" class="filter-position" selected>Algeria</option>
+                                    <option value="ao" class="filter-position" selected>Angola</option>
+                                    <option value="bj" class="filter-position" selected>Benin</option>
+                                    <option value="bw" class="filter-position" selected>Botswana</option>
+                                    <option value="bf" class="filter-position" selected>Burkina Faso</option>
+                                    <option value="bi" class="filter-position">Burundi</option>
+                                    <option value="cm" class="filter-position">Cameroon</option>
+                                    <option value="cv" class="filter-position">Cape Verde</option>
+                                    <option value="cf" class="filter-position">Central African Republic</option>
+                                    <option value="td" class="filter-position">Chad</option>
+                                    <option value="km" class="filter-position">Comoros</option>
+                                    <option value="cg" class="filter-position">Congo</option>
+                                    <option value="cd" class="filter-position">Democratic Republic Congo</option>
+                                    <option value="ci" class="filter-position">Côte d’Ivoire</option>
+                                    <option value="dj" class="filter-position">Djibouti</option>
+                                    <option value="eg" class="filter-position">Egypt</option>
+                                    <option value="gq" class="filter-position">Equatorial Guinea</option>
+                                    <option value="er" class="filter-position">Eritrea</option>
+                                    <option value="et" class="filter-position">Ethiopia</option>
+                                    <option value="ga" class="filter-position">Gabon</option>
+                                    <option value="gm" class="filter-position">Gambia</option>
+                                    <option value="gh" class="filter-position">Ghana</option>
+                                    <option value="gn" class="filter-position">Guinea</option>
+                                    <option value="gw" class="filter-position">Guinea-Bissau</option>
+                                    <option value="ke" class="filter-position">Kenya</option>
+                                    <option value="ls" class="filter-position">Lesotho</option>
+                                    <option value="lr" class="filter-position">Liberia</option>
+                                    <option value="ly" class="filter-position">Libya</option>
+                                    <option value="mg" class="filter-position">Madagascar</option>
+                                    <option value="mw" class="filter-position">Malawi</option>
+                                    <option value="ml" class="filter-position">Mali</option>
+                                    <option value="mr" class="filter-position">Mauritania</option>
+                                    <option value="mu" class="filter-position">Mauritius</option>
+                                    <option value="ma" class="filter-position">Morocco</option>
+                                    <option value="mz" class="filter-position">Mozambique</option>
+                                    <option value="na" class="filter-position">Namibia</option>
+                                    <option value="ne" class="filter-position">Niger</option>
+                                    <option value="ng" class="filter-position">Nigeria</option>
+                                    <option value="rw" class="filter-position">Rwanda</option>
+                                    <option value="sn" class="filter-position">Senegal</option>
+                                    <option value="fr" class="filter-position">Seychelles</option>
+                                    <option value="sl" class="filter-position">Sierra Leone</option>
+                                    <option value="so" class="filter-position">Somalia</option>
+                                    <option value="za" class="filter-position">South Africa</option>
+                                    <option value="ss" class="filter-position">South Sudan</option>
+                                    <option value="sd" class="filter-position">Sudan</option>
+                                    <option value="sz" class="filter-position">Swaziland</option>
+                                    <option value="st" class="filter-position">São Tomé and Príncipe</option>
+                                    <option value="tz" class="filter-position">Tanzania</option>
+                                    <option value="tg" class="filter-position">Togo</option>
+                                    <option value="tn" class="filter-position">Tunisia</option>
+                                    <option value="ug" class="filter-position">Uganda</option>
+                                    <option value="zm" class="filter-position">Zambia</option>
+                                    <option value="zw" class="filter-position">Zimbabwe</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="row card-body" id="container10">
                         </div>
                         <hr>
                         <div class="row card-footer">
                             <div class="col-md-2"></div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(1,10);"><span
                                         class="fa fa-globe"></span>Map
                                 </button>
                             </div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(2,10);"><span
                                         class="fa fa-bar-chart"></span>Chart
                                 </button>
                             </div>
@@ -786,18 +1338,80 @@
                                 </select>
                             </div>
                         </div>
+                        <div>
+                            <div id="filter11" style="text-align: center;margin-top: 1%;">
+                                <select class="selectpicker" multiple data-live-search="true" id="african_countries11"
+                                        onchange="applyFilters()">
+                                    <option selected>Choose</option>
+                                    <option value="dz" class="filter-position" selected>Algeria</option>
+                                    <option value="ao" class="filter-position" selected>Angola</option>
+                                    <option value="bj" class="filter-position" selected>Benin</option>
+                                    <option value="bw" class="filter-position" selected>Botswana</option>
+                                    <option value="bf" class="filter-position" selected>Burkina Faso</option>
+                                    <option value="bi" class="filter-position">Burundi</option>
+                                    <option value="cm" class="filter-position">Cameroon</option>
+                                    <option value="cv" class="filter-position">Cape Verde</option>
+                                    <option value="cf" class="filter-position">Central African Republic</option>
+                                    <option value="td" class="filter-position">Chad</option>
+                                    <option value="km" class="filter-position">Comoros</option>
+                                    <option value="cg" class="filter-position">Congo</option>
+                                    <option value="cd" class="filter-position">Democratic Republic Congo</option>
+                                    <option value="ci" class="filter-position">Côte d’Ivoire</option>
+                                    <option value="dj" class="filter-position">Djibouti</option>
+                                    <option value="eg" class="filter-position">Egypt</option>
+                                    <option value="gq" class="filter-position">Equatorial Guinea</option>
+                                    <option value="er" class="filter-position">Eritrea</option>
+                                    <option value="et" class="filter-position">Ethiopia</option>
+                                    <option value="ga" class="filter-position">Gabon</option>
+                                    <option value="gm" class="filter-position">Gambia</option>
+                                    <option value="gh" class="filter-position">Ghana</option>
+                                    <option value="gn" class="filter-position">Guinea</option>
+                                    <option value="gw" class="filter-position">Guinea-Bissau</option>
+                                    <option value="ke" class="filter-position">Kenya</option>
+                                    <option value="ls" class="filter-position">Lesotho</option>
+                                    <option value="lr" class="filter-position">Liberia</option>
+                                    <option value="ly" class="filter-position">Libya</option>
+                                    <option value="mg" class="filter-position">Madagascar</option>
+                                    <option value="mw" class="filter-position">Malawi</option>
+                                    <option value="ml" class="filter-position">Mali</option>
+                                    <option value="mr" class="filter-position">Mauritania</option>
+                                    <option value="mu" class="filter-position">Mauritius</option>
+                                    <option value="ma" class="filter-position">Morocco</option>
+                                    <option value="mz" class="filter-position">Mozambique</option>
+                                    <option value="na" class="filter-position">Namibia</option>
+                                    <option value="ne" class="filter-position">Niger</option>
+                                    <option value="ng" class="filter-position">Nigeria</option>
+                                    <option value="rw" class="filter-position">Rwanda</option>
+                                    <option value="sn" class="filter-position">Senegal</option>
+                                    <option value="fr" class="filter-position">Seychelles</option>
+                                    <option value="sl" class="filter-position">Sierra Leone</option>
+                                    <option value="so" class="filter-position">Somalia</option>
+                                    <option value="za" class="filter-position">South Africa</option>
+                                    <option value="ss" class="filter-position">South Sudan</option>
+                                    <option value="sd" class="filter-position">Sudan</option>
+                                    <option value="sz" class="filter-position">Swaziland</option>
+                                    <option value="st" class="filter-position">São Tomé and Príncipe</option>
+                                    <option value="tz" class="filter-position">Tanzania</option>
+                                    <option value="tg" class="filter-position">Togo</option>
+                                    <option value="tn" class="filter-position">Tunisia</option>
+                                    <option value="ug" class="filter-position">Uganda</option>
+                                    <option value="zm" class="filter-position">Zambia</option>
+                                    <option value="zw" class="filter-position">Zimbabwe</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="row card-body" id="container11">
                         </div>
                         <hr>
                         <div class="row card-footer">
                             <div class="col-md-2"></div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(1,11);"><span
                                         class="fa fa-globe"></span>Map
                                 </button>
                             </div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(2,11);"><span
                                         class="fa fa-bar-chart"></span>Chart
                                 </button>
                             </div>
@@ -833,18 +1447,80 @@
                                 </select>
                             </div>
                         </div>
+                        <div>
+                            <div id="filter12" style="text-align: center;margin-top: 1%;">
+                                <select class="selectpicker" multiple data-live-search="true" id="african_countries12"
+                                        onchange="applyFilters()">
+                                    <option selected>Choose</option>
+                                    <option value="dz" class="filter-position" selected>Algeria</option>
+                                    <option value="ao" class="filter-position" selected>Angola</option>
+                                    <option value="bj" class="filter-position" selected>Benin</option>
+                                    <option value="bw" class="filter-position" selected>Botswana</option>
+                                    <option value="bf" class="filter-position" selected>Burkina Faso</option>
+                                    <option value="bi" class="filter-position">Burundi</option>
+                                    <option value="cm" class="filter-position">Cameroon</option>
+                                    <option value="cv" class="filter-position">Cape Verde</option>
+                                    <option value="cf" class="filter-position">Central African Republic</option>
+                                    <option value="td" class="filter-position">Chad</option>
+                                    <option value="km" class="filter-position">Comoros</option>
+                                    <option value="cg" class="filter-position">Congo</option>
+                                    <option value="cd" class="filter-position">Democratic Republic Congo</option>
+                                    <option value="ci" class="filter-position">Côte d’Ivoire</option>
+                                    <option value="dj" class="filter-position">Djibouti</option>
+                                    <option value="eg" class="filter-position">Egypt</option>
+                                    <option value="gq" class="filter-position">Equatorial Guinea</option>
+                                    <option value="er" class="filter-position">Eritrea</option>
+                                    <option value="et" class="filter-position">Ethiopia</option>
+                                    <option value="ga" class="filter-position">Gabon</option>
+                                    <option value="gm" class="filter-position">Gambia</option>
+                                    <option value="gh" class="filter-position">Ghana</option>
+                                    <option value="gn" class="filter-position">Guinea</option>
+                                    <option value="gw" class="filter-position">Guinea-Bissau</option>
+                                    <option value="ke" class="filter-position">Kenya</option>
+                                    <option value="ls" class="filter-position">Lesotho</option>
+                                    <option value="lr" class="filter-position">Liberia</option>
+                                    <option value="ly" class="filter-position">Libya</option>
+                                    <option value="mg" class="filter-position">Madagascar</option>
+                                    <option value="mw" class="filter-position">Malawi</option>
+                                    <option value="ml" class="filter-position">Mali</option>
+                                    <option value="mr" class="filter-position">Mauritania</option>
+                                    <option value="mu" class="filter-position">Mauritius</option>
+                                    <option value="ma" class="filter-position">Morocco</option>
+                                    <option value="mz" class="filter-position">Mozambique</option>
+                                    <option value="na" class="filter-position">Namibia</option>
+                                    <option value="ne" class="filter-position">Niger</option>
+                                    <option value="ng" class="filter-position">Nigeria</option>
+                                    <option value="rw" class="filter-position">Rwanda</option>
+                                    <option value="sn" class="filter-position">Senegal</option>
+                                    <option value="fr" class="filter-position">Seychelles</option>
+                                    <option value="sl" class="filter-position">Sierra Leone</option>
+                                    <option value="so" class="filter-position">Somalia</option>
+                                    <option value="za" class="filter-position">South Africa</option>
+                                    <option value="ss" class="filter-position">South Sudan</option>
+                                    <option value="sd" class="filter-position">Sudan</option>
+                                    <option value="sz" class="filter-position">Swaziland</option>
+                                    <option value="st" class="filter-position">São Tomé and Príncipe</option>
+                                    <option value="tz" class="filter-position">Tanzania</option>
+                                    <option value="tg" class="filter-position">Togo</option>
+                                    <option value="tn" class="filter-position">Tunisia</option>
+                                    <option value="ug" class="filter-position">Uganda</option>
+                                    <option value="zm" class="filter-position">Zambia</option>
+                                    <option value="zw" class="filter-position">Zimbabwe</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="row card-body" id="container12">
                         </div>
                         <hr>
                         <div class="row card-footer">
                             <div class="col-md-2"></div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(1,12);"><span
                                         class="fa fa-globe"></span>Map
                                 </button>
                             </div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(2,12);"><span
                                         class="fa fa-bar-chart"></span>Chart
                                 </button>
                             </div>
@@ -900,18 +1576,80 @@
                                 </select>
                             </div>
                         </div>
+                        <div>
+                            <div id="filter13" style="text-align: center;margin-top: 1%;">
+                                <select class="selectpicker" multiple data-live-search="true" id="african_countries13"
+                                        onchange="applyFilters()">
+                                    <option selected>Choose</option>
+                                    <option value="dz" class="filter-position" selected>Algeria</option>
+                                    <option value="ao" class="filter-position" selected>Angola</option>
+                                    <option value="bj" class="filter-position" selected>Benin</option>
+                                    <option value="bw" class="filter-position" selected>Botswana</option>
+                                    <option value="bf" class="filter-position" selected>Burkina Faso</option>
+                                    <option value="bi" class="filter-position">Burundi</option>
+                                    <option value="cm" class="filter-position">Cameroon</option>
+                                    <option value="cv" class="filter-position">Cape Verde</option>
+                                    <option value="cf" class="filter-position">Central African Republic</option>
+                                    <option value="td" class="filter-position">Chad</option>
+                                    <option value="km" class="filter-position">Comoros</option>
+                                    <option value="cg" class="filter-position">Congo</option>
+                                    <option value="cd" class="filter-position">Democratic Republic Congo</option>
+                                    <option value="ci" class="filter-position">Côte d’Ivoire</option>
+                                    <option value="dj" class="filter-position">Djibouti</option>
+                                    <option value="eg" class="filter-position">Egypt</option>
+                                    <option value="gq" class="filter-position">Equatorial Guinea</option>
+                                    <option value="er" class="filter-position">Eritrea</option>
+                                    <option value="et" class="filter-position">Ethiopia</option>
+                                    <option value="ga" class="filter-position">Gabon</option>
+                                    <option value="gm" class="filter-position">Gambia</option>
+                                    <option value="gh" class="filter-position">Ghana</option>
+                                    <option value="gn" class="filter-position">Guinea</option>
+                                    <option value="gw" class="filter-position">Guinea-Bissau</option>
+                                    <option value="ke" class="filter-position">Kenya</option>
+                                    <option value="ls" class="filter-position">Lesotho</option>
+                                    <option value="lr" class="filter-position">Liberia</option>
+                                    <option value="ly" class="filter-position">Libya</option>
+                                    <option value="mg" class="filter-position">Madagascar</option>
+                                    <option value="mw" class="filter-position">Malawi</option>
+                                    <option value="ml" class="filter-position">Mali</option>
+                                    <option value="mr" class="filter-position">Mauritania</option>
+                                    <option value="mu" class="filter-position">Mauritius</option>
+                                    <option value="ma" class="filter-position">Morocco</option>
+                                    <option value="mz" class="filter-position">Mozambique</option>
+                                    <option value="na" class="filter-position">Namibia</option>
+                                    <option value="ne" class="filter-position">Niger</option>
+                                    <option value="ng" class="filter-position">Nigeria</option>
+                                    <option value="rw" class="filter-position">Rwanda</option>
+                                    <option value="sn" class="filter-position">Senegal</option>
+                                    <option value="fr" class="filter-position">Seychelles</option>
+                                    <option value="sl" class="filter-position">Sierra Leone</option>
+                                    <option value="so" class="filter-position">Somalia</option>
+                                    <option value="za" class="filter-position">South Africa</option>
+                                    <option value="ss" class="filter-position">South Sudan</option>
+                                    <option value="sd" class="filter-position">Sudan</option>
+                                    <option value="sz" class="filter-position">Swaziland</option>
+                                    <option value="st" class="filter-position">São Tomé and Príncipe</option>
+                                    <option value="tz" class="filter-position">Tanzania</option>
+                                    <option value="tg" class="filter-position">Togo</option>
+                                    <option value="tn" class="filter-position">Tunisia</option>
+                                    <option value="ug" class="filter-position">Uganda</option>
+                                    <option value="zm" class="filter-position">Zambia</option>
+                                    <option value="zw" class="filter-position">Zimbabwe</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="row card-body" id="container13">
                         </div>
                         <hr>
                         <div class="row card-footer">
                             <div class="col-md-2"></div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(1,13);"><span
                                         class="fa fa-globe"></span>Map
                                 </button>
                             </div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(2,13);"><span
                                         class="fa fa-bar-chart"></span>Chart
                                 </button>
                             </div>
@@ -946,18 +1684,80 @@
                                 </select>
                             </div>
                         </div>
+                        <div>
+                            <div id="filter14" style="text-align: center;margin-top: 1%;">
+                                <select class="selectpicker" multiple data-live-search="true" id="african_countries14"
+                                        onchange="applyFilters()">
+                                    <option selected>Choose</option>
+                                    <option value="dz" class="filter-position" selected>Algeria</option>
+                                    <option value="ao" class="filter-position" selected>Angola</option>
+                                    <option value="bj" class="filter-position" selected>Benin</option>
+                                    <option value="bw" class="filter-position" selected>Botswana</option>
+                                    <option value="bf" class="filter-position" selected>Burkina Faso</option>
+                                    <option value="bi" class="filter-position">Burundi</option>
+                                    <option value="cm" class="filter-position">Cameroon</option>
+                                    <option value="cv" class="filter-position">Cape Verde</option>
+                                    <option value="cf" class="filter-position">Central African Republic</option>
+                                    <option value="td" class="filter-position">Chad</option>
+                                    <option value="km" class="filter-position">Comoros</option>
+                                    <option value="cg" class="filter-position">Congo</option>
+                                    <option value="cd" class="filter-position">Democratic Republic Congo</option>
+                                    <option value="ci" class="filter-position">Côte d’Ivoire</option>
+                                    <option value="dj" class="filter-position">Djibouti</option>
+                                    <option value="eg" class="filter-position">Egypt</option>
+                                    <option value="gq" class="filter-position">Equatorial Guinea</option>
+                                    <option value="er" class="filter-position">Eritrea</option>
+                                    <option value="et" class="filter-position">Ethiopia</option>
+                                    <option value="ga" class="filter-position">Gabon</option>
+                                    <option value="gm" class="filter-position">Gambia</option>
+                                    <option value="gh" class="filter-position">Ghana</option>
+                                    <option value="gn" class="filter-position">Guinea</option>
+                                    <option value="gw" class="filter-position">Guinea-Bissau</option>
+                                    <option value="ke" class="filter-position">Kenya</option>
+                                    <option value="ls" class="filter-position">Lesotho</option>
+                                    <option value="lr" class="filter-position">Liberia</option>
+                                    <option value="ly" class="filter-position">Libya</option>
+                                    <option value="mg" class="filter-position">Madagascar</option>
+                                    <option value="mw" class="filter-position">Malawi</option>
+                                    <option value="ml" class="filter-position">Mali</option>
+                                    <option value="mr" class="filter-position">Mauritania</option>
+                                    <option value="mu" class="filter-position">Mauritius</option>
+                                    <option value="ma" class="filter-position">Morocco</option>
+                                    <option value="mz" class="filter-position">Mozambique</option>
+                                    <option value="na" class="filter-position">Namibia</option>
+                                    <option value="ne" class="filter-position">Niger</option>
+                                    <option value="ng" class="filter-position">Nigeria</option>
+                                    <option value="rw" class="filter-position">Rwanda</option>
+                                    <option value="sn" class="filter-position">Senegal</option>
+                                    <option value="fr" class="filter-position">Seychelles</option>
+                                    <option value="sl" class="filter-position">Sierra Leone</option>
+                                    <option value="so" class="filter-position">Somalia</option>
+                                    <option value="za" class="filter-position">South Africa</option>
+                                    <option value="ss" class="filter-position">South Sudan</option>
+                                    <option value="sd" class="filter-position">Sudan</option>
+                                    <option value="sz" class="filter-position">Swaziland</option>
+                                    <option value="st" class="filter-position">São Tomé and Príncipe</option>
+                                    <option value="tz" class="filter-position">Tanzania</option>
+                                    <option value="tg" class="filter-position">Togo</option>
+                                    <option value="tn" class="filter-position">Tunisia</option>
+                                    <option value="ug" class="filter-position">Uganda</option>
+                                    <option value="zm" class="filter-position">Zambia</option>
+                                    <option value="zw" class="filter-position">Zimbabwe</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="row card-body" id="container14">
                         </div>
                         <hr>
                         <div class="row card-footer">
                             <div class="col-md-2"></div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(1,14);"><span
                                         class="fa fa-globe"></span>Map
                                 </button>
                             </div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(2,14);"><span
                                         class="fa fa-bar-chart"></span>Chart
                                 </button>
                             </div>
@@ -993,18 +1793,80 @@
                                 </select>
                             </div>
                         </div>
+                        <div>
+                            <div id="filter15" style="text-align: center;margin-top: 1%;">
+                                <select class="selectpicker" multiple data-live-search="true" id="african_countries15"
+                                        onchange="applyFilters()">
+                                    <option selected>Choose</option>
+                                    <option value="dz" class="filter-position" selected>Algeria</option>
+                                    <option value="ao" class="filter-position" selected>Angola</option>
+                                    <option value="bj" class="filter-position" selected>Benin</option>
+                                    <option value="bw" class="filter-position" selected>Botswana</option>
+                                    <option value="bf" class="filter-position" selected>Burkina Faso</option>
+                                    <option value="bi" class="filter-position">Burundi</option>
+                                    <option value="cm" class="filter-position">Cameroon</option>
+                                    <option value="cv" class="filter-position">Cape Verde</option>
+                                    <option value="cf" class="filter-position">Central African Republic</option>
+                                    <option value="td" class="filter-position">Chad</option>
+                                    <option value="km" class="filter-position">Comoros</option>
+                                    <option value="cg" class="filter-position">Congo</option>
+                                    <option value="cd" class="filter-position">Democratic Republic Congo</option>
+                                    <option value="ci" class="filter-position">Côte d’Ivoire</option>
+                                    <option value="dj" class="filter-position">Djibouti</option>
+                                    <option value="eg" class="filter-position">Egypt</option>
+                                    <option value="gq" class="filter-position">Equatorial Guinea</option>
+                                    <option value="er" class="filter-position">Eritrea</option>
+                                    <option value="et" class="filter-position">Ethiopia</option>
+                                    <option value="ga" class="filter-position">Gabon</option>
+                                    <option value="gm" class="filter-position">Gambia</option>
+                                    <option value="gh" class="filter-position">Ghana</option>
+                                    <option value="gn" class="filter-position">Guinea</option>
+                                    <option value="gw" class="filter-position">Guinea-Bissau</option>
+                                    <option value="ke" class="filter-position">Kenya</option>
+                                    <option value="ls" class="filter-position">Lesotho</option>
+                                    <option value="lr" class="filter-position">Liberia</option>
+                                    <option value="ly" class="filter-position">Libya</option>
+                                    <option value="mg" class="filter-position">Madagascar</option>
+                                    <option value="mw" class="filter-position">Malawi</option>
+                                    <option value="ml" class="filter-position">Mali</option>
+                                    <option value="mr" class="filter-position">Mauritania</option>
+                                    <option value="mu" class="filter-position">Mauritius</option>
+                                    <option value="ma" class="filter-position">Morocco</option>
+                                    <option value="mz" class="filter-position">Mozambique</option>
+                                    <option value="na" class="filter-position">Namibia</option>
+                                    <option value="ne" class="filter-position">Niger</option>
+                                    <option value="ng" class="filter-position">Nigeria</option>
+                                    <option value="rw" class="filter-position">Rwanda</option>
+                                    <option value="sn" class="filter-position">Senegal</option>
+                                    <option value="fr" class="filter-position">Seychelles</option>
+                                    <option value="sl" class="filter-position">Sierra Leone</option>
+                                    <option value="so" class="filter-position">Somalia</option>
+                                    <option value="za" class="filter-position">South Africa</option>
+                                    <option value="ss" class="filter-position">South Sudan</option>
+                                    <option value="sd" class="filter-position">Sudan</option>
+                                    <option value="sz" class="filter-position">Swaziland</option>
+                                    <option value="st" class="filter-position">São Tomé and Príncipe</option>
+                                    <option value="tz" class="filter-position">Tanzania</option>
+                                    <option value="tg" class="filter-position">Togo</option>
+                                    <option value="tn" class="filter-position">Tunisia</option>
+                                    <option value="ug" class="filter-position">Uganda</option>
+                                    <option value="zm" class="filter-position">Zambia</option>
+                                    <option value="zw" class="filter-position">Zimbabwe</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="row card-body" id="container15">
                         </div>
                         <hr>
                         <div class="row card-footer">
                             <div class="col-md-2"></div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(1,15);"><span
                                         class="fa fa-globe"></span>Map
                                 </button>
                             </div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(2,15);"><span
                                         class="fa fa-bar-chart"></span>Chart
                                 </button>
                             </div>
@@ -1056,18 +1918,80 @@
                                 </select>
                             </div>
                         </div>
+                        <div>
+                            <div id="filter16" style="text-align: center;margin-top: 1%;">
+                                <select class="selectpicker" multiple data-live-search="true" id="african_countries16"
+                                        onchange="applyFilters()">
+                                    <option selected>Choose</option>
+                                    <option value="dz" class="filter-position" selected>Algeria</option>
+                                    <option value="ao" class="filter-position" selected>Angola</option>
+                                    <option value="bj" class="filter-position" selected>Benin</option>
+                                    <option value="bw" class="filter-position" selected>Botswana</option>
+                                    <option value="bf" class="filter-position" selected>Burkina Faso</option>
+                                    <option value="bi" class="filter-position">Burundi</option>
+                                    <option value="cm" class="filter-position">Cameroon</option>
+                                    <option value="cv" class="filter-position">Cape Verde</option>
+                                    <option value="cf" class="filter-position">Central African Republic</option>
+                                    <option value="td" class="filter-position">Chad</option>
+                                    <option value="km" class="filter-position">Comoros</option>
+                                    <option value="cg" class="filter-position">Congo</option>
+                                    <option value="cd" class="filter-position">Democratic Republic Congo</option>
+                                    <option value="ci" class="filter-position">Côte d’Ivoire</option>
+                                    <option value="dj" class="filter-position">Djibouti</option>
+                                    <option value="eg" class="filter-position">Egypt</option>
+                                    <option value="gq" class="filter-position">Equatorial Guinea</option>
+                                    <option value="er" class="filter-position">Eritrea</option>
+                                    <option value="et" class="filter-position">Ethiopia</option>
+                                    <option value="ga" class="filter-position">Gabon</option>
+                                    <option value="gm" class="filter-position">Gambia</option>
+                                    <option value="gh" class="filter-position">Ghana</option>
+                                    <option value="gn" class="filter-position">Guinea</option>
+                                    <option value="gw" class="filter-position">Guinea-Bissau</option>
+                                    <option value="ke" class="filter-position">Kenya</option>
+                                    <option value="ls" class="filter-position">Lesotho</option>
+                                    <option value="lr" class="filter-position">Liberia</option>
+                                    <option value="ly" class="filter-position">Libya</option>
+                                    <option value="mg" class="filter-position">Madagascar</option>
+                                    <option value="mw" class="filter-position">Malawi</option>
+                                    <option value="ml" class="filter-position">Mali</option>
+                                    <option value="mr" class="filter-position">Mauritania</option>
+                                    <option value="mu" class="filter-position">Mauritius</option>
+                                    <option value="ma" class="filter-position">Morocco</option>
+                                    <option value="mz" class="filter-position">Mozambique</option>
+                                    <option value="na" class="filter-position">Namibia</option>
+                                    <option value="ne" class="filter-position">Niger</option>
+                                    <option value="ng" class="filter-position">Nigeria</option>
+                                    <option value="rw" class="filter-position">Rwanda</option>
+                                    <option value="sn" class="filter-position">Senegal</option>
+                                    <option value="fr" class="filter-position">Seychelles</option>
+                                    <option value="sl" class="filter-position">Sierra Leone</option>
+                                    <option value="so" class="filter-position">Somalia</option>
+                                    <option value="za" class="filter-position">South Africa</option>
+                                    <option value="ss" class="filter-position">South Sudan</option>
+                                    <option value="sd" class="filter-position">Sudan</option>
+                                    <option value="sz" class="filter-position">Swaziland</option>
+                                    <option value="st" class="filter-position">São Tomé and Príncipe</option>
+                                    <option value="tz" class="filter-position">Tanzania</option>
+                                    <option value="tg" class="filter-position">Togo</option>
+                                    <option value="tn" class="filter-position">Tunisia</option>
+                                    <option value="ug" class="filter-position">Uganda</option>
+                                    <option value="zm" class="filter-position">Zambia</option>
+                                    <option value="zw" class="filter-position">Zimbabwe</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="row card-body" id="container16">
                         </div>
                         <hr>
                         <div class="row card-footer">
                             <div class="col-md-2"></div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(1,16);"><span
                                         class="fa fa-globe"></span>Map
                                 </button>
                             </div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(2,16);"><span
                                         class="fa fa-bar-chart"></span>Chart
                                 </button>
                             </div>
@@ -1125,18 +2049,80 @@
                                 </select>
                             </div>
                         </div>
+                        <div>
+                            <div id="filter17" style="text-align: center;margin-top: 1%;">
+                                <select class="selectpicker" multiple data-live-search="true" id="african_countries17"
+                                        onchange="applyFilters()">
+                                    <option selected>Choose</option>
+                                    <option value="dz" class="filter-position" selected>Algeria</option>
+                                    <option value="ao" class="filter-position" selected>Angola</option>
+                                    <option value="bj" class="filter-position" selected>Benin</option>
+                                    <option value="bw" class="filter-position" selected>Botswana</option>
+                                    <option value="bf" class="filter-position" selected>Burkina Faso</option>
+                                    <option value="bi" class="filter-position">Burundi</option>
+                                    <option value="cm" class="filter-position">Cameroon</option>
+                                    <option value="cv" class="filter-position">Cape Verde</option>
+                                    <option value="cf" class="filter-position">Central African Republic</option>
+                                    <option value="td" class="filter-position">Chad</option>
+                                    <option value="km" class="filter-position">Comoros</option>
+                                    <option value="cg" class="filter-position">Congo</option>
+                                    <option value="cd" class="filter-position">Democratic Republic Congo</option>
+                                    <option value="ci" class="filter-position">Côte d’Ivoire</option>
+                                    <option value="dj" class="filter-position">Djibouti</option>
+                                    <option value="eg" class="filter-position">Egypt</option>
+                                    <option value="gq" class="filter-position">Equatorial Guinea</option>
+                                    <option value="er" class="filter-position">Eritrea</option>
+                                    <option value="et" class="filter-position">Ethiopia</option>
+                                    <option value="ga" class="filter-position">Gabon</option>
+                                    <option value="gm" class="filter-position">Gambia</option>
+                                    <option value="gh" class="filter-position">Ghana</option>
+                                    <option value="gn" class="filter-position">Guinea</option>
+                                    <option value="gw" class="filter-position">Guinea-Bissau</option>
+                                    <option value="ke" class="filter-position">Kenya</option>
+                                    <option value="ls" class="filter-position">Lesotho</option>
+                                    <option value="lr" class="filter-position">Liberia</option>
+                                    <option value="ly" class="filter-position">Libya</option>
+                                    <option value="mg" class="filter-position">Madagascar</option>
+                                    <option value="mw" class="filter-position">Malawi</option>
+                                    <option value="ml" class="filter-position">Mali</option>
+                                    <option value="mr" class="filter-position">Mauritania</option>
+                                    <option value="mu" class="filter-position">Mauritius</option>
+                                    <option value="ma" class="filter-position">Morocco</option>
+                                    <option value="mz" class="filter-position">Mozambique</option>
+                                    <option value="na" class="filter-position">Namibia</option>
+                                    <option value="ne" class="filter-position">Niger</option>
+                                    <option value="ng" class="filter-position">Nigeria</option>
+                                    <option value="rw" class="filter-position">Rwanda</option>
+                                    <option value="sn" class="filter-position">Senegal</option>
+                                    <option value="fr" class="filter-position">Seychelles</option>
+                                    <option value="sl" class="filter-position">Sierra Leone</option>
+                                    <option value="so" class="filter-position">Somalia</option>
+                                    <option value="za" class="filter-position">South Africa</option>
+                                    <option value="ss" class="filter-position">South Sudan</option>
+                                    <option value="sd" class="filter-position">Sudan</option>
+                                    <option value="sz" class="filter-position">Swaziland</option>
+                                    <option value="st" class="filter-position">São Tomé and Príncipe</option>
+                                    <option value="tz" class="filter-position">Tanzania</option>
+                                    <option value="tg" class="filter-position">Togo</option>
+                                    <option value="tn" class="filter-position">Tunisia</option>
+                                    <option value="ug" class="filter-position">Uganda</option>
+                                    <option value="zm" class="filter-position">Zambia</option>
+                                    <option value="zw" class="filter-position">Zimbabwe</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="row card-body" id="container17">
                         </div>
                         <hr>
                         <div class="row card-footer">
                             <div class="col-md-2"></div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(1,17);"><span
                                         class="fa fa-globe"></span>Map
                                 </button>
                             </div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(2,17);"><span
                                         class="fa fa-bar-chart"></span>Chart
                                 </button>
                             </div>
@@ -1176,18 +2162,80 @@
                                 </select>
                             </div>
                         </div>
+                        <div>
+                            <div id="filter18" style="text-align: center;margin-top: 1%;">
+                                <select class="selectpicker" multiple data-live-search="true" id="african_countries18"
+                                        onchange="applyFilters()">
+                                    <option selected>Choose</option>
+                                    <option value="dz" class="filter-position" selected>Algeria</option>
+                                    <option value="ao" class="filter-position" selected>Angola</option>
+                                    <option value="bj" class="filter-position" selected>Benin</option>
+                                    <option value="bw" class="filter-position" selected>Botswana</option>
+                                    <option value="bf" class="filter-position" selected>Burkina Faso</option>
+                                    <option value="bi" class="filter-position">Burundi</option>
+                                    <option value="cm" class="filter-position">Cameroon</option>
+                                    <option value="cv" class="filter-position">Cape Verde</option>
+                                    <option value="cf" class="filter-position">Central African Republic</option>
+                                    <option value="td" class="filter-position">Chad</option>
+                                    <option value="km" class="filter-position">Comoros</option>
+                                    <option value="cg" class="filter-position">Congo</option>
+                                    <option value="cd" class="filter-position">Democratic Republic Congo</option>
+                                    <option value="ci" class="filter-position">Côte d’Ivoire</option>
+                                    <option value="dj" class="filter-position">Djibouti</option>
+                                    <option value="eg" class="filter-position">Egypt</option>
+                                    <option value="gq" class="filter-position">Equatorial Guinea</option>
+                                    <option value="er" class="filter-position">Eritrea</option>
+                                    <option value="et" class="filter-position">Ethiopia</option>
+                                    <option value="ga" class="filter-position">Gabon</option>
+                                    <option value="gm" class="filter-position">Gambia</option>
+                                    <option value="gh" class="filter-position">Ghana</option>
+                                    <option value="gn" class="filter-position">Guinea</option>
+                                    <option value="gw" class="filter-position">Guinea-Bissau</option>
+                                    <option value="ke" class="filter-position">Kenya</option>
+                                    <option value="ls" class="filter-position">Lesotho</option>
+                                    <option value="lr" class="filter-position">Liberia</option>
+                                    <option value="ly" class="filter-position">Libya</option>
+                                    <option value="mg" class="filter-position">Madagascar</option>
+                                    <option value="mw" class="filter-position">Malawi</option>
+                                    <option value="ml" class="filter-position">Mali</option>
+                                    <option value="mr" class="filter-position">Mauritania</option>
+                                    <option value="mu" class="filter-position">Mauritius</option>
+                                    <option value="ma" class="filter-position">Morocco</option>
+                                    <option value="mz" class="filter-position">Mozambique</option>
+                                    <option value="na" class="filter-position">Namibia</option>
+                                    <option value="ne" class="filter-position">Niger</option>
+                                    <option value="ng" class="filter-position">Nigeria</option>
+                                    <option value="rw" class="filter-position">Rwanda</option>
+                                    <option value="sn" class="filter-position">Senegal</option>
+                                    <option value="fr" class="filter-position">Seychelles</option>
+                                    <option value="sl" class="filter-position">Sierra Leone</option>
+                                    <option value="so" class="filter-position">Somalia</option>
+                                    <option value="za" class="filter-position">South Africa</option>
+                                    <option value="ss" class="filter-position">South Sudan</option>
+                                    <option value="sd" class="filter-position">Sudan</option>
+                                    <option value="sz" class="filter-position">Swaziland</option>
+                                    <option value="st" class="filter-position">São Tomé and Príncipe</option>
+                                    <option value="tz" class="filter-position">Tanzania</option>
+                                    <option value="tg" class="filter-position">Togo</option>
+                                    <option value="tn" class="filter-position">Tunisia</option>
+                                    <option value="ug" class="filter-position">Uganda</option>
+                                    <option value="zm" class="filter-position">Zambia</option>
+                                    <option value="zw" class="filter-position">Zimbabwe</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="row card-body" id="container18">
                         </div>
                         <hr>
                         <div class="row card-footer">
                             <div class="col-md-2"></div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(1,18);"><span
                                         class="fa fa-globe"></span>Map
                                 </button>
                             </div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(2,18);"><span
                                         class="fa fa-bar-chart"></span>Chart
                                 </button>
                             </div>
@@ -1243,18 +2291,80 @@
                                 </select>
                             </div>
                         </div>
+                        <div>
+                            <div id="filter19" style="text-align: center;margin-top: 1%;">
+                                <select class="selectpicker" multiple data-live-search="true" id="african_countries19"
+                                        onchange="applyFilters()">
+                                    <option selected>Choose</option>
+                                    <option value="dz" class="filter-position" selected>Algeria</option>
+                                    <option value="ao" class="filter-position" selected>Angola</option>
+                                    <option value="bj" class="filter-position" selected>Benin</option>
+                                    <option value="bw" class="filter-position" selected>Botswana</option>
+                                    <option value="bf" class="filter-position" selected>Burkina Faso</option>
+                                    <option value="bi" class="filter-position">Burundi</option>
+                                    <option value="cm" class="filter-position">Cameroon</option>
+                                    <option value="cv" class="filter-position">Cape Verde</option>
+                                    <option value="cf" class="filter-position">Central African Republic</option>
+                                    <option value="td" class="filter-position">Chad</option>
+                                    <option value="km" class="filter-position">Comoros</option>
+                                    <option value="cg" class="filter-position">Congo</option>
+                                    <option value="cd" class="filter-position">Democratic Republic Congo</option>
+                                    <option value="ci" class="filter-position">Côte d’Ivoire</option>
+                                    <option value="dj" class="filter-position">Djibouti</option>
+                                    <option value="eg" class="filter-position">Egypt</option>
+                                    <option value="gq" class="filter-position">Equatorial Guinea</option>
+                                    <option value="er" class="filter-position">Eritrea</option>
+                                    <option value="et" class="filter-position">Ethiopia</option>
+                                    <option value="ga" class="filter-position">Gabon</option>
+                                    <option value="gm" class="filter-position">Gambia</option>
+                                    <option value="gh" class="filter-position">Ghana</option>
+                                    <option value="gn" class="filter-position">Guinea</option>
+                                    <option value="gw" class="filter-position">Guinea-Bissau</option>
+                                    <option value="ke" class="filter-position">Kenya</option>
+                                    <option value="ls" class="filter-position">Lesotho</option>
+                                    <option value="lr" class="filter-position">Liberia</option>
+                                    <option value="ly" class="filter-position">Libya</option>
+                                    <option value="mg" class="filter-position">Madagascar</option>
+                                    <option value="mw" class="filter-position">Malawi</option>
+                                    <option value="ml" class="filter-position">Mali</option>
+                                    <option value="mr" class="filter-position">Mauritania</option>
+                                    <option value="mu" class="filter-position">Mauritius</option>
+                                    <option value="ma" class="filter-position">Morocco</option>
+                                    <option value="mz" class="filter-position">Mozambique</option>
+                                    <option value="na" class="filter-position">Namibia</option>
+                                    <option value="ne" class="filter-position">Niger</option>
+                                    <option value="ng" class="filter-position">Nigeria</option>
+                                    <option value="rw" class="filter-position">Rwanda</option>
+                                    <option value="sn" class="filter-position">Senegal</option>
+                                    <option value="fr" class="filter-position">Seychelles</option>
+                                    <option value="sl" class="filter-position">Sierra Leone</option>
+                                    <option value="so" class="filter-position">Somalia</option>
+                                    <option value="za" class="filter-position">South Africa</option>
+                                    <option value="ss" class="filter-position">South Sudan</option>
+                                    <option value="sd" class="filter-position">Sudan</option>
+                                    <option value="sz" class="filter-position">Swaziland</option>
+                                    <option value="st" class="filter-position">São Tomé and Príncipe</option>
+                                    <option value="tz" class="filter-position">Tanzania</option>
+                                    <option value="tg" class="filter-position">Togo</option>
+                                    <option value="tn" class="filter-position">Tunisia</option>
+                                    <option value="ug" class="filter-position">Uganda</option>
+                                    <option value="zm" class="filter-position">Zambia</option>
+                                    <option value="zw" class="filter-position">Zimbabwe</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="row card-body" id="container19">
                         </div>
                         <hr>
                         <div class="row card-footer">
                             <div class="col-md-2"></div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(1,19);"><span
                                         class="fa fa-globe"></span>Map
                                 </button>
                             </div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(2,19);"><span
                                         class="fa fa-bar-chart"></span>Chart
                                 </button>
                             </div>
@@ -1293,18 +2403,80 @@
                                 </select>
                             </div>
                         </div>
+                        <div>
+                            <div id="filter20" style="text-align: center;margin-top: 1%;">
+                                <select class="selectpicker" multiple data-live-search="true" id="african_countries20"
+                                        onchange="applyFilters()">
+                                    <option selected>Choose</option>
+                                    <option value="dz" class="filter-position" selected>Algeria</option>
+                                    <option value="ao" class="filter-position" selected>Angola</option>
+                                    <option value="bj" class="filter-position" selected>Benin</option>
+                                    <option value="bw" class="filter-position" selected>Botswana</option>
+                                    <option value="bf" class="filter-position" selected>Burkina Faso</option>
+                                    <option value="bi" class="filter-position">Burundi</option>
+                                    <option value="cm" class="filter-position">Cameroon</option>
+                                    <option value="cv" class="filter-position">Cape Verde</option>
+                                    <option value="cf" class="filter-position">Central African Republic</option>
+                                    <option value="td" class="filter-position">Chad</option>
+                                    <option value="km" class="filter-position">Comoros</option>
+                                    <option value="cg" class="filter-position">Congo</option>
+                                    <option value="cd" class="filter-position">Democratic Republic Congo</option>
+                                    <option value="ci" class="filter-position">Côte d’Ivoire</option>
+                                    <option value="dj" class="filter-position">Djibouti</option>
+                                    <option value="eg" class="filter-position">Egypt</option>
+                                    <option value="gq" class="filter-position">Equatorial Guinea</option>
+                                    <option value="er" class="filter-position">Eritrea</option>
+                                    <option value="et" class="filter-position">Ethiopia</option>
+                                    <option value="ga" class="filter-position">Gabon</option>
+                                    <option value="gm" class="filter-position">Gambia</option>
+                                    <option value="gh" class="filter-position">Ghana</option>
+                                    <option value="gn" class="filter-position">Guinea</option>
+                                    <option value="gw" class="filter-position">Guinea-Bissau</option>
+                                    <option value="ke" class="filter-position">Kenya</option>
+                                    <option value="ls" class="filter-position">Lesotho</option>
+                                    <option value="lr" class="filter-position">Liberia</option>
+                                    <option value="ly" class="filter-position">Libya</option>
+                                    <option value="mg" class="filter-position">Madagascar</option>
+                                    <option value="mw" class="filter-position">Malawi</option>
+                                    <option value="ml" class="filter-position">Mali</option>
+                                    <option value="mr" class="filter-position">Mauritania</option>
+                                    <option value="mu" class="filter-position">Mauritius</option>
+                                    <option value="ma" class="filter-position">Morocco</option>
+                                    <option value="mz" class="filter-position">Mozambique</option>
+                                    <option value="na" class="filter-position">Namibia</option>
+                                    <option value="ne" class="filter-position">Niger</option>
+                                    <option value="ng" class="filter-position">Nigeria</option>
+                                    <option value="rw" class="filter-position">Rwanda</option>
+                                    <option value="sn" class="filter-position">Senegal</option>
+                                    <option value="fr" class="filter-position">Seychelles</option>
+                                    <option value="sl" class="filter-position">Sierra Leone</option>
+                                    <option value="so" class="filter-position">Somalia</option>
+                                    <option value="za" class="filter-position">South Africa</option>
+                                    <option value="ss" class="filter-position">South Sudan</option>
+                                    <option value="sd" class="filter-position">Sudan</option>
+                                    <option value="sz" class="filter-position">Swaziland</option>
+                                    <option value="st" class="filter-position">São Tomé and Príncipe</option>
+                                    <option value="tz" class="filter-position">Tanzania</option>
+                                    <option value="tg" class="filter-position">Togo</option>
+                                    <option value="tn" class="filter-position">Tunisia</option>
+                                    <option value="ug" class="filter-position">Uganda</option>
+                                    <option value="zm" class="filter-position">Zambia</option>
+                                    <option value="zw" class="filter-position">Zimbabwe</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="row card-body" id="container20">
                         </div>
                         <hr>
                         <div class="row card-footer">
                             <div class="col-md-2"></div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(1,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(1,20);"><span
                                         class="fa fa-globe"></span>Map
                                 </button>
                             </div>
                             <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="loadMap(2,1);"><span
+                                <button class="btn btn-success" onclick="changeVisualization(2,20);"><span
                                         class="fa fa-bar-chart"></span>Chart
                                 </button>
                             </div>
