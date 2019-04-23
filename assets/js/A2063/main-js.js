@@ -6,15 +6,18 @@ var completeDataPath = '';
 
 function changeVisualization(n, goal) {
     if (n === 1) {
+        $("#filter").hide();
         loadA2063Map(1, goal, dataSourceURL);
     }
     if (n === 2) {
+        $("#filter").show();
         loadA2063Map(2, goal, dataSourceURL);
     }
 
 }
 
 function loadGoal() {
+    $("#filter").hide();
     $("select[id^='selectDataSource']").hide();
     $("select[id^='selectPeriod']").hide();
     dataSourceURL = '../assets/data/A2063/A2063_';
@@ -29,7 +32,7 @@ function chooseIndicator(goal) {
         dataSourceURL = prefix + indicator + postfix;
         loadA2063Map(1, goal, dataSourceURL);
     }
-    if(dataSourceURL.charAt(28)==='' ||dataSourceURL.charAt(31)==='') {
+    if (dataSourceURL.charAt(28) === '' || dataSourceURL.charAt(31) === '') {
         var prefix = dataSourceURL.slice(0, 27);
         dataSourceURL = prefix + indicator + '_';
         $("select[id^='selectDataSource']").show();
@@ -45,7 +48,7 @@ function chooseDataSourceA2063(goal) {
         dataSourceURL = prefix + source + postfix;
         loadA2063Map(1, goal, dataSourceURL);
     }
-    if(dataSourceURL.charAt(31)==='' || dataSourceURL.charAt(35)==='') {
+    if (dataSourceURL.charAt(31) === '' || dataSourceURL.charAt(35) === '') {
         var prefix = dataSourceURL.slice(0, 30);
         dataSourceURL = prefix + source + '_';
         $("select[id^='selectPeriod']").show();
@@ -60,14 +63,15 @@ function choosePeriodA2063(goal) {
         dataSourceURL = prefix + period + '.json';
         loadA2063Map(1, goal, dataSourceURL);
     }
-    if(dataSourceURL.charAt(35)==='' ||dataSourceURL.charAt(40)==='') {
+    if (dataSourceURL.charAt(35) === '' || dataSourceURL.charAt(40) === '') {
         var prefix = dataSourceURL.slice(0, 34);
         dataSourceURL = prefix + period + '.json';
         completeDataPath = dataSourceURL;
         loadA2063Map(1, goal, dataSourceURL);
     }
 }
-
+let chartData='';
+let chart='';
 function loadA2063Map(n, containerID, dataSourceURL) {
     if (n == 1) {
         $("#container" + containerID).css({"width": "100%", "height": "500px"});
@@ -1538,6 +1542,7 @@ function loadA2063Map(n, containerID, dataSourceURL) {
     }
     if (n == 2) {
         $.getJSON(completeDataPath, function (data) {
+            chartData=data;
             $("#container" + containerID).css({"width": "100%", "height": "500px"});
             AmCharts.addInitHandler(function (chart) {
 
@@ -1598,7 +1603,7 @@ function loadA2063Map(n, containerID, dataSourceURL) {
                 }
 
             }, ["serial"]);
-            var chart = AmCharts.makeChart("container" + containerID, {
+             chart = AmCharts.makeChart("container" + containerID, {
                 "creditsPosition": "bottom-right",
                 "theme": "light",
                 "type": "serial",
@@ -1625,7 +1630,7 @@ function loadA2063Map(n, containerID, dataSourceURL) {
                     "valueProperty": "value",
                     "colorProperty": "color"
                 }],
-                "dataProvider": data,
+                "dataProvider": getFilteredData(),
                 "valueAxes": [{
                     "position": "left",
                     "title": "Percentage(%)"
@@ -1662,50 +1667,27 @@ function loadA2063Map(n, containerID, dataSourceURL) {
 
 }
 
-var sourceData=[
-    {
-        "code": "ug",
-        "value": 0,
-    },
-    {
-        "code": "ng",
-        "value": 1,
-    },
-    {
-        "code": "st",
-        "value": 2,
-    },
-    {
-        "code": "tz",
-        "value": 3,
-    }];
-
-function lowercase( string ) {
+function lowercase(string) {
     return string.toLocaleLowerCase();
 }
 
-function contains( string, value ) {
-    return string.indexOf( value ) !== -1;
+function contains(string, value) {
+    return string.indexOf(value) !== -1;
 }
 
 /**
  * Function that checks which data is selected and generates a new data set
  */
-var name=';'
-$(document).ready(function () {
-    name = lowercase(document.getElementById("filter-name").value);
-    applyFilters();
 
-})
 function getFilteredData() {
 
     var filters = {};
 
     // get all filter checkboxes
-    var fields = document.getElementsByClassName( "filter-position" );
-    for ( var i = 0; i < fields.length; i++ ) {
-        if ( fields[ i ].checked ) {
-            filters[ fields[ i ].value ] = true;
+    var fields = document.getElementsByClassName("filter-position");
+    for (var i = 0; i < fields.length; i++) {
+        if (fields[i].selected) {
+            filters[fields[i].value] = true;
         }
     }
 
@@ -1713,18 +1695,17 @@ function getFilteredData() {
     var newData = [];
 
     // cycle through source data and filter out required data points
-    for ( var i = 0; i < sourceData.length; i++ ) {
-        var dataPoint = sourceData[ i ];
+    for (var i = 0; i < chartData.length; i++) {
+        var dataPoint = chartData[i];
 
-        if ( filters[ dataPoint.code ] &&
-            contains( lowercase( dataPoint.code ), name ) ) {
-            newData.push( {
+        if (filters[dataPoint.code] &&
+            contains(lowercase(dataPoint.code), name)) {
+            newData.push({
                 "code": dataPoint.code,
                 "value": dataPoint.value,
-            } );
+            });
         }
     }
-
     // return new data set
     return newData;
 
@@ -1737,27 +1718,9 @@ function applyFilters() {
     var data = getFilteredData();
 
     // update chart data
-    chart1.dataProvider = data;
-    chart1.validateData();
+    chart.dataProvider = data;
+    chart.validateData();
 }
 
-
-var chart1 = AmCharts.makeChart( "chartdiv1", {
-    "type": "serial",
-    "dataProvider": getFilteredData(),
-    "graphs": [ {
-        "fillAlphas": 0.9,
-        "lineAlpha": 0.2,
-        "lineColorField": "color",
-        "fillColorsField": "color",
-        "type": "column",
-        "valueField": "value",
-        "balloonText": "[[category]] ([[position]])<br><span style='font-size: 150%;'>$[[value]]</span>"
-    } ],
-    "categoryField": "code",
-    "valueAxes": [{
-        "title": "Annual salary (US$)"
-    }]
-} );
 
 
