@@ -17,10 +17,12 @@ $(document).ready(function () {
 
 function changeVisualization(n, goal) {
     if (n === 1) {
+        console.log(dataSourceURL);
         $("[id^='filter']").hide();
         loadA2063Map(1, goal, dataSourceURL);
     }
     if (n === 2) {
+        console.log(dataSourceURL);
         $("[id^='filter']").show();
         loadA2063Map(2, goal, dataSourceURL);
     }
