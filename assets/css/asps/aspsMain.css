@@ -1,14 +1,12 @@
 .aspIcons {
     text-align: center;
     min-height: 80px;
-    min-width: 200px;
-    max-width: 150px;
     max-height: 80px;
     padding: 25px 0;
     font-size :14px;
     border-color: transparent;
     border-radius: 13px 13px 13px 13px;
-    margin-bottom: 4px;
+    /*margin-bottom: 4px;*/
 
 }
 
