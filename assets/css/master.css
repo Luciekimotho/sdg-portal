@@ -41,3 +41,17 @@
     margin-left: -15px;
 
 }
+.breadcrumb-item + .breadcrumb-item::after {
+    content: ">";
+}
+.breadcrumb-item + .breadcrumb-item::before, .breadcrumb-item> activex {
+    content: "";
+}
+.breadcrumb-item{
+    float: right;
+    font-size: 15px;
+}
+.breadcrumb{
+    background-color: transparent;
+    margin-right: 1.5%;
+}
