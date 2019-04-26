@@ -23,22 +23,19 @@ function loadCountryData(countryId) {
                     "totalPopulation": data[newKey].totalPopulation
                 };
                 var profile = '<div class="person-list-item">' +
-                    '<h3 id="countryName"><i class="fa fa-info"></i> Name:' + countryData.name + '</h3>' +
-                    '<h4 class="white" id="region"><i class="fa fa-globe"></i> Region:' + countryData.region + '</h4>' +
-                    '<h4 class="white" id="capitalCity"><i class="fa fa-map-marker"></i> Capital:' + countryData.capital + '</h4>' +
+                    '<h3 id="countryName" style="margin-left: 25%;"><i class="fa fa-info"></i> Name:' + countryData.name + '</h3>' +
+                    '<h3 class="white" style="margin-left: 25%;" id="region"><i class="fa fa-globe"></i> Region:' + countryData.region + '</h3>' +
+                    '<h3 class="white" style="margin-left: 25%;" id="capitalCity"><i class="fa fa-map-marker"></i> Capital:' + countryData.capital + '</h3>' +
                     '</div>';
-                var flagURL = '<img src="'+'../' + countryData.flagURL + '" class="img-fluid" style="max-width:50%;max-height:50%;float: right;">';
-                var countryStatistics = '<div class="col-md-4 user-pad text-center">' +
-                    '<h3>SIZE(sq.km)</h3>' +
-                    '<h4>' + countryData.size + '</h4>' +
+                var flagURL = '<img src="'+'../' + countryData.flagURL + '" class="img-fluid" style="max-width:250px;max-height:200px;float: right;margin-right: 8%;margin-top: 1%;margin-bottom: 1%;">';
+                var countryStatistics = '<div class="col-md-6 user-pad text-center">' +
+                    '<h3 style="margin-left: -20%;">SIZE(sq.km)</h3>' +
+                    '<h4 style="margin-left: -20%;">' + countryData.size + '</h4>' +
                     '</div>' +
-                    '<div class="col-md-4 user-pad text-center">' +
-                    '<h3>TOTAL POPULATION</h3>' +
-                    '<h4>' + countryData.totalPopulation + '</h4>' +
+                    '<div class="col-md-6 user-pad text-center">' +
+                    '<h3 style="margin-right: -54%;">TOTAL POPULATION</h3>' +
+                    '<h4 style="margin-right: -54%;">' + countryData.totalPopulation + '</h4>' +
                     '</div>' +
-                    '<div class="col-md-4 user-pad text-center">' +
-                    '<h3>CAPITAL POPULATION</h3>' +
-                    '<h4>' + countryData.capitalPopulation + '</h4>' +
                     '</div>';
                 $('#countryProfile').empty().append(profile);
                 $('#flagURL').empty().append(flagURL);
@@ -80,9 +77,11 @@ function loadMap(n) {
                     map: 'custom/africa',
                     backgroundColor: 'transparent',
                     width: 1000,
-                    height: 650
+                    height: 650,
                 },
-
+                credits: {
+                    enabled: false
+                },
                 title: {
                     text: ''
                 },
@@ -108,8 +107,8 @@ function loadMap(n) {
 
                 colorAxis: {
                     min: 0,
-                    minColor: '#00BFFF',
-                    maxColor: '#00BFFF'
+                    minColor: 'rgb(249, 219, 142)',
+                    maxColor: 'rgb(249, 219, 142)'
                 },
 
                 series: [{

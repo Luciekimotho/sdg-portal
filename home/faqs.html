@@ -18,6 +18,7 @@
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <link href="../assets/css/master.css" rel="stylesheet">
 
     <!--     Fonts and icons     -->
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
@@ -92,7 +93,7 @@
             font-weight: bolder;
         }
 
-        .active, .accordion:hover {
+        .accordion > .active, .accordion:hover {
             background-color: #ccc;
         }
 
@@ -136,6 +137,12 @@
     <div class="row" style="width: 100% !important;height: 10%;">
         <div class="col-md-12" w3-include-html="../layouts/header.html"></div>
     </div>
+    <nav>
+        <ol class="breadcrumb" style="font-size: 15px;">
+            <li class="breadcrumb-item activex">FAQs</li>
+            <li class="breadcrumb-item"><a href="../home/index.html">Home</a></li>
+        </ol>
+    </nav>
     <div class="row" style="width: 100% !important;margin-top:1%;background-color:white; z-index: 1;">
         <div class="col-md-1"></div>
         <div class="col-md-10">
