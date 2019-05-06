@@ -22,14 +22,14 @@ function chooseDataSource(containerIDNo, targetNo,period ) {
     var datasourceValue = $("#selectData"+targetNo).val();
     if (datasourceValue === "mrsData") {
         $("#container" + containerIDNo).empty();
-        var mrsDataSourceURL ='../assets/data/sdgTarget'+targetNo+datasourceValue+'_'+period+'.json';
+        var mrsDataSourceURL ='../assets/data/SDGs/sdgTarget'+targetNo+datasourceValue+'_'+period+'.json';
         console.log("MRS is the data source "+period);
         loadMap(1, containerIDNo, mrsDataSourceURL);
         $("select[id^='selectPeriod']").show();
 
     } else if (datasourceValue === "globalData") {
         $("#container" + containerIDNo).empty();
-        var globalDataSourceURL = '../assets/data/sdgTarget'+targetNo+datasourceValue+'_'+period+'.json';
+        var globalDataSourceURL = '../assets/data/SDGs/sdgTarget'+targetNo+datasourceValue+'_'+period+'.json';
         console.log("Global database is the data source for "+period);
         loadMap(1, containerIDNo, globalDataSourceURL);
         $("select[id^='selectPeriod']").show();
