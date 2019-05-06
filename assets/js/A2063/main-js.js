@@ -8,10 +8,10 @@ $(document).ready(function () {
     //Load asp 1 goal 1, indicator 1, global database, 2016
     openAspiration(event, 'Aspiration1');
     loadGoal(1);
-    dataSourceURL='../assets/data/A2063/A2063_01_gdb_2017.json';
+    dataSourceURL='../assets/data/A2063/A2063_01_gdb_2018.json';
     loadA2063Map(1, 1, dataSourceURL);
     $('#goal01').click();
-    dataSourceURL='../assets/data/A2063/A2063_01_gdb_2017.json';
+    dataSourceURL='../assets/data/A2063/A2063_01_gdb_2018.json';
     completeDataPath=dataSourceURL;
 });
 
