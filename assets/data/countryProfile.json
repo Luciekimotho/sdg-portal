@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Algeria",
-    "capital":"Nairobi",
+    "capital":"Algiers",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/algeria-flag-medium.png",
     "size":12345,
@@ -12,7 +12,7 @@
   {
     "id": 2,
     "name": "Angola",
-    "capital":"Kampala",
+    "capital":"Luanda",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/angola-flag-medium.png",
     "size":456,
@@ -22,7 +22,7 @@
   {
     "id": 3,
     "name": "Benin",
-    "capital":"Nairobi",
+    "capital":"Porto-Novo",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/benin-flag-medium.png",
     "size":12345,
@@ -32,7 +32,7 @@
   {
     "id": 4,
     "name": "Botswana",
-    "capital":"Kampala",
+    "capital":"Gaborone",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/botswana-flag-medium.png",
     "size":456,
@@ -42,7 +42,7 @@
   {
     "id": 5,
     "name": "Burkina Faso",
-    "capital":"Nairobi",
+    "capital":"Ouagadougou",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/burkina-faso-flag-medium.png",
     "size":12345,
@@ -52,7 +52,7 @@
   {
     "id": 6,
     "name": "Burundi",
-    "capital":"Kampala",
+    "capital":"Bujumbura",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/burundi-flag-medium.png",
     "size":456,
@@ -62,7 +62,7 @@
   {
     "id": 7,
     "name": "Cameroon",
-    "capital":"Nairobi",
+    "capital":"Yaounde",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/cameroon-flag-medium.png",
     "size":12345,
@@ -71,8 +71,8 @@
   },
   {
     "id": 8,
-    "name": "Cabo Verde",
-    "capital":"Kampala",
+    "name": "Cape Verde",
+    "capital":"Praia",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/cape-verde-flag-medium.png",
     "size":456,
@@ -82,7 +82,7 @@
   {
     "id": 9,
     "name": "Central African Republic",
-    "capital":"Nairobi",
+    "capital":"Bangui",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/central-african-republic-flag-medium.png",
     "size":12345,
@@ -92,7 +92,7 @@
   {
     "id": 10,
     "name": "Chad",
-    "capital":"Kampala",
+    "capital":"N'Djamena",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/chad-flag-medium.png",
     "size":456,
@@ -102,7 +102,7 @@
   {
     "id": 11,
     "name": "Comoros",
-    "capital":"Nairobi",
+    "capital":"Moroni",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/comoros-flag-medium.png",
     "size":12345,
@@ -112,7 +112,7 @@
   {
     "id": 12,
     "name": "Congo",
-    "capital":"Kampala",
+    "capital":"Brazzaville",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/congo-republic-of-the-flag-medium.png",
     "size":456,
@@ -122,7 +122,7 @@
   {
     "id": 13,
     "name": "Democratic Republic of the Congo",
-    "capital":"Nairobi",
+    "capital":"Kinshasa",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/congo-democratic-republic-of-the-flag-medium.png",
     "size":12345,
@@ -132,7 +132,7 @@
   {
     "id": 14,
     "name": "Cote d'Ivoire",
-    "capital":"Kampala",
+    "capital":"Yamoussoukro",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/cote-d-ivoire-flag-medium.png",
     "size":456,
@@ -142,7 +142,7 @@
   {
     "id": 15,
     "name": "Djibouti",
-    "capital":"Nairobi",
+    "capital":"Djibouti",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/djibouti-flag-medium.png",
     "size":12345,
@@ -152,7 +152,7 @@
   {
     "id": 16,
     "name": "Egypt",
-    "capital":"Kampala",
+    "capital":"Cairo",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/egypt-flag-medium.png",
     "size":456,
@@ -162,7 +162,7 @@
   {
     "id": 17,
     "name": "Equatorial Guinea",
-    "capital":"Nairobi",
+    "capital":"Malabo",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/equatorial-guinea-flag-medium.png",
     "size":12345,
@@ -172,7 +172,7 @@
   {
     "id": 18,
     "name": "Eritrea",
-    "capital":"Kampala",
+    "capital":"Asmara",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/eritrea-flag-medium.png",
     "size":456,
@@ -182,7 +182,7 @@
   {
     "id": 19,
     "name": "Ethiopia",
-    "capital":"Nairobi",
+    "capital":"Addis Ababa",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/ethiopia-flag-medium.png",
     "size":12345,
@@ -192,7 +192,7 @@
   {
     "id": 20,
     "name": "Gabon",
-    "capital":"Kampala",
+    "capital":"Libreville",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/gabon-flag-medium.png",
     "size":456,
@@ -202,7 +202,7 @@
   {
     "id": 21,
     "name": "Gambia",
-    "capital":"Nairobi",
+    "capital":"Banjul",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/gambia-flag-medium.png",
     "size":12345,
@@ -212,7 +212,7 @@
   {
     "id": 22,
     "name": "Ghana",
-    "capital":"Kampala",
+    "capital":"Accra",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/ghana-flag-medium.png",
     "size":456,
@@ -222,7 +222,7 @@
   {
     "id": 23,
     "name": "Guinea",
-    "capital":"Nairobi",
+    "capital":"Conakry",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/guinea-flag-medium.png",
     "size":12345,
@@ -232,7 +232,7 @@
   {
     "id": 24,
     "name": "Guinea Bissau",
-    "capital":"Kampala",
+    "capital":"Bissau",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/guinea-bissau-flag-medium.png",
     "size":456,
@@ -252,7 +252,7 @@
   {
     "id": 26,
     "name": "Lesotho",
-    "capital":"Kampala",
+    "capital":"Maseru",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/lesotho-flag-medium.png",
     "size":456,
@@ -262,7 +262,7 @@
   {
     "id": 27,
     "name": "Liberia",
-    "capital":"Nairobi",
+    "capital":"Monrovia",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/liberia-flag-medium.png",
     "size":12345,
@@ -272,7 +272,7 @@
   {
     "id": 28,
     "name": "Libya",
-    "capital":"Kampala",
+    "capital":"Tripoli",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/libya-flag-medium.png",
     "size":456,
@@ -282,7 +282,7 @@
   {
     "id": 29,
     "name": "Madagascar",
-    "capital":"Nairobi",
+    "capital":"Antananarivo",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/madagascar-flag-medium.png",
     "size":12345,
@@ -292,7 +292,7 @@
   {
     "id": 30,
     "name": "Malawi",
-    "capital":"Kampala",
+    "capital":"Lilongwe",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/malawi-flag-medium.png",
     "size":456,
@@ -302,7 +302,7 @@
   {
     "id": 31,
     "name": "Mali",
-    "capital":"Nairobi",
+    "capital":"Bamako",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/mali-flag-medium.png",
     "size":12345,
@@ -312,7 +312,7 @@
   {
     "id": 32,
     "name": "Mauritania",
-    "capital":"Kampala",
+    "capital":"Nouakchott",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/mauritania-flag-medium.png",
     "size":456,
@@ -322,7 +322,7 @@
   {
     "id": 33,
     "name": "Mauritius",
-    "capital":"Nairobi",
+    "capital":"Port Louis",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/mauritius-flag-medium.png",
     "size":12345,
@@ -332,7 +332,7 @@
   {
     "id": 34,
     "name": "Morocco",
-    "capital":"Kampala",
+    "capital":"Rabat",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/morocco-flag-medium.png",
     "size":456,
@@ -342,7 +342,7 @@
   {
     "id": 35,
     "name": "Mozambique",
-    "capital":"Nairobi",
+    "capital":"Maputo",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/mozambique-flag-medium.png",
     "size":12345,
@@ -352,7 +352,7 @@
   {
     "id": 36,
     "name": "Namibia",
-    "capital":"Kampala",
+    "capital":"Windhoek",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/namibia-flag-medium.png",
     "size":456,
@@ -362,7 +362,7 @@
   {
     "id": 37,
     "name": "Niger",
-    "capital":"Nairobi",
+    "capital":"Niamey",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/niger-flag-medium.png",
     "size":12345,
@@ -372,7 +372,7 @@
   {
     "id": 38,
     "name": "Nigeria",
-    "capital":"Kampala",
+    "capital":"Abuja",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/nigeria-flag-medium.png",
     "size":456,
@@ -382,7 +382,7 @@
   {
     "id": 39,
     "name": "Rwanda",
-    "capital":"Nairobi",
+    "capital":"Kigali",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/rwanda-flag-medium.png",
     "size":12345,
@@ -392,7 +392,7 @@
   {
     "id": 40,
     "name": "Sao Tome and Principe",
-    "capital":"Kampala",
+    "capital":"Sao Tome",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/sao-tome-and-principe-flag-medium.png",
     "size":456,
@@ -402,7 +402,7 @@
   {
     "id": 41,
     "name": "Senegal",
-    "capital":"Nairobi",
+    "capital":"Dakar",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/senegal-flag-medium.png",
     "size":12345,
@@ -412,7 +412,7 @@
   {
     "id": 42,
     "name": "Seychelles",
-    "capital":"Kampala",
+    "capital":"Victoria",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/seychelles-flag-medium.png",
     "size":456,
@@ -422,7 +422,7 @@
   {
     "id": 43,
     "name": "Sierra Leone",
-    "capital":"Nairobi",
+    "capital":"Freetown",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/sierra-leone-flag-medium.png",
     "size":12345,
@@ -432,7 +432,7 @@
   {
     "id": 44,
     "name": "Somalia",
-    "capital":"Kampala",
+    "capital":"Mogadishu",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/somalia-flag-medium.png",
     "size":456,
@@ -442,7 +442,7 @@
   {
     "id": 45,
     "name": "South Africa",
-    "capital":"Nairobi",
+    "capital":"Pretoria",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/south-africa-flag-medium.png",
     "size":12345,
@@ -452,7 +452,7 @@
   {
     "id": 46,
     "name": "South Sudan",
-    "capital":"Kampala",
+    "capital":"Juba",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/south-sudan-flag-medium.png",
     "size":456,
@@ -462,7 +462,7 @@
   {
     "id": 47,
     "name": "Sudan",
-    "capital":"Nairobi",
+    "capital":"Khartoum",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/sudan-flag-medium.png",
     "size":12345,
@@ -472,7 +472,7 @@
   {
     "id": 48,
     "name": "Swaziland",
-    "capital":"Kampala",
+    "capital":"Lobamba",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/swaziland-flag-medium.png",
     "size":456,
@@ -482,7 +482,7 @@
   {
     "id": 49,
     "name": "Tanzania",
-    "capital":"Nairobi",
+    "capital":"Dar es Salaam",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/tanzania-flag-medium.png",
     "size":12345,
@@ -492,7 +492,7 @@
   {
     "id": 50,
     "name": "Togo",
-    "capital":"Kampala",
+    "capital":"Lome",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/togo-flag-medium.png",
     "size":456,
@@ -502,7 +502,7 @@
   {
     "id": 51,
     "name": "Tunisia",
-    "capital":"Nairobi",
+    "capital":"Tunis",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/kenya-flag-medium.png",
     "size":12345,
@@ -522,7 +522,7 @@
   {
     "id": 53,
     "name": "Zambia",
-    "capital":"Nairobi",
+    "capital":"Lusaka",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/zambia-flag-medium.png",
     "size":12345,
@@ -532,7 +532,7 @@
   {
     "id": 54,
     "name": "Zimbabwe",
-    "capital":"Kampala",
+    "capital":"Harare",
     "region":"Eastern Africa",
     "flagURL":"assets/img/country_flags/zimbabwe-flag-medium.png",
     "size":456,
