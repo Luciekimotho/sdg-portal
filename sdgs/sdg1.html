@@ -96,13 +96,16 @@
                 measured as people living on less than $1.90 a day."</i></p>
             <div class=" row text-center">
                 <div class="col-md-4">
+                    <button id="globalData" class="btn btn-primary" value="globalData" onclick="chooseDataSource(1,11);">Global Database</button>
                     <select id="selectData11" class="btn btn-primary" onchange="chooseDataSource(1,11);">
                         <option value="placeholder">Please select a data source</option>
                         <option value="globalData">Global Database</option>
                         <option value="mrsData">PanAfrican MRS</option>
                     </select>
                 </div>
-                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                        <button id="mrsData" class="btn btn-primary" value="mrsData" onclick="chooseDataSource(1,11);">PanAfrican MRS</button>
+                </div>
                 <div class="col-md-4">
                     <select id="selectPeriod11" class="btn btn-primary" onchange="choosePeriod(1,11);">
                         <option>Please select a Period</option>
