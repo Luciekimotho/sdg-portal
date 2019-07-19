@@ -11,7 +11,7 @@
 
     .overview h4 {
         font-weight: bold !important;
-        font-size: 40px;
+        font-size: 20px;
         margin-top: 0;
     }
 
@@ -30,10 +30,13 @@
     .modal-header button.close {
         margin-top: -5px;
         }
+    .modal-body {
+    padding: 0px 50px;
+    }
     .modal-body h3{
         font-size: 16px;
         margin-top: 5px;
-        margin-bottom: 15px;
+        margin-bottom: 5px;
     }
     #chartdiv2 {
     width: 100%;
@@ -42,7 +45,7 @@
 
 .card-header h2{
     margin: 0px 0 0;
-    font-size: 1.8em;
+    font-size: 1.3em;
 }
 
 </style>
@@ -56,7 +59,7 @@
                     </button>
             </div>
             <div class="modal-body">
-                <div class="card">
+                <div class="">
                         <div class="row">
                                 <div class="col-md-12" style="border-radius: 0;">
                                     <div class="">
@@ -78,8 +81,8 @@
                                     
                                 </div>
                             
-                                <div class="col-md-12 card">
-                                    <div class="card-header" style="text-align: center;color: white;font-weight: bold; background-color: #008fe5; margin: 0 0 10px 0 ;width: 100%; border-radius: 0px;">
+                                <div class="col-md-12 card" style="padding: 0;">
+                                    <div class="card-header" style="text-align: center;color: white;font-weight: bold; background-color: #008fe5; margin: 0 0 10px 0 ;width: 100%; border-radius:0px;">
                                         <h2>Country Demographics</h2>
                                     </div>
                                     <div class="row">
@@ -179,7 +182,9 @@
                         <!--                            </div>-->
                                         </div>   
                                         <div class="col-md-6" id="chartdiv2" style="height: 400px;"></div>  
-                                        <div class="col-md-12" id="chartdiv"></div>  
+                                        <div class="col-md-12" >
+                                            <div id="chartdiv"></div>
+                                        </div>  
                                     </div>                                  
                                 </div>      
                             </div>
