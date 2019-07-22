@@ -11,7 +11,7 @@
 
     .overview h4 {
         font-weight: bold !important;
-        font-size: 40px;
+        font-size: 20px;
         margin-top: 0;
     }
 
@@ -24,110 +24,175 @@
         transform: none !important;
         -webkit-transform: none !important;
     }
+    .modal-header{
+        padding: 10px;
+    }
+    .modal-header button.close {
+        margin-top: -5px;
+        }
+    .modal-body {
+    padding: 0px 50px;
+    }
+    .modal-body h3{
+        font-size: 16px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    #chartdiv2 {
+    width: 100%;
+    height: 400px;
+}
+
+.card-header h2{
+    margin: 0px 0 0;
+    font-size: 1.3em;
+}
+
 </style>
 <!-- Modal  -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document" style="max-width: 100%; margin-left: 2%; margin-right: 2%;">
         <div class="modal-content">
             <div class="modal-header">
-                    <h2 class="modal-title text-center" id="exampleModalLabel">Country Profile</h2>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="margin-top: -5%;">
-                        <span aria-hidden="true" style="font-size: 4em; color: red;">&times;</span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="">
+                        <span aria-hidden="true" style="font-size: 2em; color: red;">&times;</span>
                     </button>
             </div>
             <div class="modal-body">
-                <div class="row">
-                    <div class="card col-md-12" style="border-radius: 0;">
-                        <div class="row" style="background-color: #008fe5;">
-                            <div class="col-md-6">
-                                <div class="profile" id="countryProfile" style="margin-top: 1%;">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="user-image" id="flagURL">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row overview" id="countryStatistics">
-
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="card col-md-12">
-                        <div class="card-header" style="text-align: center;color: white;font-weight: bold; background-color: #008fe5; margin: 0 0 10px 0 ;width: 100%; border-radius: 10px 10px 0px 0px;">
-                            <h2>Country Demographics</h2>
-                        </div>
-                        <div class="card-body" id="chartdiv"></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="card col-md-12">
-                        <div class="card-header" style="text-align: center;color: white;font-weight: bold; background-color: #008fe5; margin: 0 0 10px 0 ;width: 100%; border-radius: 10px 10px 0px 0px;">
-                            <h2>SDGs Progress Monitor</h2>
-                        </div>
+                <div class="">
                         <div class="row">
-                            <div class="col-md-12">
-                                <a onclick="sdgGoal(1);return false;" href=""><img
-                                        src="../assets/img/sdg_icons/E_SDG_Icons-01.jpg"
-                                        style="width:95px;height:95px;"></a>
-                                <a onclick="sdgGoal(2);return false;" href=""><img
-                                        src="../assets/img/sdg_icons/E_SDG_Icons-02.jpg"
-                                        style="width:95px;height:95px;"></a>
-                                <a onclick="sdgGoal(3);return false;" href=""><img
-                                        src="../assets/img/sdg_icons/E_SDG_Icons-03.jpg"
-                                        style="width:95px;height:95px;"></a>
-                                <a onclick="sdgGoal(4);return false;" href="#"><img
-                                        src="../assets/img/sdg_icons/E_SDG_Icons-04.jpg"
-                                        style="width:95px;height:95px;"></a>
-                                <a onclick="sdgGoal(5);return false;" href="#"><img
-                                        src="../assets/img/sdg_icons/E_SDG_Icons-05.jpg"
-                                        style="width:95px;height:95px;"></a>
-                                <a onclick="sdgGoal(6);return false;" href="#"><img
-                                        src="../assets/img/sdg_icons/E_SDG_Icons-06.jpg"
-                                        style="width:95px;height:95px;"></a>
-                                <a onclick="sdgGoal(7);return false;" href="#"><img
-                                        src="../assets/img/sdg_icons/E_SDG_Icons-07.jpg"
-                                        style="width:95px;height:95px;"></a>
-                                <a onclick="sdgGoal(8);return false;" href="#"><img
-                                        src="../assets/img/sdg_icons/E_SDG_Icons-08.jpg"
-                                        style="width:95px;height:95px;"></a>
-                                <a onclick="sdgGoal(9);return false;" href="#"><img
-                                        src="../assets/img/sdg_icons/E_SDG_Icons-09.jpg"
-                                        style="width:95px;height:95px;"></a>
-                                <a onclick="sdgGoal(10);return false;" href="#"><img
-                                        src="../assets/img/sdg_icons/E_SDG_Icons-10.jpg"
-                                        style="width:95px;height:95px;"></a>
-                                <a onclick="sdgGoal(11);return false;" href="#"><img
-                                        src="../assets/img/sdg_icons/E_SDG_Icons-11.jpg"
-                                        style="width:95px;height:95px;"></a>
-                                <a onclick="sdgGoal(12);return false;" href="#"><img
-                                        src="../assets/img/sdg_icons/E_SDG_Icons-12.jpg"
-                                        style="width:95px;height:95px;"></a>
-                                <a onclick="sdgGoal(13);return false;" href="#"><img
-                                        src="../assets/img/sdg_icons/E_SDG_Icons-13.jpg"
-                                        style="width:95px;height:95px;"></a>
-                                <a onclick="sdgGoal(14);return false;" href="#"><img
-                                        src="../assets/img/sdg_icons/E_SDG_Icons-14.jpg"
-                                        style="width:95px;height:95px;"></a>
-                                <a onclick="sdgGoal(15);return false;" href="#"><img
-                                        src="../assets/img/sdg_icons/E_SDG_Icons-15.jpg"
-                                        style="width:95px;height:95px;"></a>
-                                <a onclick="sdgGoal(16);return false;" href="#"><img
-                                        src="../assets/img/sdg_icons/E_SDG_Icons-16.jpg"
-                                        style="width:95px;height:95px;"></a>
-                                <a onclick="sdgGoal(17);return false;" href="#"><img
-                                        src="../assets/img/sdg_icons/E_SDG_Icons-17.jpg"
-                                        style="width:95px;height:95px;"></a>
-<!--                            </div>-->
-                        </div>
-                        <!--<div class="sdgs-center-div" style="margin-left: 10px;">-->
-
-                        <!--</div>-->
-                        <div id="chartdiv2"></div>
-                    </div>
+                                <div class="col-md-12" style="border-radius: 0;">
+                                    <div class="">
+                                        <div class="row" style="background-color: #008fe5;">
+                                                <div class="col-md-6">
+                                                    <div class="profile" id="countryProfile" style="margin-top: 1%;">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="user-image" id="flagURL">
+                    
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row overview" id="countryStatistics">
+                    
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            
+                                <div class="col-md-12 card" style="padding: 0;">
+                                    <div class="card-header" style="text-align: center;color: white;font-weight: bold; background-color: #008fe5; margin: 0 0 10px 0 ;width: 100%; border-radius:0px;">
+                                        <h2>Country Demographics</h2>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                                <div class="row">
+                                                        <div class="col-md-2">
+                                                            <a onclick="sdgGoal(1);return false;" href=""><img
+                                                                src="../assets/img/sdg_icons/E_SDG_Icons-01.jpg"
+                                                                style="width:95px;height:95px;"></a>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <a onclick="sdgGoal(2);return false;" href=""><img
+                                                                src="../assets/img/sdg_icons/E_SDG_Icons-02.jpg"
+                                                                style="width:95px;height:95px;"></a>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <a onclick="sdgGoal(3);return false;" href=""><img
+                                                                src="../assets/img/sdg_icons/E_SDG_Icons-03.jpg"
+                                                                style="width:95px;height:95px;"></a>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <a onclick="sdgGoal(4);return false;" href="#"><img
+                                                                src="../assets/img/sdg_icons/E_SDG_Icons-04.jpg"
+                                                                style="width:95px;height:95px;"></a>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <a onclick="sdgGoal(5);return false;" href="#"><img
+                                                                src="../assets/img/sdg_icons/E_SDG_Icons-05.jpg"
+                                                                style="width:95px;height:95px;"></a>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <a onclick="sdgGoal(6);return false;" href="#"><img
+                                                                src="../assets/img/sdg_icons/E_SDG_Icons-06.jpg"
+                                                                style="width:95px;height:95px;"></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                            <a onclick="sdgGoal(7);return false;" href="#"><img
+                                                                src="../assets/img/sdg_icons/E_SDG_Icons-07.jpg"
+                                                                style="width:95px;height:95px;"></a>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <a onclick="sdgGoal(8);return false;" href="#"><img
+                                                                src="../assets/img/sdg_icons/E_SDG_Icons-08.jpg"
+                                                                style="width:95px;height:95px;"></a>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <a onclick="sdgGoal(9);return false;" href="#"><img
+                                                                src="../assets/img/sdg_icons/E_SDG_Icons-09.jpg"
+                                                                style="width:95px;height:95px;"></a>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <a onclick="sdgGoal(10);return false;" href="#"><img
+                                                                src="../assets/img/sdg_icons/E_SDG_Icons-10.jpg"
+                                                                style="width:95px;height:95px;"></a>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <a onclick="sdgGoal(11);return false;" href="#"><img
+                                                                src="../assets/img/sdg_icons/E_SDG_Icons-11.jpg"
+                                                                style="width:95px;height:95px;"></a>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <a onclick="sdgGoal(12);return false;" href="#"><img
+                                                                src="../assets/img/sdg_icons/E_SDG_Icons-12.jpg"
+                                                                style="width:95px;height:95px;"></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                            <div class="col-md-2">
+                                                            <a onclick="sdgGoal(13);return false;" href="#"><img
+                                                                src="../assets/img/sdg_icons/E_SDG_Icons-13.jpg"
+                                                                style="width:95px;height:95px;"></a>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                        <a onclick="sdgGoal(14);return false;" href="#"><img
+                                                                src="../assets/img/sdg_icons/E_SDG_Icons-14.jpg"
+                                                                style="width:95px;height:95px;"></a>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                        <a onclick="sdgGoal(15);return false;" href="#"><img
+                                                                src="../assets/img/sdg_icons/E_SDG_Icons-15.jpg"
+                                                                style="width:95px;height:95px;"></a>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                        <a onclick="sdgGoal(16);return false;" href="#"><img
+                                                                src="../assets/img/sdg_icons/E_SDG_Icons-16.jpg"
+                                                                style="width:95px;height:95px;"></a>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                        <a onclick="sdgGoal(17);return false;" href="#"><img
+                                                                src="../assets/img/sdg_icons/E_SDG_Icons-17.jpg"
+                                                                style="width:95px;height:95px;"></a>
+                                                                </div>
+                                                    </div>
+                                                        
+                        <!--                            </div>-->
+                                        </div>   
+                                        <div class="col-md-6" id="chartdiv2" style="height: 400px;"></div>  
+                                        <div class="col-md-12" >
+                                            <div id="chartdiv"></div>
+                                        </div>  
+                                    </div>                                  
+                                </div>      
+                            </div>
                 </div>
+                
+            </div>
+                
+                    
             </div>
         </div>
     </div>
