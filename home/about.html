@@ -69,7 +69,7 @@
         }
 
         .aboutUsCard {
-            height: 500px;
+            height: 400px;
             margin: 10px;
         }
 
@@ -85,13 +85,18 @@
             font-weight: bold;
             color: black;
             text-decoration-line: underline;
+            margin: 0;
+            font-size: 16px;
         }
 
         .cardBodyText {
-            text-align: center;
-            font-size: 17px;
+            font-size: 14px;
             color: white;
             font-weight: bolder;
+        }
+        .card a:hover, a:focus {
+            color: #d5cdcb;
+            text-decoration-line: underline;
         }
     </style>
 
@@ -103,17 +108,17 @@
     <div class="row" style="width: 100% !important;height: 10%;">
         <div class="col-md-12" w3-include-html="../layouts/header.html"></div>
     </div>
-    <nav>
+    <!-- <nav>
         <ol class="breadcrumb" style="font-size: 15px;">
             <li class="breadcrumb-item activex">About Us</li>
             <li class="breadcrumb-item"><a href="../home/index.html">Home</a></li>
         </ol>
-    </nav>
-    <div class="row">
-        <div class="col-md-12">
-            <h2 style="text-align: center; color: black;font-weight: bolder;">Welcome to the SDG and<br> Agenda 2063
+    </nav> -->
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-11">
+            <h2 style="text-align: center; color: black;font-weight: bold; font-size: 1.8em;">Welcome to the SDG and Agenda 2063
                 Data Portal for Africa</h2>
-            <p style="font-size: 19px; text-align: center;margin-left: 4%;margin-right: 4%;margin-top: 2%;">The Portal
+            <p style="font-size: 16px; text-align: left;margin-top: 2%;">The Portal
                 aims to serve as a unique access point to timely and reliable information about SDG and Agenda
                 2063 data for Africa. The site is designed to help policy makers and enable the general public to reuse
                 data. The Portal provides easy access to an ever wider range of data from governments institutions and
@@ -129,15 +134,15 @@
         </div>
     </div>
     <div class="row d-flex justify-content-center">
-        <div class="col-md-10 ">
-            <h2 style="text-align: center;color: black;font-weight: bolder;">Explore The Data Portal</h2>
+        <div class="col-md-11 ">
+            <h2 style="text-align: center;color: black;font-weight: bolder; font-size: 1.8em;">Explore The Data Portal</h2>
             <div class="row" style="margin-top: 2%;">
                 <div class="col card aboutUsCard" style="background-color: #18ac47;-webkit-transform: none;">
                     <div class="card-image">
                         <img class="iconCenter" src="../assets/img/bg/sdg7.jpg">
                     </div>
                     <div class="card-body">
-                        <h3 class="iconText">SDGs</h3>
+                        <a href="../sdgs/sdgs.html" class="iconText">SDGs</a>
                         <p class="cardBodyText">Compare goal and targets across countries</p>
                     </div>
                 </div>
@@ -146,7 +151,7 @@
                         <img class="iconCenter" src="../assets/img/bg/dashboard.jpg">
                     </div>
                     <div class="card-body">
-                        <h3 class="iconText">Dashboard</h3>
+                        <a href="./dashboard.html" class="iconText">Dashboard</a>
                         <p class="cardBodyText">Provides a goal-level snapshot that is color-coded from red to green,
                             which signifies goal
                             achievement. Sub-regional dashboards are also available to allow countries to see how they
@@ -159,7 +164,7 @@
                         <img class="iconCenter" src="../assets/img/bg/globe.jpg">
                     </div>
                     <div class="card-body">
-                        <h3 class="iconText">Country Profiles</h3>
+                        <a href="./country_profile.html" class="iconText">Country Profiles</a>
                         <p class="cardBodyText">Snapshot of different metric performance within country by a dynamic
                             barometer of achievement</p>
                     </div>
@@ -169,7 +174,7 @@
                         <img class="iconCenter" src="../assets/img/bg/a2063.png">
                     </div>
                     <div class="card-body">
-                        <h3 class="iconText">Agenda 2063</h3>
+                        <a href="../asps/asps.html" class="iconText">Agenda 2063</a>
                         <p class="cardBodyText">Dynamic progress of different metrics</p>
                     </div>
                 </div>
@@ -178,8 +183,8 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <h2 style="text-align: center;color: black;font-weight: bolder;">Data Portal Team</h2>
-            <p style="font-size: 19px; text-align: center;margin-left: 4%;margin-right: 4%;margin-top: 2%;margin-bottom: 2%;">The data
+            <h2 style="text-align: center;color: black;font-weight: bolder;font-size: 1.8em;">Data Portal Team</h2>
+            <p style="font-size: 16px; text-align: left;margin-left: 4%;margin-right: 4%;margin-top: 2%;margin-bottom: 2%;">The data
                 portal is managed by the SDGC/A team. The Sustainable Development Goals Center for Africa is
                 deeply committed to accelerating the implementation of the SDGs across the continent. We work with
                 governments institutions and their partners to standardize data and make them more easily accessible.
@@ -188,6 +193,17 @@
                 number of data are subject to special conditions of reuse, most of which are related to the protection
                 of the intellectual property rights of third parties.
             </p>
+        </div>
+    </div>
+    <div class="row">
+            <div class="col-md-12">
+                <p style="font-size: 16px; margin-left: 4%;margin-right: 4%;margin-top: 2%;margin-bottom: 2%;">
+                    <span style="font-weight: bold">DISCLAIMER: </span> The views expressed in this website do not reflect the views of any 
+                    organization, agency or program of the United Nations. It has been prepared by a team 
+                    of independent experts of the Sustainable Development Goals Center for Africa.
+                    <br>  
+                    This website is best viewed with Mozilla Firefox, Safari, Opera or Chrome Browsers.     
+                </p>
         </div>
     </div>
     <div class="row" style="height: 10%;">
