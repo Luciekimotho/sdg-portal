@@ -125,7 +125,15 @@
             padding-left: 0px;
         }
         .div-africa{
-            box-shadow: -1px 2px 4px #21202000;
+            box-shadow: 0px 0px 0px 0px #fff;
+        }
+
+        button{
+            background: #26bfe6;
+        }
+        .active{
+            background-color: #fff;
+            color: #26bfe6;
         }
         
     </style>
@@ -145,25 +153,25 @@
         <div class="row" style="width: 100% !important;margin-top: 1%;">
             <div class="row region-row" style="width: 100% !important; margin-left: 1%;">
                 <div class="col-md-2">
-                    <button onclick="loadRegion(1)" class="div-africa" style=" background: #26bfe6;">Africa</button>
+                    <button onclick="loadRegion(1)" class="div-africa" id="africa">Africa</button>
                 </div>
                 <div class="col-md-2">
-                    <button onclick="loadRegion(2)" class="div-africa" style=" background: #26bfe6;">Central Africa
+                    <button onclick="loadRegion(2)" class="div-africa" id="cafrica">Central Africa
                     </button>
                 </div>
                 <div class="col-md-2">
-                    <button onclick="loadRegion(3)" class="div-africa" style="background: #26bfe6;">East Africa</button>
+                    <button onclick="loadRegion(3)" class="div-africa" id="eafrica">East Africa</button>
                 </div>
                 <div class="col-md-2">
-                    <button onclick="loadRegion(4)" class="div-africa" style="background: #26bfe6;">North Africa
+                    <button onclick="loadRegion(4)" class="div-africa" id="nafrica">North Africa
                     </button>
                 </div>
                 <div class="col-md-2">
-                    <button onclick="loadRegion(5)" class="div-africa" style="background: #26bfe6;">Southern Africa
+                    <button onclick="loadRegion(5)" class="div-africa" id="safrica">Southern Africa
                     </button>
                 </div>
                 <div class="col-md-2">
-                    <button onclick="loadRegion(6)" class="div-africa" style="background: #26bfe6;">West Africa</button>
+                    <button onclick="loadRegion(6)" class="div-africa" id="wafrica">West Africa</button>
                 </div>
             </div>
             <div class="row" style="width: 100% !important;margin-left: 1%;margin-top: 0.5%;">

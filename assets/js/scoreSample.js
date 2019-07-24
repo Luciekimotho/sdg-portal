@@ -6,6 +6,14 @@ function loadRegion(n) {
         $(".WAF").hide();
         $(".EAF").hide();
         $(".CAF").show();
+
+        document.getElementById("africa").classList.remove('active');
+        document.getElementById("cafrica").classList.add('active');
+        document.getElementById("safrica").classList.remove('active');
+        document.getElementById("nafrica").classList.remove('active');
+        document.getElementById("eafrica").classList.remove('active');
+        document.getElementById("wafrica").classList.remove('active');
+
     }
     else if (n == 3) {
         $(".SAF").hide();
@@ -13,6 +21,13 @@ function loadRegion(n) {
         $(".WAF").hide();
         $(".EAF").show();
         $(".CAF").hide();
+
+        document.getElementById("africa").classList.remove('active');
+        document.getElementById("cafrica").classList.remove('active');
+        document.getElementById("safrica").classList.remove('active');
+        document.getElementById("nafrica").classList.remove('active');
+        document.getElementById("eafrica").classList.add('active');
+        document.getElementById("wafrica").classList.remove('active');
     }
     else if (n == 4) {
         $(".SAF").hide();
@@ -20,6 +35,13 @@ function loadRegion(n) {
         $(".WAF").hide();
         $(".EAF").hide();
         $(".CAF").hide();
+
+        document.getElementById("africa").classList.remove('active');
+        document.getElementById("cafrica").classList.remove('active');
+        document.getElementById("safrica").classList.remove('active');
+        document.getElementById("nafrica").classList.add('active');
+        document.getElementById("eafrica").classList.remove('active');
+        document.getElementById("wafrica").classList.remove('active');
     }
     else if (n == 5) {
         $(".SAF").show();
@@ -27,6 +49,13 @@ function loadRegion(n) {
         $(".WAF").hide();
         $(".EAF").hide();
         $(".CAF").hide();
+
+        document.getElementById("africa").classList.remove('active');
+        document.getElementById("cafrica").classList.remove('active');
+        document.getElementById("safrica").classList.add('active');
+        document.getElementById("nafrica").classList.remove('active');
+        document.getElementById("eafrica").classList.remove('active');
+        document.getElementById("wafrica").classList.remove('active');
     }
     else if (n == 6) {
         $(".SAF").hide();
@@ -34,6 +63,13 @@ function loadRegion(n) {
         $(".WAF").show();
         $(".EAF").hide();
         $(".CAF").hide();
+
+        document.getElementById("africa").classList.remove('active');
+        document.getElementById("cafrica").classList.remove('active');
+        document.getElementById("safrica").classList.remove('active');
+        document.getElementById("nafrica").classList.remove('active');
+        document.getElementById("eafrica").classList.remove('active');
+        document.getElementById("wafrica").classList.add('active');
     }
     else if (n == 1) {
         $(".SAF").show();
@@ -41,6 +77,13 @@ function loadRegion(n) {
         $(".WAF").show();
         $(".EAF").show();
         $(".CAF").show();
+
+        document.getElementById("africa").classList.add('active');
+        document.getElementById("cafrica").classList.remove('active');
+        document.getElementById("safrica").classList.remove('active');
+        document.getElementById("nafrica").classList.remove('active');
+        document.getElementById("eafrica").classList.remove('active');
+        document.getElementById("wafrica").classList.remove('active');
     }
     else {
         $(".SAF").show();
@@ -48,6 +91,13 @@ function loadRegion(n) {
         $(".WAF").show();
         $(".EAF").show();
         $(".CAF").show();
+
+        document.getElementById("africa").classList.add('active');
+        document.getElementById("cafrica").classList.remove('active');
+        document.getElementById("safrica").classList.remove('active');
+        document.getElementById("nafrica").classList.remove('active');
+        document.getElementById("eafrica").classList.remove('active');
+        document.getElementById("wafrica").classList.remove('active');
     }
 }
 
