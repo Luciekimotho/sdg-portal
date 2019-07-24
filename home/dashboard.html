@@ -33,7 +33,7 @@
         .div-africa {
             box-shadow: -1px 2px 4px #212020;
             color: white;
-            font-weight: bold;
+            font-weight: 600;
             width: 100%;
             height: 40px !important;
         }
@@ -131,10 +131,24 @@
         button{
             background: #26bfe6;
         }
-        .active{
-            background-color: #fff;
-            color: #26bfe6;
+        button:focus {
+            outline: 0px dotted;
         }
+
+        .btn{
+            border-radius: 0px;
+            text-transform: capitalize;
+        }
+
+        .btn-primary:focus,
+        .btn-primary.active{
+            background-color: #34b5b8;
+            color: #fff;
+            font-weight: 600;
+            border-color: #34b5b8;
+        }
+
+        
         
     </style>
 </head>
@@ -153,25 +167,25 @@
         <div class="row" style="width: 100% !important;margin-top: 1%;">
             <div class="row region-row" style="width: 100% !important; margin-left: 1%;">
                 <div class="col-md-2">
-                    <button onclick="loadRegion(1)" class="div-africa" id="africa">Africa</button>
+                    <button onclick="loadRegion(1)" class="btn btn-primary div-africa active" id="africa">Africa</button>
                 </div>
                 <div class="col-md-2">
-                    <button onclick="loadRegion(2)" class="div-africa" id="cafrica">Central Africa
+                    <button onclick="loadRegion(2)" class="btn btn-primary div-africa" id="cafrica">Central Africa
                     </button>
                 </div>
                 <div class="col-md-2">
-                    <button onclick="loadRegion(3)" class="div-africa" id="eafrica">East Africa</button>
+                    <button onclick="loadRegion(3)" class="btn btn-primary div-africa" id="eafrica">East Africa</button>
                 </div>
                 <div class="col-md-2">
-                    <button onclick="loadRegion(4)" class="div-africa" id="nafrica">North Africa
+                    <button onclick="loadRegion(4)" class="btn btn-primary div-africa" id="nafrica">North Africa
                     </button>
                 </div>
                 <div class="col-md-2">
-                    <button onclick="loadRegion(5)" class="div-africa" id="safrica">Southern Africa
+                    <button onclick="loadRegion(5)" class="btn btn-primary div-africa" id="safrica">Southern Africa
                     </button>
                 </div>
                 <div class="col-md-2">
-                    <button onclick="loadRegion(6)" class="div-africa" id="wafrica">West Africa</button>
+                    <button onclick="loadRegion(6)" class="btn btn-primary div-africa" id="wafrica">West Africa</button>
                 </div>
             </div>
             <div class="row" style="width: 100% !important;margin-left: 1%;margin-top: 0.5%;">
