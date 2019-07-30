@@ -30,13 +30,10 @@
     .modal-header button.close {
         margin-top: -5px;
         }
-    .modal-body {
-    padding: 0px 50px;
-    }
     .modal-body h3{
         font-size: 16px;
         margin-top: 5px;
-        margin-bottom: 5px;
+        margin-bottom: 15px;
     }
     #chartdiv2 {
     width: 100%;
@@ -45,7 +42,7 @@
 
 .card-header h2{
     margin: 0px 0 0;
-    font-size: 1.3em;
+    font-size: 1.8em;
 }
 .close{
     line-height: 0.4;
@@ -62,6 +59,7 @@
                     </button>
             </div>
             <div class="modal-body">
+                <div class="card">
                 <div class="">
                         <div class="row">
                                 <div class="col-md-12" style="border-radius: 0;">
@@ -84,12 +82,15 @@
                                     
                                 </div>
                             
+                                <div class="col-md-12 card">
+                                    <div class="card-header" style="text-align: center;color: white;font-weight: bold; background-color: #008fe5; margin: 0 0 10px 0 ;width: 100%; border-radius: 0px;">
                                 <div class="col-md-12 card" style="padding: 0;">
                                     <div class="card-header" style="text-align: center;color: white;font-weight: bold; background-color: #008fe5; margin: 0 0 10px 0 ;width: 100%; border-radius:0px;">
                                         <h2>Country Demographics</h2>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
+                                                <div class="row">
                                                 <div class="row no-gutters">
                                                         <div class="col-md-2">
                                                             <a onclick="sdgGoal(1);return false;" href=""><img
@@ -122,6 +123,7 @@
                                                                 style="width:95px;height:95px;"></a>
                                                         </div>
                                                     </div>
+                                                    <div class="row">
                                                     <div class="row no-gutters">
                                                         <div class="col-md-2">
                                                             <a onclick="sdgGoal(7);return false;" href="#"><img
@@ -154,6 +156,7 @@
                                                                 style="width:95px;height:95px;"></a>
                                                         </div>
                                                     </div>
+                                                    <div class="row">
                                                     <div class="row no-gutters">
                                                             <div class="col-md-2">
                                                             <a onclick="sdgGoal(13);return false;" href="#"><img
@@ -185,9 +188,7 @@
                         <!--                            </div>-->
                                         </div>   
                                         <div class="col-md-6" id="chartdiv2" style="height: 400px;"></div>  
-                                        <div class="col-md-12" >
-                                            <div id="chartdiv"></div>
-                                        </div>  
+                                        <div class="col-md-12" id="chartdiv"></div>   
                                     </div>                                  
                                 </div>      
                             </div>

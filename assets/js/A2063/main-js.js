@@ -1545,7 +1545,6 @@ function loadA2063Map(n, containerID, dataSourceURL) {
                     }
                 }
             });
-            //window.scrollTo(0, document.body.scrollHeight);
         }).fail(function () {
             var noData = '<i class="fa fa-warning" style="font-size:40px;color:red;margin-left: 50%;margin-top: 12%;"></i><br><br><p style="margin-top: 15%;text-align: center;margin-left: -4%;font-weight: bolder;">No Data Available</p>';
             $("#container" + containerID).empty().append(noData);

@@ -26,8 +26,8 @@ function loadCountryData(countryId) {
                             '<p id="countryName" style="margin-left: 10%;"><i class="fa fa-info"></i> Name: ' + countryData.name + '</p>' +
                             '<p class="white" style="margin-left: 10%;" id="region"><i class="fa fa-globe"></i> Region: ' + countryData.region + '</p>' +
                             '<p class="white" style="margin-left: 10%;" id="capitalCity"><i class="fa fa-map-marker"></i> Capital: ' + countryData.capital + '</p>' +
-                            '<p class="white" style="margin-left: 10%;" id="povertyLine"> Poverty Line:  </p>' +
-                            '<p class="white" style="margin-left: 10%;" id="gdpPerCapita"> GDP Per Capita:  </p>' +
+                            '<p class="white" style="margin-left: 10%;" id="povertyLine"> Poverty Line: ' + countryData.capital + ' </p>' +
+                            '<p class="white" style="margin-left: 10%;" id="gdpPerCapita"> GDP Per Capita: ' + countryData.capital + '  </p>' +
                             
                 '</div>';
                 var flagURL = '<img src="'+'../' + countryData.flagURL + '" class="img-fluid" style="max-width:150px;max-height:100px;float: right;margin-right: 8%;margin-top: 1%;margin-bottom: 1%;">';
