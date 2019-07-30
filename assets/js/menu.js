@@ -7,9 +7,15 @@ $(document).ready(function () {
             $("#sdgs").addClass("current");
             console.log(pageURL+"hey");
         }
+        if (pageURL.match(/sdgs/)){
+            $("#sdgs").addClass("current");
+            console.log(pageURL+"hey");
+        }
         if (pageURL.match(/asp[1-7]/)){
             $("#asps").addClass("current");
             console.log(pageURL);
         }
+        
+        
     });
 });
