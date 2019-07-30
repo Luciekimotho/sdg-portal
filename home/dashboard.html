@@ -33,7 +33,7 @@
         .div-africa {
             box-shadow: -1px 2px 4px #212020;
             color: white;
-            font-weight: bold;
+            font-weight: 600;
             width: 100%;
             height: 40px !important;
         }
@@ -46,8 +46,8 @@
         }
 
         .sdg-f {
-            font-weight: bold;
-            font-size: 9px;
+            font-weight: 600;
+            font-size: 8px;
             text-align: center;
         }
 
@@ -60,7 +60,7 @@
         }
 
         td {
-            text-align: left;
+            text-align: right;
             color: black;
             border: 3px solid white;
         }
@@ -71,6 +71,14 @@
 
         table th, table td {
             overflow: hidden;
+        }
+
+        table td{
+            margin-bottom: 10px;
+            border-radius: 8px;
+        }
+        table tr{
+            margin: 2px;
         }
 
         /*
@@ -112,6 +120,47 @@
         .table td, .table th {
             padding: 0.2rem;
         }
+        .region-row .col-md-2{
+            padding-right: 0px;
+            padding-left: 0px;
+        }
+        .div-africa{
+            box-shadow: 0px 0px 0px 0px #fff;
+        }
+
+        button{
+            background: #3091cc;
+        }
+        button:focus {
+            outline: 0px dotted;
+        }
+
+        .region-row .btn{
+            border-radius: 0px;
+            border: none;
+            text-transform: capitalize;
+            border-top: 2px solid #3091cc;
+            border-bottom: 2px solid #3091cc;
+            border-left: 2px solid #3091cc;
+            background-color: #fff;
+            color: #3091cc;
+        }
+
+
+        .region-row div:last-child .btn{
+            border-right: 2px solid #3091cc;
+        }
+
+        .region-row .btn-primary:focus,
+        .region-row .btn-primary.active{
+            background-color: #3091cc;
+            color: #fff;
+            font-weight: 600;
+            border-color: #3091cc;
+        }
+
+        
+        
     </style>
 </head>
 <body>
@@ -127,27 +176,27 @@
             <div class="col-md-12" w3-include-html="../layouts/header.html"></div>
         </div>
         <div class="row" style="width: 100% !important;margin-top: 1%;">
-            <div class="row" style="width: 100% !important; margin-left: 1%;">
+            <div class="row region-row" style="width: 100% !important; margin-left: 1%;">
                 <div class="col-md-2">
-                    <button onclick="loadRegion(1)" class="div-africa" style=" background: #26bfe6;">Africa</button>
+                    <button onclick="loadRegion(1)" class="btn btn-primary div-africa active" id="africa">Africa</button>
                 </div>
                 <div class="col-md-2">
-                    <button onclick="loadRegion(2)" class="div-africa" style=" background: #26bfe6;">Central Africa
+                    <button onclick="loadRegion(2)" class="btn btn-primary div-africa" id="cafrica">Central Africa
                     </button>
                 </div>
                 <div class="col-md-2">
-                    <button onclick="loadRegion(3)" class="div-africa" style="background: #26bfe6;">East Africa</button>
+                    <button onclick="loadRegion(3)" class="btn btn-primary div-africa" id="eafrica">East Africa</button>
                 </div>
                 <div class="col-md-2">
-                    <button onclick="loadRegion(4)" class="div-africa" style="background: #26bfe6;">North Africa
+                    <button onclick="loadRegion(4)" class="btn btn-primary div-africa" id="nafrica">North Africa
                     </button>
                 </div>
                 <div class="col-md-2">
-                    <button onclick="loadRegion(5)" class="div-africa" style="background: #26bfe6;">Southern Africa
+                    <button onclick="loadRegion(5)" class="btn btn-primary div-africa" id="safrica">Southern Africa
                     </button>
                 </div>
                 <div class="col-md-2">
-                    <button onclick="loadRegion(6)" class="div-africa" style="background: #26bfe6;">West Africa</button>
+                    <button onclick="loadRegion(6)" class="btn btn-primary div-africa" id="wafrica">West Africa</button>
                 </div>
             </div>
             <div class="row" style="width: 100% !important;margin-left: 1%;margin-top: 0.5%;">
