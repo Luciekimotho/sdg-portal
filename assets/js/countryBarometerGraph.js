@@ -15,14 +15,15 @@ function countryBarometerGraph(countryID,sdgID) {
                     "theme": "light",
                     "type": "gauge",
                     "axes": [{
-                        "topTextFontSize": 20,
-                        "topTextYOffset": 70,
+                        "topTextFontSize": 15,
+                        "topTextYOffset": 50,
                         "axisColor": "#31d6ea",
                         "axisThickness": 1,
                         "endValue": 100,
                         "gridInside": true,
                         "inside": true,
                         "radius": "50%",
+                        
                         "valueInterval": 10,
                         "tickColor": "#67b7dc",
                         "startAngle": -90,
@@ -33,20 +34,20 @@ function countryBarometerGraph(countryID,sdgID) {
                             {
                                 "color": "#84b761",
                                 "endValue": 100,
-                                "innerRadius": "105%",
+                                "innerRadius": "115%",
                                 "radius": "170%",
                                 "startValue": 71
                             },
                             {
                                 "color": "#fdd400",
                                 "endValue": 70,
-                                "innerRadius": "105%",
-                                "radius": "190%",
+                                "innerRadius": "115%",
+                                "radius": "180%",
                                 "startValue": 41
                             }, {
                                 "color": "#cc4748",
                                 "endValue": 40,
-                                "innerRadius": "105%",
+                                "innerRadius": "115%",
                                 "radius": "170%",
                                 "startValue": 0
                             }
@@ -56,7 +57,7 @@ function countryBarometerGraph(countryID,sdgID) {
                         "alpha": 1,
                         "innerRadius": "35%",
                         "nailRadius": 0,
-                        "radius": "170%"
+                        "radius": "150%"
                     }]
                 });
                 randomValue(score);
