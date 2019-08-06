@@ -1,3 +1,15 @@
+body{
+    font-family: 'Montserrat', "Helvetica", Arial, sans-serif;
+    font-size: 16px;
+}
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td-name, td{
+    font-family: 'Montserrat', "Helvetica", Arial, sans-serif;
+    
+}
+p{
+    font-size: 16px;
+    line-height: 1.4em;
+}
 .center-div {
     width: 75%;
     margin: 0 auto;
