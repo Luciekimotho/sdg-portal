@@ -23,9 +23,10 @@ function loadCountryData(countryId) {
                     "totalPopulation": data[newKey].totalPopulation
                 };
                 var profile = '<div class="person-list-item">' +
-                            '<p id="countryName" style="margin-left: 10%;"><i class="fa fa-info"></i> Name: ' + countryData.name + '</p>' +
-                            '<p class="white" style="margin-left: 10%;" id="region"><i class="fa fa-globe"></i> Region: ' + countryData.region + '</p>' +
-                            '<p class="white" style="margin-left: 10%;" id="capitalCity"><i class="fa fa-map-marker"></i> Capital: ' + countryData.capital + '</p>' +
+                            '<p id="countryName" style="margin-left: 10%;"> Name: ' + countryData.name + '</p>' +
+                            '<p class="white" style="margin-left: 10%;" id="region"> Region: ' + countryData.region + '</p>' +
+                            '<p class="white" style="margin-left: 10%;" id="capitalCity"> Capital: ' + countryData.capital + '</p>' +
+                            '<p class="white" style="margin-left: 10%;" id="povertyLine"> Population: ' + countryData.totalPopulation +  '</p>' +
                             '<p class="white" style="margin-left: 10%;" id="povertyLine"> Poverty Line:  </p>' +
                             '<p class="white" style="margin-left: 10%;" id="gdpPerCapita"> GDP Per Capita:  </p>' +
                             
@@ -42,7 +43,7 @@ function loadCountryData(countryId) {
                     '</div>';
                 $('#countryProfile').empty().append(profile);
                 $('#flagURL').empty().append(flagURL);
-                $('#countryStatistics').empty().append(countryStatistics);
+               // $('#countryStatistics').empty().append(countryStatistics);
                 $('#myModal').modal('show');
             }
         }
