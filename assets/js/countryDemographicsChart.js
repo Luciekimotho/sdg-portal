@@ -11,6 +11,7 @@ function countryDemographicsChart(countryID) {
             "marginBottom": 50,
             "dataProvider": data,
             "startDuration": 1,
+            "height": 380,
             "graphs": [{
                 "fillAlphas": 0.8,
                 "lineAlpha": 0.2,

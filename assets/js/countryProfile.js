@@ -24,19 +24,19 @@ function loadCountryData(countryId) {
                 };
                 var profile = '<div class="person-list-item">' +
                             '<p id="countryName" style="margin-left: 10%;"> Name: ' + countryData.name + '</p>' +
+                            '<p class="white" style="margin-left: 10%;" id="povertyLine"> Population: ' + countryData.totalPopulation +  '</p>' +
                             '<p class="white" style="margin-left: 10%;" id="region"> Region: ' + countryData.region + '</p>' +
                             '<p class="white" style="margin-left: 10%;" id="capitalCity"> Capital: ' + countryData.capital + '</p>' +
-                            '<p class="white" style="margin-left: 10%;" id="povertyLine"> Population: ' + countryData.totalPopulation +  '</p>' +
                             '<p class="white" style="margin-left: 10%;" id="povertyLine"> Poverty Line:  </p>' +
                             '<p class="white" style="margin-left: 10%;" id="gdpPerCapita"> GDP Per Capita:  </p>' +
                             
                 '</div>';
                 var flagURL = '<img src="'+'../' + countryData.flagURL + '" class="img-fluid" style="max-width:150px;max-height:100px;float: right;margin-right: 8%;margin-top: 1%;margin-bottom: 1%;">';
-                var countryStatistics = '<div class="col-md-6 user-pad text-left">' +
+                var countryStatistics = '<div class="col-md-6 col-sm-6 user-pad text-left">' +
                     '<h3 style="margin-left: 10%;">SIZE(sq.km)</h3>' +
                     '<h4 style="margin-left: 10%;">' + countryData.size + '</h4>' +
                     '</div>' +
-                    '<div class="col-md-6 user-pad text-center">' +
+                    '<div class="col-md-6 col-sm-6 user-pad text-center">' +
                     '<h3 style="margin-right: -54%;">POPULATION</h3>' +
                     '<h4 style="margin-right: -54%;">' + countryData.totalPopulation + '</h4>' +
                     '</div>' +

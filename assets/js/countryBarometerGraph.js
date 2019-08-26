@@ -28,7 +28,6 @@ function countryBarometerGraph(countryID,sdgID) {
                         "tickColor": "#67b7dc",
                         "startAngle": -90,
                         "endAngle": 90,
-                        "unit": "%",
                         "bandOutlineAlpha": 0,
                         "bands": [
                             {
