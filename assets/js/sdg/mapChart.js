@@ -66,6 +66,7 @@ function loadMap(n, containerID, dataSourceURL) {
                         "yoffset": 4185728.66873
                     }
                 },
+                
                 "features": [{
                     "type": "Feature",
                     "id": "UG",
@@ -1426,9 +1427,13 @@ function loadMap(n, containerID, dataSourceURL) {
                     },
                     map: 'custom/africa'
                 },
+
+                
+
                 credits: {
                     enabled: false
                 },
+
                 title: {
                     text: ''
                 },
@@ -1441,15 +1446,58 @@ function loadMap(n, containerID, dataSourceURL) {
                         fontSize: '16px'
                     }
                 },
-                legend: {
-                    layout: 'vertical',
-                    align: 'right',
-                    verticalAlign: 'middle'
+                
+
+                colors: [ '#239bc8', '#f5c11c', '#dc252b', '#7ebb42'],
+
+                mapNavigation: {
+                    enabled: true
                 },
+    
+                legend: {
+                    title: {
+                        text: 'Rating',
+                        style: {
+                            color: ( // theme
+                                Highcharts.defaultOptions &&
+                                Highcharts.defaultOptions.legend &&
+                                Highcharts.defaultOptions.legend.title &&
+                                Highcharts.defaultOptions.legend.title.style &&
+                                Highcharts.defaultOptions.legend.title.style.color
+                            ) || 'black'
+                        }
+                    },
+                    align: 'right',
+                    verticalAlign: 'bottom',
+                    floating: true,
+                    layout: 'vertical',
+                    valueDecimals: 0,
+                    backgroundColor: ( // theme
+                        Highcharts.defaultOptions &&
+                        Highcharts.defaultOptions.legend &&
+                        Highcharts.defaultOptions.legend.backgroundColor
+                    ) || 'rgba(255, 255, 255, 0.85)',
+                    symbolRadius: 0,
+                    symbolHeight: 14
+                },
+
                 colorAxis: {
-                    min: 0,
-                    maxColor: '#FF0000',
-                    minColor: '#008000'
+                    dataClasses: [{
+                        to: 10,
+                        name: 'Significant challenges remain'
+                    }, {
+                        from: 10,
+                        to: 20,
+                        name: 'Significant challenges remain'
+                    },{
+                        from: 20,
+                        to: 30,
+                        name: 'Challenges remain'
+                    },{
+                        from: 40,
+                        name: 'SDGs achieved'
+                    }]
+                    
                 },
                 mapNavigation: {
                     enabled: true,
