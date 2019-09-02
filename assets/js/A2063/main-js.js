@@ -1489,11 +1489,37 @@ function loadA2063Map(n, containerID, dataSourceURL) {
                     align: 'right',
                     verticalAlign: 'middle'
                 },
+                colors: [ '#cecdcd', '#ff0000', '#ffa500', '#f1cd00', '#008d00'],
+
                 colorAxis: {
-                    min: 0,
-                    maxColor: '#FF0000',
-                    minColor: '#008000'
+                    dataClasses: [{
+                        from: -100,
+                        to: 0,
+                        name: 'Information unavailable.',
+                        color: '#cecdcd'
+                    }, {
+                        from: 1,
+                        to: 10,
+                        name: 'Off Track',
+                        color: '#ff0000'
+                    }, {
+                        from: 10,
+                        to: 20,
+                        name: 'Significant challenges remain',
+                        color: '#ffa500'
+                    },{
+                        from: 20,
+                        to: 30,
+                        name: 'Challenges remain',
+                        color: '#f1cd00'
+                    },{
+                        from: 30,
+                        name: 'SDG Achieved',
+                        color: '#008d00'
+                    }]
+                    
                 },
+                
                 mapNavigation: {
                     enabled: true,
                     buttonOptions: {
