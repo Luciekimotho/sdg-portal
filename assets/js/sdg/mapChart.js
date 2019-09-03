@@ -66,6 +66,7 @@ function loadMap(n, containerID, dataSourceURL) {
                         "yoffset": 4185728.66873
                     }
                 },
+                
                 "features": [{
                     "type": "Feature",
                     "id": "UG",
@@ -1426,9 +1427,13 @@ function loadMap(n, containerID, dataSourceURL) {
                     },
                     map: 'custom/africa'
                 },
+
+                
+
                 credits: {
                     enabled: false
                 },
+
                 title: {
                     text: ''
                 },
@@ -1441,16 +1446,73 @@ function loadMap(n, containerID, dataSourceURL) {
                         fontSize: '16px'
                     }
                 },
+                
+
+                
+
+                mapNavigation: {
+                    enabled: true
+                },
+    
                 legend: {
-                    layout: 'vertical',
+                    title: {
+                        text: 'Rating',
+                        style: {
+                            color: ( // theme
+                                Highcharts.defaultOptions &&
+                                Highcharts.defaultOptions.legend &&
+                                Highcharts.defaultOptions.legend.title &&
+                                Highcharts.defaultOptions.legend.title.style &&
+                                Highcharts.defaultOptions.legend.title.style.color
+                            ) || 'black'
+                        }
+                    },
                     align: 'right',
-                    verticalAlign: 'middle'
+                    verticalAlign: 'bottom',
+                    floating: true,
+                    layout: 'vertical',
+                    valueDecimals: 0,
+                    backgroundColor: ( // theme
+                        Highcharts.defaultOptions &&
+                        Highcharts.defaultOptions.legend &&
+                        Highcharts.defaultOptions.legend.backgroundColor
+                    ) || 'rgba(255, 255, 255, 0.85)',
+                    symbolRadius: 0,
+                    symbolHeight: 14
                 },
+
+                colors: [ '#cecdcd', '#ff0000', '#ffa500', '#f1cd00', '#008d00'],
+
                 colorAxis: {
-                    min: 0,
-                    maxColor: '#FF0000',
-                    minColor: '#008000'
+                    dataClasses: [{
+                        from: -100,
+                        to: 0,
+                        name: 'Information unavailable.',
+                        color: '#cecdcd'
+                    }, {
+                        from: 1,
+                        to: 10,
+                        name: 'Off Track',
+                        color: '#ff0000'
+                    }, {
+                        from: 10,
+                        to: 20,
+                        name: 'Significant challenges remain',
+                        color: '#ffa500'
+                    },{
+                        from: 20,
+                        to: 30,
+                        name: 'Challenges remain',
+                        color: '#f1cd00'
+                    },{
+                        from: 30,
+                        name: 'SDG Achieved',
+                        color: '#008d00'
+                    }]
+                    
                 },
+
+                
                 mapNavigation: {
                     enabled: true,
                     buttonOptions: {
