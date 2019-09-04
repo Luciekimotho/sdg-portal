@@ -19,33 +19,40 @@ function countryBarometerGraph(countryID,sdgID) {
                         "topTextYOffset": 50,
                         "axisColor": "#31d6ea",
                         "axisThickness": 1,
-                        "endValue": 100,
+                        "endValue": 3,
                         "gridInside": true,
                         "inside": true,
                         "radius": "50%",
                         
-                        "valueInterval": 10,
+                        "valueInterval": 1,
                         "tickColor": "#67b7dc",
                         "startAngle": -90,
                         "endAngle": 90,
                         "bandOutlineAlpha": 0,
                         "bands": [
                             {
-                                "color": "#84b761",
-                                "endValue": 100,
+                                "color": "#008d00",
+                                "endValue": 3.0,
                                 "innerRadius": "115%",
                                 "radius": "170%",
-                                "startValue": 71
+                                "startValue": 2.0
                             },
                             {
-                                "color": "#fdd400",
-                                "endValue": 70,
+                                "color": "#f1cd00",
+                                "endValue": 1.9,
+                                "innerRadius": "115%",
+                                "radius": "170%",
+                                "startValue": 1.5
+                            },
+                            {
+                                "color": "#ffa500",
+                                "endValue": 1.4,
                                 "innerRadius": "115%",
                                 "radius": "180%",
-                                "startValue": 41
+                                "startValue": 1.0
                             }, {
-                                "color": "#cc4748",
-                                "endValue": 40,
+                                "color": "#ff0000",
+                                "endValue": 0.9,
                                 "innerRadius": "115%",
                                 "radius": "170%",
                                 "startValue": 0
@@ -66,10 +73,10 @@ function countryBarometerGraph(countryID,sdgID) {
 
                 function randomValue(goalValue) {
                     gaugeChart.arrows[0].setValue(goalValue);
-                    gaugeChart.axes[0].setTopText(goalValue + " %");
+                    gaugeChart.axes[0].setTopText(goalValue );
                     setTimeout(function () {
                         gaugeChart.arrows[0].setValue(0);
-                        gaugeChart.axes[0].setTopText(0 + " %");
+                        // gaugeChart.axes[0].setTopText(0 + " %");
                     }, 5000);
 
                 }

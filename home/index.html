@@ -29,6 +29,10 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href="../assets/css/nucleo-icons.css" rel="stylesheet"/>
 
+    <!-- <link href="../assets/css/jquery-ui.css" /> -->
+    <!-- <link rel="stylesheet" href="../assets/css/jquery-ui.theme.css" />
+    <link href="../assets/css/jquery-ui.structure.css" /> -->
+
     <!-- Links for include header file -->
     <script src="https://www.w3schools.com/lib/w3.js"></script>
 
@@ -97,6 +101,96 @@
             color: #f33816;
             text-decoration: none;
         }
+
+        .search input{
+            border-radius: 0px;
+            font-size: 14px;
+            line-height: 18px;
+        }
+
+        .ui-autocomplete {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+            float: left;
+            display: none;
+            min-width: 160px;
+            _width: 160px;
+            padding: 4px 0;
+            margin: 2px 0 0 0;
+            list-style: none;
+            background-color: #ffffff;
+            border-color: #ccc;
+            border-color: rgba(0, 0, 0, 0.2);
+            border-style: solid;
+            border-width: 1px;
+            -webkit-border-radius: 0px;
+            -moz-border-radius: 0px;
+            border-radius: 0px;
+            -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            -webkit-background-clip: padding-box;
+            -moz-background-clip: padding;
+            background-clip: padding-box;
+            *border-right-width: 2px;
+            *border-bottom-width: 2px;}
+
+            .ui-menu-item > a.ui-corner-all {
+                display: block;
+                padding: 3px 15px;
+                clear: both;
+                font-weight: normal;
+                line-height: 18px;
+                color: #555555;
+                white-space: nowrap;}
+
+                .ui-state-hover, .ui-state-active {
+                color: #ffffff;
+                text-decoration: none;
+                background-color: #0088cc;
+                border-radius: 0px;
+                -webkit-border-radius: 0px;
+                -moz-border-radius: 0px;
+                background-image: none;
+                }
+
+                .ui-autocomplete > li > div {
+                    display: block;
+                    padding: 5px 10px;
+                    clear: both;
+                    font-weight: normal;
+                    line-height: 1.42857143;
+                    color: #333333;
+                    white-space: nowrap;
+                    }
+
+                    .ui-state-hover,
+                    .ui-state-active,
+                    .ui-state-focus {
+                    text-decoration: none;
+                    color: #262626;
+                    background-color: #f5f5f5;
+                    cursor: pointer;
+                    }
+
+        .ui-helper-hidden-accessible {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+#ui-id-1{
+    left: 585px;
+}
+
+
+
     </style>
 </head>
 <body>
@@ -119,7 +213,19 @@
 
                 
             </div>
-            <div class="col-md-6"></div>
+            <div class="col-md-4 "></div>
+            <div class="col-md-4 "></div>
+            <div class="col-md-3">
+                <div class="input-group form-group-no-border search">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="nc-icon nc-zoom-split"></i>
+                      </span>
+                    </div>
+                    <input id="countries" class="form-control" placeholder="Search by Country">
+                   
+                  </div>
+            </div>
             <!--<div class="col-md-4"></div>-->
             <!-- <img src="../assets/img/home page 1 (1).jpg" alt="">
             <img src="../assets/img/home page 2.jpg" alt="">
@@ -134,6 +240,7 @@
 <!-- Core JS Files -->
 <script src="../assets/js/jquery-3.2.1.js" type="text/javascript"></script>
 <script src="../assets/js/jquery-ui-1.12.1.custom.min.js" type="text/javascript"></script>
+<script src="../assets/js/jquery-ui.js"></script>
 <script src="../assets/js/popper.js" type="text/javascript"></script>
 <script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
 
@@ -153,4 +260,10 @@
     w3.includeHTML();
 </script>
 <script src="../assets/js/menu.js"></script>
+
+<script>
+        $( "#countries" ).autocomplete({
+          source: [ "Algeria", "Kenya", "Tanzania", "Uganda", "Somali", "Sudan", "Rwanda" ]
+        });
+        </script>
 </html>

@@ -13,8 +13,30 @@
 
     .icon{
         width: 24px;
-height: 24px;
+        height: 24px;
     }
+
+    .input-group-text{
+        padding: 0.75em 0.75em;
+        display: flex;
+        align-items: center;
+        color: #000;
+    }
+    .input-group-prepend{
+        display: flex;
+        margin-right: -30px;
+        z-index: 4;
+        margin-left: -30px;
+    }
+    .form-control{
+        padding-left: 30px;
+    }
+
+    .form-control::-webkit-input-placeholder { color: #403f3f; }  /* WebKit, Blink, Edge */
+.form-control:-moz-placeholder { color: #403f3f; }  /* Mozilla Firefox 4 to 18 */
+.form-control::-moz-placeholder { color: #403f3f; }  /* Mozilla Firefox 19+ */
+.form-control:-ms-input-placeholder { color: #403f3f; }  /* Internet Explorer 10-11 */
+.form-control::-ms-input-placeholder { color: #403f3f; }  /* Microsoft Edge */
 </style>
 <nav class="navbar navbar-expand-md" color-on-scroll="500">
     <div class="navbar-translate">
@@ -33,7 +55,7 @@ height: 24px;
                 <a id="index" href="../home/index.html" class="btn btn-danger"> <img class="icon" src="../assets/img/home_icons/Home.png"/>  <br> Home  </a>
             </li>
             <li class="nav-item">
-                <a id="sdgs" href="../sdgs/sdgs.html" class="btn btn-danger"><img class="icon" src="../assets/img/home_icons/SDG icon 3.png"/>  <br> SDGs</a>
+                <a id="sdgs" href="../sdgs/sdgs.html" class="btn btn-danger"><img class="icon" src="../assets/img/home_icons/circle grey inside SDG.jpg"/>  <br> SDGs</a>
             </li>
             <li class="nav-item">
                 <a id="dashboard" href="../home/dashboard.html" class="btn btn-danger"><img class="icon" src="../assets/img/home_icons/Dashboard.png"/>  <br> Dashboard</a>
@@ -42,7 +64,7 @@ height: 24px;
                 <a id="country_profile" href="../home/country_profile.html" class="btn btn-danger"><img class="icon" src="../assets/img/home_icons/Country Profile.png"/>  <br> Country Profiles</a>
             </li>
             <li class="nav-item">
-                <a id="asps" href="../asps/asps.html" class="btn btn-danger"><img class="icon" src="../assets/img/home_icons/A2063.png"/>  <br> A2063</a>
+                <a id="asps" href="../asps/asps.html" class="btn btn-danger"><img class="icon" src="../assets/img/home_icons/A2063.png"/>  <br> Agenda 2063</a>
             </li>
             <li class="nav-item">
                 <a id="about" href="../home/about.html" class="btn btn-danger"><img class="icon" src="../assets/img/home_icons/About Us.png"/>  <br> About Us</a>
@@ -50,6 +72,7 @@ height: 24px;
             <li class="nav-item">
                 <a id="faqs" href="../home/faqs.html" class="btn btn-danger"> <img class="icon" src="../assets/img/home_icons/FAQs.png"/>  <br> FAQs </a>
             </li>
+           
         </ul>
     </div>
 </nav>
