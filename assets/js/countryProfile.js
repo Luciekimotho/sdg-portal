@@ -4,6 +4,9 @@ TODO:
 */
 
 // Function to load specific country data on map click start
+//if redirected here
+//loadCountryData()
+
 function loadCountryData(countryId) {
     var countryDataURL = '../assets/data/countryProfile.json';
     var countryData = null;
@@ -107,6 +110,7 @@ function loadMap(n) {
                             events: {
                                 click: function () {
                                     loadCountryData(this.value);
+                                    alert(this.value);
                                 }
                             }
                         }
@@ -143,3 +147,5 @@ function loadMap(n) {
         });
     }
 }
+
+
