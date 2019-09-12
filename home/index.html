@@ -272,7 +272,15 @@
 
 <script>
 
-
+    var getData = function (request, response) {
+            $.getJSON(
+                "../assets/data/trial.json" + request.term,
+                function (data) {
+                    response(data);
+                });
+                
+        };
+        console.log("Data: " + getData.value);
 
     var countries = [ "Algeria", "Kenya", "Tanzania", "Uganda", "Somali", "Sudan", "Rwanda" ]
     
@@ -282,7 +290,7 @@
               //alert("select: " + ui.item.value+ " is selected!!!");
               var countryId = ui.item.value;
               window.location.href = "country_profile.html"
-             
+              sessionStorage.setItem("countryId", countryId);
 
           }
           

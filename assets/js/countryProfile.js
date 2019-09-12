@@ -7,6 +7,8 @@ TODO:
 //if redirected here
 //loadCountryData()
 
+
+
 function loadCountryData(countryId) {
     var countryDataURL = '../assets/data/countryProfile.json';
     var countryData = null;
@@ -76,11 +78,6 @@ function updateAfricaMap(n) {
     }
 }
 
-$(document).ready(function () {
-    dataSourceURL = '../assets/data/trial.json';
-    loadMap(1);
-});
-
 function loadMap(n) {
     if (n == 1) {
         var data = $.getJSON(dataSourceURL, function (data) {
@@ -147,5 +144,20 @@ function loadMap(n) {
         });
     }
 }
+
+$(document).ready(function () {
+    dataSourceURL = '../assets/data/trial.json';
+    var referrer = document.referrer;
+    console.log(referrer);
+    var countryId = sessionStorage.getItem('countryId');
+    if (referrer == "http://localhost/sdg-portal/home/index.html") {
+                    setTimeout(function() {
+                        loadCountryData(countryId);
+                    }, 1000);
+                }
+    loadMap(1);
+});
+
+
 
 
