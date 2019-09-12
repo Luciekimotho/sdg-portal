@@ -1456,7 +1456,7 @@ function loadMap(n, containerID, dataSourceURL) {
     
                 legend: {
                     title: {
-                        text: 'Rating',
+                        text: 'LEGEND',
                         style: {
                             color: ( // theme
                                 Highcharts.defaultOptions &&
@@ -1468,7 +1468,7 @@ function loadMap(n, containerID, dataSourceURL) {
                         }
                     },
                     align: 'right',
-                    verticalAlign: 'bottom',
+                    verticalAlign: 'middle',
                     floating: true,
                     layout: 'vertical',
                     valueDecimals: 0,
@@ -1477,8 +1477,8 @@ function loadMap(n, containerID, dataSourceURL) {
                         Highcharts.defaultOptions.legend &&
                         Highcharts.defaultOptions.legend.backgroundColor
                     ) || 'rgba(255, 255, 255, 0.85)',
-                    symbolRadius: 0,
-                    symbolHeight: 14
+                    // symbolRadius: 0,
+                    // symbolHeight: 14
                 },
 
                 colors: [ '#cecdcd', '#ff0000', '#ffa500', '#f1cd00', '#008d00'],
@@ -1512,7 +1512,6 @@ function loadMap(n, containerID, dataSourceURL) {
                     
                 },
 
-                
                 mapNavigation: {
                     enabled: true,
                     buttonOptions: {

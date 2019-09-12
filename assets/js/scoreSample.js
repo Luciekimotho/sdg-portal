@@ -109,7 +109,7 @@ $.getJSON(dataSourceUrl, function (data) {
                 "height": "28px",
                 "color": "black",
                 "font-weight": "bold",
-                "text-transform": "capitalize",
+                
                 "font-size": "9px",
                 "font-family": "Roboto, Helvetica, Arial, sans-serif"
             }).text(item.country),

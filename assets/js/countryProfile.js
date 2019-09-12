@@ -4,6 +4,11 @@ TODO:
 */
 
 // Function to load specific country data on map click start
+//if redirected here
+//loadCountryData()
+
+
+
 function loadCountryData(countryId) {
     var countryDataURL = '../assets/data/countryProfile.json';
     var countryData = null;
@@ -22,8 +27,12 @@ function loadCountryData(countryId) {
                     "capitalPopulation": data[newKey].capitalPopulation,
                     "totalPopulation": data[newKey].totalPopulation
                 };
-                var profile = '<div class="person-list-item">' +
-                            '<p id="countryName" style="margin-left: 10%;"> Name: ' + countryData.name + '</p>' +
+                var flagURL = '<img src="'+'../' + countryData.flagURL + '" class="img-fluid" style="max-width:150px;max-height:100px;margin-right: 8%;margin-top: 1%;margin-bottom: 1%;">';
+                var countryName = '<div class="person-list-item">' +
+                                        '<p id="countryName" style="margin-left: 10%; margin-top: 10%;font-size: 30px; text-transform: uppercase;"> ' + countryData.name + '</p>' +
+                                '</div>';
+                var profile = '<div class="person-list-item" style="float: right;min-width: 250px;">' +
+                            
                             '<p class="white" style="margin-left: 10%;" id="povertyLine"> Population: ' + countryData.totalPopulation +  '</p>' +
                             '<p class="white" style="margin-left: 10%;" id="region"> Region: ' + countryData.region + '</p>' +
                             '<p class="white" style="margin-left: 10%;" id="capitalCity"> Capital: ' + countryData.capital + '</p>' +
@@ -31,7 +40,7 @@ function loadCountryData(countryId) {
                             '<p class="white" style="margin-left: 10%;" id="gdpPerCapita"> GDP Per Capita:  </p>' +
                             
                 '</div>';
-                var flagURL = '<img src="'+'../' + countryData.flagURL + '" class="img-fluid" style="max-width:150px;max-height:100px;float: right;margin-right: 8%;margin-top: 1%;margin-bottom: 1%;">';
+              
                 var countryStatistics = '<div class="col-md-6 col-sm-6 user-pad text-left">' +
                     '<h3 style="margin-left: 10%;">SIZE(sq.km)</h3>' +
                     '<h4 style="margin-left: 10%;">' + countryData.size + '</h4>' +
@@ -41,8 +50,10 @@ function loadCountryData(countryId) {
                     '<h4 style="margin-right: -54%;">' + countryData.totalPopulation + '</h4>' +
                     '</div>' +
                     '</div>';
-                $('#countryProfile').empty().append(profile);
                 $('#flagURL').empty().append(flagURL);
+                $('#countryName').empty().append(countryName);
+                $('#countryProfile').empty().append(profile);
+
                // $('#countryStatistics').empty().append(countryStatistics);
                 $('#myModal').modal('show');
             }
@@ -66,11 +77,6 @@ function updateAfricaMap(n) {
         loadMap(1);
     }
 }
-
-$(document).ready(function () {
-    dataSourceURL = '../assets/data/trial.json';
-    loadMap(1);
-});
 
 function loadMap(n) {
     if (n == 1) {
@@ -101,6 +107,7 @@ function loadMap(n) {
                             events: {
                                 click: function () {
                                     loadCountryData(this.value);
+                                    
                                 }
                             }
                         }
@@ -137,3 +144,21 @@ function loadMap(n) {
         });
     }
 }
+
+$(document).ready(function () {
+    dataSourceURL = '../assets/data/trial.json';
+
+    var referrer = document.referrer;
+    console.log(referrer);
+    var countryId = sessionStorage.getItem('countryId');
+    if (referrer == "http://localhost/sdg-portal/home/index.html") {
+                    setTimeout(function() {
+                        loadCountryData(25);
+                    }, 1000);
+                }
+    loadMap(1);
+});
+
+
+
+

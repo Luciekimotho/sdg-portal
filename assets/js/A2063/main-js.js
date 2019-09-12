@@ -1485,6 +1485,18 @@ function loadA2063Map(n, containerID, dataSourceURL) {
                     }
                 },
                 legend: {
+                    title: {
+                        text: 'LEGEND',
+                        style: {
+                            color: ( // theme
+                                Highcharts.defaultOptions &&
+                                Highcharts.defaultOptions.legend &&
+                                Highcharts.defaultOptions.legend.title &&
+                                Highcharts.defaultOptions.legend.title.style &&
+                                Highcharts.defaultOptions.legend.title.style.color
+                            ) || 'black'
+                        }
+                    },
                     layout: 'vertical',
                     align: 'right',
                     verticalAlign: 'middle'
@@ -1519,7 +1531,6 @@ function loadA2063Map(n, containerID, dataSourceURL) {
                     }]
                     
                 },
-                
                 mapNavigation: {
                     enabled: true,
                     buttonOptions: {
