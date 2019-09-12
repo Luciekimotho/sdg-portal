@@ -1512,7 +1512,6 @@ function loadMap(n, containerID, dataSourceURL) {
                     
                 },
 
-
                 mapNavigation: {
                     enabled: true,
                     buttonOptions: {

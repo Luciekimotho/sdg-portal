@@ -1531,7 +1531,6 @@ function loadA2063Map(n, containerID, dataSourceURL) {
                     }]
                     
                 },
-
                 mapNavigation: {
                     enabled: true,
                     buttonOptions: {

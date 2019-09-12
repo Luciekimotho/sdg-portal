@@ -107,7 +107,7 @@ function loadMap(n) {
                             events: {
                                 click: function () {
                                     loadCountryData(this.value);
-                                    alert(this.value);
+                                    
                                 }
                             }
                         }
@@ -147,12 +147,13 @@ function loadMap(n) {
 
 $(document).ready(function () {
     dataSourceURL = '../assets/data/trial.json';
+
     var referrer = document.referrer;
     console.log(referrer);
     var countryId = sessionStorage.getItem('countryId');
     if (referrer == "http://localhost/sdg-portal/home/index.html") {
                     setTimeout(function() {
-                        loadCountryData(countryId);
+                        loadCountryData(25);
                     }, 1000);
                 }
     loadMap(1);
