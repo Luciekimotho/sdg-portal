@@ -111,6 +111,7 @@
             font-size: 14px;
             line-height: 18px;
         }
+      
 
         .ui-autocomplete {
             position: absolute;
@@ -139,7 +140,12 @@
             -moz-background-clip: padding;
             background-clip: padding-box;
             *border-right-width: 2px;
-            *border-bottom-width: 2px;}
+            *border-bottom-width: 2px;
+            max-height: 500px;
+            overflow-y: auto;
+            /* prevent horizontal scrollbar */
+            overflow-x: hidden;
+            }
 
             .ui-menu-item > a.ui-corner-all {
                 display: block;
@@ -210,6 +216,18 @@
             <div class="col-md-12" w3-include-html="../layouts/homeHeader.html"></div>
         </div>
         <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-3">
+                        <div class="input-group form-group-no-border search">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">
+                                <i class="nc-icon nc-zoom-split"></i>
+                              </span>
+                            </div>
+                            <input id="countries" class="form-control" placeholder="Search by Country">
+                            <input type="hidden" id="countryId"/>
+                          </div>
+                    </div>
             <div class="col-md-12">
                 <p class="portal-description">
                     Africa SDG Watch is a public platform to visualize and explore data, benchmark progress 
@@ -232,7 +250,7 @@
                       </span>
                     </div>
                     <input id="countries" class="form-control" placeholder="Search by Country">
-                   
+                    <input type="hidden" id="countryId"/>
                   </div>
             </div>
             <!--<div class="col-md-4"></div>-->
@@ -272,32 +290,36 @@
 
 <script>
 
-    var getData = function (request, response) {
-            $.getJSON(
-                "../assets/data/trial.json" + request.term,
-                function (data) {
-                    response(data);
-                });
-                
-        };
-        console.log("Data: " + getData.value);
+    var countries = []
 
-    var countries = [ "Algeria", "Kenya", "Tanzania", "Uganda", "Somali", "Sudan", "Rwanda" ]
-    
+    $.getJSON("../assets/data/trial.json", function (result) {
+
+        var countries = result.map(function (item){
+            return{
+                label: item.name,
+                id: item.value,
+            }
+        })
+                
+        searchCountries(countries)
+               
+    });
+    function searchCountries(country_arr){
         $( "#countries" ).autocomplete({
-          source: countries,
+          source: country_arr,
           select: function (event, ui) {
-              //alert("select: " + ui.item.value+ " is selected!!!");
-              var countryId = ui.item.value;
+              $("#countries").val(ui.item.name);
+              $("#countryId").val(ui.item.id);
+
+              var countryId = ui.item.id;
+              console.log(countryId);
               window.location.href = "country_profile.html"
               sessionStorage.setItem("countryId", countryId);
-
+              
           }
           
         });
-
+    }
        
-
-       
-        </script>
+    </script>
 </html>
