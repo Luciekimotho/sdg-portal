@@ -153,7 +153,7 @@ $(document).ready(function () {
     var countryId = sessionStorage.getItem('countryId');
     if (referrer == "http://localhost/sdg-portal/home/index.html") {
                     setTimeout(function() {
-                        loadCountryData(25);
+                        loadCountryData(countryId);
                     }, 1000);
                 }
     loadMap(1);

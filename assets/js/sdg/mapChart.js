@@ -42,6 +42,7 @@ function chooseDataSource(containerIDNo, targetNo,period ) {
 
 //Function to load map
 function loadMap(n, containerID, dataSourceURL) {
+    //loads map
     if (n == 1) {
         $("#container" + containerID).css({"width": "100%", "height": "500px"});
         var countriesData = null;
@@ -1570,6 +1571,7 @@ function loadMap(n, containerID, dataSourceURL) {
             console.log("No Data Available");
         });
     }
+    //loads chart
     if (n == 2) {
         $("#container" + containerID).css({"width": "100%", "height": "500px"});
         var chart = AmCharts.makeChart("container" + containerID, {
