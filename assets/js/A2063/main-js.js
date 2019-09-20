@@ -45,10 +45,15 @@ $(document).ready(function () {
             valueSuffix: ' millions'
         },
         plotOptions: {
-            bar: {
-                dataLabels: {
-                    enabled: true
-                }
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+                animation: {
+                    duration: 10000
+                },
+                pointStart: 1900,
+                pointEnd: 2010
             }
         },
         legend: {
@@ -67,18 +72,21 @@ $(document).ready(function () {
             enabled: false
         },
         series: [{
-            name: 'Year 1800',
-            data: [107, 31, 635, 203, 2]
+            name: 'Kenya',
+            data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
         }, {
-            name: 'Year 1900',
-            data: [133, 156, 947, 408, 6]
+            name: 'Tanzania',
+            data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
         }, {
-            name: 'Year 2000',
-            data: [814, 841, 3714, 727, 31]
+            name: 'Uganda',
+            data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387]
         }, {
-            name: 'Year 2016',
-            data: [1216, 1001, 4436, 738, 40]
-        }]
+            name: 'Madagasca',
+            data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
+        }, {
+            name: 'South Africa',
+            data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
+        }],
     });
 
 });
