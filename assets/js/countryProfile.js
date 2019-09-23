@@ -27,11 +27,11 @@ function loadCountryData(countryId) {
                     "capitalPopulation": data[newKey].capitalPopulation,
                     "totalPopulation": data[newKey].totalPopulation
                 };
-                var flagURL = '<img src="'+'../' + countryData.flagURL + '" class="img-fluid" style="max-width:150px;max-height:100px;margin-right: 8%;margin-top: 1%;margin-bottom: 1%;">';
+                var flagURL = '<img src="'+'../' + countryData.flagURL + '" class="img-fluid" style="max-width:150px;max-height:100px;margin-right: 8%;margin-top: 4%;margin-bottom: 1%;">';
                 var countryName = '<div class="person-list-item">' +
                                         '<p id="countryName" style="margin-left: 10%; margin-top: 10%;font-size: 30px; text-transform: uppercase;"> ' + countryData.name + '</p>' +
                                 '</div>';
-                var profile = '<div class="person-list-item" style="float: right;min-width: 250px;">' +
+                var profile = '<div class="person-list-item" style="float: right;min-width: 400px;">' +
                             
                             '<p class="white" style="margin-left: 10%;" id="povertyLine"> Population: ' + countryData.totalPopulation +  '</p>' +
                             '<p class="white" style="margin-left: 10%;" id="region"> Region: ' + countryData.region + '</p>' +

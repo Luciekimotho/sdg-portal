@@ -1,73 +1,70 @@
 Highcharts.chart('container', {
-    chart: {
-        type: 'bar'
-    },
+
     title: {
-        text: 'Historic World Population by Region'
+        text: 'Agenda 2063 values over time'
     },
+
     subtitle: {
-        text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+        text: 'Source: sdg.org'
     },
     xAxis: {
-        categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
-        title: {
-            text: null
-        }
-    },
-    plotOptions: {
-        series: {
-            animation: {
-                duration: 2000
-            }
-        }
+        // tickInterval: 10,
     },
 
     yAxis: {
-        min: 0,
         title: {
-            text: 'Years',
-            align: 'high'
-        },
-        labels: {
-            overflow: 'justify'
-        }
-    },
-    tooltip: {
-        valueSuffix: ' millions'
-    },
-    plotOptions: {
-        bar: {
-            dataLabels: {
-                enabled: true
-            }
+            text: 'Values'
         }
     },
     legend: {
         layout: 'vertical',
         align: 'right',
-        verticalAlign: 'top',
-        x: -40,
-        y: 80,
-        floating: true,
-        borderWidth: 1,
-        backgroundColor:
-            Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
-        shadow: true
+        verticalAlign: 'middle'
     },
-    credits: {
-        enabled: false
+
+    plotOptions: {
+        series: {
+            label: {
+                connectorAllowed: false
+            },
+            animation: {
+                duration: 10000
+            },
+            pointStart: 1900,
+            pointEnd: 2010
+        }
     },
+
     series: [{
-        name: 'Year 1800',
-        data: [107, 31, 635, 203, 2]
+        name: 'Kenya',
+        data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
     }, {
-        name: 'Year 1900',
-        data: [133, 156, 947, 408, 6]
+        name: 'Tanzania',
+        data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
     }, {
-        name: 'Year 2000',
-        data: [814, 841, 3714, 727, 31]
+        name: 'Uganda',
+        data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387]
     }, {
-        name: 'Year 2016',
-        data: [1216, 1001, 4436, 738, 40]
-    }]
+        name: 'Madagasca',
+        data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
+    }, {
+        name: 'South Africa',
+        data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
+    }],
+
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 500
+            },
+            chartOptions: {
+                legend: {
+                    layout: 'horizontal',
+                    align: 'center',
+                    verticalAlign: 'bottom'
+                }
+            }
+        }]
+    }
+
 });
