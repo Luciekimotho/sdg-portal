@@ -1,0 +1,50 @@
+[
+    {
+        "code": "ke",
+        "country" : "Kenya", 
+        "drilldown": "countries/ke/ke-all",
+        "value": [{
+                "year": "1990",
+                "data": 2.56
+            }, {
+                "year": "1991",
+                "data": 4.67
+            }, {
+                "year": "1992",
+                "data": 0.545
+            }, 
+            {
+                "year": "1993",
+                "data": 2.56
+            },
+            {
+                "year": "1994",
+                "data": 0.54
+            }
+        ]
+    }, 
+    {
+        "code": "ug",
+        "country" : "Uganda", 
+        "drilldown": "countries/ug/ug-all",
+        "value": [{
+                "year": "1990",
+                "data": 0.1
+            }, {
+                "year": "1991",
+                "data": 0.3
+            }, {
+                "year": "1992",
+                "data": 1.5
+            }, 
+            {
+                "year": "1993",
+                "data": 2.5
+            },
+            {
+                "year": "1994",
+                "data": 3.6
+            }
+        ]
+    }
+]
