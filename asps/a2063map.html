@@ -80,6 +80,31 @@
             border-color: #800000;
             color: #FFFFFF;
         }
+        .dropdown .dropdown-menu .dropdown-item{
+            padding: .25rem 1.5rem;
+            border-radius: 0px;
+        }
+        .dropdown .dropdown-menu 
+        .dropdown-item:hover, 
+        .dropdown .dropdown-menu 
+        .dropdown-item:focus {
+            background-color: #66615B;
+            border-radius: 0px;
+        }
+
+        .dropdown .dropdown-menu .dropdown-item:last-child a, .dropdown .dropdown-menu .dropdown-item:last-child{
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+
+        .dropdown .dropdown-menu .dropdown-item:first-child a, .dropdown .dropdown-menu .dropdown-item:first-child {
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+            }
+
+            .bootstrap-select .dropdown-toggle .filter-option-inner-inner{
+                text-transform: none;
+            }
     </style>
 
 </head>
@@ -220,7 +245,7 @@
                             <div id="filter1" style="text-align: center;margin-top: 1%;">
                                 <select class="selectpicker" multiple data-live-search="true" id="african_countries1"
                                         onchange="applyFilters()">
-                                    <option selected>Choose</option>
+                                    <option selected>Choose Country</option>
                                     <option value="dz" class="filter-position" >Algeria</option>
                                     <option value="ao" class="filter-position" >Angola</option>
                                     <option value="bj" class="filter-position" >Benin</option>
