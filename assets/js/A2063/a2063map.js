@@ -96,11 +96,14 @@ function changeVisualization(n, goal) {
     if (n === 1) {
         console.log(dataSourceURL);
         $("[id^='filter']").hide();
+        $('#chartTypes').hide();
+      
         loadA2063Map(1, goal, dataSourceURL);
     }
     if (n === 2) {
         console.log(dataSourceURL);
         $("[id^='filter']").show();
+        $("[id='chartTypes']").show();
         loadA2063Map(2, goal, dataSourceURL);
     }
 
@@ -1791,7 +1794,7 @@ function loadA2063Map(n, containerID, dataSourceURL) {
                     styledMode: true,
                     events: {
                         redraw: function () {
-                            var label = this.renderer.label('The chart was just redrawn', 100, 120)
+                            var label = this.renderer.label('', 100, 120)
                                 .attr({
                                     fill: Highcharts.getOptions().colors[0],
                                     padding: 10,
@@ -1934,10 +1937,16 @@ function applyFilters() {
     for(var i = 0; i < data2.length; i++) {
         chart2.addSeries(data2[i])
     }
- 
-
-   
-
-
 }
+
+
+// Set type
+$.each(['line', 'column', 'spline', 'area', 'areaspline', 'scatter', 'pie'], function (i, type) {
+    $('#' + type).click(function () {
+        var chart2 = $('#container1').highcharts();
+        chart2.series[0].update({
+            type: type
+        });
+    });
+});
 
