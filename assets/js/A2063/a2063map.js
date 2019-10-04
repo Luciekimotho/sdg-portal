@@ -2,16 +2,17 @@ var dataSourceURL = '../assets/data/A2063/A2063_';
 var completeDataPath = '';
 let chartData='';
 let chart='';
+let chartNew='';
 
 // Loads after the page is ready
 $(document).ready(function () {
     //Load asp 1 goal 1, indicator 1, global database, 2016
     openAspiration(event, 'Aspiration1');
     loadGoal(1);
-    dataSourceURL='../assets/data/A2063/A2063_01_gdb_2019.json';
+    dataSourceURL='../assets/data/A2063/A2063_01_gdb_2018.json';
     loadA2063Map(1, 1, dataSourceURL);
     $('#goal01').click();
-    dataSourceURL='../assets/data/A2063/A2063_01_gdb_2019.json';
+    dataSourceURL='../assets/data/A2063/A2063_01_gdb_2018.json';
     completeDataPath=dataSourceURL;
 
 
@@ -1666,9 +1667,8 @@ function loadA2063Map(n, containerID, dataSourceURL) {
         });
     }
     if (n == 2) {
-        //completeDataPath = '../assets/data/A2063/2063_01_gdb_2019.json';
         $.getJSON(completeDataPath, function (data) {
-            chartData =data;
+            chartData=data;
             $("#container" + containerID).css({"width": "100%", "height": "500px"});
             AmCharts.addInitHandler(function (chart) {
 
@@ -1759,15 +1759,15 @@ function loadA2063Map(n, containerID, dataSourceURL) {
                 "dataProvider": getFilteredData(),
                 "valueAxes": [{
                     "position": "left",
-                    "title": "Percentage(%)"
+                    "title": "Agenda 2063 values"
                 }],
                 "graphs": [{
-                    "balloonText": "[[category]]: <b>[[value]]</b>",
+                    "balloonText": "[[category]]: <b>[[data]]</b>",
                     "fillColorsField": "color",
                     "fillAlphas": 1,
                     "lineAlpha": 0.1,
                     "type": "column",
-                    "valueField": "value"
+                    "valueField": "data"
                 }],
                 "depth3D": 20,
                 "angle": 30,
@@ -1776,7 +1776,7 @@ function loadA2063Map(n, containerID, dataSourceURL) {
                     "cursorAlpha": 0,
                     "zoomable": false
                 },
-                "categoryField": "country",
+                "categoryField": "name",
                 "categoryAxis": {
                     "gridPosition": "start",
                     "labelRotation": 90
@@ -1786,72 +1786,82 @@ function loadA2063Map(n, containerID, dataSourceURL) {
                 }
 
             });
-        });
-
-        console.log(getFilteredData());
-
-        Highcharts.chart('container2', {
-
-            title: {
-                text: 'Agenda 2063 values over time'
-            },
+            chartNew = Highcharts.chart("container" + containerID, {
+                chart: {
+                    styledMode: true,
+                    events: {
+                        redraw: function () {
+                            var label = this.renderer.label('The chart was just redrawn', 100, 120)
+                                .attr({
+                                    fill: Highcharts.getOptions().colors[0],
+                                    padding: 10,
+                                    r: 5,
+                                    zIndex: 8
+                                })
+                                .css({
+                                    color: 'black'
+                                })
+                                .add();
         
-            subtitle: {
-                text: 'Source: sdg.org'
-            },
-            xAxis: {
-                // tickInterval: 10,
-            },
-        
-            yAxis: {
-                title: {
-                    text: 'Values'
-                }
-            },
-            legend: {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'middle'
-            },
-        
-            plotOptions: {
-                series: {
-                    label: {
-                        connectorAllowed: false
-                    },
-                    animation: {
-                        duration: 10000
-                    },
-                    pointStart: 1900,
-                    pointEnd: 2010
-                }
-            },
-        
-            series: [{
-                name: 'Years',
-                data: getFilteredData(),
-            }],
-            
-        
-            responsive: {
-                rules: [{
-                    condition: {
-                        maxWidth: 500
-                    },
-                    chartOptions: {
-                        legend: {
-                            layout: 'horizontal',
-                            align: 'center',
-                            verticalAlign: 'bottom'
+                            setTimeout(function () {
+                                label.fadeOut();
+                            }, 1000);
                         }
                     }
-                }]
-            }
-        
+                },
+               
+                title: {
+                    text: 'Agenda 2063 values over time'
+                },
+                subtitle: {
+                    text: 'Source: sdg.org'
+                },
+                xAxis: {
+                    // tickInterval: 10,
+                    categories: [1990, 1991, 1992, 1993, 1994]
+                },
+                yAxis: {
+                    title: {
+                        text: 'Values per country'
+                    }
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle'
+                },
+                plotOptions: {
+                    series: {
+                        label: {
+                            connectorAllowed: false
+                        },
+                        animation: {
+                            duration: 10000
+                        }
+                    }
+                },
+                series: getFilteredData(),
+                responsive: {
+                    rules: [{
+                        condition: {
+                            maxWidth: 500
+                        },
+                        chartOptions: {
+                            legend: {
+                                layout: 'horizontal',
+                                align: 'center',
+                                verticalAlign: 'bottom'
+                            }
+                        }
+                    }]
+                }
+            
+            });
         });
+       
+       
 
     }
-
 }
 
 function lowercase(string) {
@@ -1867,7 +1877,6 @@ function contains(string, value) {
  */
 
 function getFilteredData() {
-
     var filters = {};
 
     // get all filter checkboxes
@@ -1884,46 +1893,51 @@ function getFilteredData() {
     // cycle through source data and filter out required data points
     for (var i = 0; i < chartData.length; i++) {
         var dataPoint = chartData[i];
-
-        
-
         if (filters[dataPoint.code] &&
             contains(lowercase(dataPoint.code), name)) {
             var valuesData = [];
             for(var j =0; j< chartData[i].value.length; j++){
-                var valuePoint = dataPoint.value[i];
+                var valuePoint = dataPoint.value[j];
                 valuesData.push({
                     "year": valuePoint.year,
                     "data": valuePoint.data,
                 });
                 
             }
-
             newData.push({
-                "country": dataPoint.country,
-                "value": valuesData,
+                "name": dataPoint.code,
+                "data": dataPoint.value,
             });
-           
         }
-
-       
     }
     // return new data set
     return newData;
-
 }
 
 /**
  * Function which applies current filters when invoked
  */
 function applyFilters() {
-    var data = getFilteredData();
-    
+     var data2 = getFilteredData();
+    // // update chart data
+    // chart.dataProvider = data;
+    // chart.validateData();
+    var chart2 = $('#container1').highcharts();
+    console.log(data2);
 
-    // update chart data
-    chart.dataProvider = data;
-    chart.validateData();
+    var seriesLength = chart2.series.length;
+
+    for(var i = seriesLength -1; i > -1; i--) {
+        chart2.series[i].remove();
+    }
+
+    for(var i = 0; i < data2.length; i++) {
+        chart2.addSeries(data2[i])
+    }
+ 
+
+   
+
+
 }
-
-
 

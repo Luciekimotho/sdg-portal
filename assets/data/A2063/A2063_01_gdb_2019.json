@@ -4,21 +4,21 @@
         "country" : "Kenya", 
         "drilldown": "countries/ke/ke-all",
         "value": [{
-                "year": "1990",
+                "year": 1990,
                 "data": 2.56
             }, {
-                "year": "1991",
+                "year": 1991,
                 "data": 4.67
             }, {
-                "year": "1992",
+                "year": 1992,
                 "data": 0.545
             }, 
             {
-                "year": "1993",
+                "year": 1993,
                 "data": 2.56
             },
             {
-                "year": "1994",
+                "year": 1994,
                 "data": 0.54
             }
         ]
@@ -50,7 +50,7 @@
     {
         "code": "ng",
         "country" : "Nigeria", 
-        "value": 1,
+        "value": [3,4,5,6,7,8],
         "drilldown": "countries/ng/ng-all"
       }
 ]

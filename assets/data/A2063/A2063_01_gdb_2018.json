@@ -1,12 +1,12 @@
 [
   {
     "code": "ug",
-    "value": 0,
+    "value": [0, 9, 89, 56, 23],
     "drilldown": "countries/ug/ug-all"
   },
   {
     "code": "ng",
-    "value": 1,
+    "value":  [3, 7, 8, 6, 3],
     "drilldown": "countries/ng/ng-all"
   },
   {
