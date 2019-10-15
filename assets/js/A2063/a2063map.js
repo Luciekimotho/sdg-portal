@@ -111,6 +111,7 @@ function changeVisualization(n, goal) {
 
 function loadGoal() {
     $("[id^='filter']").hide();
+    $('#chartTypes').hide();
     $("select[id^='selectDataSource']").hide();
     $("select[id^='selectPeriod']").hide();
     dataSourceURL = '../assets/data/A2063/A2063_';
@@ -1670,6 +1671,9 @@ function loadA2063Map(n, containerID, dataSourceURL) {
         });
     }
     if (n == 2) {
+
+        
+
         $.getJSON(completeDataPath, function (data) {
             chartData=data;
             $("#container" + containerID).css({"width": "100%", "height": "500px"});
@@ -1789,6 +1793,10 @@ function loadA2063Map(n, containerID, dataSourceURL) {
                 }
 
             });
+
+            
+
+            var xCategories = ['1990','1991','1992','1993','1994','1995','1996','1997','1998'];
             chartNew = Highcharts.chart("container" + containerID, {
                 chart: {
                     styledMode: true,
@@ -1821,7 +1829,12 @@ function loadA2063Map(n, containerID, dataSourceURL) {
                 },
                 xAxis: {
                     // tickInterval: 10,
-                    categories: [1990, 1991, 1992, 1993, 1994]
+                    categories: xCategories,
+                    align: "left",
+                    startOnTick: false,
+                    endOnTick: false,
+                    minPadding: 0,
+                    maxPadding: 0,
                 },
                 yAxis: {
                     title: {
@@ -1838,6 +1851,7 @@ function loadA2063Map(n, containerID, dataSourceURL) {
                         label: {
                             connectorAllowed: false
                         },
+                        pointStart: 1990,
                         animation: {
                             duration: 10000
                         }
@@ -1861,9 +1875,6 @@ function loadA2063Map(n, containerID, dataSourceURL) {
             
             });
         });
-       
-       
-
     }
 }
 
@@ -1929,6 +1940,7 @@ function applyFilters() {
     console.log(data2);
 
     var seriesLength = chart2.series.length;
+    console.log(seriesLength);
 
     for(var i = seriesLength -1; i > -1; i--) {
         chart2.series[i].remove();

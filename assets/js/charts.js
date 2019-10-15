@@ -1,3 +1,87 @@
+$.get('../assets/data/analytics.csv', function (data){
+  var lines = data.split('\n');
+  console.log("CSV data: " + lines);
+
+  var countryNameData = [];
+  $.each(lines, function(lineNo, lineContent){
+    if(lineNo > 0){
+      countryNameData[lineNo-1] = lineContent.split(',')[0];
+    }
+  });
+  console.log(countryNameData);
+
+  var yearData = [];
+  $.each(lines, function(lineNo, lineContent){
+    if(lineNo > 0){
+      yearData[lineNo-1] = lineContent.split(',')[0];
+    }
+  });
+});
+console.log(yearData);
+
+Highcharts.chart('container3', {
+
+  chart: {
+      scrollablePlotArea: {
+          minWidth: 700
+      }
+  },
+
+  data: {
+      csvURL: 'http://localhost/sdg-portal/assets/data/analytics.csv',
+      beforeParse: function (csv) {
+          return csv.replace(/\n\n/g, '\n');
+      }
+  },
+
+  title: {
+      text: 'Daily sessions at www.highcharts.com'
+  },
+
+  xAxis: {
+     //minTickInterval:  7 * 24 * 3600 * 1000, // one month
+      tickWidth: 0,
+      labels: {
+          align: 'right',
+          x: 3,
+          y: -3
+      }
+  },
+
+  yAxis: { 
+      title: {
+          text: null
+      },
+      labels: {
+          align: 'left',
+          x: 3,
+          y: 16,
+          format: '{value:.,0f}'
+      },
+      showFirstLabel: false
+  },
+
+  legend: {
+      align: 'left',
+      verticalAlign: 'top',
+      borderWidth: 0
+  },
+
+  series: [{
+      name: 'All sessions',
+      lineWidth: 4,
+      marker: {
+          radius: 4
+      }
+  }, {
+      name: 'New users'
+  }]
+});
+
+
+
+
+
 am4core.ready(function() {
 
     // Themes begin

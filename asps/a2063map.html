@@ -28,6 +28,8 @@
     <link href="../assets/css/asps/aspsMain.css" rel="stylesheet">
     <link href="../assets/css/highcharts.css" rel="stylesheet">
 
+    <script src="https://kit.fontawesome.com/4592b57b68.js" crossorigin="anonymous"></script>
+
     <!-- Preloader -->
     <!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
     <script src="../assets/js/master.js"></script>
@@ -70,7 +72,7 @@
                 width: 13%;
             }
             .title{
-                margin-top: 20px;
+                margin-top: 10px;
                 margin-bottom: 5px;
             }
             
@@ -102,9 +104,10 @@
             border-top-right-radius: 0px;
             }
 
-            .bootstrap-select .dropdown-toggle .filter-option-inner-inner{
-                text-transform: none;
-            }
+        .bootstrap-select .dropdown-toggle .filter-option-inner-inner{
+            text-transform: none;
+        }
+       
     </style>
 
 </head>
@@ -118,7 +121,7 @@
             <div class="col" w3-include-html="../layouts/header.html"></div>
         </div>
     
-        <div class="row" style="margin-top: 1%; width: 100%;margin-bottom: 2%;">
+        <div class="row" style="margin-top: 0px; width: 100%;margin-bottom: 2%;">
             <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 tab" style="">
                 <div class="row">
                     <a href="#" onclick="openAspiration(event, 'Aspiration1')"
@@ -302,15 +305,22 @@
                                     <option value="zw" class="filter-position">Zimbabwe</option>
                                 </select>
                             </div>
-                            <div id="chartTypes">
-                                <button id="column" style="margin-left: 2em">Column</button>
-                                <button id="line">Line</button>
+                            <div id="chartTypes" style="text-align: right;">
+                                <button id="column" style="margin-left: 2em" class="btn btn-primary">
+                                    <i class="far fa-chart-bar"></i>
+                                </button>
+                                <button id="line" class="btn btn-primary">
+                                    <i class="fas fa-chart-line"></i>   
+                                </button>
                             </div>
 
                            
                             
                         </div>
                         <div class="row card-body" id="container1">
+                        </div>
+
+                        <div class="row card-body" id="container3">
                         </div>
                        
                        
