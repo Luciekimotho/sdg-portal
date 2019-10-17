@@ -1831,6 +1831,7 @@ function getFilteredData() {
             });
         }
     }
+    console.log(newData);
     // return new data set
     return newData;
 

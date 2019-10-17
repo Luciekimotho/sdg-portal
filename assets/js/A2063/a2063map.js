@@ -1671,132 +1671,50 @@ function loadA2063Map(n, containerID, dataSourceURL) {
         });
     }
     if (n == 2) {
+        var result = [];
+        $.get('../assets/data/MOCK_DATA(2).csv', function (data){
 
-        
+            var lines = data.split('\n');
+            //console.log( lines);
 
-        $.getJSON(completeDataPath, function (data) {
-            chartData=data;
-            $("#container" + containerID).css({"width": "100%", "height": "500px"});
-            AmCharts.addInitHandler(function (chart) {
+            var countryData = [];
+            var yearData = [];
+            var headers = lines[0].split(",");
 
-                var dataProvider = chart.dataProvider;
-                var colorRanges = chart.colorRanges;
-
-                function ColorLuminance(hex, lum) {
-
-                    // validate hex string
-                    hex = String(hex).replace(/[^0-9a-f]/gi, '');
-                    if (hex.length < 6) {
-                        hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
-                    }
-                    lum = lum || 0;
-
-                    // convert to decimal and change luminosity
-                    var rgb = "#",
-                        c, i;
-                    for (i = 0; i < 3; i++) {
-                        c = parseInt(hex.substr(i * 2, 2), 16);
-                        c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
-                        rgb += ("00" + c).substr(c.length);
-                    }
-
-                    return rgb;
+            var years = [];
+            for(var i=0; i<headers.length; i++){
+                if(!isNaN(headers[i])){
+                    years.push(parseFloat(headers[i]));
                 }
-
-                if (colorRanges) {
-
-                    var item;
-                    var range;
-                    var valueProperty;
-                    var value;
-                    var average;
-                    var variation;
-                    for (var i = 0, iLen = dataProvider.length; i < iLen; i++) {
-
-                        item = dataProvider[i];
-
-                        for (var x = 0, xLen = colorRanges.length; x < xLen; x++) {
-
-                            range = colorRanges[x];
-                            valueProperty = range.valueProperty;
-                            value = item[valueProperty];
-
-                            if (value >= range.start && value <= range.end) {
-                                average = (range.start - range.end) / 2;
-
-                                if (value <= average)
-                                    variation = (range.variation * -1) / value * average;
-                                else if (value > average)
-                                    variation = range.variation / value * average;
-
-                                item[range.colorProperty] = ColorLuminance(range.color, variation.toFixed(2));
-                            }
-                        }
-                    }
-                }
-
-            }, ["serial"]);
-             chart = AmCharts.makeChart("container" + containerID, {
-                "creditsPosition": "bottom-right",
-                "theme": "light",
-                "type": "serial",
-                "startDuration": 2,
-                "colorRanges": [{
-                    "start": 0,
-                    "end": 10,
-                    "color": "#008000",
-                    "variation": 0.6,
-                    "valueProperty": "value",
-                    "colorProperty": "color"
-                }, {
-                    "start": 11,
-                    "end": 30,
-                    "color": "#EEDD66",
-                    "variation": 0.6,
-                    "valueProperty": "value",
-                    "colorProperty": "color"
-                }, {
-                    "start": 31,
-                    "end": 100,
-                    "color": "#FF0000",
-                    "variation": 0.4,
-                    "valueProperty": "value",
-                    "colorProperty": "color"
-                }],
-                "dataProvider": getFilteredData(),
-                "valueAxes": [{
-                    "position": "left",
-                    "title": "Agenda 2063 values"
-                }],
-                "graphs": [{
-                    "balloonText": "[[category]]: <b>[[data]]</b>",
-                    "fillColorsField": "color",
-                    "fillAlphas": 1,
-                    "lineAlpha": 0.1,
-                    "type": "column",
-                    "valueField": "data"
-                }],
-                "depth3D": 20,
-                "angle": 30,
-                "chartCursor": {
-                    "categoryBalloonEnabled": false,
-                    "cursorAlpha": 0,
-                    "zoomable": false
-                },
-                "categoryField": "name",
-                "categoryAxis": {
-                    "gridPosition": "start",
-                    "labelRotation": 90
-                },
-                "export": {
-                    "enabled": true
-                }
-
-            });
-
+            }
             
 
-            var xCategories = ['1990','1991','1992','1993','1994','1995','1996','1997','1998'];
+            $.each(lines, function(lineNo, lineContent){
+                if(lineNo > 0){
+                yearData[lineNo-1] = lineContent.split(',')[1];
+                countryData[lineNo-1] = lineContent.split(',')[0];
+                
+            }
+            });
+
+            //console.log(years);
+            //console.log(countryData);
+
+            for(var i=1; i < lines.length; i++){
+                var dataObj ={};
+                var currLine = lines[i].split(",");
+
+                for(var j=0; j<headers.length; j++){
+                    dataObj[headers[j]] = currLine[j];
+                }
+                result.push(dataObj);
+            }
+            console.log(result);
+
+            chartData = result;
+
+        
+            //var xCategories = ['1990','1991','1992','1993','1994','1995','1996','1997','1998'];
             chartNew = Highcharts.chart("container" + containerID, {
                 chart: {
                     styledMode: true,
@@ -1829,7 +1747,7 @@ function loadA2063Map(n, containerID, dataSourceURL) {
                 },
                 xAxis: {
                     // tickInterval: 10,
-                    categories: xCategories,
+                    categories: years,
                     align: "left",
                     startOnTick: false,
                     endOnTick: false,
@@ -1851,13 +1769,14 @@ function loadA2063Map(n, containerID, dataSourceURL) {
                         label: {
                             connectorAllowed: false
                         },
-                        pointStart: 1990,
+                        // pointStart: 1900,
                         animation: {
                             duration: 10000
                         }
                     }
                 },
-                series: getFilteredData(),
+                series : getFilteredData(),
+
                 responsive: {
                     rules: [{
                         condition: {
@@ -1903,28 +1822,39 @@ function getFilteredData() {
 
     // init new data set
     var newData = [];
+     //console.log( chartData);
+     var valuesData = []; 
+     
+     var parsedData = [];     
 
     // cycle through source data and filter out required data points
     for (var i = 0; i < chartData.length; i++) {
         var dataPoint = chartData[i];
-        if (filters[dataPoint.code] &&
-            contains(lowercase(dataPoint.code), name)) {
-            var valuesData = [];
-            for(var j =0; j< chartData[i].value.length; j++){
-                var valuePoint = dataPoint.value[j];
-                valuesData.push({
-                    "year": valuePoint.year,
-                    "data": valuePoint.data,
-                });
-                
+
+        valuesData = Object.values(dataPoint);
+        var parsedData = []; 
+
+        for(var j=0; j<valuesData.length;j++){
+            //console.log(valuesData[j]);
+            if(!isNaN(valuesData[j])){
+                parseFloat(valuesData[j]);
+                parsedData.push(parseFloat(valuesData[j]));
             }
-            newData.push({
-                "name": dataPoint.code,
-                "data": dataPoint.value,
-            });
         }
+       // console.log(parsedData);
+        
+            newData.push({
+                "name": dataPoint.Country,
+                "data": parsedData
+            });
+            console.log("");   
     }
-    // return new data set
+
+    //console.log(valuesData); 
+    //console.log(parsedData);  
+
+    //console.log("Values data");
+    console.log(newData);
     return newData;
 }
 
@@ -1937,10 +1867,10 @@ function applyFilters() {
     // chart.dataProvider = data;
     // chart.validateData();
     var chart2 = $('#container1').highcharts();
-    console.log(data2);
+    //console.log(data2);
 
     var seriesLength = chart2.series.length;
-    console.log(seriesLength);
+    //console.log(seriesLength);
 
     for(var i = seriesLength -1; i > -1; i--) {
         chart2.series[i].remove();
