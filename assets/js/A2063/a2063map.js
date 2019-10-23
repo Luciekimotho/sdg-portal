@@ -1,8 +1,10 @@
 var dataSourceURL = '../assets/data/A2063/A2063_';
 var completeDataPath = '';
 let chartData='';
+let countriesData='';
 let chart='';
 let chartNew='';
+let period=null;
 
 // Loads after the page is ready
 $(document).ready(function () {
@@ -14,82 +16,6 @@ $(document).ready(function () {
     $('#goal01').click();
     dataSourceURL='../assets/data/A2063/A2063_01_gdb_2018.json';
     completeDataPath=dataSourceURL;
-
-
-    Highcharts.chart('container', {
-        chart: {
-            type: 'bar'
-        },
-        title: {
-            text: 'Historic World Population by Region'
-        },
-        subtitle: {
-            text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
-        },
-        xAxis: {
-            categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
-            title: {
-                text: null
-            }
-        },
-        yAxis: {
-            min: 0,
-            title: {
-                text: 'Population (millions)',
-                align: 'high'
-            },
-            labels: {
-                overflow: 'justify'
-            }
-        },
-        tooltip: {
-            valueSuffix: ' millions'
-        },
-        plotOptions: {
-            series: {
-                label: {
-                    connectorAllowed: false
-                },
-                animation: {
-                    duration: 10000
-                },
-                pointStart: 1900,
-                pointEnd: 2010
-            }
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'top',
-            x: -40,
-            y: 80,
-            floating: true,
-            borderWidth: 1,
-            backgroundColor:
-                Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
-            shadow: true
-        },
-        credits: {
-            enabled: false
-        },
-        series: [{
-            name: 'Kenya',
-            data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
-        }, {
-            name: 'Tanzania',
-            data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
-        }, {
-            name: 'Uganda',
-            data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387]
-        }, {
-            name: 'Madagasca',
-            data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
-        }, {
-            name: 'South Africa',
-            data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
-        }],
-    });
-
 });
 
 function changeVisualization(n, goal) {
@@ -97,7 +23,6 @@ function changeVisualization(n, goal) {
         console.log(dataSourceURL);
         $("[id^='filter']").hide();
         $('#chartTypes').hide();
-      
         loadA2063Map(1, goal, dataSourceURL);
     }
     if (n === 2) {
@@ -112,8 +37,8 @@ function changeVisualization(n, goal) {
 function loadGoal() {
     $("[id^='filter']").hide();
     $('#chartTypes').hide();
-    $("select[id^='selectDataSource']").hide();
-    $("select[id^='selectPeriod']").hide();
+    // $("select[id^='selectDataSource']").hide();
+    // $("select[id^='selectPeriod']").hide();
     dataSourceURL = '../assets/data/A2063/A2063_';
 }
 
@@ -150,7 +75,8 @@ function chooseDataSourceA2063(goal) {
 }
 
 function choosePeriodA2063(goal) {
-    var period = $("#selectPeriod" + goal).val();
+    period = $("#selectPeriod" + goal).val();
+    console.log(period);
     if (dataSourceURL.match(/^.*json$/)) {
         //UPDATE URL and call LoadA2063Map
         var prefix = dataSourceURL.slice(0, 34);
@@ -168,9 +94,29 @@ function choosePeriodA2063(goal) {
 function loadA2063Map(n, containerID, dataSourceURL) {
     if (n == 1) {
         $("#container" + containerID).css({"width": "100%", "height": "500px"});
-        var countriesData = null;
-        $.getJSON(dataSourceURL, function (data) {
+        $.get('../assets/data/A2063/A2063_01_gdb_2018.csv', function (data){
+
             countriesData = data;
+            
+            var lines = data.split('\n');
+            var result = [];
+            var headers = lines[0].split(",");
+
+            //console.log(headers);
+
+            for(var i=1; i < lines.length; i++){
+                var dataObj ={};
+                var currLine = lines[i].split(",");
+
+                for(var j=0; j<headers.length; j++){
+                    dataObj[headers[j]] = currLine[j];
+                }
+                result.push(dataObj);
+            }
+            //console.log(result);
+            
+            countriesData = result;
+            
             var geoj = Highcharts.maps["custom/africa"] = {
                 "title": "Africa",
                 "version": "1.1.2",
@@ -1517,13 +1463,17 @@ function loadA2063Map(n, containerID, dataSourceURL) {
                                     regionMap = Highcharts.maps[mapKey],
                                     regionMapGeoJson = Highcharts.geojson(regionMap);
 
+                                    
                                 $.each(regionMapGeoJson, function (indxx, elem) {
                                     drillPath = 'countries/' + elem.properties['hc-key'].slice(0, 2) + '/' + elem.properties['hc-key'] + '-all';
                                     data.push({
                                         code: elem.properties['hc-key'],
                                         value: countriesData.value,
+                                        
                                         // drilldown: drillPath
                                     })
+                                    
+                                    console.log(countriesData.code);
                                 });
                                 // Hide loading and add series
                                 chart.addSingleSeriesAsDrilldown(e.point, {
@@ -1629,7 +1579,7 @@ function loadA2063Map(n, containerID, dataSourceURL) {
                 },
                 series: [{
                     name: 'Africa',
-                    data: countriesData,
+                    data: getMapData(),
                     mapData: geoj,
                     joinBy: ['hc-key', 'code'],
                     dataLabels: {
@@ -1672,7 +1622,7 @@ function loadA2063Map(n, containerID, dataSourceURL) {
     }
     if (n == 2) {
         var result = [];
-        $.get('../assets/data/MOCK_DATA(2).csv', function (data){
+        $.get('../assets/data/A2063/A2063_01_gdb_2018.csv', function (data){
 
             var lines = data.split('\n');
             //console.log( lines);
@@ -1688,17 +1638,12 @@ function loadA2063Map(n, containerID, dataSourceURL) {
                 }
             }
             
-
             $.each(lines, function(lineNo, lineContent){
                 if(lineNo > 0){
                 yearData[lineNo-1] = lineContent.split(',')[1];
                 countryData[lineNo-1] = lineContent.split(',')[0];
-                
             }
             });
-
-            //console.log(years);
-            //console.log(countryData);
 
             for(var i=1; i < lines.length; i++){
                 var dataObj ={};
@@ -1712,8 +1657,6 @@ function loadA2063Map(n, containerID, dataSourceURL) {
             console.log(result);
 
             chartData = result;
-
-        
             //var xCategories = ['1990','1991','1992','1993','1994','1995','1996','1997','1998'];
             chartNew = Highcharts.chart("container" + containerID, {
                 chart: {
@@ -1794,6 +1737,8 @@ function loadA2063Map(n, containerID, dataSourceURL) {
             
             });
         });
+
+        countriesDropdown();
     }
 }
 
@@ -1808,6 +1753,37 @@ function contains(string, value) {
 /**
  * Function that checks which data is selected and generates a new data set
  */
+var newCountryData = [];
+function getMapData() {    
+
+    // cycle through source data and filter out required data points
+    for (var i = 0; i < countriesData.length; i++) {
+        var dataPoint = countriesData[i];
+
+        newCountryData.push({
+                "code": dataPoint.code,
+                "drilldown": dataPoint.drilldown,
+                "value": dataPoint[period],
+                "country":dataPoint.country
+            });
+            console.log("");   
+    }
+    //console.log(newCountryData);
+    return newCountryData;
+}
+
+function countriesDropdown(){
+    var items = getMapData();
+    console.log(items);
+
+    $.each(items, function (i, item) {
+        $('#african_countries1').append($('<option>', { 
+            value: item["code"],
+            text : item["country"] 
+        }));
+        console.log(item["code"]);
+    });
+}
 
 function getFilteredData() {
     var filters = {};
@@ -1822,10 +1798,8 @@ function getFilteredData() {
 
     // init new data set
     var newData = [];
-     //console.log( chartData);
-     var valuesData = []; 
-     
-     var parsedData = [];     
+    var valuesData = []; 
+    var parsedData = [];     
 
     // cycle through source data and filter out required data points
     for (var i = 0; i < chartData.length; i++) {
@@ -1841,20 +1815,13 @@ function getFilteredData() {
                 parsedData.push(parseFloat(valuesData[j]));
             }
         }
-       // console.log(parsedData);
-        
             newData.push({
-                "name": dataPoint.Country,
+                "name": dataPoint.country,
                 "data": parsedData
             });
             console.log("");   
     }
-
-    //console.log(valuesData); 
-    //console.log(parsedData);  
-
-    //console.log("Values data");
-    console.log(newData);
+    //console.log(newData);
     return newData;
 }
 
