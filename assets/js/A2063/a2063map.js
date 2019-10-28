@@ -4,7 +4,8 @@ let chartData='';
 let countriesData='';
 let chart='';
 let chartNew='';
-let period=null;
+let period=2018;
+let year = 2018;
 
 // Loads after the page is ready
 $(document).ready(function () {
@@ -16,6 +17,8 @@ $(document).ready(function () {
     $('#goal01').click();
     dataSourceURL='../assets/data/A2063/A2063_01_gdb_2018.json';
     completeDataPath=dataSourceURL;
+    timeRangeSlider();
+
 });
 
 function changeVisualization(n, goal) {
@@ -30,6 +33,7 @@ function changeVisualization(n, goal) {
         $("[id^='filter']").show();
         $("[id='chartTypes']").show();
         loadA2063Map(2, goal, dataSourceURL);
+        // $('.slider-div').hide();
     }
 
 }
@@ -58,8 +62,8 @@ function chooseIndicator(goal) {
     }
 }
 
-function chooseDataSourceA2063(goal) {
-    var source = $("#selectDataSource" + goal).val();
+function loadGlobalData(goal){
+    var source = "gdb";
     if (dataSourceURL.match(/^.*json$/)) {
         //UPDATE URL and call LoadA2063Map
         var prefix = dataSourceURL.slice(0, 30);
@@ -72,6 +76,25 @@ function chooseDataSourceA2063(goal) {
         dataSourceURL = prefix + source + '_';
         $("select[id^='selectPeriod']").show();
     }
+    console.log(dataSourceURL);
+
+}
+
+function loadPanAfricanData(goal){
+    var source = "mrs";
+    if (dataSourceURL.match(/^.*json$/)) {
+        //UPDATE URL and call LoadA2063Map
+        var prefix = dataSourceURL.slice(0, 30);
+        var postfix = dataSourceURL.slice(33);
+        dataSourceURL = prefix + source + postfix;
+        loadA2063Map(1, goal, dataSourceURL);
+    }
+    if (dataSourceURL.charAt(31) === '' || dataSourceURL.charAt(35) === '') {
+        var prefix = dataSourceURL.slice(0, 30);
+        dataSourceURL = prefix + source + '_';
+        $("select[id^='selectPeriod']").show();
+    }
+    console.log(dataSourceURL);
 }
 
 function choosePeriodA2063(goal) {
@@ -91,9 +114,70 @@ function choosePeriodA2063(goal) {
     }
 }
 
+function getClosest(arr, val) {
+    return arr.reduce(function (prev, curr) {
+    return (Math.abs(curr - val) < Math.abs(prev - val) ? curr : prev);
+  });
+}
+let years = [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019];
+
+function timeRangeSlider(){
+    onSliderChange();
+    onClickPlayButton();
+}
+
+function onSliderChange(){
+    var sel = document.getElementById('selectPeriod1');
+    document.querySelector("#yearslider").addEventListener("change", function() {
+        let closest = getClosest(years, this.value);
+        this.value = document.querySelector("#rangevalue").value = closest;
+        period = this.value;
+        //console.log(period.toString());
+        $("#selectPeriod1").val(period.toString()); 
+
+        if ("createEvent" in document) {
+            var evt = document.createEvent("HTMLEvents");
+            evt.initEvent("change", false, true);
+            sel.dispatchEvent(evt);
+        }
+        else {
+            sel.fireEvent("onchange");
+        }
+    });  
+}
+
+function onClickPlayButton(){
+    var sel = document.getElementById('selectPeriod1');
+    document.querySelector("#play").addEventListener("click", function (){
+        let yearslider = document.querySelector("#yearslider");
+        let output = document.querySelector("#rangevalue");
+        years.forEach(function(item, index, array) {
+            // set a timeout so each second one button gets clicked
+            setTimeout( (function( index ) {
+                return function() {
+                    yearslider.value = output.value = array[index]; 
+                    period = yearslider.value;
+                    $("#selectPeriod1").val(period.toString());
+
+                    if ("createEvent" in document) {
+                        var evt = document.createEvent("HTMLEvents");
+                        evt.initEvent("change", false, true);
+                        sel.dispatchEvent(evt);
+                    }
+                    else {
+                        sel.fireEvent("onchange");
+                    }
+                };
+            }( index )), (1000 * index) );
+        });
+        
+    });   
+}
+
 function loadA2063Map(n, containerID, dataSourceURL) {
+
     if (n == 1) {
-        $("#container" + containerID).css({"width": "100%", "height": "500px"});
+        $("#container" + containerID).css({"width": "100%", "height": "400px"});
         $.get('../assets/data/A2063/A2063_01_gdb_2018.csv', function (data){
 
             countriesData = data;
@@ -1452,6 +1536,8 @@ function loadA2063Map(n, containerID, dataSourceURL) {
 
             $('#container' + containerID).highcharts('Map', {
                 chart: {
+                   
+                    height: 400,
                     events: {
                         drilldown: function (e) {
                             var chart = this,
@@ -1738,8 +1824,10 @@ function loadA2063Map(n, containerID, dataSourceURL) {
             });
         });
 
-        countriesDropdown();
+      // countriesDropdown();
     }
+
+
 }
 
 function lowercase(string) {
@@ -1766,23 +1854,33 @@ function getMapData() {
                 "value": dataPoint[period],
                 "country":dataPoint.country
             });
-            console.log("");   
+            //console.log("");   
     }
-    //console.log(newCountryData);
+    console.log(newCountryData);
     return newCountryData;
 }
 
 function countriesDropdown(){
     var items = getMapData();
+
+    var select = document.getElementById("african_countries1");
+
+    for(var i; i< items.length; i++) {
+        var opt = document.createElement('option');
+        opt.innerHTML = items[i]['country'];
+        opt.value = items[i]['code'];
+        select.appendChild(opt);
+    }
+
     console.log(items);
 
-    $.each(items, function (i, item) {
-        $('#african_countries1').append($('<option>', { 
-            value: item["code"],
-            text : item["country"] 
-        }));
-        console.log(item["code"]);
-    });
+    // $.each(items, function (i, item) {
+    //     $('#african_countries1').append($('<option>', { 
+    //         value: item["code"],
+    //         text : item["country"] 
+    //     }));
+    //     console.log(item["code"]);
+    // });
 }
 
 function getFilteredData() {
@@ -1805,21 +1903,26 @@ function getFilteredData() {
     for (var i = 0; i < chartData.length; i++) {
         var dataPoint = chartData[i];
 
-        valuesData = Object.values(dataPoint);
-        var parsedData = []; 
+        if(filters[dataPoint.code] && 
+            contains(lowercase(dataPoint.code), name)){
+                valuesData = Object.values(dataPoint);
+                var parsedData = []; 
 
-        for(var j=0; j<valuesData.length;j++){
-            //console.log(valuesData[j]);
-            if(!isNaN(valuesData[j])){
-                parseFloat(valuesData[j]);
-                parsedData.push(parseFloat(valuesData[j]));
+                for(var j=0; j<valuesData.length;j++){
+                    //console.log(valuesData[j]);
+                    if(!isNaN(valuesData[j])){
+                        parseFloat(valuesData[j]);
+                        parsedData.push(parseFloat(valuesData[j]));
+                    }
+                }
+                    newData.push({
+                        "name": dataPoint.country,
+                        "data": parsedData
+                    });
+                    console.log(""); 
             }
-        }
-            newData.push({
-                "name": dataPoint.country,
-                "data": parsedData
-            });
-            console.log("");   
+
+          
     }
     //console.log(newData);
     return newData;
@@ -1830,14 +1933,10 @@ function getFilteredData() {
  */
 function applyFilters() {
      var data2 = getFilteredData();
-    // // update chart data
-    // chart.dataProvider = data;
-    // chart.validateData();
-    var chart2 = $('#container1').highcharts();
-    //console.log(data2);
+    //update chart data
 
+    var chart2 = $('#container1').highcharts();
     var seriesLength = chart2.series.length;
-    //console.log(seriesLength);
 
     for(var i = seriesLength -1; i > -1; i--) {
         chart2.series[i].remove();

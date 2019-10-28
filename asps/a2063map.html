@@ -107,6 +107,24 @@
         .bootstrap-select .dropdown-toggle .filter-option-inner-inner{
             text-transform: none;
         }
+        #container1{
+            height: 400px;
+        }
+        .slider-div{
+            height: 40px;
+        }
+
+            .output-div{
+                height: 40px;
+                display: table;
+            }
+            .output-year{
+                display: table-cell;
+                vertical-align: middle;
+                color: #666;
+                font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+                font-size: 15px;
+            }
        
     </style>
 
@@ -207,8 +225,8 @@
                      style="width: 100% !important;margin: 0; margin-top: 1%;">
                     <div class="col-md-12 card tab-pane fade" id="goal1"
                          style="border-radius: 0;background-color: white; transform: none;-webkit-transform: none;">
-                        <div class="row">
-                            <div class="col">
+                        <div class="row" style="text-align: center;">
+                            <div class="col-md-4">
                                 <select id="selectIndicator1" class="btn btn-primary"
                                         onchange="chooseIndicator(1);">
                                     <option value="placeholder">Select an Indicator</option>
@@ -222,15 +240,14 @@
                                     <option value="08">8</option>
                                 </select>
                             </div>
-                            <div class="col">
-                                <select id="selectDataSource1" class="btn btn-primary"
-                                        onchange="chooseDataSourceA2063(1);">
-                                    <option value="placeholder">Select a Data Source</option>
-                                    <option value="gdb">Global Database</option>
-                                    <option value="mrs">PanAfrican MRS</option>
-                                </select>
+                            <div class="col-md-2">
+                                <button id="gbd" class="btn btn-primary" onclick="loadGlobalData(1)">Global Database</button>
+                               
                             </div>
-                            <div class="col">
+                            <div class="col-md-2">
+                                    <button id="mrs" class="btn btn-primary" onclick="loadPanAfricanData(1)">PanAfrican MRS</button>
+                            </div>
+                            <div class="col-md-4">
                                 <select id="selectPeriod1" class="btn btn-primary"
                                         onchange="choosePeriodA2063(1);">
                                     <option>Select a Period</option>
@@ -238,6 +255,12 @@
                                     <option value="2018">2018</option>
                                     <option value="2017">2017</option>
                                     <option value="2016">2016</option>
+                                    <option value="2015">2015</option>
+                                    <option value="2014">2014</option>
+                                    <option value="2013">2013</option>
+                                    <option value="2012">2012</option>
+                                    <option value="2011">2011</option>
+                                    <option value="2010">2010</option>
                                 </select>
                             </div>
                         </div>
@@ -247,11 +270,17 @@
                         <div>
                             <div id="filter1" style="text-align: center;margin-top: 1%;">
                                 <select class="selectpicker" multiple data-live-search="true" id="african_countries1"
-                                        onchange="applyFilters()">
-                                
-                                    
-                                    
-                                </select>
+                                onchange="applyFilters()">
+                            <option selected>Choose</option>
+                            <option value="dz" class="filter-position" selected>Algeria</option>
+                            <option value="ao" class="filter-position" selected>Angola</option>
+                            <option value="bj" class="filter-position" selected>Benin</option>
+                            <option value="bw" class="filter-position" selected>Botswana</option>
+                            <option value="bf" class="filter-position" selected>Burkina Faso</option>
+                            <option value="bi" class="filter-position">Burundi</option>
+                            
+                          
+                        </select>
                             </div>
                             <div id="chartTypes" style="text-align: right;">
                                 <button id="column" style="margin-left: 2em" class="btn btn-primary">
@@ -265,29 +294,50 @@
                            
                             
                         </div>
-                        <div class="row card-body" id="container1">
+                        <div id="container1" style="width: 400px">
                         </div>
 
-                        <div class="row card-body" id="container3">
-                        </div>
-                       
-                       
-                        
-                        <div class="row card-footer">
-                            <div class="col-md-2"></div>
-                            <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="changeVisualization(1,1);"><span
-                                        class="fa fa-globe"></span>Map
-                                </button>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row slider-div">
+                                        <div class="col-md-2"></div>
+                                    <div class="col-md-1">
+                                        <button id="play" class="btn btn-default btn-just-icon">
+                                            <i class="nc-icon nc-button-play"></i>
+                                        </button>
+                                    </div>
+                                    <div class="col-md-4" style="padding-right: 0px;padding-left: 0px;">
+                                            <input id="yearslider" class="range blue" type="range" min="2010" value="2010" 
+                                            max="2019" step="1" list="ticks" >
+                                            <datalist id="ticks">
+                                                <option>2010</option>
+                                                <option>2011</option>
+                                                <option>2012</option>
+                                                <option>2013</option>
+                                                <option>2014</option>
+                                                <option>2015</option>
+                                                <option>2016</option>
+                                                <option>2017</option>
+                                                <option>2018</option>
+                                                <option>2019</option>
+                                            </datalist>
+                                    </div>
+                                    <div class="col-md-1 output-div">
+                                            <output id="rangevalue" class="output-year">2010</output>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button class="btn btn-success" onclick="changeVisualization(1,1);"><span
+                                                class="fa fa-globe"></span>Map
+                                        </button>
+                                        <button class="btn btn-success" onclick="changeVisualization(2,1);"><span
+                                            class="fa fa-bar-chart"></span>Chart
+                                    </button>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-md-4" style="text-align: center;">
-                                <button class="btn btn-success" onclick="changeVisualization(2,1);"><span
-                                        class="fa fa-bar-chart"></span>Chart
-                                </button>
-                            </div>
-                            <div class="col-md-2"></div>
                         </div>
                     </div>
+
                     <div class="col-md-12 card tab-pane fade" id="goal2"
                          style="border-radius: 0;background-color: white; transform: none;-webkit-transform: none;">
                         <div class="row">
