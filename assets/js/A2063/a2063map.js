@@ -12,24 +12,25 @@ $(document).ready(function () {
     //Load asp 1 goal 1, indicator 1, global database, 2016
     openAspiration(event, 'Aspiration1');
     loadGoal(1);
-    dataSourceURL='../assets/data/A2063/A2063_01_gdb_2018.json';
+    //dataSourceURL='../assets/data/A2063/A2063_01_gdb_2018.json';
     loadA2063Map(1, 1, dataSourceURL);
     $('#goal01').click();
-    dataSourceURL='../assets/data/A2063/A2063_01_gdb_2018.json';
-    completeDataPath=dataSourceURL;
+    //dataSourceURL='../assets/data/A2063/A2063_01_gdb_2018.json';
+    //completeDataPath=dataSourceURL;
+
     timeRangeSlider();
 
 });
 
 function changeVisualization(n, goal) {
     if (n === 1) {
-        console.log(dataSourceURL);
+        //console.log(dataSourceURL);
         $("[id^='filter']").hide();
         $('#chartTypes').hide();
         loadA2063Map(1, goal, dataSourceURL);
     }
     if (n === 2) {
-        console.log(dataSourceURL);
+        //console.log(dataSourceURL);
         $("[id^='filter']").show();
         $("[id='chartTypes']").show();
         loadA2063Map(2, goal, dataSourceURL);
@@ -48,7 +49,7 @@ function loadGoal() {
 
 function chooseIndicator(goal) {
     var indicator = $("#selectIndicator" + goal).val();
-    if (dataSourceURL.match(/^.*json$/)) {
+    if (dataSourceURL.match(/^.*csv$/)) {
         //UPDATE URL and call LoadA2063Map
         var prefix = dataSourceURL.slice(0, 27);
         var postfix = dataSourceURL.slice(29);
@@ -62,9 +63,10 @@ function chooseIndicator(goal) {
     }
 }
 
+//Choose data source toggle buttons
 function loadGlobalData(goal){
     var source = "gdb";
-    if (dataSourceURL.match(/^.*json$/)) {
+    if (dataSourceURL.match(/^.*csv$/)) {
         //UPDATE URL and call LoadA2063Map
         var prefix = dataSourceURL.slice(0, 30);
         var postfix = dataSourceURL.slice(33);
@@ -73,16 +75,18 @@ function loadGlobalData(goal){
     }
     if (dataSourceURL.charAt(31) === '' || dataSourceURL.charAt(35) === '') {
         var prefix = dataSourceURL.slice(0, 30);
-        dataSourceURL = prefix + source + '_';
+        dataSourceURL = prefix + source ;
         $("select[id^='selectPeriod']").show();
     }
-    console.log(dataSourceURL);
+   
+    $("#gbd").addClass('active');
+    $("#mrs").removeClass('active');
 
 }
 
 function loadPanAfricanData(goal){
     var source = "mrs";
-    if (dataSourceURL.match(/^.*json$/)) {
+    if (dataSourceURL.match(/^.*csv$/)) {
         //UPDATE URL and call LoadA2063Map
         var prefix = dataSourceURL.slice(0, 30);
         var postfix = dataSourceURL.slice(33);
@@ -91,27 +95,34 @@ function loadPanAfricanData(goal){
     }
     if (dataSourceURL.charAt(31) === '' || dataSourceURL.charAt(35) === '') {
         var prefix = dataSourceURL.slice(0, 30);
-        dataSourceURL = prefix + source + '_';
+        dataSourceURL = prefix + source;
         $("select[id^='selectPeriod']").show();
     }
-    console.log(dataSourceURL);
+    
+    $("#mrs").addClass('active');
+    $("#gbd").removeClass('active');
 }
 
 function choosePeriodA2063(goal) {
     period = $("#selectPeriod" + goal).val();
-    console.log(period);
-    if (dataSourceURL.match(/^.*json$/)) {
+    //console.log(period);
+    
+    if (dataSourceURL.match(/^.*csv$/)) {
         //UPDATE URL and call LoadA2063Map
-        var prefix = dataSourceURL.slice(0, 34);
-        dataSourceURL = prefix + period + '.json';
+        var prefix = dataSourceURL.slice(0, 33);
+        dataSourceURL = prefix  + '.csv';
         loadA2063Map(1, goal, dataSourceURL);
+        //console.log(dataSourceURL.length);
+        
     }
     if (dataSourceURL.charAt(35) === '' || dataSourceURL.charAt(40) === '') {
-        var prefix = dataSourceURL.slice(0, 34);
-        dataSourceURL = prefix + period + '.json';
+        var prefix = dataSourceURL.slice(0, 33);
+        dataSourceURL = prefix + '.csv';
         completeDataPath = dataSourceURL;
         loadA2063Map(1, goal, dataSourceURL);
+        //console.log(dataSourceURL);
     }
+    console.log(completeDataPath);
 }
 
 function getClosest(arr, val) {
@@ -178,7 +189,7 @@ function loadA2063Map(n, containerID, dataSourceURL) {
 
     if (n == 1) {
         $("#container" + containerID).css({"width": "100%", "height": "400px"});
-        $.get('../assets/data/A2063/A2063_01_gdb_2018.csv', function (data){
+        $.get(completeDataPath, function (data){
 
             countriesData = data;
             
@@ -1708,7 +1719,7 @@ function loadA2063Map(n, containerID, dataSourceURL) {
     }
     if (n == 2) {
         var result = [];
-        $.get('../assets/data/A2063/A2063_01_gdb_2018.csv', function (data){
+        $.get('../assets/data/A2063/A2063_01_gdb.csv', function (data){
 
             var lines = data.split('\n');
             //console.log( lines);

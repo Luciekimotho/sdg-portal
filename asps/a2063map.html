@@ -122,8 +122,13 @@
                 display: table-cell;
                 vertical-align: middle;
                 color: #666;
-                font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+                font-family: 'Roboto', sans-serif;
                 font-size: 15px;
+            }
+            .btn-data:hover, .btn-data:focus, .btn-data:active, .btn-data.active, .show > .btn-data.dropdown-toggle{
+                background-color: #278486;
+                color: #FFFFFF;
+                border-color: #278486;
             }
        
     </style>
@@ -241,11 +246,11 @@
                                 </select>
                             </div>
                             <div class="col-md-2">
-                                <button id="gbd" class="btn btn-primary" onclick="loadGlobalData(1)">Global Database</button>
+                                <button id="gbd" class="btn btn-primary btn-data" onclick="loadGlobalData(1)">Global Database</button>
                                
                             </div>
                             <div class="col-md-2">
-                                    <button id="mrs" class="btn btn-primary" onclick="loadPanAfricanData(1)">PanAfrican MRS</button>
+                                    <button id="mrs" class="btn btn-primary btn-data" onclick="loadPanAfricanData(1)">PanAfrican MRS</button>
                             </div>
                             <div class="col-md-4">
                                 <select id="selectPeriod1" class="btn btn-primary"
