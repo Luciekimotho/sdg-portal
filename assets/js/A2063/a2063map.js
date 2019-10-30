@@ -4,7 +4,7 @@ let chartData='';
 let countriesData='';
 let chart='';
 let chartNew='';
-let period=2018;
+let period = 2018;
 let year = 2018;
 
 // Loads after the page is ready
@@ -12,12 +12,8 @@ $(document).ready(function () {
     //Load asp 1 goal 1, indicator 1, global database, 2016
     openAspiration(event, 'Aspiration1');
     loadGoal(1);
-    //dataSourceURL='../assets/data/A2063/A2063_01_gdb_2018.json';
     loadA2063Map(1, 1, dataSourceURL);
     $('#goal01').click();
-    //dataSourceURL='../assets/data/A2063/A2063_01_gdb_2018.json';
-    //completeDataPath=dataSourceURL;
-
     timeRangeSlider();
 
 });
@@ -122,7 +118,7 @@ function choosePeriodA2063(goal) {
         loadA2063Map(1, goal, dataSourceURL);
         //console.log(dataSourceURL);
     }
-    console.log(completeDataPath);
+    //console.log(completeDataPath);
 }
 
 function getClosest(arr, val) {
@@ -1719,7 +1715,7 @@ function loadA2063Map(n, containerID, dataSourceURL) {
     }
     if (n == 2) {
         var result = [];
-        $.get('../assets/data/A2063/A2063_01_gdb.csv', function (data){
+        $.get(completeDataPath, function (data){
 
             var lines = data.split('\n');
             //console.log( lines);
@@ -1751,9 +1747,13 @@ function loadA2063Map(n, containerID, dataSourceURL) {
                 }
                 result.push(dataObj);
             }
-            console.log(result);
+            //console.log(result);
 
             chartData = result;
+
+            console.log("Get filtered data: ");
+            console.log(getFilteredData());
+     
             //var xCategories = ['1990','1991','1992','1993','1994','1995','1996','1997','1998'];
             chartNew = Highcharts.chart("container" + containerID, {
                 chart: {
@@ -1867,7 +1867,7 @@ function getMapData() {
             });
             //console.log("");   
     }
-    console.log(newCountryData);
+    //console.log(newCountryData);
     return newCountryData;
 }
 
@@ -1883,7 +1883,7 @@ function countriesDropdown(){
         select.appendChild(opt);
     }
 
-    console.log(items);
+    //console.log(items);
 
     // $.each(items, function (i, item) {
     //     $('#african_countries1').append($('<option>', { 
@@ -1931,9 +1931,7 @@ function getFilteredData() {
                         "data": parsedData
                     });
                     console.log(""); 
-            }
-
-          
+            }   
     }
     //console.log(newData);
     return newData;
@@ -1944,6 +1942,7 @@ function getFilteredData() {
  */
 function applyFilters() {
      var data2 = getFilteredData();
+     
     //update chart data
 
     var chart2 = $('#container1').highcharts();
@@ -1957,7 +1956,6 @@ function applyFilters() {
         chart2.addSeries(data2[i])
     }
 }
-
 
 // Set type
 $.each(['line', 'column', 'spline', 'area', 'areaspline', 'scatter', 'pie'], function (i, type) {

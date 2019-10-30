@@ -1,6 +1,16 @@
+var completeDataPath = '';
+let chartData='';
+let countriesData='';
+let chart='';
+let chartNew='';
+let period = 2018;
+let year = 2018;
+
 //Loads after the page is ready
 $(document).ready(function () {
     loadMap(1);
+    $("[id^='filter']").hide();
+    $('#chartTypes').hide();  
 });
 
 //Called when a target is clicked
@@ -10,44 +20,113 @@ function loadTarget(containerID) {
 }
 //ChoosePeriod function
 function choosePeriod(containerIDNo, targetNo){
-    var selectorID=$("#selectPeriod"+targetNo);
-    var period=selectorID.val();
-    console.log(period+" is the selected period.");
-    chooseDataSource(containerIDNo, targetNo, period);
+    var selectorID=$("#selectPeriod" + targetNo );
+    period = selectorID.val();
+    //console.log(period + " is the selected period.");
+
+    //chooseDataSource(containerIDNo, targetNo, period);
+    loadMap(1,containerIDNo,completeDataPath);
 }
 
+function changeVisualization(n, containerIDNo) {
+    if (n === 1) {
+        //console.log(dataSourceURL);
+        $("[id^='filter']").hide();
+        $('#chartTypes').hide();
+        loadMap(1,containerIDNo,completeDataPath);
+    }
+    if (n === 2) {
+        //console.log(dataSourceURL);
+        $("[id^='filter']").show();
+        $("[id='chartTypes']").show();
+        loadMap(2,containerIDNo,completeDataPath);
+        // $('.slider-div').hide();
+    }
 
-//Called on change data source dropdown
-function chooseDataSource(containerIDNo, targetNo,period ) {
-    var datasourceValue = $("#selectData"+targetNo).val();
-    if (datasourceValue === "mrsData") {
+}
+
+//Choose data source toggle buttons
+function loadGlobalData(containerIDNo, targetNo){
+    var datasourceValue = "gdb";
+    if (datasourceValue === "gdb") {
+    $("#container" + containerIDNo).empty();
+        var globalDataSourceURL = '../assets/data/SDGs/sdgTarget'+ '_' + targetNo + '_' + datasourceValue + '.csv';
+        //console.log("Global database is the data source for "+ globalDataSourceURL);
+        loadMap(1, containerIDNo, globalDataSourceURL);
+        $("select[id^='selectPeriod']").show();
+   
+        $("#gbd").addClass('active');
+        $("#mrs").removeClass('active');
+    }
+    completeDataPath = globalDataSourceURL;
+}
+
+function loadPanAfricanData(containerIDNo, targetNo){
+    var datasourceValue = "mrs";
+    if (datasourceValue === "mrs") {
         $("#container" + containerIDNo).empty();
-        var mrsDataSourceURL ='../assets/data/SDGs/sdgTarget'+targetNo+datasourceValue+'_'+period+'.json';
-        console.log("MRS is the data source "+period);
+        var mrsDataSourceURL = '../assets/data/SDGs/sdgTarget'+ '_' + targetNo + '_' + datasourceValue + '.csv';
+        //console.log("MRS is the data source "+ globalDataSourceURL);
         loadMap(1, containerIDNo, mrsDataSourceURL);
         $("select[id^='selectPeriod']").show();
 
-    } else if (datasourceValue === "globalData") {
-        $("#container" + containerIDNo).empty();
-        var globalDataSourceURL = '../assets/data/SDGs/sdgTarget'+targetNo+datasourceValue+'_'+period+'.json';
-        console.log("Global database is the data source for "+period);
-        loadMap(1, containerIDNo, globalDataSourceURL);
-        $("select[id^='selectPeriod']").show();
-    } else {
-        console.log("No Data Source Matching");
-        $("select[id^='selectPeriod']").hide();
+        $("#mrs").addClass('active');
+        $("#gbd").removeClass('active');
     }
+    completeDataPath = mrsDataSourceURL;
 }
+
+//Called on change data source dropdown
+// function chooseDataSource(containerIDNo, targetNo,period ) {
+//     var datasourceValue = $("#selectData"+targetNo).val();
+//     if (datasourceValue === "mrsData") {
+//         $("#container" + containerIDNo).empty();
+//         var mrsDataSourceURL ='../assets/data/SDGs/sdgTarget'+targetNo+datasourceValue+'_'+period+'.json';
+//         console.log("MRS is the data source "+period);
+//         loadMap(1, containerIDNo, mrsDataSourceURL);
+//         $("select[id^='selectPeriod']").show();
+
+//     } else if (datasourceValue === "globalData") {
+//         $("#container" + containerIDNo).empty();
+//         var globalDataSourceURL = '../assets/data/SDGs/sdgTarget'+targetNo+datasourceValue+'_'+period+'.json';
+//         console.log("Global database is the data source for "+period);
+//         loadMap(1, containerIDNo, globalDataSourceURL);
+//         $("select[id^='selectPeriod']").show();
+//     } else {
+//         console.log("No Data Source Matching");
+//        // $("select[id^='selectPeriod']").hide();
+//     }
+// }
 
 
 //Function to load map
+
 function loadMap(n, containerID, dataSourceURL) {
-    //loads map
     if (n == 1) {
-        $("#container" + containerID).css({"width": "100%", "height": "500px"});
-        var countriesData = null;
-        $.getJSON(dataSourceURL, function (data) {
+        $("#container" + containerID).css({"width": "100%", "height": "400px"});
+        $.get(completeDataPath, function (data){
+
             countriesData = data;
+            
+            var lines = data.split('\n');
+            var result = [];
+            var headers = lines[0].split(",");
+
+            //console.log(headers);
+
+            for(var i=1; i < lines.length; i++){
+                var dataObj ={};
+                var currLine = lines[i].split(",");
+
+                for(var j=0; j<headers.length; j++){
+                    dataObj[headers[j]] = currLine[j];
+                }
+                result.push(dataObj);
+            }
+            //console.log('Map result' + result);
+            
+            countriesData = result;
+            
             var geoj = Highcharts.maps["custom/africa"] = {
                 "title": "Africa",
                 "version": "1.1.2",
@@ -67,7 +146,6 @@ function loadMap(n, containerID, dataSourceURL) {
                         "yoffset": 4185728.66873
                     }
                 },
-                
                 "features": [{
                     "type": "Feature",
                     "id": "UG",
@@ -1384,6 +1462,8 @@ function loadMap(n, containerID, dataSourceURL) {
 
             $('#container' + containerID).highcharts('Map', {
                 chart: {
+                   
+                    height: 400,
                     events: {
                         drilldown: function (e) {
                             var chart = this,
@@ -1395,13 +1475,17 @@ function loadMap(n, containerID, dataSourceURL) {
                                     regionMap = Highcharts.maps[mapKey],
                                     regionMapGeoJson = Highcharts.geojson(regionMap);
 
+                                    
                                 $.each(regionMapGeoJson, function (indxx, elem) {
                                     drillPath = 'countries/' + elem.properties['hc-key'].slice(0, 2) + '/' + elem.properties['hc-key'] + '-all';
                                     data.push({
                                         code: elem.properties['hc-key'],
                                         value: countriesData.value,
+                                        
                                         // drilldown: drillPath
                                     })
+                                    
+                                    //console.log(countriesData.code);
                                 });
                                 // Hide loading and add series
                                 chart.addSingleSeriesAsDrilldown(e.point, {
@@ -1428,13 +1512,9 @@ function loadMap(n, containerID, dataSourceURL) {
                     },
                     map: 'custom/africa'
                 },
-
-                
-
                 credits: {
                     enabled: false
                 },
-
                 title: {
                     text: ''
                 },
@@ -1447,14 +1527,6 @@ function loadMap(n, containerID, dataSourceURL) {
                         fontSize: '16px'
                     }
                 },
-                
-
-                
-
-                mapNavigation: {
-                    enabled: true
-                },
-    
                 legend: {
                     title: {
                         text: 'LEGEND',
@@ -1468,20 +1540,10 @@ function loadMap(n, containerID, dataSourceURL) {
                             ) || 'black'
                         }
                     },
-                    align: 'right',
-                    verticalAlign: 'middle',
-                    floating: true,
                     layout: 'vertical',
-                    valueDecimals: 0,
-                    backgroundColor: ( // theme
-                        Highcharts.defaultOptions &&
-                        Highcharts.defaultOptions.legend &&
-                        Highcharts.defaultOptions.legend.backgroundColor
-                    ) || 'rgba(255, 255, 255, 0.85)',
-                    // symbolRadius: 0,
-                    // symbolHeight: 14
+                    align: 'right',
+                    verticalAlign: 'middle'
                 },
-
                 colors: [ '#cecdcd', '#ff0000', '#ffa500', '#f1cd00', '#008d00'],
 
                 colorAxis: {
@@ -1512,7 +1574,6 @@ function loadMap(n, containerID, dataSourceURL) {
                     }]
                     
                 },
-
                 mapNavigation: {
                     enabled: true,
                     buttonOptions: {
@@ -1530,7 +1591,7 @@ function loadMap(n, containerID, dataSourceURL) {
                 },
                 series: [{
                     name: 'Africa',
-                    data: countriesData,
+                    data: getMapData(),
                     mapData: geoj,
                     joinBy: ['hc-key', 'code'],
                     dataLabels: {
@@ -1564,119 +1625,311 @@ function loadMap(n, containerID, dataSourceURL) {
                     }
                 }
             });
-            window.scrollTo(0, document.body.scrollHeight);
+            //window.scrollTo(0, document.body.scrollHeight);
         }).fail(function () {
             var noData = '<i class="fa fa-warning" style="font-size:40px;color:red;margin-left: 50%;margin-top: 12%;"></i><br><br><p style="margin-top: 15%;text-align: center;margin-left: -4%;font-weight: bolder;">No Data Available</p>';
-            $("#container"+containerID).empty().append(noData);
+            $("#container" + containerID).empty().append(noData);
             console.log("No Data Available");
         });
     }
-    //loads chart
     if (n == 2) {
-        $("#container" + containerID).css({"width": "100%", "height": "500px"});
-        var chart = AmCharts.makeChart("container" + containerID, {
-            "creditsPosition": "bottom-right",
-            "theme": "light",
-            "type": "serial",
-            "startDuration": 2,
-            "dataProvider": [{
-                "country": "Algeria",
-                "visits": 25,
-                "color": "#FF0F00"
-            }, {
-                "country": "Angola",
-                "visits": 35,
-                "color": "#FF6600"
-            }, {
-                "country": "Benin",
-                "visits": 15,
-                "color": "#FF9E01"
-            }, {
-                "country": "Botswana",
-                "visits": 56,
-                "color": "#FCD202"
-            }, {
-                "country": "Burkina faso",
-                "visits": 78,
-                "color": "#F8FF01"
-            }, {
-                "country": "Burundi",
-                "visits": 68,
-                "color": "#B0DE09"
-            }, {
-                "country": "Cameroon",
-                "visits": 43,
-                "color": "#04D215"
-            }, {
-                "country": "Cabo Verde",
-                "visits": 26,
-                "color": "#0D8ECF"
-            }, {
-                "country": "Central African Republic",
-                "visits": 60,
-                "color": "#0D52D1"
-            }, {
-                "country": "Chad",
-                "visits": 70,
-                "color": "#2A0CD0"
-            }, {
-                "country": "Comoros",
-                "visits": 32,
-                "color": "#8A0CCF"
-            }, {
-                "country": "Congo",
-                "visits": 67,
-                "color": "#CD0D74"
-            }, {
-                "country": "Democratic Republic of the Congo",
-                "visits": 78,
-                "color": "#754DEB"
-            }, {
-                "country": "Cote d'Ivoire",
-                "visits": 55,
-                "color": "#DDDDDD"
-            }, {
-                "country": "Djibouti",
-                "visits": 90,
-                "color": "#999999"
-            }, {
-                "country": "Egypt",
-                "visits": 50,
-                "color": "#333333"
-            }, {
-                "country": "Equatorial Guinea",
-                "visits": 11,
-                "color": "#000000"
-            }],
-            "valueAxes": [{
-                "position": "left",
-                "title": "Percentage(%)"
-            }],
-            "graphs": [{
-                "balloonText": "[[category]]: <b>[[value]]</b>",
-                "fillColorsField": "color",
-                "fillAlphas": 1,
-                "lineAlpha": 0.1,
-                "type": "column",
-                "valueField": "visits"
-            }],
-            "depth3D": 20,
-            "angle": 30,
-            "chartCursor": {
-                "categoryBalloonEnabled": false,
-                "cursorAlpha": 0,
-                "zoomable": false
-            },
-            "categoryField": "country",
-            "categoryAxis": {
-                "gridPosition": "start",
-                "labelRotation": 90
-            },
-            "export": {
-                "enabled": true
+        var result = [];
+        $.get(completeDataPath, function (data){
+
+            var lines = data.split('\n');
+            var countryData = [];
+            var yearData = [];
+            var headers = lines[0].split(",");
+
+            var years = [];
+            for(var i=0; i<headers.length; i++){
+                if(!isNaN(headers[i])){
+                    years.push(parseFloat(headers[i]));
+                }
+            }
+            
+            $.each(lines, function(lineNo, lineContent){
+                if(lineNo > 0){
+                yearData[lineNo-1] = lineContent.split(',')[1];
+                countryData[lineNo-1] = lineContent.split(',')[0];
+            }
+            });
+
+            for(var i=1; i < lines.length; i++){
+                var dataObj ={};
+                var currLine = lines[i].split(",");
+
+                for(var j=0; j<headers.length; j++){
+                    dataObj[headers[j]] = currLine[j];
+                }
+                result.push(dataObj);
             }
 
-        });
+            chartData = result;
 
+            console.log("Random Filtered result"); 
+            console.log(getFilteredData());
+
+            chartNew = Highcharts.chart("container" + containerID, {
+                chart: {
+                    styledMode: true,
+                    events: {
+                        redraw: function () {
+                            var label = this.renderer.label('', 100, 120)
+                                .attr({
+                                    fill: Highcharts.getOptions().colors[0],
+                                    padding: 10,
+                                    r: 5,
+                                    zIndex: 8
+                                })
+                                .css({
+                                    color: 'black'
+                                })
+                                .add();
+        
+                            setTimeout(function () {
+                                label.fadeOut();
+                            }, 1000);
+                        }
+                    }
+                },
+               
+                title: {
+                    text: 'Agenda 2063 values over time'
+                },
+                subtitle: {
+                    text: 'Source: sdg.org'
+                },
+                xAxis: {
+                    // tickInterval: 10,
+                    categories: years,
+                    align: "left",
+                    startOnTick: false,
+                    endOnTick: false,
+                    minPadding: 0,
+                    maxPadding: 0,
+                },
+                yAxis: {
+                    title: {
+                        text: 'Values per country'
+                    }
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle'
+                },
+                plotOptions: {
+                    series: {
+                        label: {
+                            connectorAllowed: false
+                        },
+                        // pointStart: 1900,
+                        animation: {
+                            duration: 10000
+                        }
+                    }
+                },
+                series : getFilteredData(),
+
+                responsive: {
+                    rules: [{
+                        condition: {
+                            maxWidth: 500
+                        },
+                        chartOptions: {
+                            legend: {
+                                layout: 'horizontal',
+                                align: 'center',
+                                verticalAlign: 'bottom'
+                            }
+                        }
+                    }]
+                }
+            
+            });
+        });
     }
 }
+
+function getClosest(arr, val) {
+    return arr.reduce(function (prev, curr) {
+    return (Math.abs(curr - val) < Math.abs(prev - val) ? curr : prev);
+  });
+}
+let years = [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019];
+
+function timeRangeSlider(){
+    onSliderChange();
+    onClickPlayButton();
+}
+
+function onSliderChange(){
+    var sel = document.getElementById('selectPeriod1');
+    document.querySelector("#yearslider").addEventListener("change", function() {
+        let closest = getClosest(years, this.value);
+        this.value = document.querySelector("#rangevalue").value = closest;
+        period = this.value;
+        //console.log(period.toString());
+        $("#selectPeriod1").val(period.toString()); 
+
+        if ("createEvent" in document) {
+            var evt = document.createEvent("HTMLEvents");
+            evt.initEvent("change", false, true);
+            sel.dispatchEvent(evt);
+        }
+        else {
+            sel.fireEvent("onchange");
+        }
+    });  
+}
+
+function onClickPlayButton(){
+    var sel = document.getElementById('selectPeriod1');
+    document.querySelector("#play").addEventListener("click", function (){
+        let yearslider = document.querySelector("#yearslider");
+        let output = document.querySelector("#rangevalue");
+        years.forEach(function(item, index, array) {
+            // set a timeout so each second one button gets clicked
+            setTimeout( (function( index ) {
+                return function() {
+                    yearslider.value = output.value = array[index]; 
+                    period = yearslider.value;
+                    $("#selectPeriod1").val(period.toString());
+
+                    if ("createEvent" in document) {
+                        var evt = document.createEvent("HTMLEvents");
+                        evt.initEvent("change", false, true);
+                        sel.dispatchEvent(evt);
+                    }
+                    else {
+                        sel.fireEvent("onchange");
+                    }
+                };
+            }( index )), (1000 * index) );
+        });
+        
+    });   
+}
+
+function lowercase(string) {
+    return string.toLocaleLowerCase();
+}
+
+function contains(string, value) {
+    return string.indexOf(value) !== -1;
+}
+
+/**
+ * Function that checks which data is selected and generates a new data set
+ */
+var newCountryData = [];
+function getMapData() {    
+
+    // cycle through source data and filter out required data points
+    for (var i = 0; i < countriesData.length; i++) {
+        var dataPoint = countriesData[i];
+
+        newCountryData.push({
+                "code": dataPoint.code,
+                "drilldown": dataPoint.drilldown,
+                "value": dataPoint[period],
+                "country":dataPoint.country
+            });
+            //console.log("");   
+    }
+    return newCountryData;
+}
+
+function countriesDropdown(){
+    var items = getMapData();
+
+    var select = document.getElementById("african_countries1");
+
+    for(var i; i< items.length; i++) {
+        var opt = document.createElement('option');
+        opt.innerHTML = items[i]['country'];
+        opt.value = items[i]['code'];
+        select.appendChild(opt);
+    }
+
+    //console.log(items);
+
+    // $.each(items, function (i, item) {
+    //     $('#african_countries1').append($('<option>', { 
+    //         value: item["code"],
+    //         text : item["country"] 
+    //     }));
+    //     console.log(item["code"]);
+    // });
+}
+
+function getFilteredData() {
+    var filters = {};
+
+    // get all filter checkboxes
+    var fields = document.getElementsByClassName("filter-position");
+    for (var i = 0; i < fields.length; i++) {
+        if (fields[i].selected) {
+            filters[fields[i].value] = true;
+        }
+    }
+
+    // init new data set
+    var newData = [];
+    var valuesData = []; 
+    var parsedData = [];     
+
+    // cycle through source data and filter out required data points
+    for (var i = 0; i < chartData.length; i++) {
+        var dataPoint = chartData[i];
+
+        if(filters[dataPoint.code] && 
+            contains(lowercase(dataPoint.code), name)){
+                valuesData = Object.values(dataPoint);
+                var parsedData = []; 
+
+                for(var j=0; j<valuesData.length;j++){
+                    //console.log(valuesData[j]);
+                    if(!isNaN(valuesData[j])){
+                        parseFloat(valuesData[j]);
+                        parsedData.push(parseFloat(valuesData[j]));
+                    }
+                }
+                    newData.push({
+                        "name": dataPoint.country,
+                        "data": parsedData
+                    });
+            }      
+    }
+    return newData;
+}
+
+/**
+ * Function which applies current filters when invoked
+ */
+function applyFilters() {
+     var data2 = getFilteredData();
+
+    //update chart data
+    var chart2 = $('#container1').highcharts();
+    var seriesLength = chart2.series.length;
+
+    for(var i = seriesLength -1; i > -1; i--) {
+        chart2.series[i].remove();
+    }
+
+    for(var i = 0; i < data2.length; i++) {
+        chart2.addSeries(data2[i])
+    }
+}
+
+// Set type
+$.each(['line', 'column', 'spline', 'area', 'areaspline', 'scatter', 'pie'], function (i, type) {
+    $('#' + type).click(function () {
+        var chart2 = $('#container1').highcharts();
+        chart2.series[0].update({
+            type: type
+        });
+    });
+});
