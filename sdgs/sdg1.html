@@ -52,6 +52,21 @@
         .sdgSectionIcons{
             height: 130px;
         }
+        .slider-div{
+            height: 40px;
+        }
+
+            .output-div{
+                height: 40px;
+                display: table;
+            }
+            .output-year{
+                display: table-cell;
+                vertical-align: middle;
+                color: #666;
+                font-family: 'Roboto', sans-serif;
+                font-size: 15px;
+            }
     </style>
 </head>
 <body>
@@ -85,7 +100,7 @@
             <h4 class="title" style="color: white !important;text-align: center;font-weight: bold;">SDG 1 Targets</h4>
             <p class="description nav nav-tabs"
                style="color: white !important;text-align: center !important; display: inherit !important; margin-bottom: 1%;">
-                <a data-toggle="tab" href="#target11" onclick="loadTarget(1)" class="btn btn-danger sdg1-btn">Target
+                <a data-toggle="tab" href="#target11" onclick="loadTarget(1, 11)" class="btn btn-danger sdg1-btn">Target
                     1.1</a>
                 <a data-toggle="tab" href="#target12" onclick="loadTarget(2)" class="btn btn-danger sdg1-btn">Target
                     1.2</a>
@@ -126,7 +141,7 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-2">
                     <select id="selectPeriod11" class="btn btn-primary" onchange="choosePeriod(1,11);">
-                        <option>Please select a Period</option>
+                        <option value="default">Please select a Period</option>
                         <option value="2019">2019</option>
                         <option value="2018">2018</option>
                         <option value="2017">2017</option>
@@ -162,18 +177,45 @@
                 <div class="row card-body" id="container1">
                 </div>
                  <hr>
-                <div class="row card-footer">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-4">
-                            <button class="btn btn-success" onclick="changeVisualization(1,1);"><span
-                                    class="fa fa-globe"></span>Map
-                            </button>
-                            <button class="btn btn-success" onclick="changeVisualization(2,1);"><span
-                                class="fa fa-bar-chart"></span>Chart
-                        </button>
+                 <div class="card">
+                        <div class="card-body">
+                            <div class="row slider-div">
+                                    <div class="col-md-2"></div>
+                                <div class="col-md-1">
+                                    <button id="play" class="btn btn-primary btn-just-icon">
+                                        <i class="nc-icon nc-button-play"></i>
+                                    </button>
+                                </div>
+                                <div class="col-md-4" style="padding-right: 0px;padding-left: 0px;">
+                                        <input id="yearslider" class="range blue" type="range" min="2010" value="2010" 
+                                        max="2019" step="1" list="ticks" >
+                                        <datalist id="ticks">
+                                            <option>2010</option>
+                                            <option>2011</option>
+                                            <option>2012</option>
+                                            <option>2013</option>
+                                            <option>2014</option>
+                                            <option>2015</option>
+                                            <option>2016</option>
+                                            <option>2017</option>
+                                            <option>2018</option>
+                                            <option>2019</option>
+                                        </datalist>
+                                </div>
+                                <div class="col-md-1 output-div">
+                                        <output id="rangevalue" class="output-year">2010</output>
+                                </div>
+                                <div class="col-md-4">
+                                    <button class="btn btn-primary" onclick="changeVisualization(1,1);"><span
+                                            class="fa fa-globe"></span>Map
+                                    </button>
+                                    <button class="btn btn-primary" onclick="changeVisualization(2,1);"><span
+                                        class="fa fa-bar-chart"></span>Chart
+                                </button>
+                                </div>
+                            </div>
                         </div>
-                    <div class="col-md-2"></div>
-                </div>
+                    </div>
             </div>
         </div>
         <div class="col-md-10 card tab-pane fade" id="target12" style="border-radius: 0;background-color: white;">

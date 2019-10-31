@@ -15,7 +15,6 @@ $(document).ready(function () {
     loadA2063Map(1, 1, dataSourceURL);
     $('#goal01').click();
     timeRangeSlider();
-
 });
 
 function changeVisualization(n, goal) {
@@ -38,12 +37,18 @@ function changeVisualization(n, goal) {
 function loadGoal() {
     $("[id^='filter']").hide();
     $('#chartTypes').hide();
-    // $("select[id^='selectDataSource']").hide();
-    // $("select[id^='selectPeriod']").hide();
+
+    $("select[id^='selectPeriod']").hide();
+    $("button[id^='gbd']").hide();
+    $("button[id^='mrs']").hide();
+
     dataSourceURL = '../assets/data/A2063/A2063_';
 }
 
 function chooseIndicator(goal) {
+    $("button[id^='gbd']").show();
+    $("button[id^='mrs']").show();
+
     var indicator = $("#selectIndicator" + goal).val();
     if (dataSourceURL.match(/^.*csv$/)) {
         //UPDATE URL and call LoadA2063Map
@@ -77,6 +82,8 @@ function loadGlobalData(goal){
    
     $("#gbd").addClass('active');
     $("#mrs").removeClass('active');
+    console.log("GBD");
+    console.log(dataSourceURL);
 
 }
 
@@ -97,6 +104,8 @@ function loadPanAfricanData(goal){
     
     $("#mrs").addClass('active');
     $("#gbd").removeClass('active');
+    console.log("MRS");
+    console.log(dataSourceURL);
 }
 
 function choosePeriodA2063(goal) {

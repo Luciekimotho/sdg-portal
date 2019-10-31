@@ -3,29 +3,95 @@ let chartData='';
 let countriesData='';
 let chart='';
 let chartNew='';
-let period = 2018;
+let period = '';
 let year = 2018;
+let globalDataSourceURL = '../assets/data/SDGs/sdgTarget_';
 
 //Loads after the page is ready
 $(document).ready(function () {
-    loadMap(1);
+    loadTarget(1, 11);
+    loadMap(1, 1, completeDataPath);
     $("[id^='filter']").hide();
     $('#chartTypes').hide();  
+    $("select[id^='selectPeriod']").hide();
+    timeRangeSlider();
 });
 
 //Called when a target is clicked
-function loadTarget(containerID) {
-    loadMap(1, containerID, '');//TODO function called 1
-    $("select[id^='selectPeriod']").hide();
+function loadTarget(containerID, targetNo) {
+    $("button[id^='gbd']").show();
+    $("button[id^='mrs']").show();
+    if(globalDataSourceURL.match(/^.*csv/)){
+        var prefix = globalDataSourceURL.slice(0, 29);
+        var postfix = globalDataSourceURL.slice(31);
+        globalDataSourceURL = prefix + targetNo + postfix;
+        loadMap(1, containerID, globalDataSourceURL);
+    }
+    
+    if(globalDataSourceURL.charAt(30) === '' || globalDataSourceURL.charAt(33)=== ''){
+        var prefix = globalDataSourceURL.slice(0, 30);
+        globalDataSourceURL = prefix + targetNo + '_';
+    }
+    //console.log(globalDataSourceURL.length);
 }
+
+//Choose data source toggle buttons
+function loadGlobalData(containerIDNo, targetNo){
+    var source = "gdb";
+
+    if(globalDataSourceURL.match(/^.*csv$/)){
+        var prefix = globalDataSourceURL.slice(0, 33);
+        var postfix = globalDataSourceURL.slice(36);
+        globalDataSourceURL = prefix + source + postfix;
+        loadMap(1, containerIDNo, globalDataSourceURL);  
+    }
+
+    if(globalDataSourceURL.charAt(34)=== '' || globalDataSourceURL.charAt(37) ===''){
+        var prefix = globalDataSourceURL.slice(0, 33);
+        globalDataSourceURL = prefix + source;
+        $("select[id^='selectPeriod']").show();
+    } 
+    $("#gbd").addClass('active');
+    $("#mrs").removeClass('active');
+    console.log(globalDataSourceURL);
+}
+
+function loadPanAfricanData(containerIDNo, targetNo){
+    var source= "mrs";
+    if(globalDataSourceURL.match(/^.*csv/)){
+        var prefix = globalDataSourceURL.slice(0, 33);
+        var postfix = globalDataSourceURL.slice(36);
+        globalDataSourceURL = prefix + source + postfix;
+        loadMap(1, containerIDNo, globalDataSourceURL);
+    }
+
+    if(globalDataSourceURL.charAt(34)=== '' || globalDataSourceURL.charAt(37) ===''){
+        var prefix = globalDataSourceURL.slice(0, 33);
+        globalDataSourceURL = prefix + source;
+        $("select[id^='selectPeriod']").show();
+    } 
+    $("#mrs").addClass('active');
+    $("#gbd").removeClass('active');
+    console.log(globalDataSourceURL);
+}
+
 //ChoosePeriod function
 function choosePeriod(containerIDNo, targetNo){
     var selectorID=$("#selectPeriod" + targetNo );
     period = selectorID.val();
-    //console.log(period + " is the selected period.");
-
-    //chooseDataSource(containerIDNo, targetNo, period);
-    loadMap(1,containerIDNo,completeDataPath);
+    
+    if(globalDataSourceURL.match(/^.*csv/)){
+        var prefix = globalDataSourceURL.slice(0, 36);
+        globalDataSourceURL = prefix + '.csv';
+        loadMap(1,containerIDNo,completeDataPath);
+    }
+    if(globalDataSourceURL.charAt(35) === '' || globalDataSourceURL.charAt(40) === ''){
+        var prefix = globalDataSourceURL.slice(0, 36);
+        globalDataSourceURL = prefix + '.csv';
+        completeDataPath = globalDataSourceURL;
+        loadMap(1,containerIDNo,globalDataSourceURL);
+    }
+    console.log(globalDataSourceURL);
 }
 
 function changeVisualization(n, containerIDNo) {
@@ -44,59 +110,6 @@ function changeVisualization(n, containerIDNo) {
     }
 
 }
-
-//Choose data source toggle buttons
-function loadGlobalData(containerIDNo, targetNo){
-    var datasourceValue = "gdb";
-    if (datasourceValue === "gdb") {
-    $("#container" + containerIDNo).empty();
-        var globalDataSourceURL = '../assets/data/SDGs/sdgTarget'+ '_' + targetNo + '_' + datasourceValue + '.csv';
-        //console.log("Global database is the data source for "+ globalDataSourceURL);
-        loadMap(1, containerIDNo, globalDataSourceURL);
-        $("select[id^='selectPeriod']").show();
-   
-        $("#gbd").addClass('active');
-        $("#mrs").removeClass('active');
-    }
-    completeDataPath = globalDataSourceURL;
-}
-
-function loadPanAfricanData(containerIDNo, targetNo){
-    var datasourceValue = "mrs";
-    if (datasourceValue === "mrs") {
-        $("#container" + containerIDNo).empty();
-        var mrsDataSourceURL = '../assets/data/SDGs/sdgTarget'+ '_' + targetNo + '_' + datasourceValue + '.csv';
-        //console.log("MRS is the data source "+ globalDataSourceURL);
-        loadMap(1, containerIDNo, mrsDataSourceURL);
-        $("select[id^='selectPeriod']").show();
-
-        $("#mrs").addClass('active');
-        $("#gbd").removeClass('active');
-    }
-    completeDataPath = mrsDataSourceURL;
-}
-
-//Called on change data source dropdown
-// function chooseDataSource(containerIDNo, targetNo,period ) {
-//     var datasourceValue = $("#selectData"+targetNo).val();
-//     if (datasourceValue === "mrsData") {
-//         $("#container" + containerIDNo).empty();
-//         var mrsDataSourceURL ='../assets/data/SDGs/sdgTarget'+targetNo+datasourceValue+'_'+period+'.json';
-//         console.log("MRS is the data source "+period);
-//         loadMap(1, containerIDNo, mrsDataSourceURL);
-//         $("select[id^='selectPeriod']").show();
-
-//     } else if (datasourceValue === "globalData") {
-//         $("#container" + containerIDNo).empty();
-//         var globalDataSourceURL = '../assets/data/SDGs/sdgTarget'+targetNo+datasourceValue+'_'+period+'.json';
-//         console.log("Global database is the data source for "+period);
-//         loadMap(1, containerIDNo, globalDataSourceURL);
-//         $("select[id^='selectPeriod']").show();
-//     } else {
-//         console.log("No Data Source Matching");
-//        // $("select[id^='selectPeriod']").hide();
-//     }
-// }
 
 
 //Function to load map
@@ -1765,13 +1778,13 @@ function timeRangeSlider(){
 }
 
 function onSliderChange(){
-    var sel = document.getElementById('selectPeriod1');
+    var sel = document.getElementById('selectPeriod11');
     document.querySelector("#yearslider").addEventListener("change", function() {
         let closest = getClosest(years, this.value);
         this.value = document.querySelector("#rangevalue").value = closest;
         period = this.value;
         //console.log(period.toString());
-        $("#selectPeriod1").val(period.toString()); 
+        $("#selectPeriod11").val(period.toString()); 
 
         if ("createEvent" in document) {
             var evt = document.createEvent("HTMLEvents");
@@ -1785,7 +1798,7 @@ function onSliderChange(){
 }
 
 function onClickPlayButton(){
-    var sel = document.getElementById('selectPeriod1');
+    var sel = document.getElementById('selectPeriod11');
     document.querySelector("#play").addEventListener("click", function (){
         let yearslider = document.querySelector("#yearslider");
         let output = document.querySelector("#rangevalue");
@@ -1795,7 +1808,7 @@ function onClickPlayButton(){
                 return function() {
                     yearslider.value = output.value = array[index]; 
                     period = yearslider.value;
-                    $("#selectPeriod1").val(period.toString());
+                    $("#selectPeriod11").val(period.toString());
 
                     if ("createEvent" in document) {
                         var evt = document.createEvent("HTMLEvents");
