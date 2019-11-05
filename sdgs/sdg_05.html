@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <link rel="icon" type="image/png" href="../assets/img/logos/logosdg.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+    <title>SDG 5 | Gender Equality</title>
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
+    <meta name="viewport" content="width=device-width"/>
+
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../assets/css/paper-kit.css?v=2.1.0" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <link href="../assets/css/master.css" rel="stylesheet"/>
+
+    <!--     Fonts and icons     -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../assets/css/nucleo-icons.css" rel="stylesheet"/>
+
+    <!-- Script to include header file -->
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+
+    <!-- Sample Line Chart libraries -->
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all"/>
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
+    <!-- Preloader -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="../assets/js/master.js"></script>
+    <link rel="stylesheet" href="../assets/css/sdgsPages.css" />
+
+    <style>
+            .sdg5-btn:hover,
+            .sdg5-btn.active{<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <link rel="icon" type="image/png" href="../assets/img/logos/logosdg.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+    <!-- <title>SDG 1 | No Poverty</title> -->
+
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
+    <meta name="viewport" content="width=device-width"/>
+
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../assets/css/paper-kit.css?v=2.1.0" rel="stylesheet"/>
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
+    <link href="../assets/css/master.css" rel="stylesheet"/>
+    <link href="../assets/css/highcharts.css" rel="stylesheet">
+
+    <!--     Fonts and icons     -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../assets/css/nucleo-icons.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css"/>
+
+
+    <!-- Preloader -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="../assets/js/master.js"></script>
+    <link rel="stylesheet" href="../assets/css/sdgsPages.css"/>
+
+    <!-- Script to include header file -->
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+
+    <!-- Resources -->
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all"/>
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
+    <style>
+        #container {
+            width: 100%;
+            height: 500px;
+        }
+        .btn-danger:hover,
+        .btn-danger.active{
+            background-color: #800000;
+            color: #FFFFFF;
+            border-color: #800000;
+        }
+       
+        .slider-div{
+            height: 40px;
+        }
+
+        .output-div{
+            height: 40px;
+            display: table;
+        }
+        .output-year{
+            display: table-cell;
+            vertical-align: middle;
+            color: #666;
+            font-family: 'Roboto', sans-serif;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+<!-- Preloader -->
+<div class="preloader"></div>
+<!-- Preloader -->
+<div class="container-fluid">
+    <div class="row" style="width: 100% !important;margin-left: 0;margin-right: 0;">
+        <div class="col-md-12" w3-include-html="../layouts/header.html"></div>
+    </div>
+  
+
+    <div class="row" style="width: 100% !important;margin: 0;">
+        <div class="row" style="width: 100% !important;margin: 0;">
+            <div class="col-md-2">
+                <img id ="sdgIcon" class="sdgSectionIcons">
+            </div>
+			<div id="sdgBg" class="col-md-10" style="width: 100% !important">
+                <h3 class="title" id="title" style="color: white !important;"> </h3>
+                <p class="description" id="description" style="color: white !important;">
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="width: 100% !important;margin: 0; margin-top: 0.5%;">
+        <div class="col-md-12" style="background-color:darkgrey;">
+            <h4 class="title" id="sdgTitle" style="color: white !important;text-align: center;font-weight: bold;"> </h4>
+            <p  class="targetButtons nav nav-tabs"
+               style="color: white !important;text-align: center !important; display: inherit !important; margin-bottom: 1%;"> 
+               
+            </p>
+        </div>
+    </div>
+    <div class="row tab-content" style="width: 100% !important;margin: 0; margin-top: 1%;">
+        <div class="col-md-1"></div>
+
+    </div>
+    <div class="row sdgFooter">
+        <div class="col-md-12 " w3-include-html="../layouts/footer.html"
+             style="background-color: #f5f5f5;"></div>
+    </div>
+</div>
+</body>
+<!-- Core JS Files -->
+<script src="../assets/js/jquery-3.2.1.js" type="text/javascript"></script>
+<script src="../assets/js/jquery-ui-1.12.1.custom.min.js" type="text/javascript"></script>
+<script src="../assets/js/popper.js" type="text/javascript"></script>
+<script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+<!-- Switches -->
+<script src="../assets/js/bootstrap-switch.min.js"></script>
+
+<!--  Plugins for Slider -->
+<script src="../assets/js/nouislider.js"></script>
+
+<!--  Plugins for DateTimePicker -->
+<script src="../assets/js/moment.min.js"></script>
+<script src="../assets/js/bootstrap-datetimepicker.min.js"></script>
+
+<!--  Paper Kit Initialization snd functons -->
+<script src="../assets/js/paper-kit.js?v=2.1.0"></script>
+
+<!-- Highmaps Link for Africa -->
+<script type="text/javascript" src="../assets/js/sdg/mapChart.js"></script>
+
+<script>
+    w3.includeHTML();
+</script>
+<script src="../assets/js/menu.js"></script>
+<script src="https://code.highcharts.com/maps/highmaps.js"></script>
+<script src="https://code.highcharts.com/maps/modules/data.js"></script>
+<script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/maps/modules/offline-exporting.js"></script>
+<script src="https://code.highcharts.com/maps/modules/drilldown.js"></script>
+<script src="https://code.highcharts.com/mapdata/custom/africa.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+<script src="https://kit.fontawesome.com/4592b57b68.js" crossorigin="anonymous"></script>
+</html>
+
+                background-color: #7d1c0a;
+                border-color: #7d1c0a;
+            }
+        </style>
+</head>
+<body>
+<!-- Preloader -->
+<div class="preloader"></div>
+<!-- Preloader -->
+<div class="container-fluid">
+    <div class="row" style="width: 100% !important;margin-left: 0;margin-right: 0;">
+        <div class="col-md-12 " w3-include-html="../layouts/header.html"></div>
+    </div>
+    <div class="row" style="width: 100% !important;margin: 0;">
+        <div class="row" style="width: 100% !important;margin: 0;">
+            <div class="col-md-2">
+                <img class="sdgSectionIcons" src="../assets/img/sdg_icons/E_SDG_Icons-05.jpg">
+            </div>
+            <div class="col-md-10" style="width: 100% !important;background-color: #FF3A21;">
+                <h3 class="title" style="color: white !important;">Achieve gender equality and empower all women and girls</h3>
+                <p class="description" style="color: white !important;">
+                    UN definition: <i>"Gender equality is not only a fundamental human right, but a necessary foundation
+                    for a peaceful, prosperous and sustainable world.
+
+                    Providing women and girls with equal access to education, health care, decent work, and
+                    representation in political and economic decision-making processes will fuel sustainable economies
+                    and benefit societies and humanity at large."
+                </i>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="width: 100% !important;margin: 0; margin-top: 0.5%;">
+        <div class="col-md-12" style="background-color:darkgrey;">
+            <h4 class="title" style="color: white !important;text-align: center;font-weight: bold;">SDG 5 Targets</h4>
+            <p class="description nav nav-tabs"
+               style="color: white !important;text-align: center !important; display: inherit !important;margin: 2px 0;margin-bottom: 1%;">
+                <a data-toggle="tab" href="#target51"  onclick="loadTarget(1)" class="btn btn-danger sdg5-btn">Target 5.1</a>
+                <a data-toggle="tab" href="#target52"  onclick="loadTarget(2)" class="btn btn-danger sdg5-btn">Target 5.2</a>
+                <a data-toggle="tab" href="#target53"  onclick="loadTarget(3)" class="btn btn-danger sdg5-btn">Target 5.3</a>
+                <a data-toggle="tab" href="#target54"  onclick="loadTarget(4)" class="btn btn-danger sdg5-btn">Target 5.4</a>
+                <a data-toggle="tab" href="#target55"  onclick="loadTarget(5)" class="btn btn-danger sdg5-btn">Target 5.5</a>
+                <a data-toggle="tab" href="#target56"  onclick="loadTarget(6)" class="btn btn-danger sdg5-btn">Target 5.6</a>
+                <a data-toggle="tab" href="#target5A"  onclick="loadTarget(7)" class="btn btn-danger sdg5-btn">Target 5.A</a>
+                <a data-toggle="tab" href="#target5B"  onclick="loadTarget(8)" class="btn btn-danger sdg5-btn">Target 5.B</a>
+                <a data-toggle="tab" href="#target5C"  onclick="loadTarget(9)" class="btn btn-danger sdg5-btn">Target 5.C</a>
+            </p>
+        </div>
+    </div>
+    <div class="row tab-content" style="width: 100% !important;margin: 0; margin-top: 1%;">
+        <div class="col-md-1"></div>
+        <div class="col-md-10 card tab-pane fade" id="target51" style="border-radius: 0;background-color: white">
+            <p style="text-align: center;color: black;"><i>Target 5.1: End discrimination against women
+                and girls</i>
+            </p>
+            <p style="text-align: center;color: black;"><i><strong>Target:</strong>  "BEnd all forms of
+                discrimination against all women and girls everywhere."</i></p>
+            <div class=" row text-center">
+                <div class="col-md-4">
+                    <select id="selectData51" class="btn btn-primary" onchange="chooseDataSource(1,51);">
+                        <option value="placeholder">Please select a data source</option>
+                        <option value="globalData">Global Database</option>
+                        <option value="mrsData">PanAfrican MRS</option>
+                    </select>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <select id="selectPeriod51" class="btn btn-primary" onchange="choosePeriod(1,51);">
+                        <option> Select a Period</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row card-body" id="container1"></div>
+            <hr>
+            <div class="row card-footer">
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-globe"></span>Map
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-bar-chart"></span>Chart
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success"><span class="fa fa-download"></span>Data</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 card tab-pane fade" id="target52" style="border-radius: 0;background-color: white;">
+            <p style="text-align: center;color: black;"><i>Target 5.2: End all violence against and
+                exploitation of women and girls</i>
+            </p>
+            <p style="text-align: center;color: black;"><i><strong>Target:</strong>  "Eliminate all forms of
+                violence against all women and girls in the public and private spheres, including trafficking and sexual
+                and other types of exploitation."</i></p>
+            <div class=" row text-center">
+                <div class="col-md-4">
+                    <select id="selectData52" class="btn btn-primary" onchange="chooseDataSource(2,52);">
+                        <option value="placeholder">Please select a data source</option>
+                        <option value="globalData">Global Database</option>
+                        <option value="mrsData">PanAfrican MRS</option>
+                    </select>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <select id="selectPeriod52" class="btn btn-primary" onchange="choosePeriod(2,52);">
+                        <option> Select a Period</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row card-body" id="container2"></div>
+            <hr>
+            <div class="row card-footer">
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-globe"></span>Map
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-bar-chart"></span>Chart
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success"><span class="fa fa-download"></span>Data</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 card tab-pane fade" id="target53" style="border-radius: 0;background-color: white;">
+            <p style="text-align: center;color: black;"><i>Target 5.3: Eliminate forced marriages and
+                genital mutilation
+            </i>
+            </p>
+            <p style="text-align: center;color: black;"><i><strong>Target:</strong>  "Eliminate all harmful
+                practices, such as child, early and forced marriage and female genital mutilation."</i></p>
+            <div class=" row text-center">
+                <div class="col-md-4">
+                    <select id="selectData53" class="btn btn-primary" onchange="chooseDataSource(3,53);">
+                        <option value="placeholder">Please select a data source</option>
+                        <option value="globalData">Global Database</option>
+                        <option value="mrsData">PanAfrican MRS</option>
+                    </select>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <select id="selectPeriod53" class="btn btn-primary" onchange="choosePeriod(3,53);">
+                        <option> Select a Period</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row card-body" id="container3"></div>
+            <hr>
+            <div class="row card-footer">
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-globe"></span>Map
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-bar-chart"></span>Chart
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success"><span class="fa fa-download"></span>Data</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 card tab-pane fade" id="target54" style="border-radius: 0;background-color: white;">
+            <p style="text-align: center;color: black;"><i>Target 5.4: Value unpaid care and promote
+                shared domestic responsibilities</i>
+            </p>
+            <p style="text-align: center;color: black;"><i><strong>Target:</strong>  "Recognize and value unpaid
+                care and domestic work through the provision of public services, infrastructure and social protection
+                policies and the promotion of shared responsibility within the household and the family as nationally
+                appropriate."</i></p>
+            <div class=" row text-center">
+                <div class="col-md-4">
+                    <select id="selectData54" class="btn btn-primary" onchange="chooseDataSource(4,54);">
+                        <option value="placeholder">Please select a data source</option>
+                        <option value="globalData">Global Database</option>
+                        <option value="mrsData">PanAfrican MRS</option>
+                    </select>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <select id="selectPeriod54" class="btn btn-primary" onchange="choosePeriod(4,54);">
+                        <option> Select a Period</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row card-body" id="container4"></div>
+            <hr>
+            <div class="row card-footer">
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-globe"></span>Map
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-bar-chart"></span>Chart
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success"><span class="fa fa-download"></span>Data</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 card tab-pane fade" id="target55" style="border-radius: 0;background-color: white;">
+            <p style="text-align: center;color: black;"><i>Target 5.5: Ensure full participation in
+                leadership and decision-making
+            </i>
+            </p>
+            <p style="text-align: center;color: black;"><i><strong>Target:</strong>  "Ensure women’s full and
+                effective participation and equal opportunities for leadership at all levels of decision-making in
+                political, economic and public life."</i>
+            </p>
+            <div class=" row text-center">
+                <div class="col-md-4">
+                    <select id="selectData55" class="btn btn-primary" onchange="chooseDataSource(5,55);">
+                        <option value="placeholder">Please select a data source</option>
+                        <option value="globalData">Global Database</option>
+                        <option value="mrsData">PanAfrican MRS</option>
+                    </select>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <select id="selectPeriod55" class="btn btn-primary" onchange="choosePeriod(5,55);">
+                        <option> Select a Period</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row card-body" id="container5"></div>
+            <hr>
+            <div class="row card-footer">
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-globe"></span>Map
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-bar-chart"></span>Chart
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success"><span class="fa fa-download"></span>Data</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 card tab-pane fade" id="target56" style="border-radius: 0;background-color: white;">
+            <p style="text-align: center;color: black;"><i>Target 5.6: Universal access to reproductive
+                rights and health
+            </i>
+            </p>
+            <p style="text-align: center;color: black;"><i><strong>Target:</strong>  "Ensure universal access to
+                sexual and reproductive health and reproductive rights as agreed in accordance with the Programme of
+                Action of the International Conference on Population and Development and the Beijing Platform for Action
+                and the outcome documents of their review conferences."</i>
+            </p>
+            <div class=" row text-center">
+                <div class="col-md-4">
+                    <select id="selectData56" class="btn btn-primary" onchange="chooseDataSource(6,56);">
+                        <option value="placeholder">Please select a data source</option>
+                        <option value="globalData">Global Database</option>
+                        <option value="mrsData">PanAfrican MRS</option>
+                    </select>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <select id="selectPeriod56" class="btn btn-primary" onchange="choosePeriod(6,56);">
+                        <option> Select a Period</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row card-body" id="container6"></div>
+            <hr>
+            <div class="row card-footer">
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-globe"></span>Map
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-bar-chart"></span>Chart
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success"><span class="fa fa-download"></span>Data</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 card tab-pane fade" id="target5A" style="border-radius: 0;background-color: white;">
+            <p style="text-align: center;color: black;"><i>Target 5A: Equal rights to economic
+                resources, property ownership and financial services
+            </i>
+            </p>
+            <p style="text-align: center;color: black;"><i><strong>Target:</strong>  "Undertake reforms to give
+                women equal rights to economic resources, as well as access to ownership and control over land and other
+                forms of property, financial services, inheritance and natural resources, in accordance with national
+                laws."</i>
+            </p>
+            <div class=" row text-center">
+                <div class="col-md-4">
+                    <select id="selectData5A" class="btn btn-primary" onchange="chooseDataSource(7,'5A');">
+                        <option value="placeholder">Please select a data source</option>
+                        <option value="globalData">Global Database</option>
+                        <option value="mrsData">PanAfrican MRS</option>
+                    </select>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <select id="selectPeriod5A" class="btn btn-primary" onchange="choosePeriod(7,'5A');">
+                        <option> Select a Period</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row card-body" id="container7"></div>
+            <hr>
+            <div class="row card-footer">
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-globe"></span>Map
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-bar-chart"></span>Chart
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success"><span class="fa fa-download"></span>Data</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 card tab-pane fade" id="target5B" style="border-radius: 0;background-color: white;">
+            <p style="text-align: center;color: black;"><i>Target 5B: Promote empowerment of women
+                through technology
+            </i>
+            </p>
+            <p style="text-align: center;color: black;"><i><strong>Target:</strong>  "Enhance the use of enabling
+                technology, in particular information and communications technology, to promote the empowerment of
+                women."</i>
+            </p>
+            <div class=" row text-center">
+                <div class="col-md-4">
+                    <select id="selectData5B" class="btn btn-primary" onchange="chooseDataSource(8,'5B');">
+                        <option value="placeholder">Please select a data source</option>
+                        <option value="globalData">Global Database</option>
+                        <option value="mrsData">PanAfrican MRS</option>
+                    </select>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <select id="selectPeriod5B" class="btn btn-primary" onchange="choosePeriod(8,'5B');">
+                        <option> Select a Period</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row card-body" id="container8"></div>
+            <hr>
+            <div class="row card-footer">
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-globe"></span>Map
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-bar-chart"></span>Chart
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success"><span class="fa fa-download"></span>Data</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10 card tab-pane fade" id="target5C" style="border-radius: 0;background-color: white;">
+            <p style="text-align: center;color: black;"><i>Target 5C: Adopt and strengthen policies
+                and enforceable legislation for gender equality
+            </i>
+            </p>
+            <p style="text-align: center;color: black;"><i><strong>Target:</strong>  "Adopt and strengthen sound
+                policies and enforceable legislation for the promotion of gender equality and the empowerment of all
+                women and girls at all levels."</i>
+            </p>
+            <div class=" row text-center">
+                <div class="col-md-4">
+                    <select id="selectData5C" class="btn btn-primary" onchange="chooseDataSource(9,'5C');">
+                        <option value="placeholder">Please select a data source</option>
+                        <option value="globalData">Global Database</option>
+                        <option value="mrsData">PanAfrican MRS</option>
+                    </select>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <select id="selectPeriod5C" class="btn btn-primary" onchange="choosePeriod(9,'5C');">
+                        <option> Select a Period</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row card-body" id="container9"></div>
+            <hr>
+            <div class="row card-footer">
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-globe"></span>Map
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success" onclick="loadMap(1);"><span class="fa fa-bar-chart"></span>Chart
+                    </button>
+                </div>
+                <div class="col-md-4" style="text-align: center;">
+                    <button class="btn btn-success"><span class="fa fa-download"></span>Data</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="row sdgFooter">
+        <div class="col-md-12 fixed-bottom" w3-include-html="../layouts/footer.html" style="background-color: #f5f5f5;"></div>
+    </div>
+</div>
+</body>
+<!-- Core JS Files -->
+<script src="../assets/js/jquery-3.2.1.js" type="text/javascript"></script>
+<script src="../assets/js/jquery-ui-1.12.1.custom.min.js" type="text/javascript"></script>
+<script src="../assets/js/popper.js" type="text/javascript"></script>
+<script src="../assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+<!-- Switches -->
+<script src="../assets/js/bootstrap-switch.min.js"></script>
+
+<!--  Plugins for Slider -->
+<script src="../assets/js/nouislider.js"></script>
+
+<!--  Plugins for DateTimePicker -->
+<script src="../assets/js/moment.min.js"></script>
+<script src="../assets/js/bootstrap-datetimepicker.min.js"></script>
+
+<!--  Paper Kit Initialization snd functons -->
+<script src="../assets/js/paper-kit.js?v=2.1.0"></script>
+
+<!-- Highmaps Link for Africa -->
+<script type="text/javascript" src="../assets/js/sdg/mapChart.js"></script>
+
+<script>
+    w3.includeHTML();
+</script>
+<script src="https://code.highcharts.com/maps/highmaps.js"></script>
+<script src="https://code.highcharts.com/maps/modules/data.js"></script>
+<script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/maps/modules/offline-exporting.js"></script>
+<script src="https://code.highcharts.com/maps/modules/drilldown.js"></script>
+<script src="https://code.highcharts.com/mapdata/custom/africa.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="../assets/js/menu.js"></script>
+</html>

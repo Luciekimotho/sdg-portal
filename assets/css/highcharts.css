@@ -1,7 +1,7 @@
 @import 'https://code.highcharts.com/css/highcharts.css';
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
-#container2 {
+#container2, #container3, #container4, #container5, #container6, #container7 {
 	height: 400px;
 	max-width: 1000px;
 	margin: 0 auto;

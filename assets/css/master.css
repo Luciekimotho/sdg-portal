@@ -211,3 +211,21 @@ input[type=range] {
   -ms-transform: translateY(0px);
   -moz-transform: translateY(0px);
 }
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #229699;
+  border-color: #229699;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus, 
+.btn-primary:not(:disabled):not(.disabled):active:focus, 
+.show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 .1rem rgb(34, 150, 153);
+}
+
+.btn-danger:not(:disabled):not(.disabled).active:focus,
+.btn-danger:not(:disabled):not(.disabled):active:focus,
+.show > .btn-danger.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0rem rgba(225, 83, 97, 0.5);
+}

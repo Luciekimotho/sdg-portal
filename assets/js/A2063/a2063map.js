@@ -15,24 +15,8 @@ $(document).ready(function () {
     loadA2063Map(1, 1, dataSourceURL);
     $('#goal01').click();
     timeRangeSlider();
+    $("select[id^='selectIndicator1']").val("placeholder");
 });
-
-function changeVisualization(n, goal) {
-    if (n === 1) {
-        //console.log(dataSourceURL);
-        $("[id^='filter']").hide();
-        $('#chartTypes').hide();
-        loadA2063Map(1, goal, dataSourceURL);
-    }
-    if (n === 2) {
-        //console.log(dataSourceURL);
-        $("[id^='filter']").show();
-        $("[id='chartTypes']").show();
-        loadA2063Map(2, goal, dataSourceURL);
-        // $('.slider-div').hide();
-    }
-
-}
 
 function loadGoal() {
     $("[id^='filter']").hide();
@@ -50,6 +34,7 @@ function chooseIndicator(goal) {
     $("button[id^='mrs']").show();
 
     var indicator = $("#selectIndicator" + goal).val();
+    console.log(indicator);
     if (dataSourceURL.match(/^.*csv$/)) {
         //UPDATE URL and call LoadA2063Map
         var prefix = dataSourceURL.slice(0, 27);
@@ -111,23 +96,35 @@ function loadPanAfricanData(goal){
 function choosePeriodA2063(goal) {
     period = $("#selectPeriod" + goal).val();
     //console.log(period);
-    
     if (dataSourceURL.match(/^.*csv$/)) {
         //UPDATE URL and call LoadA2063Map
         var prefix = dataSourceURL.slice(0, 33);
         dataSourceURL = prefix  + '.csv';
-        loadA2063Map(1, goal, dataSourceURL);
-        //console.log(dataSourceURL.length);
-        
+        loadA2063Map(1, goal, dataSourceURL); 
     }
+
     if (dataSourceURL.charAt(35) === '' || dataSourceURL.charAt(40) === '') {
         var prefix = dataSourceURL.slice(0, 33);
         dataSourceURL = prefix + '.csv';
         completeDataPath = dataSourceURL;
         loadA2063Map(1, goal, dataSourceURL);
-        //console.log(dataSourceURL);
     }
-    //console.log(completeDataPath);
+}
+function changeVisualization(n, goal) {
+    if (n === 1) {
+        //console.log(dataSourceURL);
+        $("[id^='filter']").hide();
+        $('#chartTypes').hide();
+        loadA2063Map(1, goal, dataSourceURL);
+    }
+    if (n === 2) {
+        //console.log(dataSourceURL);
+        $("[id^='filter']").show();
+        $("[id='chartTypes']").show();
+        loadA2063Map(2, goal, dataSourceURL);
+        // $('.slider-div').hide();
+    }
+
 }
 
 function getClosest(arr, val) {
