@@ -19,6 +19,7 @@ $(document).ready(function () {
     $("[id^='filter']").hide();
     $('#chartTypes').hide();  
     $("select[id^='selectPeriod']").hide();
+    $(".card-footer").hide();
     timeRangeSlider();
 
     loadTarget(1);
@@ -56,8 +57,6 @@ function loadSDG(){
     }
     request.send() 
 }
-
-
 
 function getTargets(goalNo){
     var baseUrl = 'https://unstats.un.org/SDGAPI/v1/sdg/Goal/'
@@ -289,17 +288,11 @@ function loadTarget(containerID, targetNo) {
         var postfix = globalDataSourceURL.slice(32);
         globalDataSourceURL = prefix + targetNo + postfix;
         loadMap(1, containerID, globalDataSourceURL);
-        console.log(prefix);
-        console.log(postfix);
-        console.log(targetNo);
     }
     
     if(globalDataSourceURL.charAt(30) === '' || globalDataSourceURL.charAt(33)=== ''){
         var prefix = globalDataSourceURL.slice(0, 30);
         globalDataSourceURL = prefix + targetNo + '_';
-        console.log(prefix);
-        console.log(postfix);
-        console.log(targetNo);
     }
     
 }
@@ -382,7 +375,6 @@ function changeVisualization(n, containerIDNo) {
     }
 
 }
-
 
 //Function to load map
 
@@ -2035,6 +2027,7 @@ function loadMap(n, containerID, dataSourceURL) {
             });
         });
     }
+
 }
 
 function getClosest(arr, val) {

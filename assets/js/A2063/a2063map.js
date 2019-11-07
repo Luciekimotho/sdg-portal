@@ -16,7 +16,7 @@ $(document).ready(function () {
     $('#goal01').click();
     timeRangeSlider();
     $("select[id^='selectIndicator1']").val("placeholder");
-    
+    $(".card-footer").hide();
 });
 
 function loadGoal() {
@@ -128,68 +128,8 @@ function changeVisualization(n, goal) {
 
 }
 
-function getClosest(arr, val) {
-    return arr.reduce(function (prev, curr) {
-    return (Math.abs(curr - val) < Math.abs(prev - val) ? curr : prev);
-  });
-}
-let years = [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019];
-
-function timeRangeSlider(){
-    onSliderChange();
-    onClickPlayButton();
-}
-
-function onSliderChange(){
-    var sel = document.getElementById('selectPeriod1');
-    document.querySelector("#yearslider").addEventListener("change", function() {
-        let closest = getClosest(years, this.value);
-        this.value = document.querySelector("#rangevalue").value = closest;
-        period = this.value;
-        //console.log(period.toString());
-        $("#selectPeriod1").val(period.toString()); 
-
-        if ("createEvent" in document) {
-            var evt = document.createEvent("HTMLEvents");
-            evt.initEvent("change", false, true);
-            sel.dispatchEvent(evt);
-        }
-        else {
-            sel.fireEvent("onchange");
-        }
-    });  
-}
-
-function onClickPlayButton(){
-    var sel = document.getElementById('selectPeriod1');
-    document.querySelector("#play").addEventListener("click", function (){
-        let yearslider = document.querySelector("#yearslider");
-        let output = document.querySelector("#rangevalue");
-        years.forEach(function(item, index, array) {
-            // set a timeout so each second one button gets clicked
-            setTimeout( (function( index ) {
-                return function() {
-                    yearslider.value = output.value = array[index]; 
-                    period = yearslider.value;
-                    $("#selectPeriod1").val(period.toString());
-
-                    if ("createEvent" in document) {
-                        var evt = document.createEvent("HTMLEvents");
-                        evt.initEvent("change", false, true);
-                        sel.dispatchEvent(evt);
-                    }
-                    else {
-                        sel.fireEvent("onchange");
-                    }
-                };
-            }( index )), (1000 * index) );
-        });
-        
-    });   
-}
-
 function loadA2063Map(n, containerID, dataSourceURL) {
-
+    $(".card-footer").show();
     if (n == 1) {
 
         $("[id^='filter']").hide();
@@ -1852,6 +1792,66 @@ function loadA2063Map(n, containerID, dataSourceURL) {
     }
 }
 
+function getClosest(arr, val) {
+    return arr.reduce(function (prev, curr) {
+    return (Math.abs(curr - val) < Math.abs(prev - val) ? curr : prev);
+  });
+}
+let years = [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019];
+
+function timeRangeSlider(){
+    onSliderChange();
+    onClickPlayButton();
+}
+
+function onSliderChange(){
+    var sel = document.getElementById('selectPeriod1');
+    document.querySelector("#yearslider").addEventListener("change", function() {
+        let closest = getClosest(years, this.value);
+        this.value = document.querySelector("#rangevalue").value = closest;
+        period = this.value;
+        //console.log(period.toString());
+        $("#selectPeriod1").val(period.toString()); 
+
+        if ("createEvent" in document) {
+            var evt = document.createEvent("HTMLEvents");
+            evt.initEvent("change", false, true);
+            sel.dispatchEvent(evt);
+        }
+        else {
+            sel.fireEvent("onchange");
+        }
+    });  
+}
+
+function onClickPlayButton(){
+    var sel = document.getElementById('selectPeriod1');
+    document.querySelector("#play").addEventListener("click", function (){
+        let yearslider = document.querySelector("#yearslider");
+        let output = document.querySelector("#rangevalue");
+        years.forEach(function(item, index, array) {
+            // set a timeout so each second one button gets clicked
+            setTimeout( (function( index ) {
+                return function() {
+                    yearslider.value = output.value = array[index]; 
+                    period = yearslider.value;
+                    $("#selectPeriod1").val(period.toString());
+
+                    if ("createEvent" in document) {
+                        var evt = document.createEvent("HTMLEvents");
+                        evt.initEvent("change", false, true);
+                        sel.dispatchEvent(evt);
+                    }
+                    else {
+                        sel.fireEvent("onchange");
+                    }
+                };
+            }( index )), (1000 * index) );
+        });
+        
+    });   
+}
+
 function lowercase(string) {
     return string.toLocaleLowerCase();
 }
@@ -1883,16 +1883,19 @@ function getMapData() {
 }
 
 function countriesDropdown(){
-    var items = getMapData();
-    $.each(items, function (i, item) {
-        var option = document.createElement("option");
-        option.className = "filter-position";
-        option.text = item["country"];
-        option.value = item["code"];
-        var select = document.getElementById("african_countries1");
-        select.appendChild(option);
-    });
-    $('.selectpicker').selectpicker('refresh');
+    for(var j=1; j<=20; j++){
+        var items = getMapData();
+        $.each(items, function (i, item) {
+            var option = document.createElement("option");
+            option.className = "filter-position";
+            option.text = item["country"];
+            option.value = item["code"];
+            var select = document.getElementById("african_countries" + j);
+            select.appendChild(option);
+        });
+        $('.selectpicker').selectpicker('refresh');
+        }
+    
 }
 
 function getFilteredData() {
@@ -1942,17 +1945,20 @@ function getFilteredData() {
  */
 function applyFilters() {
      var data2 = getFilteredData();
-     
-    //update chart data
-    var chart2 = $('#container1').highcharts();
-    var seriesLength = chart2.series.length;
 
-    for(var i = seriesLength -1; i > -1; i--) {
-        chart2.series[i].remove();
-    }
+     for(var j=1; j<=20; j++){
+        //update chart data
 
-    for(var i = 0; i < data2.length; i++) {
-        chart2.addSeries(data2[i])
+        var chart2 = $("#container" + j).highcharts();
+        var seriesLength = chart2.series.length;
+
+        for(var i = seriesLength -1; i > -1; i--) {
+            chart2.series[i].remove();
+        }
+
+        for(var i = 0; i < data2.length; i++) {
+            chart2.addSeries(data2[i])
+        }
     }
 }
 
