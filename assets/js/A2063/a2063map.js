@@ -4,28 +4,32 @@ let chartData='';
 let countriesData='';
 let chart='';
 let chartNew='';
-let period = 2018;
-let year = 2018;
+let period = 2019;
+let year = 2019;
 
 // Loads after the page is ready
 $(document).ready(function () {
     //Load asp 1 goal 1, indicator 1, global database, 2016
     openAspiration(event, 'Aspiration1');
-    loadGoal(1);
-    //loadA2063Map(1, 1, "../assets/data/A2063/A2063_01_gbd.csv");
     $('#goal01').click();
+    loadGoal(1);
+
+    $("select[id^='selectIndicator1']").val("01");
+    chooseIndicator(1);
+    loadGlobalData(1);
+
+    $("select[id^='selectPeriod']").val("2019");
+    choosePeriodA2063(1);
+    
+    //loadA2063Map(1, 1, "../assets/data/A2063/A2063_01_gbd.csv");
     timeRangeSlider();
-    $("select[id^='selectIndicator1']").val("placeholder");
-    $(".card-footer").hide();
+    
+    $('.selectpicker').selectpicker();
 });
 
 function loadGoal() {
     $("[id^='filter']").hide();
     $('#chartTypes').hide();
-
-    $("select[id^='selectPeriod']").hide();
-    $("button[id^='gbd']").hide();
-    $("button[id^='mrs']").hide();
 
     dataSourceURL = '../assets/data/A2063/A2063_';
 }
@@ -131,12 +135,12 @@ function changeVisualization(n, goal) {
 function loadA2063Map(n, containerID, dataSourceURL) {
     $(".card-footer").show();
     if (n == 1) {
-
+        dataSourceURL = completeDataPath
         $("[id^='filter']").hide();
         $('#chartTypes').hide();
 
         $("#container" + containerID).css({"width": "100%", "height": "400px"});
-        $.get(completeDataPath, function (data){
+        $.get(dataSourceURL, function (data){
 
             //countriesData = data;
             
@@ -1878,13 +1882,14 @@ function getMapData() {
               
     }
     //console.log(countriesData.length); 
-    //console.log(newCountryData);
+    console.log(newCountryData);
     return newCountryData;
 }
 
 function countriesDropdown(){
     for(var j=1; j<=20; j++){
         var items = getMapData();
+        console.log(items)
         $.each(items, function (i, item) {
             var option = document.createElement("option");
             option.className = "filter-position";
@@ -1943,23 +1948,19 @@ function getFilteredData() {
 /**
  * Function which applies current filters when invoked
  */
-function applyFilters() {
+function applyFilters(containerID) {
      var data2 = getFilteredData();
 
-     for(var j=1; j<=20; j++){
         //update chart data
 
-        var chart2 = $("#container" + j).highcharts();
+        var chart2 = $(containerID).highcharts();
         var seriesLength = chart2.series.length;
-
         for(var i = seriesLength -1; i > -1; i--) {
             chart2.series[i].remove();
         }
-
         for(var i = 0; i < data2.length; i++) {
             chart2.addSeries(data2[i])
         }
-    }
 }
 
 // Set type

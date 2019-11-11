@@ -3,7 +3,7 @@ let chartData='';
 let countriesData='';
 let chart='';
 let chartNew='';
-let period = '';
+let period = 2019;
 let year = 2018;
 let globalDataSourceURL = '../assets/data/SDGs/sdgTarget_';
 
@@ -13,19 +13,20 @@ let description = ''
 
 //Loads after the page is ready
 $(document).ready(function () {
-    loadSDG();
-    loadTarget(1, 11);
-    loadMap(1, 1, completeDataPath);
     $("[id^='filter']").hide();
     $('#chartTypes').hide();  
-    $("select[id^='selectPeriod']").hide();
     $(".card-footer").hide();
-    timeRangeSlider();
 
-    loadTarget(1);
+    loadSDG();
+    //Click on the first target button, Global data, and Year 2019
+    setTimeout(function(){
+        $("#btn11").click();
+        loadTarget(1,11)
+        loadGlobalData(1, 1);
+        $("select[id^='selectPeriod11']").val("2019");
+        choosePeriod(1,11);
+      }, 2000); 
 });
-
-
 
 function loadSDG(){
     var pageUrl = window.location.href
@@ -33,13 +34,12 @@ function loadSDG(){
     var goalStr = postfix.slice(0, 2)
     var goalNo = Number(goalStr)
     var index
-    
-    var request = new XMLHttpRequest()
-    request.open('GET', 'https://unstats.un.org/SDGAPI/v1/sdg/Goal/List', true)
-    request.onload = function(){
-        var data = JSON.parse(this.response)
-        if(request.status >= 200 && request.status < 400){
-            index = goalNo-1
+    var sdgAPIUrl = 'https://unstats.un.org/SDGAPI/v1/sdg/Goal/List'
+
+    fetch(sdgAPIUrl)
+    .then((resp) => resp.json())
+    .then(function(data){
+        index = goalNo-1
             title = data[index].title
             description = data[index].description
 
@@ -51,138 +51,126 @@ function loadSDG(){
             document.getElementById("sdgIcon").src = "../assets/img/sdg_icons/E_SDG_Icons-" + goalStr + ".jpg";
             document.getElementById("sdgBg").style.backgroundColor = values[2];
             getTargets(goalNo)
-        }else{
-            console.log('Error')
-        }
-    }
-    request.send() 
+    })   
 }
 
 function getTargets(goalNo){
     var baseUrl = 'https://unstats.un.org/SDGAPI/v1/sdg/Goal/'
-    var url = baseUrl + goalNo + '/Target/List?includechildren=true'
+    var targetAPIUrl = baseUrl + goalNo + '/Target/List?includechildren=true'
     var code, title 
 
-    var request = new XMLHttpRequest()
-    request.open('GET', url, true)
-    request.onload = function(){
-        var data = JSON.parse(this.response)
-       // console.log(data)
-        if(request.status >= 200 && request.status < 400){
-            var targets = data[0].targets
-            for ( var i=0; i<targets.length; i++ ) {
-                //Dynamically create target butons and append to div
-                code = targets[i].code
-                title = targets[i].title
-   
-                var id = code.replace(".", ""); 
-                var id2 = id
+    fetch(targetAPIUrl)
+    .then((resp)=>resp.json())
+    .then(function(data){
 
-                if(isNaN(code)){
-                    var revCode = code.split("").reverse().join("");
-                    id2 = revCode.replace(".", ""); 
-                    id2 = "'" + id2 + "'"
-                }
-                var containerId = i+1;
-                //console.log(containerId);
-                var  buttons =  ' <a data-toggle="tab" href="#target'+ id + '" onclick="loadTarget(' + containerId + ','+  id2 + ')" class="btn btn-danger sdg' + goalNo + '-btn">' 
-                    + "Target " + code + '</a>'
+        var targets = data[0].targets
+        for ( var i=0; i<targets.length; i++ ) {
+            //Dynamically create target butons and append to div
+            code = targets[i].code
+            title = targets[i].title
+
+            var id = code.replace(".", ""); 
+            var id2 = id
+
+            if(isNaN(code)){
+                var revCode = code.split("").reverse().join("");
+                id2 = revCode.replace(".", ""); 
+               // id2 = "'" + id2 + "'"
+            }
+            var containerId = i+1;
             
-                $('.targetButtons').append(buttons);
+            //console.log(containerId);
+            var  buttons =  ' <a data-toggle="tab" id="btn'+ id +'" href="#target'+ id + '" onclick="loadTarget(' + containerId + ','+  id2 + ')" class="btn btn-danger sdg' + goalNo + '-btn">' 
+                + "Target " + code + '</a>'
+        
+            $('.targetButtons').append(buttons);
+           
+            //Create the tab contents
+            var navContent =  ' <div class="col-md-10 card tab-pane fade" id="target'+ id +'" style="border-radius: 0;background-color: white">' + 
+                              ' <p style="text-align: center;color: black;"><i> ' + 'Target '+ code + ': ' + title + '</i></p> '  + 
+                              ' <div class=" row text-center"> ' + 
+                                    ' <div class="col-md-6"> ' +
+                                        ' <button id="gbd" class="btn btn-primary btn-data" onclick="loadGlobalData(1,11)">Global Database</button> ' +
+                                        ' <button id="mrs" class="btn btn-primary btn-data" onclick="loadPanAfricanData(1,11)">PanAfrican MRS</button> ' +
+                                    ' </div> ' + 
+                              ' <div class="col-md-3"></div> ' +
+                              ' <div class="col-md-2"> ' +
+                                  ' <select id="selectPeriod11" class="btn btn-primary" onchange="choosePeriod(1,11);">' + 
+                                      ' <option value="default"> Select a Period</option>' + 
+                                      ' <option value="2019">2019</option>' + 
+                                      ' <option value="2018">2018</option>' + 
+                                      ' <option value="2017">2017</option>' + 
+                                      ' <option value="2016">2016</option>' +
+                                  ' </select>' +
+                              ' </div>' +
+                          ' </div>' + 
+                          ' <div> ' + 
+                            '<div> ' + 
+                                '<div id="filter1" style="text-align: center;margin-top: 1%;">' +
+                                    '<select class="selectpicker" multiple data-live-search="true" id="african_countries' + containerId + '" onchange="applyFilters()">' +
 
-                //Create the tab contents
-                var navContent =  ' <div class="col-md-10 card tab-pane fade" id="target'+ id +'" style="border-radius: 0;background-color: white">' + 
-                                  ' <p style="text-align: center;color: black;"><i> ' + 'Target '+ code + ': ' + title + '</i></p> '  + 
-                                  ' <div class=" row text-center"> ' + 
-                                        ' <div class="col-md-6"> ' +
-                                            ' <button id="gbd" class="btn btn-primary btn-data" onclick="loadGlobalData(1,11)">Global Database</button> ' +
-                                            ' <button id="mrs" class="btn btn-primary btn-data" onclick="loadPanAfricanData(1,11)">PanAfrican MRS</button> ' +
-                                        ' </div> ' + 
-                                  ' <div class="col-md-3"></div> ' +
-                                  ' <div class="col-md-2"> ' +
-                                      ' <select id="selectPeriod11" class="btn btn-primary" onchange="choosePeriod(1,11);">' + 
-                                          ' <option value="default"> Select a Period</option>' + 
-                                          ' <option value="2019">2019</option>' + 
-                                          ' <option value="2018">2018</option>' + 
-                                          ' <option value="2017">2017</option>' + 
-                                          ' <option value="2016">2016</option>' +
-                                      ' </select>' +
-                                  ' </div>' +
-                              ' </div>' + 
-                              ' <div> ' + 
-                                '<div> ' + 
-                                    '<div id="filter1" style="text-align: center;margin-top: 1%;">' +
-                                        '<select class="selectpicker" multiple data-live-search="true" id="african_countries1" onchange="applyFilters()">' +
-                                            '<option selected>Choose</option>' +
-                                            '<option value="dz" class="filter-position" selected>Algeria</option>'+
-                                            '<option value="ao" class="filter-position" selected>Angola</option>'+
-                                            '<option value="bj" class="filter-position" selected>Benin</option>'+
-                                            '<option value="bw" class="filter-position" selected>Botswana</option>'+
-                                            '<option value="bf" class="filter-position" selected>Burkina Faso</option>'+
-                                            '<option value="bi" class="filter-position">Burundi</option>'+
-                                        '</select>'+
-                                    '</div>'+
-                                    '<div id="chartTypes" style="text-align: right;">'+
-                                        '<button id="column" style="margin-left: 2em" class="btn btn-primary">'+
-                                            '<i class="far fa-chart-bar"></i>'+
-                                        '</button>'+
-                                        '<button id="line" class="btn btn-primary">'+
-                                            '<i class="fas fa-chart-line"></i>'+   
-                                        '</button>'+
-                                    '</div>'+
+                                    '</select>'+
                                 '</div>'+
-                                '<div class="row card-body" id="container'+ containerId +'">'+
+                                '<div id="chartTypes" style="text-align: right;">'+
+                                    '<button id="column" style="margin-left: 2em" class="btn btn-primary">'+
+                                        '<i class="far fa-chart-bar"></i>'+
+                                    '</button>'+
+                                    '<button id="line" class="btn btn-primary">'+
+                                        '<i class="fas fa-chart-line"></i>'+   
+                                    '</button>'+
                                 '</div>'+
-                                '<hr>'+
-                                '<div class="card">'+
-                                        '<div class="card-body">'+
-                                            '<div class="row slider-div">'+
-                                                    '<div class="col-md-2"></div>'+
-                                                '<div class="col-md-1">'+
-                                                    '<button id="play" class="btn btn-primary btn-just-icon">'+
-                                                        '<i class="nc-icon nc-button-play"></i>'+
-                                                    '</button>'+
-                                                '</div>'+
-                                                '<div class="col-md-4" style="padding-right: 0px;padding-left: 0px;">'+
-                                                        '<input id="yearslider" class="range blue" type="range" min="2010" value="2010" max="2019" step="1" list="ticks" >'+
-                                                        '<datalist id="ticks">'+
-                                                            '<option>2010</option>'+
-                                                            '<option>2011</option>'+
-                                                            '<option>2012</option>'+
-                                                            '<option>2013</option>'+
-                                                            '<option>2014</option>'+
-                                                            '<option>2015</option>'+
-                                                            '<option>2016</option>'+
-                                                            '<option>2017</option>'+
-                                                            '<option>2018</option>'+
-                                                            '<option>2019</option>'+
-                                                        '</datalist>'+
-                                                '</div>'+
-                                                '<div class="col-md-1 output-div">'+
-                                                        '<output id="rangevalue" class="output-year">2010</output>'+
-                                                '</div>'+
-                                                '<div class="col-md-4">'+
-                                                    '<button class="btn btn-primary" onclick="changeVisualization(1,1);"><span class="fa fa-globe"></span>Map</button>'+
-                                                    ' <button class="btn btn-primary" onclick="changeVisualization(2,1);"><span class="fa fa-bar-chart"></span>Chart'+
-                                                ' </button>'+
-                                                '</div>'+
+                            '</div>'+
+                            '<div class="row card-body" id="container'+ containerId +'">'+
+                            '</div>'+
+                            '<hr>'+
+                            '<div class="card">'+
+                                    '<div class="card-body">'+
+                                        '<div class="row slider-div">'+
+                                                '<div class="col-md-2"></div>'+
+                                            '<div class="col-md-1">'+
+                                                '<button id="play" class="btn btn-primary btn-just-icon">'+
+                                                    '<i class="nc-icon nc-button-play"></i>'+
+                                                '</button>'+
+                                            '</div>'+
+                                            '<div class="col-md-4" style="padding-right: 0px;padding-left: 0px;">'+
+                                                    '<input id="yearslider" class="range blue" type="range" min="2010" value="2010" max="2019" step="1" list="ticks" >'+
+                                                    '<datalist id="ticks">'+
+                                                        '<option>2010</option>'+
+                                                        '<option>2011</option>'+
+                                                        '<option>2012</option>'+
+                                                        '<option>2013</option>'+
+                                                        '<option>2014</option>'+
+                                                        '<option>2015</option>'+
+                                                        '<option>2016</option>'+
+                                                        '<option>2017</option>'+
+                                                        '<option>2018</option>'+
+                                                        '<option>2019</option>'+
+                                                    '</datalist>'+
+                                            '</div>'+
+                                            '<div class="col-md-1 output-div">'+
+                                                    '<output id="rangevalue" class="output-year">2010</output>'+
+                                            '</div>'+
+                                            '<div class="col-md-4">'+
+                                                '<button class="btn btn-primary" onclick="changeVisualization(1,1);"><span class="fa fa-globe"></span>Map</button>'+
+                                                ' <button class="btn btn-primary" onclick="changeVisualization(2,1);"><span class="fa fa-bar-chart"></span>Chart'+
+                                            ' </button>'+
                                             '</div>'+
                                         '</div>'+
-                              ' </div>'+
-                            '</div>'
-                $('.tab-content').append(navContent);
-            }
-
-        loadMap(1, 1, completeDataPath);
-        $("[id^='filter']").hide();
-        $('#chartTypes').hide();  
-        $("select[id^='selectPeriod']").hide();
-        timeRangeSlider();
-        }else{
-            console.log('Error')
+                                    '</div>'+
+                          ' </div>'+
+                        '</div>'
+            $('.tab-content').append(navContent);
+           
         }
-    }
-    request.send()
+
+    loadMap(1, 1, completeDataPath);
+    $("[id^='filter']").hide();
+    $('#chartTypes').hide();  
+   
+    timeRangeSlider();
+
+    })
+    
 }
 
 function getShortHandDescriptionColor(goalNo){
@@ -286,6 +274,7 @@ function loadTarget(containerID, targetNo) {
     if(globalDataSourceURL.match(/^.*csv/)){
         var prefix = globalDataSourceURL.slice(0, 30);
         var postfix = globalDataSourceURL.slice(32);
+        
         globalDataSourceURL = prefix + targetNo + postfix;
         loadMap(1, containerID, globalDataSourceURL);
     }
@@ -294,7 +283,6 @@ function loadTarget(containerID, targetNo) {
         var prefix = globalDataSourceURL.slice(0, 30);
         globalDataSourceURL = prefix + targetNo + '_';
     }
-    
 }
 
 //Choose data source toggle buttons
@@ -335,8 +323,8 @@ function loadPanAfricanData(containerIDNo, targetNo){
     } 
     $("#mrs").addClass('active');
     $("#gbd").removeClass('active');
-    console.log(globalDataSourceURL.length)
-    console.log(globalDataSourceURL);
+    //console.log(globalDataSourceURL.length)
+    //console.log(globalDataSourceURL);
 }
 
 //ChoosePeriod function
@@ -344,19 +332,23 @@ function choosePeriod(containerIDNo, targetNo){
     var selectorID=$("#selectPeriod" + targetNo );
     period = selectorID.val();
     
+    
+    //console.log(period)
+    
     if(globalDataSourceURL.match(/^.*csv/)){
         var prefix = globalDataSourceURL.slice(0, 36);
         globalDataSourceURL = prefix + '.csv';
-        loadMap(1,containerIDNo,completeDataPath);
+        loadMap(1,containerIDNo,globalDataSourceURL);
     }
     if(globalDataSourceURL.charAt(35) === '' || globalDataSourceURL.charAt(40) === ''){
         var prefix = globalDataSourceURL.slice(0, 36);
         globalDataSourceURL = prefix + '.csv';
         completeDataPath = globalDataSourceURL;
+
         loadMap(1,containerIDNo,globalDataSourceURL);
     }
-    console.log(globalDataSourceURL.length)
-    console.log(globalDataSourceURL);
+    //console.log(globalDataSourceURL.length)
+   // console.log(globalDataSourceURL);
 }
 
 function changeVisualization(n, containerIDNo) {
@@ -380,10 +372,10 @@ function changeVisualization(n, containerIDNo) {
 
 function loadMap(n, containerID, dataSourceURL) {
     if (n == 1) {
+        dataSourceURL = completeDataPath
         $("#container" + containerID).css({"width": "100%", "height": "400px"});
-        $.get(completeDataPath, function (data){
-
-            countriesData = data;
+        $.get(dataSourceURL, function (data){
+           // countriesData = data;
             
             var lines = data.split('\n');
             var result = [];
@@ -1762,7 +1754,7 @@ function loadMap(n, containerID, dataSourceURL) {
                                         // drilldown: drillPath
                                     })
                                     
-                                    //console.log(countriesData.code);
+                                    console.log(countriesData.code);
                                 });
                                 // Hide loading and add series
                                 chart.addSingleSeriesAsDrilldown(e.point, {
@@ -1910,6 +1902,7 @@ function loadMap(n, containerID, dataSourceURL) {
         });
     }
     if (n == 2) {
+        countriesDropdown();
         var result = [];
         $.get(completeDataPath, function (data){
 
@@ -1944,8 +1937,8 @@ function loadMap(n, containerID, dataSourceURL) {
 
             chartData = result;
 
-            console.log("Random Filtered result"); 
-            console.log(getFilteredData());
+            //console.log("Random Filtered result"); 
+            //console.log(getFilteredData());
 
             chartNew = Highcharts.chart("container" + containerID, {
                 chart: {
@@ -2027,7 +2020,7 @@ function loadMap(n, containerID, dataSourceURL) {
             });
         });
     }
-
+    timeRangeSlider();
 }
 
 function getClosest(arr, val) {
@@ -2101,9 +2094,9 @@ function contains(string, value) {
 /**
  * Function that checks which data is selected and generates a new data set
  */
-var newCountryData = [];
-function getMapData() {    
 
+function getMapData() {    
+    var newCountryData = [];
     // cycle through source data and filter out required data points
     for (var i = 0; i < countriesData.length; i++) {
         var dataPoint = countriesData[i];
@@ -2116,30 +2109,25 @@ function getMapData() {
             });
             //console.log("");   
     }
+    //console.log(countriesData)
     return newCountryData;
 }
 
 function countriesDropdown(){
     var items = getMapData();
-
-    var select = document.getElementById("african_countries1");
-
-    for(var i; i< items.length; i++) {
-        var opt = document.createElement('option');
-        opt.innerHTML = items[i]['country'];
-        opt.value = items[i]['code'];
-        select.appendChild(opt);
-    }
-
-    //console.log(items);
-
-    // $.each(items, function (i, item) {
-    //     $('#african_countries1').append($('<option>', { 
-    //         value: item["code"],
-    //         text : item["country"] 
-    //     }));
-    //     console.log(item["code"]);
-    // });
+    //console.log(items)
+    for(var j=1; j<=7; j++){
+        $.each(items, function (i, item) {
+            var option = document.createElement("option");
+            option.className = "filter-position";
+            option.text = item["country"];
+            option.value = item["code"];
+            //console.log("j", j);
+            var select = document.getElementById("african_countries" + j);
+            select.appendChild(option);
+        });
+        $('.selectpicker').selectpicker('refresh');
+        }
 }
 
 function getFilteredData() {
