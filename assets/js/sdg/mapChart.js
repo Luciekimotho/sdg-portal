@@ -14,18 +14,11 @@ let description = ''
 //Loads after the page is ready
 $(document).ready(function () {
     $("[id^='filter']").hide();
-    $('#chartTypes').hide();  
+    $("[id^='chartTypes']").hide(); 
     $(".card-footer").hide();
 
     loadSDG();
-    //Click on the first target button, Global data, and Year 2019
-    setTimeout(function(){
-        $("#btn11").click();
-        loadTarget(1,11)
-        loadGlobalData(1, 1);
-        $("select[id^='selectPeriod11']").val("2019");
-        choosePeriod(1,11);
-      }, 2000); 
+
 });
 
 function loadSDG(){
@@ -58,12 +51,16 @@ function getTargets(goalNo){
     var baseUrl = 'https://unstats.un.org/SDGAPI/v1/sdg/Goal/'
     var targetAPIUrl = baseUrl + goalNo + '/Target/List?includechildren=true'
     var code, title 
+    var firstBtnID, firstTarget
 
     fetch(targetAPIUrl)
     .then((resp)=>resp.json())
     .then(function(data){
 
         var targets = data[0].targets
+        firstBtnID = targets[0].code.replace(".", "");
+        firstTarget = targets[0].code.replace(".", "");
+
         for ( var i=0; i<targets.length; i++ ) {
             //Dynamically create target butons and append to div
             code = targets[i].code
@@ -78,8 +75,7 @@ function getTargets(goalNo){
                // id2 = "'" + id2 + "'"
             }
             var containerId = i+1;
-            
-            //console.log(containerId);
+
             var  buttons =  ' <a data-toggle="tab" id="btn'+ id +'" href="#target'+ id + '" onclick="loadTarget(' + containerId + ','+  id2 + ')" class="btn btn-danger sdg' + goalNo + '-btn">' 
                 + "Target " + code + '</a>'
         
@@ -90,12 +86,12 @@ function getTargets(goalNo){
                               ' <p style="text-align: center;color: black;"><i> ' + 'Target '+ code + ': ' + title + '</i></p> '  + 
                               ' <div class=" row text-center"> ' + 
                                     ' <div class="col-md-6"> ' +
-                                        ' <button id="gbd" class="btn btn-primary btn-data" onclick="loadGlobalData(1,11)">Global Database</button> ' +
-                                        ' <button id="mrs" class="btn btn-primary btn-data" onclick="loadPanAfricanData(1,11)">PanAfrican MRS</button> ' +
+                                        ' <button id="gbd'+ containerId + ' " class="btn btn-primary btn-data" onclick="loadGlobalData(1,11)">Global Database</button> ' +
+                                        ' <button id="mrs'+ containerId + '" class="btn btn-primary btn-data" onclick="loadPanAfricanData(1,11)">PanAfrican MRS</button> ' +
                                     ' </div> ' + 
                               ' <div class="col-md-3"></div> ' +
                               ' <div class="col-md-2"> ' +
-                                  ' <select id="selectPeriod11" class="btn btn-primary" onchange="choosePeriod(1,11);">' + 
+                                  ' <select id="selectPeriod'+id2+'" class="btn btn-primary" onchange="choosePeriod('+ containerId+','+id2+');">' + 
                                       ' <option value="default"> Select a Period</option>' + 
                                       ' <option value="2019">2019</option>' + 
                                       ' <option value="2018">2018</option>' + 
@@ -111,7 +107,7 @@ function getTargets(goalNo){
 
                                     '</select>'+
                                 '</div>'+
-                                '<div id="chartTypes" style="text-align: right;">'+
+                                '<div id="chartTypes'+containerId+'" style="text-align: right;">'+
                                     '<button id="column" style="margin-left: 2em" class="btn btn-primary">'+
                                         '<i class="far fa-chart-bar"></i>'+
                                     '</button>'+
@@ -160,15 +156,14 @@ function getTargets(goalNo){
                           ' </div>'+
                         '</div>'
             $('.tab-content').append(navContent);
-           
         }
 
-    loadMap(1, 1, completeDataPath);
-    $("[id^='filter']").hide();
-    $('#chartTypes').hide();  
-   
-    timeRangeSlider();
+        $("#btn"+firstBtnID).click();
 
+        $("[id^='filter']").hide();
+        $('#chartTypes').hide();  
+    
+        timeRangeSlider();
     })
     
 }
@@ -267,27 +262,32 @@ function getShortHandDescriptionColor(goalNo){
 
 //Called when a target is clicked
 function loadTarget(containerID, targetNo) {
-    // var targetNo = $("#target")
-    $('#chartTypes').hide();  
     $("button[id^='gbd']").show();
     $("button[id^='mrs']").show();
+    
     if(globalDataSourceURL.match(/^.*csv/)){
         var prefix = globalDataSourceURL.slice(0, 30);
         var postfix = globalDataSourceURL.slice(32);
         
         globalDataSourceURL = prefix + targetNo + postfix;
-        loadMap(1, containerID, globalDataSourceURL);
+       // loadMap(1, containerID, globalDataSourceURL);
     }
     
     if(globalDataSourceURL.charAt(30) === '' || globalDataSourceURL.charAt(33)=== ''){
         var prefix = globalDataSourceURL.slice(0, 30);
         globalDataSourceURL = prefix + targetNo + '_';
     }
+
+    loadGlobalData(containerID, targetNo);
+    $("select[id^='selectPeriod']").val("2019");
+    choosePeriod(containerID,targetNo);
 }
 
 //Choose data source toggle buttons
 function loadGlobalData(containerIDNo, targetNo){
     var source = "gdb";
+    $("button[id^='gbd']").addClass('active');
+    $("button[id^='mrs']").removeClass('active');
 
     if(globalDataSourceURL.match(/^.*csv$/)){
         var prefix = globalDataSourceURL.slice(0, 33);
@@ -302,9 +302,6 @@ function loadGlobalData(containerIDNo, targetNo){
         globalDataSourceURL = prefix + source;
         $("select[id^='selectPeriod']").show();
     } 
-    $("#gbd").addClass('active');
-    $("#mrs").removeClass('active');
-    
 }
 
 function loadPanAfricanData(containerIDNo, targetNo){
@@ -321,10 +318,8 @@ function loadPanAfricanData(containerIDNo, targetNo){
         globalDataSourceURL = prefix + source;
         $("select[id^='selectPeriod']").show();
     } 
-    $("#mrs").addClass('active');
-    $("#gbd").removeClass('active');
-    //console.log(globalDataSourceURL.length)
-    //console.log(globalDataSourceURL);
+    $("button[id^='mrs']").addClass('active');
+    $("button[id^='gbd']").removeClass('active');
 }
 
 //ChoosePeriod function
@@ -332,13 +327,11 @@ function choosePeriod(containerIDNo, targetNo){
     var selectorID=$("#selectPeriod" + targetNo );
     period = selectorID.val();
     
-    
-    //console.log(period)
-    
     if(globalDataSourceURL.match(/^.*csv/)){
         var prefix = globalDataSourceURL.slice(0, 36);
         globalDataSourceURL = prefix + '.csv';
         loadMap(1,containerIDNo,globalDataSourceURL);
+        //completeDataPath = globalDataSourceURL;
     }
     if(globalDataSourceURL.charAt(35) === '' || globalDataSourceURL.charAt(40) === ''){
         var prefix = globalDataSourceURL.slice(0, 36);
@@ -347,21 +340,21 @@ function choosePeriod(containerIDNo, targetNo){
 
         loadMap(1,containerIDNo,globalDataSourceURL);
     }
-    //console.log(globalDataSourceURL.length)
-   // console.log(globalDataSourceURL);
+    console.log(period)
+    console.log(globalDataSourceURL);
 }
 
 function changeVisualization(n, containerIDNo) {
     if (n === 1) {
         //console.log(dataSourceURL);
         $("[id^='filter']").hide();
-        $('#chartTypes').hide();
+        $("[id^='chartTypes']").hide();
         loadMap(1,containerIDNo,completeDataPath);
     }
     if (n === 2) {
         //console.log(dataSourceURL);
         $("[id^='filter']").show();
-        $("[id='chartTypes']").show();
+        $("[id^='chartTypes']").show();
         loadMap(2,containerIDNo,completeDataPath);
         // $('.slider-div').hide();
     }
@@ -372,6 +365,8 @@ function changeVisualization(n, containerIDNo) {
 
 function loadMap(n, containerID, dataSourceURL) {
     if (n == 1) {
+        $("[id^='filter']").hide(); 
+        $("[id^='chartTypes']").hide();
         dataSourceURL = completeDataPath
         $("#container" + containerID).css({"width": "100%", "height": "400px"});
         $.get(dataSourceURL, function (data){
