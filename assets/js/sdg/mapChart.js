@@ -340,8 +340,8 @@ function choosePeriod(containerIDNo, targetNo){
 
         loadMap(1,containerIDNo,globalDataSourceURL);
     }
-    console.log(period)
-    console.log(globalDataSourceURL);
+    //console.log(period)
+    //console.log(globalDataSourceURL);
 }
 
 function changeVisualization(n, containerIDNo) {
@@ -2109,8 +2109,9 @@ function getMapData() {
 }
 
 function countriesDropdown(){
+    $('.selectpicker').selectpicker('refresh');
     var items = getMapData();
-    //console.log(items)
+    console.log(items)
     for(var j=1; j<=7; j++){
         $.each(items, function (i, item) {
             var option = document.createElement("option");
@@ -2121,6 +2122,8 @@ function countriesDropdown(){
             var select = document.getElementById("african_countries" + j);
             select.appendChild(option);
         });
+        $('.selectpicker').selectpicker('refresh');
+        $('.selectpicker').selectpicker('val', [items[0].code, items[1].code, items[2].code, items[3].code]);
         $('.selectpicker').selectpicker('refresh');
         }
 }
@@ -2186,7 +2189,7 @@ function applyFilters(containerID) {
 }
 
 // Set type
-$.each(['line', 'column', 'spline', 'area', 'areaspline', 'scatter', 'pie'], function (i, type) {
+$.each(['line', 'column'], function (i, type) {
     $('#' + type).click(function () {
         var chart2 = $('#container1').highcharts();
         chart2.series[0].update({
