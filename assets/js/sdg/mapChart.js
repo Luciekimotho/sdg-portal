@@ -2131,13 +2131,14 @@ function countriesDropdown(){
 function getFilteredData() {
     var filters = {};
 
-    // get all filter checkboxes
-    var fields = document.getElementsByClassName("filter-position");
-    for (var i = 0; i < fields.length; i++) {
-        if (fields[i].selected) {
-            filters[fields[i].value] = true;
-        }
+    var selectedCountries = $('.selectpicker').val()
+    console.log(selectedCountries)
+
+    for (var i = 0; i < selectedCountries.length; i++) {
+        filters[selectedCountries[i]] = true;
     }
+
+    console.log(filters)
 
     // init new data set
     var newData = [];
