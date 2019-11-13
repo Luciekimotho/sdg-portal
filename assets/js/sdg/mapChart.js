@@ -2132,13 +2132,10 @@ function getFilteredData() {
     var filters = {};
 
     var selectedCountries = $('.selectpicker').val()
-    console.log(selectedCountries)
 
     for (var i = 0; i < selectedCountries.length; i++) {
         filters[selectedCountries[i]] = true;
     }
-
-    console.log(filters)
 
     // init new data set
     var newData = [];
