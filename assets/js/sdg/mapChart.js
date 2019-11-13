@@ -102,8 +102,8 @@ function getTargets(goalNo){
                           ' </div>' + 
                           ' <div> ' + 
                             '<div> ' + 
-                                '<div id="filter1" style="text-align: center;margin-top: 1%;">' +
-                                    '<select class="selectpicker" multiple data-live-search="true" id="african_countries' + containerId + '" onchange="applyFilters()">' +
+                                '<div id="filter'+containerId+'" style="text-align: center;margin-top: 1%;">' +
+                                    '<select class="selectpicker" multiple data-live-search="true" id="african_countries' + containerId + '" onchange="applyFilters('+containerId+')">' +
 
                                     '</select>'+
                                 '</div>'+
@@ -147,8 +147,8 @@ function getTargets(goalNo){
                                                     '<output id="rangevalue" class="output-year">2010</output>'+
                                             '</div>'+
                                             '<div class="col-md-4">'+
-                                                '<button class="btn btn-primary" onclick="changeVisualization(1,1);"><span class="fa fa-globe"></span>Map</button>'+
-                                                ' <button class="btn btn-primary" onclick="changeVisualization(2,1);"><span class="fa fa-bar-chart"></span>Chart'+
+                                                '<button class="btn btn-primary" onclick="changeVisualization(1,'+containerId+');"><span class="fa fa-globe"></span>Map</button>'+
+                                                ' <button class="btn btn-primary" onclick="changeVisualization(2,'+containerId+');"><span class="fa fa-bar-chart"></span>Chart'+
                                             ' </button>'+
                                             '</div>'+
                                         '</div>'+
@@ -1933,7 +1933,7 @@ function loadMap(n, containerID, dataSourceURL) {
             chartData = result;
 
             //console.log("Random Filtered result"); 
-            //console.log(getFilteredData());
+            console.log(getFilteredData());
 
             chartNew = Highcharts.chart("container" + containerID, {
                 chart: {
@@ -2169,11 +2169,11 @@ function getFilteredData() {
 /**
  * Function which applies current filters when invoked
  */
-function applyFilters() {
+function applyFilters(containerID) {
      var data2 = getFilteredData();
 
     //update chart data
-    var chart2 = $('#container1').highcharts();
+    var chart2 = $('#container'+containerID).highcharts();
     var seriesLength = chart2.series.length;
 
     for(var i = seriesLength -1; i > -1; i--) {
