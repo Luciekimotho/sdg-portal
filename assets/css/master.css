@@ -67,3 +67,165 @@ p{
     background-color: transparent;
     margin-right: 1.5%;
 }
+
+/* Input range */
+input[type=range] {
+    height: 25px;
+    -webkit-appearance: none;
+    margin: 10px 0;
+    width: 100%;
+  }
+
+  input[type=range]:active,
+  input[type=range]:focus {
+    outline: 0;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 0px 0px 0px #000000;
+    background: #34b5b8;
+    border-radius: 1px;
+    border: 0px solid #000000;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    box-shadow: 0px 0px 0px #000000;
+    border: 1px solid #34b5b8;
+    height: 18px;
+    width: 7px;
+    border-radius: 6px;
+    background: #A1D0FF;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -7px;
+  }
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #34b5b8;
+  }
+  input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 0px 0px 0px #000000;
+    background: #34b5b8;
+    border-radius: 1px;
+    border: 0px solid #000000;
+  }
+  input[type=range]::-moz-range-thumb {
+    box-shadow: 0px 0px 0px #000000;
+    border: 1px solid #34b5b8;
+    height: 18px;
+    width: 7px;
+    border-radius: 6px;
+    background: #A1D0FF;
+    cursor: pointer;
+  }
+  input[type=range]::-ms-track {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  input[type=range]::-ms-fill-lower {
+    background: #34b5b8;
+    border: 0px solid #000000;
+    border-radius: 2px;
+    box-shadow: 0px 0px 0px #000000;
+  }
+  input[type=range]::-ms-fill-upper {
+    background: #34b5b8;
+    border: 0px solid #000000;
+    border-radius: 2px;
+    box-shadow: 0px 0px 0px #000000;
+  }
+  input[type=range]::-ms-thumb {
+    margin-top: 1px;
+    box-shadow: 0px 0px 0px #000000;
+    border: 1px solid #34b5b8;
+    height: 18px;
+    width: 7px;
+    border-radius: 6px;
+    background: #A1D0FF;
+    cursor: pointer;
+  }
+  input[type=range]:focus::-ms-fill-lower {
+    background: #34b5b8;
+  }
+  input[type=range]:focus::-ms-fill-upper {
+    background: #34b5b8;
+  }
+
+  input[type=range]::-moz-focus-outer {
+    border: 0;
+    }
+  
+
+    .title {
+      margin-top: 10px;
+      margin-bottom: 5px;
+      min-height: 10px;
+  }
+
+  .btn-data:hover, .btn-data:focus, .btn-data:active, .btn-data.active, .show > .btn-data.dropdown-toggle{
+    background-color: #278486;
+    color: #FFFFFF;
+    border-color: #278486;
+}
+
+.dropdown .dropdown-menu .dropdown-item{
+  padding: .25rem 1.5rem;
+  border-radius: 0px;
+}
+.dropdown .dropdown-menu 
+.dropdown-item:hover, 
+.dropdown .dropdown-menu 
+.dropdown-item:focus {
+  background-color: #66615B;
+  border-radius: 0px;
+}
+
+.dropdown .dropdown-menu .dropdown-item:last-child a, .dropdown .dropdown-menu .dropdown-item:last-child{
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.dropdown .dropdown-menu .dropdown-item:first-child a, .dropdown .dropdown-menu .dropdown-item:first-child {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  }
+
+.bootstrap-select .dropdown-toggle .filter-option-inner-inner{
+  text-transform: none;
+}
+
+.card:not(.card-plain):hover {
+  box-shadow: 0px 12px 19px -7px rgba(0, 0, 0, 0.3);
+  transform: translateY(0px);
+  -webkit-transform: translateY(0px);
+  -ms-transform: translateY(0px);
+  -moz-transform: translateY(0px);
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #229699;
+  border-color: #229699;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus, 
+.btn-primary:not(:disabled):not(.disabled):active:focus, 
+.show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 .1rem rgb(34, 150, 153);
+}
+
+.btn-danger:not(:disabled):not(.disabled).active:focus,
+.btn-danger:not(:disabled):not(.disabled):active:focus,
+.show > .btn-danger.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0rem rgba(225, 83, 97, 0.5);
+}

@@ -1,120 +1,46 @@
 var dataSourceURL = '../assets/data/A2063/A2063_';
 var completeDataPath = '';
 let chartData='';
+let countriesData='';
 let chart='';
+let chartNew='';
+let period = 2019;
+let year = 2019;
 
 // Loads after the page is ready
 $(document).ready(function () {
     //Load asp 1 goal 1, indicator 1, global database, 2016
     openAspiration(event, 'Aspiration1');
-    loadGoal(1);
-    dataSourceURL='../assets/data/A2063/A2063_01_gdb_2019.json';
-    loadA2063Map(1, 1, dataSourceURL);
     $('#goal01').click();
-    dataSourceURL='../assets/data/A2063/A2063_01_gdb_2019.json';
-    completeDataPath=dataSourceURL;
+    loadGoal(1);
 
+    $("select[id^='selectIndicator1']").val("01");
+    chooseIndicator(1);
+    loadGlobalData(1);
 
-    Highcharts.chart('container', {
-        chart: {
-            type: 'bar'
-        },
-        title: {
-            text: 'Historic World Population by Region'
-        },
-        subtitle: {
-            text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
-        },
-        xAxis: {
-            categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
-            title: {
-                text: null
-            }
-        },
-        yAxis: {
-            min: 0,
-            title: {
-                text: 'Population (millions)',
-                align: 'high'
-            },
-            labels: {
-                overflow: 'justify'
-            }
-        },
-        tooltip: {
-            valueSuffix: ' millions'
-        },
-        plotOptions: {
-            series: {
-                label: {
-                    connectorAllowed: false
-                },
-                animation: {
-                    duration: 10000
-                },
-                pointStart: 1900,
-                pointEnd: 2010
-            }
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'top',
-            x: -40,
-            y: 80,
-            floating: true,
-            borderWidth: 1,
-            backgroundColor:
-                Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF',
-            shadow: true
-        },
-        credits: {
-            enabled: false
-        },
-        series: [{
-            name: 'Kenya',
-            data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
-        }, {
-            name: 'Tanzania',
-            data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
-        }, {
-            name: 'Uganda',
-            data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387]
-        }, {
-            name: 'Madagasca',
-            data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
-        }, {
-            name: 'South Africa',
-            data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
-        }],
-    });
-
+    $("select[id^='selectPeriod']").val("2019");
+    choosePeriodA2063(1);
+    
+    //loadA2063Map(1, 1, "../assets/data/A2063/A2063_01_gbd.csv");
+    timeRangeSlider();
+    
+    $('.selectpicker').selectpicker();
 });
-
-function changeVisualization(n, goal) {
-    if (n === 1) {
-        console.log(dataSourceURL);
-        $("[id^='filter']").hide();
-        loadA2063Map(1, goal, dataSourceURL);
-    }
-    if (n === 2) {
-        console.log(dataSourceURL);
-        $("[id^='filter']").show();
-        loadA2063Map(2, goal, dataSourceURL);
-    }
-
-}
 
 function loadGoal() {
     $("[id^='filter']").hide();
-    $("select[id^='selectDataSource']").hide();
-    $("select[id^='selectPeriod']").hide();
+    $('#chartTypes').hide();
+
     dataSourceURL = '../assets/data/A2063/A2063_';
 }
 
 function chooseIndicator(goal) {
+    $("button[id^='gbd']").show();
+    $("button[id^='mrs']").show();
+
     var indicator = $("#selectIndicator" + goal).val();
-    if (dataSourceURL.match(/^.*json$/)) {
+    console.log(indicator);
+    if (dataSourceURL.match(/^.*csv$/)) {
         //UPDATE URL and call LoadA2063Map
         var prefix = dataSourceURL.slice(0, 27);
         var postfix = dataSourceURL.slice(29);
@@ -128,9 +54,10 @@ function chooseIndicator(goal) {
     }
 }
 
-function chooseDataSourceA2063(goal) {
-    var source = $("#selectDataSource" + goal).val();
-    if (dataSourceURL.match(/^.*json$/)) {
+//Choose data source toggle buttons
+function loadGlobalData(goal){
+    var source = "gdb";
+    if (dataSourceURL.match(/^.*csv$/)) {
         //UPDATE URL and call LoadA2063Map
         var prefix = dataSourceURL.slice(0, 30);
         var postfix = dataSourceURL.slice(33);
@@ -139,33 +66,104 @@ function chooseDataSourceA2063(goal) {
     }
     if (dataSourceURL.charAt(31) === '' || dataSourceURL.charAt(35) === '') {
         var prefix = dataSourceURL.slice(0, 30);
-        dataSourceURL = prefix + source + '_';
+        dataSourceURL = prefix + source ;
         $("select[id^='selectPeriod']").show();
     }
+   
+    $("#gbd").addClass('active');
+    $("#mrs").removeClass('active');
+    //console.log("GBD");
+    //console.log(dataSourceURL);
+
+}
+
+function loadPanAfricanData(goal){
+    var source = "mrs";
+    if (dataSourceURL.match(/^.*csv$/)) {
+        //UPDATE URL and call LoadA2063Map
+        var prefix = dataSourceURL.slice(0, 30);
+        var postfix = dataSourceURL.slice(33);
+        dataSourceURL = prefix + source + postfix;
+        loadA2063Map(1, goal, dataSourceURL);
+    }
+    if (dataSourceURL.charAt(31) === '' || dataSourceURL.charAt(35) === '') {
+        var prefix = dataSourceURL.slice(0, 30);
+        dataSourceURL = prefix + source;
+        $("select[id^='selectPeriod']").show();
+    }
+    
+    $("#mrs").addClass('active');
+    $("#gbd").removeClass('active');
+    //console.log("MRS");
+    //console.log(dataSourceURL);
 }
 
 function choosePeriodA2063(goal) {
-    var period = $("#selectPeriod" + goal).val();
-    if (dataSourceURL.match(/^.*json$/)) {
+    period = $("#selectPeriod" + goal).val();
+    //console.log(period);
+    if (dataSourceURL.match(/^.*csv$/)) {
         //UPDATE URL and call LoadA2063Map
-        var prefix = dataSourceURL.slice(0, 34);
-        dataSourceURL = prefix + period + '.json';
-        loadA2063Map(1, goal, dataSourceURL);
+        var prefix = dataSourceURL.slice(0, 33);
+        dataSourceURL = prefix  + '.csv';
+        loadA2063Map(1, goal, dataSourceURL); 
     }
+
     if (dataSourceURL.charAt(35) === '' || dataSourceURL.charAt(40) === '') {
-        var prefix = dataSourceURL.slice(0, 34);
-        dataSourceURL = prefix + period + '.json';
+        var prefix = dataSourceURL.slice(0, 33);
+        dataSourceURL = prefix + '.csv';
         completeDataPath = dataSourceURL;
         loadA2063Map(1, goal, dataSourceURL);
     }
 }
+function changeVisualization(n, goal) {
+    if (n === 1) {
+        //console.log(dataSourceURL);
+        $("[id^='filter']").hide();
+        $('#chartTypes').hide();
+        loadA2063Map(1, goal, dataSourceURL);
+    }
+    if (n === 2) {
+        //console.log(dataSourceURL);
+        $("[id^='filter']").show();
+        $("[id='chartTypes']").show();
+        loadA2063Map(2, goal, dataSourceURL);
+        // $('.slider-div').hide();
+    }
+
+}
 
 function loadA2063Map(n, containerID, dataSourceURL) {
+    $(".card-footer").show();
     if (n == 1) {
-        $("#container" + containerID).css({"width": "100%", "height": "500px"});
-        var countriesData = null;
-        $.getJSON(dataSourceURL, function (data) {
-            countriesData = data;
+        dataSourceURL = completeDataPath
+        $("[id^='filter']").hide();
+        $('#chartTypes').hide();
+
+        $("#container" + containerID).css({"width": "100%", "height": "400px"});
+        $.get(dataSourceURL, function (data){
+
+            //countriesData = data;
+            
+            var lines = data.split('\n');
+            var result = [];
+            var headers = lines[0].split(",");
+
+            //console.log(headers);
+
+            for(var i=1; i < lines.length; i++){
+                var dataObj ={};
+                var currLine = lines[i].split(",");
+
+                for(var j=0; j<headers.length; j++){
+                    dataObj[headers[j]] = currLine[j];
+                }
+                result.push(dataObj);
+            }
+            //console.log(data)
+            //console.log(lines.length);
+            
+            countriesData = result;
+            
             var geoj = Highcharts.maps["custom/africa"] = {
                 "title": "Africa",
                 "version": "1.1.2",
@@ -1501,6 +1499,8 @@ function loadA2063Map(n, containerID, dataSourceURL) {
 
             $('#container' + containerID).highcharts('Map', {
                 chart: {
+                   
+                    height: 400,
                     events: {
                         drilldown: function (e) {
                             var chart = this,
@@ -1512,13 +1512,17 @@ function loadA2063Map(n, containerID, dataSourceURL) {
                                     regionMap = Highcharts.maps[mapKey],
                                     regionMapGeoJson = Highcharts.geojson(regionMap);
 
+                                    
                                 $.each(regionMapGeoJson, function (indxx, elem) {
                                     drillPath = 'countries/' + elem.properties['hc-key'].slice(0, 2) + '/' + elem.properties['hc-key'] + '-all';
                                     data.push({
                                         code: elem.properties['hc-key'],
                                         value: countriesData.value,
+                                        
                                         // drilldown: drillPath
                                     })
+                                    
+                                    console.log(countriesData.code);
                                 });
                                 // Hide loading and add series
                                 chart.addSingleSeriesAsDrilldown(e.point, {
@@ -1624,7 +1628,7 @@ function loadA2063Map(n, containerID, dataSourceURL) {
                 },
                 series: [{
                     name: 'Africa',
-                    data: countriesData,
+                    data: getMapData(),
                     mapData: geoj,
                     joinBy: ['hc-key', 'code'],
                     dataLabels: {
@@ -1666,192 +1670,190 @@ function loadA2063Map(n, containerID, dataSourceURL) {
         });
     }
     if (n == 2) {
-        //completeDataPath = '../assets/data/A2063/2063_01_gdb_2019.json';
-        $.getJSON(completeDataPath, function (data) {
-            chartData =data;
-            $("#container" + containerID).css({"width": "100%", "height": "500px"});
-            AmCharts.addInitHandler(function (chart) {
+        $("[id^='filter']").show();
+        $('#chartTypes').show();
+        countriesDropdown();
+        var result = [];
+        $.get(completeDataPath, function (data){
 
-                var dataProvider = chart.dataProvider;
-                var colorRanges = chart.colorRanges;
+            var lines = data.split('\n');
+            //console.log( lines);
 
-                function ColorLuminance(hex, lum) {
+            var countryData = [];
+            var yearData = [];
+            var headers = lines[0].split(",");
 
-                    // validate hex string
-                    hex = String(hex).replace(/[^0-9a-f]/gi, '');
-                    if (hex.length < 6) {
-                        hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
-                    }
-                    lum = lum || 0;
-
-                    // convert to decimal and change luminosity
-                    var rgb = "#",
-                        c, i;
-                    for (i = 0; i < 3; i++) {
-                        c = parseInt(hex.substr(i * 2, 2), 16);
-                        c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
-                        rgb += ("00" + c).substr(c.length);
-                    }
-
-                    return rgb;
+            var years = [];
+            for(var i=0; i<headers.length; i++){
+                if(!isNaN(headers[i])){
+                    years.push(parseFloat(headers[i]));
                 }
+            }
+            
+            $.each(lines, function(lineNo, lineContent){
+                if(lineNo > 0){
+                yearData[lineNo-1] = lineContent.split(',')[1];
+                countryData[lineNo-1] = lineContent.split(',')[0];
+            }
+            });
 
-                if (colorRanges) {
+            for(var i=1; i < lines.length; i++){
+                var dataObj ={};
+                var currLine = lines[i].split(",");
 
-                    var item;
-                    var range;
-                    var valueProperty;
-                    var value;
-                    var average;
-                    var variation;
-                    for (var i = 0, iLen = dataProvider.length; i < iLen; i++) {
+                for(var j=0; j<headers.length; j++){
+                    dataObj[headers[j]] = currLine[j];
+                }
+                result.push(dataObj);
+            }
+            //console.log(result);
 
-                        item = dataProvider[i];
+            chartData = result;
 
-                        for (var x = 0, xLen = colorRanges.length; x < xLen; x++) {
+            // console.log("Get filtered data: ");
+            // console.log(getFilteredData());
+     
+            //var xCategories = ['1990','1991','1992','1993','1994','1995','1996','1997','1998'];
+            chartNew = Highcharts.chart("container" + containerID, {
+                chart: {
+                    styledMode: true,
+                    events: {
+                        redraw: function () {
+                            var label = this.renderer.label('', 100, 120)
+                                .attr({
+                                    fill: Highcharts.getOptions().colors[0],
+                                    padding: 10,
+                                    r: 5,
+                                    zIndex: 8
+                                })
+                                .css({
+                                    color: 'black'
+                                })
+                                .add();
+        
+                            setTimeout(function () {
+                                label.fadeOut();
+                            }, 1000);
+                        }
+                    }
+                },
+               
+                title: {
+                    text: 'Agenda 2063 values over time'
+                },
+                subtitle: {
+                    text: 'Source: sdg.org'
+                },
+                xAxis: {
+                    // tickInterval: 10,
+                    categories: years,
+                    align: "left",
+                    startOnTick: false,
+                    endOnTick: false,
+                    minPadding: 0,
+                    maxPadding: 0,
+                },
+                yAxis: {
+                    title: {
+                        text: 'Values per country'
+                    }
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle'
+                },
+                plotOptions: {
+                    series: {
+                        label: {
+                            connectorAllowed: false
+                        },
+                        // pointStart: 1900,
+                        animation: {
+                            duration: 10000
+                        }
+                    }
+                },
+                series : getFilteredData(),
 
-                            range = colorRanges[x];
-                            valueProperty = range.valueProperty;
-                            value = item[valueProperty];
-
-                            if (value >= range.start && value <= range.end) {
-                                average = (range.start - range.end) / 2;
-
-                                if (value <= average)
-                                    variation = (range.variation * -1) / value * average;
-                                else if (value > average)
-                                    variation = range.variation / value * average;
-
-                                item[range.colorProperty] = ColorLuminance(range.color, variation.toFixed(2));
+                responsive: {
+                    rules: [{
+                        condition: {
+                            maxWidth: 500
+                        },
+                        chartOptions: {
+                            legend: {
+                                layout: 'horizontal',
+                                align: 'center',
+                                verticalAlign: 'bottom'
                             }
                         }
-                    }
+                    }]
                 }
-
-            }, ["serial"]);
-             chart = AmCharts.makeChart("container" + containerID, {
-                "creditsPosition": "bottom-right",
-                "theme": "light",
-                "type": "serial",
-                "startDuration": 2,
-                "colorRanges": [{
-                    "start": 0,
-                    "end": 10,
-                    "color": "#008000",
-                    "variation": 0.6,
-                    "valueProperty": "value",
-                    "colorProperty": "color"
-                }, {
-                    "start": 11,
-                    "end": 30,
-                    "color": "#EEDD66",
-                    "variation": 0.6,
-                    "valueProperty": "value",
-                    "colorProperty": "color"
-                }, {
-                    "start": 31,
-                    "end": 100,
-                    "color": "#FF0000",
-                    "variation": 0.4,
-                    "valueProperty": "value",
-                    "colorProperty": "color"
-                }],
-                "dataProvider": getFilteredData(),
-                "valueAxes": [{
-                    "position": "left",
-                    "title": "Percentage(%)"
-                }],
-                "graphs": [{
-                    "balloonText": "[[category]]: <b>[[value]]</b>",
-                    "fillColorsField": "color",
-                    "fillAlphas": 1,
-                    "lineAlpha": 0.1,
-                    "type": "column",
-                    "valueField": "value"
-                }],
-                "depth3D": 20,
-                "angle": 30,
-                "chartCursor": {
-                    "categoryBalloonEnabled": false,
-                    "cursorAlpha": 0,
-                    "zoomable": false
-                },
-                "categoryField": "country",
-                "categoryAxis": {
-                    "gridPosition": "start",
-                    "labelRotation": 90
-                },
-                "export": {
-                    "enabled": true
-                }
-
+            
             });
         });
-
-        console.log(getFilteredData());
-
-        Highcharts.chart('container2', {
-
-            title: {
-                text: 'Agenda 2063 values over time'
-            },
-        
-            subtitle: {
-                text: 'Source: sdg.org'
-            },
-            xAxis: {
-                // tickInterval: 10,
-            },
-        
-            yAxis: {
-                title: {
-                    text: 'Values'
-                }
-            },
-            legend: {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'middle'
-            },
-        
-            plotOptions: {
-                series: {
-                    label: {
-                        connectorAllowed: false
-                    },
-                    animation: {
-                        duration: 10000
-                    },
-                    pointStart: 1900,
-                    pointEnd: 2010
-                }
-            },
-        
-            series: [{
-                name: 'Years',
-                data: getFilteredData(),
-            }],
-            
-        
-            responsive: {
-                rules: [{
-                    condition: {
-                        maxWidth: 500
-                    },
-                    chartOptions: {
-                        legend: {
-                            layout: 'horizontal',
-                            align: 'center',
-                            verticalAlign: 'bottom'
-                        }
-                    }
-                }]
-            }
-        
-        });
-
     }
+}
 
+function getClosest(arr, val) {
+    return arr.reduce(function (prev, curr) {
+    return (Math.abs(curr - val) < Math.abs(prev - val) ? curr : prev);
+  });
+}
+let years = [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019];
+
+function timeRangeSlider(){
+    onSliderChange();
+    onClickPlayButton();
+}
+
+function onSliderChange(){
+    var sel = document.getElementById('selectPeriod1');
+    document.querySelector("#yearslider").addEventListener("change", function() {
+        let closest = getClosest(years, this.value);
+        this.value = document.querySelector("#rangevalue").value = closest;
+        period = this.value;
+        //console.log(period.toString());
+        $("#selectPeriod1").val(period.toString()); 
+
+        if ("createEvent" in document) {
+            var evt = document.createEvent("HTMLEvents");
+            evt.initEvent("change", false, true);
+            sel.dispatchEvent(evt);
+        }
+        else {
+            sel.fireEvent("onchange");
+        }
+    });  
+}
+
+function onClickPlayButton(){
+    var sel = document.getElementById('selectPeriod1');
+    document.querySelector("#play").addEventListener("click", function (){
+        let yearslider = document.querySelector("#yearslider");
+        let output = document.querySelector("#rangevalue");
+        years.forEach(function(item, index, array) {
+            // set a timeout so each second one button gets clicked
+            setTimeout( (function( index ) {
+                return function() {
+                    yearslider.value = output.value = array[index]; 
+                    period = yearslider.value;
+                    $("#selectPeriod1").val(period.toString());
+
+                    if ("createEvent" in document) {
+                        var evt = document.createEvent("HTMLEvents");
+                        evt.initEvent("change", false, true);
+                        sel.dispatchEvent(evt);
+                    }
+                    else {
+                        sel.fireEvent("onchange");
+                    }
+                };
+            }( index )), (1000 * index) );
+        });
+        
+    });   
 }
 
 function lowercase(string) {
@@ -1866,8 +1868,42 @@ function contains(string, value) {
  * Function that checks which data is selected and generates a new data set
  */
 
-function getFilteredData() {
+function getMapData() {   
+    var newCountryData = [];
+    // cycle through source data and filter out required data points
+    for (var i = 0; i < countriesData.length; i++) {    
+         dataPoint = countriesData[i];
+        newCountryData.push({
+                "code": dataPoint.code,
+                "drilldown": dataPoint.drilldown,
+                "value": dataPoint[period],
+                "country":dataPoint.country
+            });
+              
+    }
+    //console.log(countriesData.length); 
+    console.log(newCountryData);
+    return newCountryData;
+}
 
+function countriesDropdown(){
+    for(var j=1; j<=20; j++){
+        var items = getMapData();
+        console.log(items)
+        $.each(items, function (i, item) {
+            var option = document.createElement("option");
+            option.className = "filter-position";
+            option.text = item["country"];
+            option.value = item["code"];
+            var select = document.getElementById("african_countries" + j);
+            select.appendChild(option);
+        });
+        $('.selectpicker').selectpicker('refresh');
+        }
+    
+}
+
+function getFilteredData() {
     var filters = {};
 
     // get all filter checkboxes
@@ -1877,53 +1913,63 @@ function getFilteredData() {
             filters[fields[i].value] = true;
         }
     }
-
+    console.log(filters);
     // init new data set
     var newData = [];
-
+    var valuesData = []; 
+    var parsedData = [];     
     // cycle through source data and filter out required data points
     for (var i = 0; i < chartData.length; i++) {
         var dataPoint = chartData[i];
+        if(filters[dataPoint.code] && 
+            contains(lowercase(dataPoint.code), name)){
+                valuesData = Object.values(dataPoint);
+                var parsedData = []; 
 
-        
-
-        if (filters[dataPoint.code] &&
-            contains(lowercase(dataPoint.code), name)) {
-            var valuesData = [];
-            for(var j =0; j< chartData[i].value.length; j++){
-                var valuePoint = dataPoint.value[i];
-                valuesData.push({
-                    "year": valuePoint.year,
-                    "data": valuePoint.data,
-                });
-                
-            }
-
-            newData.push({
-                "country": dataPoint.country,
-                "value": valuesData,
-            });
-           
-        }
-
-       
+                for(var j=0; j<valuesData.length;j++){
+                    //console.log(valuesData[j]);
+                    if(!isNaN(valuesData[j])){
+                        parseFloat(valuesData[j]);
+                        parsedData.push(parseFloat(valuesData[j]));
+                    }
+                }
+                    newData.push({
+                        "name": dataPoint.country,
+                        "data": parsedData
+                    });
+                    console.log(""); 
+            }   
     }
-    // return new data set
+    //console.log("Filtered data");
+    //console.log(newData)
     return newData;
-
 }
 
 /**
  * Function which applies current filters when invoked
  */
-function applyFilters() {
-    var data = getFilteredData();
-    
+function applyFilters(containerID) {
+     var data2 = getFilteredData();
 
-    // update chart data
-    chart.dataProvider = data;
-    chart.validateData();
+        //update chart data
+
+        var chart2 = $(containerID).highcharts();
+        var seriesLength = chart2.series.length;
+        for(var i = seriesLength -1; i > -1; i--) {
+            chart2.series[i].remove();
+        }
+        for(var i = 0; i < data2.length; i++) {
+            chart2.addSeries(data2[i])
+        }
 }
 
-
+// Set type
+$.each(['line', 'column', 'spline', 'area', 'areaspline', 'scatter', 'pie'], function (i, type) {
+    $('#' + type).click(function () {
+        var chart2 = $('#container1').highcharts();
+        chart2.series[0].update({
+            type: type
+        });
+    });
+});
 

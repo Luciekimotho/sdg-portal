@@ -1,53 +1,396 @@
+var completeDataPath = '';
+let chartData='';
+let countriesData='';
+let chart='';
+let chartNew='';
+let period = 2019;
+let year = 2018;
+let globalDataSourceURL = '../assets/data/SDGs/sdgTarget_';
+
+let title = ''
+let goal = ''
+let description = ''
+
 //Loads after the page is ready
 $(document).ready(function () {
-    loadMap(1);
+    $("[id^='filter']").hide();
+    $("[id^='chartTypes']").hide(); 
+    $(".card-footer").hide();
+
+    loadSDG();
+
 });
 
-//Called when a target is clicked
-function loadTarget(containerID) {
-    loadMap(1, containerID, '');//TODO function called 1
-    $("select[id^='selectPeriod']").hide();
+function loadSDG(){
+    var pageUrl = window.location.href
+    var postfix = pageUrl.slice(-7)
+    var goalStr = postfix.slice(0, 2)
+    var goalNo = Number(goalStr)
+    var index
+    var sdgAPIUrl = 'https://unstats.un.org/SDGAPI/v1/sdg/Goal/List'
+
+    fetch(sdgAPIUrl)
+    .then((resp) => resp.json())
+    .then(function(data){
+        index = goalNo-1
+            title = data[index].title
+            description = data[index].description
+
+            var values = getShortHandDescriptionColor(goalNo)
+            document.title = "SDG " + goalNo + " " + "|" + values[0];
+            document.getElementById("title").innerHTML = title;
+            document.getElementById("description").innerHTML = values[1];
+            document.getElementById("sdgTitle").innerHTML = "SDG " + goalNo + " targets";
+            document.getElementById("sdgIcon").src = "../assets/img/sdg_icons/E_SDG_Icons-" + goalStr + ".jpg";
+            document.getElementById("sdgBg").style.backgroundColor = values[2];
+            getTargets(goalNo)
+    })   
 }
+
+function getTargets(goalNo){
+    var baseUrl = 'https://unstats.un.org/SDGAPI/v1/sdg/Goal/'
+    var targetAPIUrl = baseUrl + goalNo + '/Target/List?includechildren=true'
+    var code, title 
+    var firstBtnID, firstTarget
+
+    fetch(targetAPIUrl)
+    .then((resp)=>resp.json())
+    .then(function(data){
+
+        var targets = data[0].targets
+        firstBtnID = targets[0].code.replace(".", "");
+        firstTarget = targets[0].code.replace(".", "");
+
+        for ( var i=0; i<targets.length; i++ ) {
+            //Dynamically create target butons and append to div
+            code = targets[i].code
+            title = targets[i].title
+
+            var id = code.replace(".", ""); 
+            var id2 = id
+
+            if(isNaN(code)){
+                var revCode = code.split("").reverse().join("");
+                id2 = revCode.replace(".", ""); 
+               // id2 = "'" + id2 + "'"
+            }
+            var containerId = i+1;
+
+            var  buttons =  ' <a data-toggle="tab" id="btn'+ id +'" href="#target'+ id + '" onclick="loadTarget(' + containerId + ','+  id2 + ')" class="btn btn-danger sdg' + goalNo + '-btn">' 
+                + "Target " + code + '</a>'
+        
+            $('.targetButtons').append(buttons);
+           
+            //Create the tab contents
+            var navContent =  ' <div class="col-md-10 card tab-pane fade" id="target'+ id +'" style="border-radius: 0;background-color: white">' + 
+                              ' <p style="text-align: center;color: black;"><i> ' + 'Target '+ code + ': ' + title + '</i></p> '  + 
+                              ' <div class=" row text-center"> ' + 
+                                    ' <div class="col-md-6"> ' +
+                                        ' <button id="gbd'+ containerId + ' " class="btn btn-primary btn-data" onclick="loadGlobalData(1,11)">Global Database</button> ' +
+                                        ' <button id="mrs'+ containerId + '" class="btn btn-primary btn-data" onclick="loadPanAfricanData(1,11)">PanAfrican MRS</button> ' +
+                                    ' </div> ' + 
+                              ' <div class="col-md-3"></div> ' +
+                              ' <div class="col-md-2"> ' +
+                                  ' <select id="selectPeriod'+id2+'" class="btn btn-primary" onchange="choosePeriod('+ containerId+','+id2+');">' + 
+                                      ' <option value="default"> Select a Period</option>' + 
+                                      ' <option value="2019">2019</option>' + 
+                                      ' <option value="2018">2018</option>' + 
+                                      ' <option value="2017">2017</option>' + 
+                                      ' <option value="2016">2016</option>' +
+                                  ' </select>' +
+                              ' </div>' +
+                          ' </div>' + 
+                          ' <div> ' + 
+                            '<div> ' + 
+                                '<div id="filter'+containerId+'" style="text-align: center;margin-top: 1%;">' +
+                                    '<select class="selectpicker" multiple data-live-search="true" id="african_countries' + containerId + '" onchange="applyFilters('+containerId+')">' +
+
+                                    '</select>'+
+                                '</div>'+
+                                '<div id="chartTypes'+containerId+'" style="text-align: right;">'+
+                                    '<button id="column" style="margin-left: 2em" class="btn btn-primary">'+
+                                        '<i class="far fa-chart-bar"></i>'+
+                                    '</button>'+
+                                    '<button id="line" class="btn btn-primary">'+
+                                        '<i class="fas fa-chart-line"></i>'+   
+                                    '</button>'+
+                                '</div>'+
+                            '</div>'+
+                            '<div class="row card-body" id="container'+ containerId +'">'+
+                            '</div>'+
+                            '<hr>'+
+                            '<div class="card">'+
+                                    '<div class="card-body">'+
+                                        '<div class="row slider-div">'+
+                                                '<div class="col-md-2"></div>'+
+                                            '<div class="col-md-1">'+
+                                                '<button id="play" class="btn btn-primary btn-just-icon">'+
+                                                    '<i class="nc-icon nc-button-play"></i>'+
+                                                '</button>'+
+                                            '</div>'+
+                                            '<div class="col-md-4" style="padding-right: 0px;padding-left: 0px;">'+
+                                                    '<input id="yearslider" class="range blue" type="range" min="2010" value="2010" max="2019" step="1" list="ticks" >'+
+                                                    '<datalist id="ticks">'+
+                                                        '<option>2010</option>'+
+                                                        '<option>2011</option>'+
+                                                        '<option>2012</option>'+
+                                                        '<option>2013</option>'+
+                                                        '<option>2014</option>'+
+                                                        '<option>2015</option>'+
+                                                        '<option>2016</option>'+
+                                                        '<option>2017</option>'+
+                                                        '<option>2018</option>'+
+                                                        '<option>2019</option>'+
+                                                    '</datalist>'+
+                                            '</div>'+
+                                            '<div class="col-md-1 output-div">'+
+                                                    '<output id="rangevalue" class="output-year">2010</output>'+
+                                            '</div>'+
+                                            '<div class="col-md-4">'+
+                                                '<button class="btn btn-primary" onclick="changeVisualization(1,'+containerId+');"><span class="fa fa-globe"></span>Map</button>'+
+                                                ' <button class="btn btn-primary" onclick="changeVisualization(2,'+containerId+');"><span class="fa fa-bar-chart"></span>Chart'+
+                                            ' </button>'+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>'+
+                          ' </div>'+
+                        '</div>'
+            $('.tab-content').append(navContent);
+        }
+
+        $("#btn"+firstBtnID).click();
+
+        $("[id^='filter']").hide();
+        $('#chartTypes').hide();  
+    
+        timeRangeSlider();
+    })
+    
+}
+
+function getShortHandDescriptionColor(goalNo){
+    var shortHand, description, color
+    switch(goalNo){
+        case 1:
+            shortHand = ' No Poverty'
+            description = 'UN definition: "Extreme poverty rates have fallen by more than half since 1990. While this is a remarkable achievement, one-in-five people in developing regions still live on less than $1.90 a day. Millions more make little more than this daily amount and are at risk of slipping back into extreme poverty."'
+            color = '#e5243b';
+            break
+        case 2:
+            shortHand = ' Zero Hunger'
+            description = 'UN definition: "It is time to rethink how we grow, share and consume our food.If done right, agriculture, forestry and fisheries can provide nutritious food for all and generate decent incomes, while supporting people-centred rural development and protecting the environment." '
+            color = '#dda73a'
+            break
+        case 3:
+            shortHand = ' Good Health and Well Being'
+            description = 'UN definition: "Significant strides have been made in increasing life expectancy and reducing some of the common killers responsible for child and maternal mortality." '
+            color = '#4C9F38'
+            break
+        case 4:
+            shortHand = ' Quality Education'
+            description = 'UN definition: "Obtaining a quality education underpins a range of fundamental development drivers. Major progress has been made towards increasing access to education at all levels, particularly for women and girls. Basic literacy skills across the world have improved tremendously, yet bolder efforts are needed to achieve universal education goals for all. For example, the world has achieved equality in primary education between girls and boys, but few countries have achieved that target at all levels of education."'
+            color = '#C5192D'
+            break
+        case 5:
+            shortHand = ' Gender Equality'
+            description = ' UN definition: "Gender equality is not only a fundamental human right, but a necessary foundation for a peaceful, prosperous and sustainable world. Providing women and girls with equal access to education, health care, decent work, and representation in political and economic decision-making processes will fuel sustainable economies and benefit societies and humanity at large."  '
+            color = '#FF3A21'
+            break
+        case 6:
+            shortHand = ' Clean Water & Sanitation '
+            description = 'UN definition: "Clean water is a basic human need, and one that should be easily accessible to all. There is sufficient fresh water on the planet to achieve this. However, due to poor infrastructure, investment and planning, every year millions of people — most of them children — die from diseases associated with inadequate water supply, sanitation and hygiene."'
+            color = '#26BDE2'
+            break
+        case 7:
+            shortHand = ' Affordable And Clean Energy'
+            description = 'UN definition: "Energy is central to nearly every major challenge and opportunity the world faces today. Be it for jobs, security, climate change, food production or increasing incomes, access to energy for all is essential. Transitioning the global economy towards clean and sustainable sources of energy is one of our greatest challenges in the coming decades. Sustainable energy is an opportunity – it transforms lives, economies and the planet." '
+            color = '#FCC30B'
+            break
+        case 8:
+            shortHand = ' Decent Work And Economic Growth'
+            description = 'UN definition: "Roughly half the world’s population still lives on the equivalent of about US$2 a day. And in too many places, having a job doesn’t guarantee the ability to escape from poverty. This slow and uneven progress requires us to rethink and retool our economic and social policies aimed at eradicating poverty." '
+            color = '#A21942'
+            break
+        case 9:
+            shortHand = ' Industry, Innovation And Infrastructure'
+            description = '  UN definition: "Investments in infrastructure – transport, irrigation, energy and information and communication technology – are crucial to achieving sustainable development and empowering communities in many countries. It has long been recognized that growth in productivity and incomes, and improvements in health and education outcomes require investment in infrastructure." '
+            color = '#FD6925'
+            break
+        case 10:
+            shortHand = ' Reduced Inequalities'
+            description = 'UN definition: "The international community has made significant strides towards lifting people out of poverty. The most vulnerable nations – the least developed countries, the landlocked developing countries and the small island developing states – continue to make inroads into poverty reduction. However, inequality still persists and large disparities remain in access to health and education services and other assets." '
+            color = '#DD1367'
+            break
+        case 11:
+            shortHand = ' Sustainable Cities And Communities'
+            description = 'UN definition: "The challenges cities face can be overcome in ways that allow them to continue to thrive and grow, while improving resource use and reducing pollution and poverty. The future we want includes cities of opportunities for all, with access to basic services, energy, housing, transportation and more." '
+            color = '#FD9D24'
+            break
+        case 12:
+            shortHand = ' Responsible Consumption and Production'
+            description = 'UN definition: "Sustainable consumption and production is about promoting resource and energy efficiency, sustainable infrastructure, and providing access to basic services, green and decent jobs and a better quality of life for all. Its implementation helps to achieve overall development plans, reduce future economic, environmental and social costs, strengthen economic competitiveness and reduce poverty." '
+            color = '#BF8B2E'
+            break
+        case 13:
+            shortHand = ' Climate Action'
+            description = 'UN definition: "Affordable, scalable solutions are now available to enable countries to leapfrog to cleaner, more resilient economies. The pace of change is quickening as more people are turning to renewable energy and a range of other measures that will reduce emissions and increase adaptation efforts." '
+            color = '#3F7E44'
+            break
+        case 14:
+            shortHand = ' Life Below Water'
+            description = 'UN definition: "Our oceans — their temperature, circulation, chemistry, and ecosystems — play a fundamental role in making Earth habitable. Our rainwater, drinking water, weather, climate, coastlines, much of our food, and even the oxygen in the air we breathe, are all ultimately provided and regulated by the sea. Throughout history, oceans and seas have been vital conduits for trade and transportation. Careful management of this essential global resource is a key feature of a sustainable future." '
+            color = '#0A97D9'
+            break
+        case 15:
+            shortHand = ' Life On Land'
+            description = 'UN definition: "Forests cover 30 per cent of the Earth’s surface and in addition to providing food security and shelter, forests are key to combating climate change, protecting biodiversity and the homes of the indigenous population. Thirteen million hectares of forests are being lost every year while the persistent degradation of drylands has led to the desertification of 3.6 billion hectares." '
+            color = '#56C02B'
+            break
+        case 16:
+            shortHand = ' Peace, Justice And Strong Institutions'
+            description = 'UN definition: "Goal 16 of the Sustainable Development Goals is dedicated to the promotion of peaceful and inclusive societies for sustainable development, the provision of access to justice for all, and building effective, accountable institutions at all levels." '
+            color = '#00689D'
+            break
+        case 17:
+            shortHand = ' Partnership For The Goals'
+            description = 'UN definition: "A successful sustainable development agenda requires partnerships between governments, the private sector and civil society. These inclusive partnerships built upon principles and values, a shared vision, and shared goals that place people and the planet at the centre, are needed at the global, regional, national and local level." '
+            color = '#19486A'
+            break
+    }
+    return [shortHand, description, color]
+}
+
+//Called when a target is clicked
+function loadTarget(containerID, targetNo) {
+    $("button[id^='gbd']").show();
+    $("button[id^='mrs']").show();
+    
+    if(globalDataSourceURL.match(/^.*csv/)){
+        var prefix = globalDataSourceURL.slice(0, 30);
+        var postfix = globalDataSourceURL.slice(32);
+        
+        globalDataSourceURL = prefix + targetNo + postfix;
+       // loadMap(1, containerID, globalDataSourceURL);
+    }
+    
+    if(globalDataSourceURL.charAt(30) === '' || globalDataSourceURL.charAt(33)=== ''){
+        var prefix = globalDataSourceURL.slice(0, 30);
+        globalDataSourceURL = prefix + targetNo + '_';
+    }
+
+    loadGlobalData(containerID, targetNo);
+    $("select[id^='selectPeriod']").val("2019");
+    choosePeriod(containerID,targetNo);
+}
+
+//Choose data source toggle buttons
+function loadGlobalData(containerIDNo, targetNo){
+    var source = "gdb";
+    $("button[id^='gbd']").addClass('active');
+    $("button[id^='mrs']").removeClass('active');
+
+    if(globalDataSourceURL.match(/^.*csv$/)){
+        var prefix = globalDataSourceURL.slice(0, 33);
+        var postfix = globalDataSourceURL.slice(36);
+        globalDataSourceURL = prefix + source + postfix;
+        loadMap(1, containerIDNo, globalDataSourceURL);  
+        
+    }
+
+    if(globalDataSourceURL.charAt(34)=== '' || globalDataSourceURL.charAt(37) ===''){
+        var prefix = globalDataSourceURL.slice(0, 33);
+        globalDataSourceURL = prefix + source;
+        $("select[id^='selectPeriod']").show();
+    } 
+}
+
+function loadPanAfricanData(containerIDNo, targetNo){
+    var source= "mrs";
+    if(globalDataSourceURL.match(/^.*csv/)){
+        var prefix = globalDataSourceURL.slice(0, 33);
+        var postfix = globalDataSourceURL.slice(36);
+        globalDataSourceURL = prefix + source + postfix;
+        loadMap(1, containerIDNo, globalDataSourceURL);
+    }
+
+    if(globalDataSourceURL.charAt(34)=== '' || globalDataSourceURL.charAt(37) ===''){
+        var prefix = globalDataSourceURL.slice(0, 33);
+        globalDataSourceURL = prefix + source;
+        $("select[id^='selectPeriod']").show();
+    } 
+    $("button[id^='mrs']").addClass('active');
+    $("button[id^='gbd']").removeClass('active');
+}
+
 //ChoosePeriod function
 function choosePeriod(containerIDNo, targetNo){
-    var selectorID=$("#selectPeriod"+targetNo);
-    var period=selectorID.val();
-    console.log(period+" is the selected period.");
-    chooseDataSource(containerIDNo, targetNo, period);
-}
-
-
-//Called on change data source dropdown
-function chooseDataSource(containerIDNo, targetNo,period ) {
-    var datasourceValue = $("#selectData"+targetNo).val();
-    if (datasourceValue === "mrsData") {
-        $("#container" + containerIDNo).empty();
-        var mrsDataSourceURL ='../assets/data/SDGs/sdgTarget'+targetNo+datasourceValue+'_'+period+'.json';
-        console.log("MRS is the data source "+period);
-        loadMap(1, containerIDNo, mrsDataSourceURL);
-        $("select[id^='selectPeriod']").show();
-
-    } else if (datasourceValue === "globalData") {
-        $("#container" + containerIDNo).empty();
-        var globalDataSourceURL = '../assets/data/SDGs/sdgTarget'+targetNo+datasourceValue+'_'+period+'.json';
-        console.log("Global database is the data source for "+period);
-        loadMap(1, containerIDNo, globalDataSourceURL);
-        $("select[id^='selectPeriod']").show();
-    } else {
-        console.log("No Data Source Matching");
-        $("select[id^='selectPeriod']").hide();
+    var selectorID=$("#selectPeriod" + targetNo );
+    period = selectorID.val();
+    
+    if(globalDataSourceURL.match(/^.*csv/)){
+        var prefix = globalDataSourceURL.slice(0, 36);
+        globalDataSourceURL = prefix + '.csv';
+        loadMap(1,containerIDNo,globalDataSourceURL);
+        //completeDataPath = globalDataSourceURL;
     }
+    if(globalDataSourceURL.charAt(35) === '' || globalDataSourceURL.charAt(40) === ''){
+        var prefix = globalDataSourceURL.slice(0, 36);
+        globalDataSourceURL = prefix + '.csv';
+        completeDataPath = globalDataSourceURL;
+
+        loadMap(1,containerIDNo,globalDataSourceURL);
+    }
+    //console.log(period)
+    //console.log(globalDataSourceURL);
 }
 
+function changeVisualization(n, containerIDNo) {
+    if (n === 1) {
+        //console.log(dataSourceURL);
+        $("[id^='filter']").hide();
+        $("[id^='chartTypes']").hide();
+        loadMap(1,containerIDNo,completeDataPath);
+    }
+    if (n === 2) {
+        //console.log(dataSourceURL);
+        $("[id^='filter']").show();
+        $("[id^='chartTypes']").show();
+        loadMap(2,containerIDNo,completeDataPath);
+        // $('.slider-div').hide();
+    }
+
+}
 
 //Function to load map
+
 function loadMap(n, containerID, dataSourceURL) {
-    //loads map
     if (n == 1) {
-        $("#container" + containerID).css({"width": "100%", "height": "500px"});
-        var countriesData = null;
-        $.getJSON(dataSourceURL, function (data) {
-            countriesData = data;
+        $("[id^='filter']").hide(); 
+        $("[id^='chartTypes']").hide();
+        dataSourceURL = completeDataPath
+        $("#container" + containerID).css({"width": "100%", "height": "400px"});
+        $.get(dataSourceURL, function (data){
+           // countriesData = data;
+            
+            var lines = data.split('\n');
+            var result = [];
+            var headers = lines[0].split(",");
+
+            //console.log(headers);
+
+            for(var i=1; i < lines.length; i++){
+                var dataObj ={};
+                var currLine = lines[i].split(",");
+
+                for(var j=0; j<headers.length; j++){
+                    dataObj[headers[j]] = currLine[j];
+                }
+                result.push(dataObj);
+            }
+            //console.log('Map result' + result);
+            
+            countriesData = result;
+            
             var geoj = Highcharts.maps["custom/africa"] = {
                 "title": "Africa",
                 "version": "1.1.2",
@@ -67,7 +410,6 @@ function loadMap(n, containerID, dataSourceURL) {
                         "yoffset": 4185728.66873
                     }
                 },
-                
                 "features": [{
                     "type": "Feature",
                     "id": "UG",
@@ -1384,6 +1726,8 @@ function loadMap(n, containerID, dataSourceURL) {
 
             $('#container' + containerID).highcharts('Map', {
                 chart: {
+                   
+                    height: 400,
                     events: {
                         drilldown: function (e) {
                             var chart = this,
@@ -1395,13 +1739,17 @@ function loadMap(n, containerID, dataSourceURL) {
                                     regionMap = Highcharts.maps[mapKey],
                                     regionMapGeoJson = Highcharts.geojson(regionMap);
 
+                                    
                                 $.each(regionMapGeoJson, function (indxx, elem) {
                                     drillPath = 'countries/' + elem.properties['hc-key'].slice(0, 2) + '/' + elem.properties['hc-key'] + '-all';
                                     data.push({
                                         code: elem.properties['hc-key'],
                                         value: countriesData.value,
+                                        
                                         // drilldown: drillPath
                                     })
+                                    
+                                    console.log(countriesData.code);
                                 });
                                 // Hide loading and add series
                                 chart.addSingleSeriesAsDrilldown(e.point, {
@@ -1428,13 +1776,9 @@ function loadMap(n, containerID, dataSourceURL) {
                     },
                     map: 'custom/africa'
                 },
-
-                
-
                 credits: {
                     enabled: false
                 },
-
                 title: {
                     text: ''
                 },
@@ -1447,14 +1791,6 @@ function loadMap(n, containerID, dataSourceURL) {
                         fontSize: '16px'
                     }
                 },
-                
-
-                
-
-                mapNavigation: {
-                    enabled: true
-                },
-    
                 legend: {
                     title: {
                         text: 'LEGEND',
@@ -1468,20 +1804,10 @@ function loadMap(n, containerID, dataSourceURL) {
                             ) || 'black'
                         }
                     },
-                    align: 'right',
-                    verticalAlign: 'middle',
-                    floating: true,
                     layout: 'vertical',
-                    valueDecimals: 0,
-                    backgroundColor: ( // theme
-                        Highcharts.defaultOptions &&
-                        Highcharts.defaultOptions.legend &&
-                        Highcharts.defaultOptions.legend.backgroundColor
-                    ) || 'rgba(255, 255, 255, 0.85)',
-                    // symbolRadius: 0,
-                    // symbolHeight: 14
+                    align: 'right',
+                    verticalAlign: 'middle'
                 },
-
                 colors: [ '#cecdcd', '#ff0000', '#ffa500', '#f1cd00', '#008d00'],
 
                 colorAxis: {
@@ -1512,7 +1838,6 @@ function loadMap(n, containerID, dataSourceURL) {
                     }]
                     
                 },
-
                 mapNavigation: {
                     enabled: true,
                     buttonOptions: {
@@ -1530,7 +1855,7 @@ function loadMap(n, containerID, dataSourceURL) {
                 },
                 series: [{
                     name: 'Africa',
-                    data: countriesData,
+                    data: getMapData(),
                     mapData: geoj,
                     joinBy: ['hc-key', 'code'],
                     dataLabels: {
@@ -1564,119 +1889,312 @@ function loadMap(n, containerID, dataSourceURL) {
                     }
                 }
             });
-            window.scrollTo(0, document.body.scrollHeight);
+            //window.scrollTo(0, document.body.scrollHeight);
         }).fail(function () {
             var noData = '<i class="fa fa-warning" style="font-size:40px;color:red;margin-left: 50%;margin-top: 12%;"></i><br><br><p style="margin-top: 15%;text-align: center;margin-left: -4%;font-weight: bolder;">No Data Available</p>';
-            $("#container"+containerID).empty().append(noData);
+            $("#container" + containerID).empty().append(noData);
             console.log("No Data Available");
         });
     }
-    //loads chart
     if (n == 2) {
-        $("#container" + containerID).css({"width": "100%", "height": "500px"});
-        var chart = AmCharts.makeChart("container" + containerID, {
-            "creditsPosition": "bottom-right",
-            "theme": "light",
-            "type": "serial",
-            "startDuration": 2,
-            "dataProvider": [{
-                "country": "Algeria",
-                "visits": 25,
-                "color": "#FF0F00"
-            }, {
-                "country": "Angola",
-                "visits": 35,
-                "color": "#FF6600"
-            }, {
-                "country": "Benin",
-                "visits": 15,
-                "color": "#FF9E01"
-            }, {
-                "country": "Botswana",
-                "visits": 56,
-                "color": "#FCD202"
-            }, {
-                "country": "Burkina faso",
-                "visits": 78,
-                "color": "#F8FF01"
-            }, {
-                "country": "Burundi",
-                "visits": 68,
-                "color": "#B0DE09"
-            }, {
-                "country": "Cameroon",
-                "visits": 43,
-                "color": "#04D215"
-            }, {
-                "country": "Cabo Verde",
-                "visits": 26,
-                "color": "#0D8ECF"
-            }, {
-                "country": "Central African Republic",
-                "visits": 60,
-                "color": "#0D52D1"
-            }, {
-                "country": "Chad",
-                "visits": 70,
-                "color": "#2A0CD0"
-            }, {
-                "country": "Comoros",
-                "visits": 32,
-                "color": "#8A0CCF"
-            }, {
-                "country": "Congo",
-                "visits": 67,
-                "color": "#CD0D74"
-            }, {
-                "country": "Democratic Republic of the Congo",
-                "visits": 78,
-                "color": "#754DEB"
-            }, {
-                "country": "Cote d'Ivoire",
-                "visits": 55,
-                "color": "#DDDDDD"
-            }, {
-                "country": "Djibouti",
-                "visits": 90,
-                "color": "#999999"
-            }, {
-                "country": "Egypt",
-                "visits": 50,
-                "color": "#333333"
-            }, {
-                "country": "Equatorial Guinea",
-                "visits": 11,
-                "color": "#000000"
-            }],
-            "valueAxes": [{
-                "position": "left",
-                "title": "Percentage(%)"
-            }],
-            "graphs": [{
-                "balloonText": "[[category]]: <b>[[value]]</b>",
-                "fillColorsField": "color",
-                "fillAlphas": 1,
-                "lineAlpha": 0.1,
-                "type": "column",
-                "valueField": "visits"
-            }],
-            "depth3D": 20,
-            "angle": 30,
-            "chartCursor": {
-                "categoryBalloonEnabled": false,
-                "cursorAlpha": 0,
-                "zoomable": false
-            },
-            "categoryField": "country",
-            "categoryAxis": {
-                "gridPosition": "start",
-                "labelRotation": 90
-            },
-            "export": {
-                "enabled": true
+        countriesDropdown();
+        var result = [];
+        $.get(completeDataPath, function (data){
+
+            var lines = data.split('\n');
+            var countryData = [];
+            var yearData = [];
+            var headers = lines[0].split(",");
+
+            var years = [];
+            for(var i=0; i<headers.length; i++){
+                if(!isNaN(headers[i])){
+                    years.push(parseFloat(headers[i]));
+                }
+            }
+            
+            $.each(lines, function(lineNo, lineContent){
+                if(lineNo > 0){
+                yearData[lineNo-1] = lineContent.split(',')[1];
+                countryData[lineNo-1] = lineContent.split(',')[0];
+            }
+            });
+
+            for(var i=1; i < lines.length; i++){
+                var dataObj ={};
+                var currLine = lines[i].split(",");
+
+                for(var j=0; j<headers.length; j++){
+                    dataObj[headers[j]] = currLine[j];
+                }
+                result.push(dataObj);
             }
 
-        });
+            chartData = result;
 
+            //console.log("Random Filtered result"); 
+            console.log(getFilteredData());
+
+            chartNew = Highcharts.chart("container" + containerID, {
+                chart: {
+                    styledMode: true,
+                    events: {
+                        redraw: function () {
+                            var label = this.renderer.label('', 100, 120)
+                                .attr({
+                                    fill: Highcharts.getOptions().colors[0],
+                                    padding: 10,
+                                    r: 5,
+                                    zIndex: 8
+                                })
+                                .css({
+                                    color: 'black'
+                                })
+                                .add();
+        
+                            setTimeout(function () {
+                                label.fadeOut();
+                            }, 1000);
+                        }
+                    }
+                },
+               
+                title: {
+                    text: 'Agenda 2063 values over time'
+                },
+                subtitle: {
+                    text: 'Source: sdg.org'
+                },
+                xAxis: {
+                    // tickInterval: 10,
+                    categories: years,
+                    align: "left",
+                    startOnTick: false,
+                    endOnTick: false,
+                    minPadding: 0,
+                    maxPadding: 0,
+                },
+                yAxis: {
+                    title: {
+                        text: 'Values per country'
+                    }
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle'
+                },
+                plotOptions: {
+                    series: {
+                        label: {
+                            connectorAllowed: false
+                        },
+                        // pointStart: 1900,
+                        animation: {
+                            duration: 10000
+                        }
+                    }
+                },
+                series : getFilteredData(),
+
+                responsive: {
+                    rules: [{
+                        condition: {
+                            maxWidth: 500
+                        },
+                        chartOptions: {
+                            legend: {
+                                layout: 'horizontal',
+                                align: 'center',
+                                verticalAlign: 'bottom'
+                            }
+                        }
+                    }]
+                }
+            
+            });
+        });
+    }
+    timeRangeSlider();
+}
+
+function getClosest(arr, val) {
+    return arr.reduce(function (prev, curr) {
+    return (Math.abs(curr - val) < Math.abs(prev - val) ? curr : prev);
+  });
+}
+let years = [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019];
+
+function timeRangeSlider(){
+    onSliderChange();
+    onClickPlayButton();
+}
+
+function onSliderChange(){
+    var sel = document.getElementById('selectPeriod11');
+    document.querySelector("#yearslider").addEventListener("change", function() {
+        let closest = getClosest(years, this.value);
+        this.value = document.querySelector("#rangevalue").value = closest;
+        period = this.value;
+        //console.log(period.toString());
+        $("#selectPeriod11").val(period.toString()); 
+
+        if ("createEvent" in document) {
+            var evt = document.createEvent("HTMLEvents");
+            evt.initEvent("change", false, true);
+            sel.dispatchEvent(evt);
+        }
+        else {
+            sel.fireEvent("onchange");
+        }
+    });  
+}
+
+function onClickPlayButton(){
+    var sel = document.getElementById('selectPeriod11');
+    document.querySelector("#play").addEventListener("click", function (){
+        let yearslider = document.querySelector("#yearslider");
+        let output = document.querySelector("#rangevalue");
+        years.forEach(function(item, index, array) {
+            // set a timeout so each second one button gets clicked
+            setTimeout( (function( index ) {
+                return function() {
+                    yearslider.value = output.value = array[index]; 
+                    period = yearslider.value;
+                    $("#selectPeriod11").val(period.toString());
+
+                    if ("createEvent" in document) {
+                        var evt = document.createEvent("HTMLEvents");
+                        evt.initEvent("change", false, true);
+                        sel.dispatchEvent(evt);
+                    }
+                    else {
+                        sel.fireEvent("onchange");
+                    }
+                };
+            }( index )), (1000 * index) );
+        });
+        
+    });   
+}
+
+function lowercase(string) {
+    return string.toLocaleLowerCase();
+}
+
+function contains(string, value) {
+    return string.indexOf(value) !== -1;
+}
+
+/**
+ * Function that checks which data is selected and generates a new data set
+ */
+
+function getMapData() {    
+    var newCountryData = [];
+    // cycle through source data and filter out required data points
+    for (var i = 0; i < countriesData.length; i++) {
+        var dataPoint = countriesData[i];
+
+        newCountryData.push({
+                "code": dataPoint.code,
+                "drilldown": dataPoint.drilldown,
+                "value": dataPoint[period],
+                "country":dataPoint.country
+            });
+            //console.log("");   
+    }
+    //console.log(countriesData)
+    return newCountryData;
+}
+
+function countriesDropdown(){
+    $('.selectpicker').selectpicker('refresh');
+    var items = getMapData();
+    console.log(items)
+    for(var j=1; j<=7; j++){
+        $.each(items, function (i, item) {
+            var option = document.createElement("option");
+            option.className = "filter-position";
+            option.text = item["country"];
+            option.value = item["code"];
+            //console.log("j", j);
+            var select = document.getElementById("african_countries" + j);
+            select.appendChild(option);
+        });
+        $('.selectpicker').selectpicker('refresh');
+        $('.selectpicker').selectpicker('val', [items[0].code, items[1].code, items[2].code, items[3].code]);
+        $('.selectpicker').selectpicker('refresh');
+        }
+}
+
+function getFilteredData() {
+    var filters = {};
+
+    var selectedCountries = $('.selectpicker').val()
+    console.log(selectedCountries)
+
+    for (var i = 0; i < selectedCountries.length; i++) {
+        filters[selectedCountries[i]] = true;
+    }
+
+    console.log(filters)
+
+    // init new data set
+    var newData = [];
+    var valuesData = []; 
+    var parsedData = [];     
+
+    // cycle through source data and filter out required data points
+    for (var i = 0; i < chartData.length; i++) {
+        var dataPoint = chartData[i];
+
+        if(filters[dataPoint.code] && 
+            contains(lowercase(dataPoint.code), name)){
+                valuesData = Object.values(dataPoint);
+                var parsedData = []; 
+
+                for(var j=0; j<valuesData.length;j++){
+                    //console.log(valuesData[j]);
+                    if(!isNaN(valuesData[j])){
+                        parseFloat(valuesData[j]);
+                        parsedData.push(parseFloat(valuesData[j]));
+                    }
+                }
+                    newData.push({
+                        "name": dataPoint.country,
+                        "data": parsedData
+                    });
+            }      
+    }
+    return newData;
+}
+
+/**
+ * Function which applies current filters when invoked
+ */
+function applyFilters(containerID) {
+     var data2 = getFilteredData();
+
+    //update chart data
+    var chart2 = $('#container'+containerID).highcharts();
+    var seriesLength = chart2.series.length;
+
+    for(var i = seriesLength -1; i > -1; i--) {
+        chart2.series[i].remove();
+    }
+
+    for(var i = 0; i < data2.length; i++) {
+        chart2.addSeries(data2[i])
     }
 }
+
+// Set type
+$.each(['line', 'column'], function (i, type) {
+    $('#' + type).click(function () {
+        var chart2 = $('#container1').highcharts();
+        chart2.series[0].update({
+            type: type
+        });
+    });
+});

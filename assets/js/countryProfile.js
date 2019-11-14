@@ -151,7 +151,7 @@ $(document).ready(function () {
     var referrer = document.referrer;
     console.log(referrer);
     var countryId = sessionStorage.getItem('countryId');
-    if (referrer == "http://localhost/sdg-portal/home/index.html") {
+    if (referrer == "https://test.sdgca.intellisoftkenya.com/sdgportal/home/index.html") {
                     setTimeout(function() {
                         loadCountryData(countryId);
                     }, 1000);
