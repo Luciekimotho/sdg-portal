@@ -21,6 +21,8 @@ $(document).ready(function () {
 
 });
 
+
+
 function loadSDG(){
     var pageUrl = window.location.href
     var postfix = pageUrl.slice(-7)
@@ -44,6 +46,8 @@ function loadSDG(){
             document.getElementById("sdgIcon").src = "../assets/img/sdg_icons/E_SDG_Icons-" + goalStr + ".jpg";
             document.getElementById("sdgBg").style.backgroundColor = values[2];
             getTargets(goalNo)
+
+            
     })   
 }
 
@@ -52,7 +56,37 @@ function getTargets(goalNo){
     var targetAPIUrl = baseUrl + goalNo + '/Target/List?includechildren=true'
     var code, title 
     var firstBtnID, firstTarget
+    var mapData = [];
+    var codeArr = []
+    var indicators = []
+    var result2 = []
+    
 
+    $.get("../assets/data/SDGs/sdgDataCompiled.csv", function (data){
+        
+        var lines = data.split('\n');
+        var headers = lines[0].split(",");
+
+        //Headers
+        for(var i=3; i < headers.length; i++){
+            var indicator = headers[i]
+            indicators.push(indicator)
+        }
+
+        //Rest of the data
+        for(var i=1; i < lines.length; i++){
+            var dataObj ={};
+            var currLine = lines[i].split(",");
+
+            for(var j=0; j<headers.length; j++){
+                dataObj[headers[j]] = currLine[j];
+            }
+            result2.push(dataObj);
+        }
+       
+       })
+
+       //Fetching the SDG url
     fetch(targetAPIUrl)
     .then((resp)=>resp.json())
     .then(function(data){
@@ -61,11 +95,18 @@ function getTargets(goalNo){
         firstBtnID = targets[0].code.replace(".", "");
         firstTarget = targets[0].code.replace(".", "");
 
+        //console.log(result2)
+
+        //Working with individual targets ie 1.1, 1.2
         for ( var i=0; i<targets.length; i++ ) {
-            //Dynamically create target butons and append to div
+            
             code = targets[i].code
             title = targets[i].title
+            codeArr.push(code)
 
+            
+            var subIndicatorNames
+            
             var id = code.replace(".", ""); 
             var id2 = id
 
@@ -80,6 +121,7 @@ function getTargets(goalNo){
                 + "Target " + code + '</a>'
         
             $('.targetButtons').append(buttons);
+           
            
             //Create the tab contents
             var navContent =  ' <div class="col-md-10 card tab-pane fade" id="target'+ id +'" style="border-radius: 0;background-color: white">' + 
@@ -116,7 +158,11 @@ function getTargets(goalNo){
                                     '</button>'+
                                 '</div>'+
                             '</div>'+
-                            '<div class="row card-body" id="container'+ containerId +'">'+
+                            '<div class="row card-body" >'+
+                                ' <div id="container'+ containerId +'" class="col-md-9"> </div> ' +
+                                ' <div id="subcontainer'+ containerId +'" class="col-md-3 subcontainer" > ' +
+                                // ' <p class="title"> ' + subIndicator + ' </p> ' +
+                                ' </div> ' +
                             '</div>'+
                             '<hr>'+
                             '<div class="card">'+
@@ -156,17 +202,52 @@ function getTargets(goalNo){
                           ' </div>'+
                         '</div>'
             $('.tab-content').append(navContent);
+            var subIndicators = []
+            for(var j=0;j<indicators.length;j++){
+                
+                if(indicators[j].startsWith(code)){
+                    
+                    subIndicators.push(indicators[j])
+                    subIndicatorNames = '<p class="subindicator">' + indicators[j] + '</p>'
+                    $('#subcontainer'+containerId).append(subIndicatorNames);
+                   // console.log(indicators[j]);
+                }
+               // console.log(indicators[j])
+            }
+            
+            var subIndicatorObj = {}
+            //console.log(subIndicators.length)
+
+            $.each(subIndicators, function (i, subindicator) {
+                $.each(result2, function (i, singleResult) {
+                    if( singleResult.Entity == 'Kenya' &&  singleResult.Year == '2017' && singleResult.hasOwnProperty(subindicator)){
+                        console.log(singleResult.Entity)
+                       // subIndicatorObj.push
+                    }
+                })
+            })
+            
+            
+
+            
+
+            
         }
+
 
         $("#btn"+firstBtnID).click();
 
         $("[id^='filter']").hide();
         $('#chartTypes').hide();  
-    
+      //console.log(codeArr)
+
         timeRangeSlider();
+    
     })
     
 }
+
+
 
 function getShortHandDescriptionColor(goalNo){
     var shortHand, description, color
@@ -387,10 +468,10 @@ function loadMap(n, containerID, dataSourceURL) {
                 }
                 result.push(dataObj);
             }
-            //console.log('Map result' + result);
+            
             
             countriesData = result;
-            
+
             var geoj = Highcharts.maps["custom/africa"] = {
                 "title": "Africa",
                 "version": "1.1.2",
@@ -1749,7 +1830,7 @@ function loadMap(n, containerID, dataSourceURL) {
                                         // drilldown: drillPath
                                     })
                                     
-                                    console.log(countriesData.code);
+                                    //console.log(countriesData.code);
                                 });
                                 // Hide loading and add series
                                 chart.addSingleSeriesAsDrilldown(e.point, {
@@ -1805,7 +1886,7 @@ function loadMap(n, containerID, dataSourceURL) {
                         }
                     },
                     layout: 'vertical',
-                    align: 'right',
+                    align: 'left',
                     verticalAlign: 'middle'
                 },
                 colors: [ '#cecdcd', '#ff0000', '#ffa500', '#f1cd00', '#008d00'],

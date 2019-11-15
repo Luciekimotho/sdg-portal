@@ -1881,7 +1881,6 @@ function getMapData() {
             });
               
     }
-    
     return newCountryData;
 }
 
