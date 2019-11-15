@@ -229,6 +229,7 @@ input[type=range] {
 .show > .btn-danger.dropdown-toggle:focus {
   box-shadow: 0 0 0 0rem rgba(225, 83, 97, 0.5);
 }
+<<<<<<< HEAD
 
 .subcontainer {
   padding: 20px;
@@ -238,3 +239,5 @@ input[type=range] {
   font-family: 'Roboto', sans-serif;
           font-size: 15px;
 }
+=======
+>>>>>>> 57a5d7ee444d859daf2a56d18fd43e70bf9df298
