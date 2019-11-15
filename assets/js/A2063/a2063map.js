@@ -1911,18 +1911,15 @@ function getFilteredData() {
     for (var i = 0; i < selectedCountries.length; i++) {
         filters[selectedCountries[i]] = true;
     }
-    console.log(filters);
+
     // init new data set
     var newData = [];
     var valuesData = []; 
     var parsedData = [];     
+
     // cycle through source data and filter out required data points
     for (var i = 0; i < chartData.length; i++) {
         var dataPoint = chartData[i];
-        if(filters[dataPoint.code] && 
-            contains(lowercase(dataPoint.code), name)){
-                valuesData = Object.values(dataPoint);
-                var parsedData = []; 
 
         if(filters[dataPoint.code] && 
             contains(lowercase(dataPoint.code), name)){
@@ -1972,4 +1969,3 @@ $.each(['line', 'column', 'spline', 'area', 'areaspline', 'scatter', 'pie'], fun
         });
     });
 });
-

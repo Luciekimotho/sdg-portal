@@ -206,10 +206,10 @@ function getTargets(goalNo){
             for(var j=0;j<indicators.length;j++){
                 
                 if(indicators[j].startsWith(code)){
-                    
                     subIndicators.push(indicators[j])
                     subIndicatorNames = '<p class="subindicator">' + indicators[j] + '</p>'
                     $('#subcontainer'+containerId).append(subIndicatorNames);
+                    
                    // console.log(indicators[j]);
                 }
                // console.log(indicators[j])
