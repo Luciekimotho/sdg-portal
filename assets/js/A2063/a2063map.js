@@ -1881,15 +1881,13 @@ function getMapData() {
             });
               
     }
-    //console.log(countriesData.length); 
-    console.log(newCountryData);
     return newCountryData;
 }
 
 function countriesDropdown(){
     for(var j=1; j<=20; j++){
         var items = getMapData();
-        console.log(items)
+
         $.each(items, function (i, item) {
             var option = document.createElement("option");
             option.className = "filter-position";
@@ -1899,6 +1897,8 @@ function countriesDropdown(){
             select.appendChild(option);
         });
         $('.selectpicker').selectpicker('refresh');
+        $('.selectpicker').selectpicker('val', [items[0].code, items[1].code, items[2].code, items[3].code]);
+        $('.selectpicker').selectpicker('refresh');
         }
     
 }
@@ -1906,12 +1906,10 @@ function countriesDropdown(){
 function getFilteredData() {
     var filters = {};
 
-    // get all filter checkboxes
-    var fields = document.getElementsByClassName("filter-position");
-    for (var i = 0; i < fields.length; i++) {
-        if (fields[i].selected) {
-            filters[fields[i].value] = true;
-        }
+    var selectedCountries = $('.selectpicker').val()
+
+    for (var i = 0; i < selectedCountries.length; i++) {
+        filters[selectedCountries[i]] = true;
     }
     console.log(filters);
     // init new data set
@@ -1921,6 +1919,11 @@ function getFilteredData() {
     // cycle through source data and filter out required data points
     for (var i = 0; i < chartData.length; i++) {
         var dataPoint = chartData[i];
+        if(filters[dataPoint.code] && 
+            contains(lowercase(dataPoint.code), name)){
+                valuesData = Object.values(dataPoint);
+                var parsedData = []; 
+
         if(filters[dataPoint.code] && 
             contains(lowercase(dataPoint.code), name)){
                 valuesData = Object.values(dataPoint);
@@ -1937,11 +1940,8 @@ function getFilteredData() {
                         "name": dataPoint.country,
                         "data": parsedData
                     });
-                    console.log(""); 
-            }   
+            }      
     }
-    //console.log("Filtered data");
-    //console.log(newData)
     return newData;
 }
 
